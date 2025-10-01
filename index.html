@@ -673,6 +673,44 @@
         }
 
         /**
+         * Get URL parameter by name
+         * @param {string} name - Parameter name
+         * @returns {string|null} Parameter value or null
+         */
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        /**
+         * Update URL with question ID without reloading page
+         * @param {string} questionId - Question ID to add to URL
+         */
+        function updateUrlWithQuestionId(questionId) {
+            const url = new URL(window.location);
+            url.searchParams.set('id', encodeURIComponent(questionId));
+            window.history.pushState({ questionId: questionId }, '', url);
+        }
+
+        /**
+         * Clear question ID from URL
+         */
+        function clearUrlQuestionId() {
+            const url = new URL(window.location);
+            url.searchParams.delete('id');
+            window.history.pushState({}, '', url);
+        }
+
+        /**
+         * Find question index by ID
+         * @param {string} questionId - Question ID to find
+         * @returns {number} Question index or -1 if not found
+         */
+        function findQuestionIndexById(questionId) {
+            return questions.findIndex(q => q.id === questionId);
+        }
+
+        /**
          * Fuzzy search function to check if search term matches question
          * @param {Object} question - Question object
          * @param {string} search - Search term
@@ -730,9 +768,30 @@
                     throw new Error('Questions data not loaded');
                 }
                 renderQuestionList();
+                
+                // Check if URL has a question ID parameter
+                loadQuestionFromUrl();
             } catch (error) {
                 console.error('載入題目時發生錯誤:', error);
                 elements.questionList.innerHTML = '<div class="loading">載入題目失敗，請確認 questions.js 檔案存在。</div>';
+            }
+        }
+
+        /**
+         * Load question from URL parameter if present
+         */
+        function loadQuestionFromUrl() {
+            const questionId = getUrlParameter('id');
+            if (questionId) {
+                const decodedId = decodeURIComponent(questionId);
+                const index = findQuestionIndexById(decodedId);
+                if (index !== -1) {
+                    showQuestion(index);
+                } else {
+                    console.warn('Question not found:', decodedId);
+                    // Clear invalid question ID from URL
+                    clearUrlQuestionId();
+                }
             }
         }
 
@@ -828,6 +887,9 @@
             isAnswerSubmitted = false;
 
             const question = questions[index];
+            
+            // Update URL with question ID
+            updateUrlWithQuestionId(question.id);
             
             // Update UI
             elements.questionId.textContent = question.id;
@@ -1012,6 +1074,9 @@
          * Back to question list
          */
         function backToQuestionList() {
+            // Clear URL parameter
+            clearUrlQuestionId();
+            
             elements.examView.classList.remove('active');
             elements.questionListView.classList.remove('hidden');
             currentQuestionIndex = -1;
@@ -1105,6 +1170,61 @@
         }, 300);
         
         elements.searchInput.addEventListener('input', handleSearch);
+
+        // Handle browser back/forward navigation
+        window.addEventListener('popstate', (event) => {
+            const questionId = getUrlParameter('id');
+            if (questionId) {
+                const decodedId = decodeURIComponent(questionId);
+                const index = findQuestionIndexById(decodedId);
+                if (index !== -1) {
+                    // Manually update the view without calling showQuestion to avoid pushing to history again
+                    currentQuestionIndex = index;
+                    selectedOptions.clear();
+                    isAnswerSubmitted = false;
+
+                    const question = questions[index];
+                    
+                    // Update UI
+                    elements.questionId.textContent = question.id;
+                    elements.questionContent.textContent = getQuestionText(question);
+                    
+                    // Update question type badge
+                    const isMultiple = isMultipleChoice(question);
+                    elements.questionTypeBadge.textContent = isMultiple ? '多選題' : '單選題';
+                    elements.questionTypeBadge.className = 'question-type-badge ' + (isMultiple ? 'badge--multiple' : 'badge--single');
+                    
+                    // Render images
+                    renderImages(question.images);
+                    
+                    // Render options
+                    renderOptions(question);
+                    
+                    // Reset buttons and message
+                    elements.submitAnswerBtn.style.display = 'inline-flex';
+                    elements.submitAnswerBtn.disabled = false;
+                    elements.resetAnswerBtn.style.display = 'none';
+                    elements.resultMessage.classList.remove('show', 'success', 'error');
+                    
+                    // Update navigation buttons
+                    updateNavigationButtons();
+                    
+                    // Switch views
+                    elements.questionListView.classList.add('hidden');
+                    elements.examView.classList.add('active');
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else {
+                // No question ID in URL, go back to question list
+                elements.examView.classList.remove('active');
+                elements.questionListView.classList.remove('hidden');
+                currentQuestionIndex = -1;
+                selectedOptions.clear();
+                isAnswerSubmitted = false;
+            }
+        });
 
         // ==================== Initialization ====================
         
