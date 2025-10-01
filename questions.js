@@ -3097,10 +3097,10 @@ const questions = [
     "id": "HRL-Question #2-1",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Recently HRL started a new regional racing league in Cape Town, South Africa. In an effort to give customers in Cape Town a better user experience, HRL has partnered with the Content Delivery Network provider, Fastly. HRL needs to allow traffic coming from all of the Fastly IP address ranges into their Virtual Private Cloud network (VPC network). You are a member of the HRL security team and you need to configure the update that will allow only the Fastly IP address ranges through the External HTTP(S) load balancer. Which command should you use?",
     "options": {
-        "A": "Image 1",
-        "B": "Image 2",
-        "C": "Image 3",
-        "D": "Image 4",
+      "A": "Image 1",
+      "B": "Image 2",
+      "C": "Image 3",
+      "D": "Image 4"
     },
     "images": [
       "images/HRL-Question-2-1-1.png",
@@ -3575,7 +3575,7 @@ const questions = [
       "A": "Image 1",
       "B": "Image 2",
       "C": "Image 3",
-      "D": "Image 4",
+      "D": "Image 4"
     },
     "images": [
       "images/TerramEarth-Question-1.png",
