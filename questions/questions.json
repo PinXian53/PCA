@@ -6,7 +6,7 @@
       "A": "Configure a new load balancer for the new version of the API",
       "B": "Reconfigure old clients to use a new endpoint for the new API",
       "C": "Have the old API forward traffic to the new API based on the path",
-      "D": "Use separate**分離** backend pools for each API path behind the load balancer"
+      "D": "Use separate backend pools for each API path behind the load balancer"
     },
     "images": [],
     "answers": [
@@ -70,6 +70,12 @@
       "C": "Help them define their requirements and assess viable logging tools",
       "D": "Help them upgrade their current tool to take advantage of any new features"
     },
+    "options-zh": {
+      "A": "指導他們下載並安裝 Google StackDriver 日誌代理",
+      "B": "向他們提供一份有關日誌最佳實踐的在線資源清單",
+      "C": "幫助他們定義需求並評估可行的日誌工具",
+      "D": "幫助他們升級現有工具以利用新功能"
+    },
     "images": [],
     "answers": [
       "C"
@@ -78,12 +84,20 @@
   {
     "id": "Question #6",
     "question": "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA/\n\nTest processes accomplished an 80% reduction.\n\nWhich additional two approaches can you take to further reduce the rollbacks? (Choose two.)",
+    "question-zh": "您需要減少公司網頁託管平台中錯誤生產部署的未計劃回滾次數。改進質量保證/測試流程已經實現了 80% 的減少。\n\n您還可以採取哪兩種方法進一步減少回滾？（請選擇兩項。）",
     "options": {
       "A": "Introduce a green-blue deployment model",
       "B": "Replace the QA environment with canary releases",
       "C": "Fragment the monolithic platform into microservices",
       "D": "Reduce the platform's dependency on relational database systems",
       "E": "Replace the platform's relational database systems with a NoSQL database"
+    },
+    "options-zh": {
+      "A": "引入綠藍部署模型",
+      "B": "將質量保證環境替換為金絲雀版本發布（canary releases）",
+      "C": "將單體平台分解為微服務",
+      "D": "減少平台對關係型資料庫系統的依賴",
+      "E": "用 NoSQL 資料庫替換平台的關係型資料庫系統"
     },
     "images": [],
     "answers": [
@@ -94,6 +108,7 @@
   {
     "id": "Question #7",
     "question": "To reduce costs, the Director of Engineering has required all developers to move their development infrastructure resources from on-premises virtual machines\n\n(VMs) to Google Cloud Platform. These resources go through multiple start/stop events during the day and require state to persist. You have been asked to design the process of running a development environment in Google Cloud while providing cost visibility to the finance department.\n\nWhich two steps should you take? (Choose two.)",
+    "question-zh": "為了降低成本，工程總監要求所有開發人員將其開發基礎設施資源從地端虛擬機器（VM）遷移到 Google Cloud Platform。這些資源在白天會經歷多次啟動/停止事件，並且需要持久化狀態。您被要求設計在 Google Cloud 中運行開發環境的流程，同時向財務部門提供成本可見性。\n\n您應該採取哪兩個步驟？（請選擇兩項。）",
     "options": {
       "A": "Use the - -no-auto-delete flag on all persistent disks and stop the VM",
       "B": "Use the - -auto-delete flag on all persistent disks and terminate the VM",
@@ -101,6 +116,14 @@
       "D": "Use Google BigQuery billing export and labels to associate cost to groups",
       "E": "Store all state into local SSD, snapshot the persistent disks, and terminate the VM",
       "F": "Store all state in Google Cloud Storage, snapshot the persistent disks, and terminate the VM"
+    },
+    "options-zh": {
+      "A": "在所有永久磁碟上使用 --no-auto-delete 標誌並停止 VM",
+      "B": "在所有永久磁碟上使用 --auto-delete 標誌並終止 VM",
+      "C": "應用 VM CPU 利用率標籤並將其包含在 BigQuery 帳單匯出中",
+      "D": "使用 Google BigQuery 帳單匯出和標籤將成本與群組關聯",
+      "E": "將所有狀態存儲到本地 SSD，拍攝永久磁碟快照，然後終止 VM",
+      "F": "將所有狀態存儲到 Google Cloud Storage，拍攝永久磁碟快照，然後終止 VM"
     },
     "images": [],
     "answers": [
@@ -111,11 +134,18 @@
   {
     "id": "Question #8",
     "question": "Your company wants to track whether someone is present in a meeting room reserved for a scheduled meeting. There are 1000 meeting rooms across 5 offices on 3 continents. Each room is equipped with a motion sensor that reports its status every second. The data from the motion detector includes only a sensor ID and several different discrete items of information. Analysts will use this data, together with information about account owners and office locations.\n\nWhich database type should you use?",
+    "question-zh": "您的公司想要追蹤某人是否在預定會議的會議室內。在三大洲的五個辦公室中共有 1000 間會議室。每個會議室都配備了一個運動傳感器，每秒報告其狀態。運動檢測器收集的數據僅包含傳感器 ID 和幾種不同的離散資訊。分析師將利用這些數據，以及有關帳戶所有者和辦公室位置的資訊。\n\n您應該使用哪種類型的資料庫？",
     "options": {
       "A": "Flat file",
       "B": "NoSQL",
       "C": "Relational",
       "D": "Blobstore"
+    },
+    "options-zh": {
+      "A": "平面文件",
+      "B": "NoSQL",
+      "C": "關係型",
+      "D": "Blob 存儲"
     },
     "images": [],
     "answers": [
