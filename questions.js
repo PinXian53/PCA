@@ -1935,11 +1935,18 @@ const questions = [
   {
     "id": "Question #92",
     "question": "You are designing a deployment technique for your new applications on Google Cloud. As part of your deployment planning, you want to use live traffic to gather performance metrics for both new and existing applications. You need to test against the full production load prior to launch. What should you do?",
+    "question-zh": "您正在為新的 Google Cloud 應用設計部署技術。規劃時希望用實際流量收集新舊應用的效能指標，並在上線前以完整生產流量測試。該怎麼做？",
     "options": {
       "A": "Use canary deployment",
       "B": "Use blue/green deployment",
       "C": "Use rolling updates deployment",
       "D": "Use A/B testing with traffic mirroring during deployment"
+      },
+      "options-zh": {
+        "A": "使用金絲雀部署",
+        "B": "使用藍綠部署",
+        "C": "使用滾動更新部署",
+        "D": "部署時用 A/B 測試與流量鏡像"
     },
     "images": [],
     "answers": [
@@ -1949,11 +1956,18 @@ const questions = [
   {
     "id": "Question #93",
     "question": "A development team at your company has created a dockerized HTTPS web application. You need to deploy the application on Google Kubernetes Engine (GKE) and make sure that the application scales automatically.\n\nHow should you deploy to GKE?",
+    "question-zh": "公司開發團隊建立了 docker 化的 HTTPS 網頁應用。您需將其部署到 GKE 並確保自動擴展。\n\n該怎麼做？",
     "options": {
       "A": "Use the Horizontal Pod Autoscaler and enable cluster autoscaling. Use an Ingress resource to load-balance the HTTPS traffic.",
       "B": "Use the Horizontal Pod Autoscaler and enable cluster autoscaling on the Kubernetes cluster. Use a Service resource of type LoadBalancer to load-balance the HTTPS traffic.",
       "C": "Enable autoscaling on the Compute Engine instance group. Use an Ingress resource to load-balance the HTTPS traffic.",
       "D": "Enable autoscaling on the Compute Engine instance group. Use a Service resource of type LoadBalancer to load-balance the HTTPS traffic."
+      },
+      "options-zh": {
+        "A": "用 Horizontal Pod Autoscaler 並啟用叢集自動擴展，Ingress 負載平衡 HTTPS 流量。",
+        "B": "用 Horizontal Pod Autoscaler 並在叢集啟用自動擴展，Service 設 LoadBalancer 負載平衡 HTTPS。",
+        "C": "在 Compute Engine 實例群組啟用自動擴展，Ingress 負載平衡 HTTPS。",
+        "D": "在 Compute Engine 實例群組啟用自動擴展，Service 設 LoadBalancer 負載平衡 HTTPS。"
     },
     "images": [],
     "answers": [
@@ -1963,11 +1977,18 @@ const questions = [
   {
     "id": "Question #94 Topic #1",
     "question": "You need to design a solution for global load balancing based on the URL path being requested. You need to ensure operations reliability and end-to-end in- transit encryption based on Google best practices.\n\nWhat should you do?",
+      "question-zh": "您需設計依 URL 路徑進行全球負載平衡的方案，並確保營運可靠與端到端傳輸加密，符合 Google 最佳實踐。\n\n該怎麼做？",
     "options": {
       "A": "Create a cross-region load balancer with URL Maps.",
       "B": "Create an HTTPS load balancer with URL Maps.",
       "C": "Create appropriate instance groups and instances. Configure SSL proxy load balancing.",
       "D": "Create a global forwarding rule. Configure SSL proxy load balancing."
+      },
+      "options-zh": {
+        "A": "建立跨區域負載平衡器並設 URL Maps。",
+        "B": "建立 HTTPS 負載平衡器並設 URL Maps。",
+        "C": "建立適當實例群組並設 SSL proxy 負載平衡。",
+        "D": "建立全球轉送規則並設 SSL proxy 負載平衡。"
     },
     "images": [],
     "answers": [
@@ -1977,11 +1998,18 @@ const questions = [
   {
     "id": "Question #95",
     "question": "You have an application that makes HTTP requests to Cloud Storage. Occasionally the requests fail with HTTP status codes of 5xx and 429.\n\nHow should you handle these types of errors?",
+    "question-zh": "您的應用會對 Cloud Storage 發 HTTP 請求，偶爾遇到 5xx 與 429 錯誤。\n\n該怎麼處理？",
     "options": {
       "A": "Use gRPC instead of HTTP for better performance.",
       "B": "Implement retry logic using a truncated exponential backoff strategy.",
       "C": "Make sure the Cloud Storage bucket is multi-regional for geo-redundancy.",
       "D": "Monitor https://status.cloud.google.com/feed.atom and only make requests if Cloud Storage is not reporting an incident."
+      },
+      "options-zh": {
+        "A": "改用 gRPC 提升效能。",
+        "B": "實作重試邏輯並用截斷指數退避策略。",
+        "C": "確保 Cloud Storage bucket 為多區域型以地理備援。",
+        "D": "監控 https://status.cloud.google.com/feed.atom，僅在無事故時發請求。"
     },
     "images": [],
     "answers": [
@@ -1991,11 +2019,18 @@ const questions = [
   {
     "id": "Question #96",
     "question": "You need to develop procedures to test a disaster plan for a mission-critical application. You want to use Google-recommended practices and native capabilities within GCP.\n\nWhat should you do?",
+    "question-zh": "你需要為關鍵任務應用程式制定測試災難計畫的程序，並希望採用 Google 建議的做法與 GCP 原生功能。你該怎麼做？",
     "options": {
       "A": "Use Deployment Manager to automate service provisioning. Use Activity Logs to monitor and debug your tests.",
       "B": "Use Deployment Manager to automate service provisioning. Use Stackdriver to monitor and debug your tests.",
       "C": "Use gcloud scripts to automate service provisioning. Use Activity Logs to monitor and debug your tests.",
       "D": "Use gcloud scripts to automate service provisioning. Use Stackdriver to monitor and debug your tests."
+    },
+    "options-zh": {
+      "A": "用 Deployment Manager 自動化服務佈建，並用 Activity Logs 監控與除錯測試。",
+      "B": "用 Deployment Manager 自動化服務佈建，並用 Stackdriver 監控與除錯測試。",
+      "C": "用 gcloud 腳本自動化服務佈建，並用 Activity Logs 監控與除錯測試。",
+      "D": "用 gcloud 腳本自動化服務佈建，並用 Stackdriver 監控與除錯測試。"
     },
     "images": [],
     "answers": [
@@ -2005,11 +2040,18 @@ const questions = [
   {
     "id": "Question #97",
     "question": "Your company creates rendering software which users can download from the company website. Your company has customers all over the world. You want to minimize latency for all your customers. You want to follow Google-recommended practices.\n\nHow should you store the files?",
+    "question-zh": "你們公司開發渲染軟體，全球用戶可從官網下載。你希望所有用戶延遲最小，並遵循 Google 建議。該怎麼儲存檔案？",
     "options": {
       "A": "Save the files in a Multi-Regional Cloud Storage bucket.",
       "B": "Save the files in a Regional Cloud Storage bucket, one bucket per zone of the region.",
       "C": "Save the files in multiple Regional Cloud Storage buckets, one bucket per zone per region.",
       "D": "Save the files in multiple Multi-Regional Cloud Storage buckets, one bucket per multi-region."
+    },
+    "options-zh": {
+      "A": "將檔案存到多區域 Cloud Storage bucket。",
+      "B": "每個區域的每個 zone 各建一個 Regional Cloud Storage bucket。",
+      "C": "每個區域每個 zone 各建一個 Regional Cloud Storage bucket。",
+      "D": "每個多區域各建一個 Multi-Regional Cloud Storage bucket。"
     },
     "images": [],
     "answers": [
@@ -2019,11 +2061,18 @@ const questions = [
   {
     "id": "Question #98",
     "question": "Your company acquired a healthcare startup and must retain its customers' medical information for up to 4 more years, depending on when it was created. Your corporate policy is to securely retain this data, and then delete it as soon as regulations allow.\n\nWhich approach should you take?",
+    "question-zh": "你們公司併購一家醫療新創，必須根據建立時間保留客戶醫療資訊最多 4 年，並在法規允許時立即刪除。公司政策要求安全保留後即刪除。該怎麼做？",
     "options": {
       "A": "Store the data in Google Drive and manually delete records as they expire.",
       "B": "Anonymize the data using the Cloud Data Loss Prevention API and store it indefinitely.",
       "C": "Store the data in Cloud Storage and use lifecycle management to delete files when they expire.",
       "D": "Store the data in Cloud Storage and run a nightly batch script that deletes all expired data."
+    },
+    "options-zh": {
+      "A": "存到 Google Drive 並到期手動刪除。",
+      "B": "用 Cloud DLP API 匿名化後無限期保存。",
+      "C": "存到 Cloud Storage 並用生命週期管理到期自動刪除。",
+      "D": "存到 Cloud Storage 並用夜間批次腳本刪除到期資料。"
     },
     "images": [],
     "answers": [
@@ -2033,11 +2082,18 @@ const questions = [
   {
     "id": "Question #99",
     "question": "You are deploying a PHP App Engine Standard service with Cloud SQL as the backend. You want to minimize the number of queries to the database.\n\nWhat should you do?",
+    "question-zh": "你要部署 PHP App Engine Standard 服務，後端用 Cloud SQL，並希望減少查詢次數。該怎麼做？",
     "options": {
       "A": "Set the memcache service level to dedicated. Create a key from the hash of the query, and return database values from memcache before issuing a query to Cloud SQL.",
       "B": "Set the memcache service level to dedicated. Create a cron task that runs every minute to populate the cache with keys containing query results.",
       "C": "Set the memcache service level to shared. Create a cron task that runs every minute to save all expected queries to a key called ג€cached_queriesג€.",
       "D": "Set the memcache service level to shared. Create a key called ג€cached_queriesג€, and return database values from the key before using a query to Cloud SQL."
+    },
+    "options-zh": {
+      "A": "設 memcache 為 dedicated，查詢雜湊為 key，先查 memcache 再查 Cloud SQL。",
+      "B": "設 memcache 為 dedicated，每分鐘用 cron 填入查詢結果 key。",
+      "C": "設 memcache 為 shared，每分鐘用 cron 將所有查詢存到 cached_queries key。",
+      "D": "設 memcache 為 shared，先查 cached_queries key 再查 Cloud SQL。"
     },
     "images": [],
     "answers": [
@@ -2047,11 +2103,18 @@ const questions = [
   {
     "id": "Question #100",
     "question": "You need to ensure reliability for your application and operations by supporting reliable task scheduling for compute on GCP. Leveraging Google best practices, what should you do?",
+    "question-zh": "你要確保應用與營運可靠，並在 GCP 上支援可靠的任務排程，依 Google 最佳實踐該怎麼做？",
     "options": {
       "A": "Using the Cron service provided by App Engine, publish messages directly to a message-processing utility service running on Compute Engine instances.",
       "B": "Using the Cron service provided by App Engine, publish messages to a Cloud Pub/Sub topic. Subscribe to that topic using a message-processing utility service running on Compute Engine instances.",
       "C": "Using the Cron service provided by Google Kubernetes Engine (GKE), publish messages directly to a message-processing utility service running on Compute Engine instances.",
       "D": "Using the Cron service provided by GKE, publish messages to a Cloud Pub/Sub topic. Subscribe to that topic using a message-processing utility service running on Compute Engine instances."
+    },
+    "options-zh": {
+      "A": "用 App Engine 的 Cron 服務直接發訊息給 Compute Engine 上的訊息處理服務。",
+      "B": "用 App Engine 的 Cron 服務發訊息到 Pub/Sub，再由 Compute Engine 上的訊息處理服務訂閱。",
+      "C": "用 GKE 的 Cron 服務直接發訊息給 Compute Engine 上的訊息處理服務。",
+      "D": "用 GKE 的 Cron 服務發訊息到 Pub/Sub，再由 Compute Engine 上的訊息處理服務訂閱。"
     },
     "images": [],
     "answers": [
