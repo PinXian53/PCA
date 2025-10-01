@@ -2,11 +2,18 @@
   {
     "id": "Question #1",
     "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
+    "question-zh": "您的公司決定對其 API 進行重大修訂，以便為開發人員創造更好的體驗。他們需要保持舊版本 API 的可用性和可部署性，同時允許新客戶和測試人員試用新的 API。他們希望保持相同的 SSL 和 DNS 記錄來服務兩個 API。\n\n他們應該怎麼做？",
     "options": {
       "A": "Configure a new load balancer for the new version of the API",
       "B": "Reconfigure old clients to use a new endpoint for the new API",
       "C": "Have the old API forward traffic to the new API based on the path",
       "D": "Use separate backend pools for each API path behind the load balancer"
+    },
+    "options-zh": {
+      "A": "為新版本的 API 配置新的負載平衡器",
+      "B": "重新配置舊客戶端以使用新 API 的新端點",
+      "C": "讓舊 API 根據路徑將流量轉發到新 API",
+      "D": "在負載平衡器後面為每個 API 路徑使用單獨的後端池"
     },
     "images": [],
     "answers": [
@@ -16,11 +23,18 @@
   {
     "id": "Question #2",
     "question": "Your company plans to migrate a multi-petabyte data set to the cloud. The data set must be available 24hrs a day. Your business analysts have experience only with using a SQL interface.\n\nHow should you store the data to optimize it for ease of analysis?",
+    "question-zh": "您的公司計劃將多個 PB 級的資料集遷移到雲端。該資料集必須每天 24 小時可用。您的業務分析師只有使用 SQL 介面的經驗。\n\n您應該如何儲存資料以優化分析的便利性？",
     "options": {
       "A": "Load data into Google BigQuery",
       "B": "Insert data into Google Cloud SQL",
       "C": "Put flat files into Google Cloud Storage",
       "D": "Stream data into Google Cloud Datastore"
+    },
+    "options-zh": {
+      "A": "將資料載入 Google BigQuery",
+      "B": "將資料插入 Google Cloud SQL",
+      "C": "將平面檔案放入 Google Cloud Storage",
+      "D": "將資料串流傳輸到 Google Cloud Datastore"
     },
     "images": [],
     "answers": [
@@ -30,6 +44,7 @@
   {
     "id": "Question #3",
     "question": "The operations manager asks you for a list of recommended practices that she should consider when migrating a J2EE application to the cloud.\n\nWhich three practices should you recommend? (Choose three.)",
+    "question-zh": "營運經理向您詢問在將 J2EE 應用程式遷移到雲端時應該考慮的建議實踐清單。\n\n您應該推薦哪三種做法？（請選擇三項。）",
     "options": {
       "A": "Port the application code to run on Google App Engine",
       "B": "Integrate Cloud Dataflow into the application to capture real-time metrics",
@@ -37,6 +52,14 @@
       "D": "Select an automation framework to reliably provision the cloud infrastructure",
       "E": "Deploy a continuous integration tool with automated testing in a staging environment",
       "F": "Migrate from MySQL to a managed NoSQL database like Google Cloud Datastore or Bigtable"
+    },
+    "options-zh": {
+      "A": "將應用程式代碼移植到 Google App Engine 上運行",
+      "B": "將 Cloud Dataflow 整合到應用程式中以捕獲即時指標",
+      "C": "使用 Stackdriver Debugger 等監控工具對應用程式進行檢測",
+      "D": "選擇自動化框架以可靠地佈建雲端基礎設施",
+      "E": "在預備環境中部署具有自動化測試的持續整合工具",
+      "F": "從 MySQL 遷移到受管理的 NoSQL 資料庫，例如 Google Cloud Datastore 或 Bigtable"
     },
     "images": [],
     "answers": [
@@ -48,11 +71,18 @@
   {
     "id": "Question #4",
     "question": "A news feed web service has the following code running on Google App Engine. During peak load, users report that they can see news articles they already viewed.\n\nWhat is the most likely cause of this problem?",
+    "question-zh": "一個新聞動態網路服務在 Google App Engine 上運行以下代碼。在高峰負載期間，用戶報告說他們可以看到已經查看過的新聞文章。\n\n此問題最可能的原因是什麼？",
     "options": {
       "A": "The session variable is local to just a single instance",
       "B": "The session variable is being overwritten in Cloud Datastore",
       "C": "The URL of the API needs to be modified to prevent caching",
       "D": "The HTTP Expires header needs to be set to -1 stop caching"
+    },
+    "options-zh": {
+      "A": "會話變數僅限於單一實例的本地範圍",
+      "B": "會話變數在 Cloud Datastore 中被覆寫",
+      "C": "需要修改 API 的 URL 以防止快取",
+      "D": "需要將 HTTP Expires 標頭設定為 -1 以停止快取"
     },
     "images": [
       "images/Question-4.png"
@@ -64,6 +94,7 @@
   {
     "id": "Question #5",
     "question": "An application development team believes their current logging tool will not meet their needs for their new cloud-based product. They want a better tool to capture errors and help them analyze their historical log data. You want to help them find a solution that meets their needs.\n\nWhat should you do?",
+    "question-zh": "一個應用程式開發團隊認為他們目前的日誌工具無法滿足新的雲端產品的需求。他們想要一個更好的工具來捕獲錯誤並幫助他們分析歷史日誌資料。您希望幫助他們找到滿足其需求的解決方案。\n\n您應該怎麼做？",
     "options": {
       "A": "Direct them to download and install the Google StackDriver logging agent",
       "B": "Send them a list of online resources about logging best practices",
@@ -155,11 +186,18 @@
   {
     "id": "Question #9",
     "question": "You set up an autoscaling instance group to serve web traffic for an upcoming launch. After configuring the instance group as a backend service to an HTTP(S) load balancer, you notice that virtual machine (VM) instances are being terminated and re-launched every minute. The instances do not have a public IP address.\n\nYou have verified the appropriate web response is coming from each instance using the curl command. You want to ensure the backend is configured correctly.\n\nWhat should you do?",
+    "question-zh": "您設定了一個自動擴展實例群組來為即將推出的產品提供網路流量服務。在將實例群組配置為 HTTP(S) 負載平衡器的後端服務後，您注意到虛擬機器（VM）實例每分鐘都會被終止並重新啟動。這些實例沒有公共 IP 位址。\n\n您已使用 curl 命令驗證每個實例都返回了適當的網頁回應。您希望確保後端配置正確。\n\n您應該怎麼做？",
     "options": {
       "A": "Ensure that a firewall rules exists to allow source traffic on HTTP/HTTPS to reach the load balancer.",
       "B": "Assign a public IP to each instance and configure a firewall rule to allow the load balancer to reach the instance public IP.",
       "C": "Ensure that a firewall rule exists to allow load balancer health checks to reach the instances in the instance group.",
       "D": "Create a tag on each instance with the name of the load balancer. Configure a firewall rule with the name of the load balancer as the source and the instance tag as the destination."
+    },
+    "options-zh": {
+      "A": "確保存在防火牆規則以允許 HTTP/HTTPS 上的來源流量到達負載平衡器",
+      "B": "為每個實例分配一個公共 IP，並配置防火牆規則以允許負載平衡器到達實例的公共 IP",
+      "C": "確保存在防火牆規則以允許負載平衡器健康檢查到達實例群組中的實例",
+      "D": "在每個實例上建立一個帶有負載平衡器名稱的標籤。配置防火牆規則，將負載平衡器的名稱作為來源，將實例標籤作為目的地"
     },
     "images": [],
     "answers": [
@@ -169,11 +207,18 @@
   {
     "id": "Question #10",
     "question": "You write a Python script to connect to Google BigQuery from a Google Compute Engine virtual machine. The script is printing errors that it cannot connect to BigQuery.\n\nWhat should you do to fix the script?",
+    "question-zh": "您編寫了一個 Python 腳本來從 Google Compute Engine 虛擬機器連接到 Google BigQuery。該腳本印出錯誤訊息，表示無法連接到 BigQuery。\n\n您應該如何修復該腳本？",
     "options": {
       "A": "Install the latest BigQuery API client library for Python",
       "B": "Run your script on a new virtual machine with the BigQuery access scope enabled",
       "C": "Create a new service account with BigQuery access and execute your script with that user",
       "D": "Install the bq component for gcloud with the command gcloud components install bq."
+    },
+    "options-zh": {
+      "A": "安裝最新的 Python 版 BigQuery API 用戶端程式庫",
+      "B": "在啟用了 BigQuery 存取範圍的新虛擬機器上運行您的腳本",
+      "C": "建立一個具有 BigQuery 存取權限的新服務帳戶，並使用該使用者執行您的腳本",
+      "D": "使用命令 gcloud components install bq 安裝 gcloud 的 bq 元件"
     },
     "images": [],
     "answers": [
@@ -183,11 +228,18 @@
   {
     "id": "Question #11",
     "question": "Your customer is moving an existing corporate application to Google Cloud Platform from an on-premises data center. The business owners require minimal user disruption. There are strict security team requirements for storing passwords.\n\nWhat authentication strategy should they use?",
+    "question-zh": "您的客戶正在將現有的企業應用程式從地端資料中心遷移到 Google Cloud Platform。業務負責人要求將使用者干擾降至最低。安全團隊對密碼儲存有嚴格要求。\n\n他們應該使用什麼身份驗證策略？",
     "options": {
       "A": "Use G Suite Password Sync to replicate passwords into Google",
       "B": "Federate authentication via SAML 2.0 to the existing Identity Provider",
       "C": "Provision users in Google using the Google Cloud Directory Sync tool",
       "D": "Ask users to set their Google password to match their corporate password"
+    },
+    "options-zh": {
+      "A": "使用 G Suite Password Sync 將密碼複製到 Google",
+      "B": "透過 SAML 2.0 將身份驗證聯合到現有的身份提供者",
+      "C": "使用 Google Cloud Directory Sync 工具在 Google 中佈建使用者",
+      "D": "要求使用者將其 Google 密碼設定為與其企業密碼相符"
     },
     "images": [],
     "answers": [
@@ -197,11 +249,18 @@
   {
     "id": "Question #12",
     "question": "Your company has successfully migrated to the cloud and wants to analyze their data stream to optimize operations. They do not have any existing code for this analysis, so they are exploring all their options. These options include a mix of batch and stream processing, as they are running some hourly jobs and live- processing some data as it comes in.\n\nWhich technology should they use for this?",
+    "question-zh": "您的公司已成功遷移到雲端，並希望分析其資料流以優化營運。他們沒有任何現有的分析代碼，因此正在探索所有選項。這些選項包括批次和串流處理的混合，因為他們正在運行一些每小時的工作，並即時處理傳入的資料。\n\n他們應該使用哪種技術？",
     "options": {
       "A": "Google Cloud Dataproc",
       "B": "Google Cloud Dataflow",
       "C": "Google Container Engine with Bigtable",
       "D": "Google Compute Engine with Google BigQuery"
+    },
+    "options-zh": {
+      "A": "Google Cloud Dataproc",
+      "B": "Google Cloud Dataflow",
+      "C": "Google Container Engine 搭配 Bigtable",
+      "D": "Google Compute Engine 搭配 Google BigQuery"
     },
     "images": [],
     "answers": [
@@ -211,11 +270,18 @@
   {
     "id": "Question #13",
     "question": "Your customer is receiving reports that their recently updated Google App Engine application is taking approximately 30 seconds to load for some of their users.\n\nThis behavior was not reported before the update.\n\nWhat strategy should you take?",
+    "question-zh": "您的客戶收到報告稱，他們最近更新的 Google App Engine 應用程式需要大約 30 秒才能為部分使用者載入。\n\n在更新之前沒有報告過此行為。\n\n您應該採取什麼策略？",
     "options": {
       "A": "Work with your ISP to diagnose the problem",
       "B": "Open a support ticket to ask for network capture and flow data to diagnose the problem, then roll back your application",
       "C": "Roll back to an earlier known good release initially, then use Stackdriver Trace and Logging to diagnose the problem in a development/test/staging environment",
       "D": "Roll back to an earlier known good release, then push the release again at a quieter period to investigate. Then use Stackdriver Trace and Logging to diagnose the problem"
+    },
+    "options-zh": {
+      "A": "與您的 ISP 合作診斷問題",
+      "B": "開啟支援工單以請求網路捕獲和流量資料來診斷問題，然後回滾您的應用程式",
+      "C": "首先回滾到先前已知的良好版本，然後在開發/測試/預備環境中使用 Stackdriver Trace 和 Logging 來診斷問題",
+      "D": "回滾到先前已知的良好版本，然後在較安靜的時段再次推送版本以進行調查。然後使用 Stackdriver Trace 和 Logging 來診斷問題"
     },
     "images": [],
     "answers": [
@@ -225,12 +291,20 @@
   {
     "id": "Question #14",
     "question": "A production database virtual machine on Google Compute Engine has an ext4-formatted persistent disk for data files. The database is about to run out of storage space.\n\nHow can you remediate the problem with the least amount of downtime?",
+    "question-zh": "Google Compute Engine 上的生產資料庫虛擬機器有一個用於資料檔案的 ext4 格式永久磁碟。該資料庫即將耗盡儲存空間。\n\n您如何以最少的停機時間來解決這個問題？",
     "options": {
       "A": "In the Cloud Platform Console, increase the size of the persistent disk and use the resize2fs command in Linux.",
       "B": "Shut down the virtual machine, use the Cloud Platform Console to increase the persistent disk size, then restart the virtual machine",
       "C": "In the Cloud Platform Console, increase the size of the persistent disk and verify the new space is ready to use with the fdisk command in Linux",
       "D": "In the Cloud Platform Console, create a new persistent disk attached to the virtual machine, format and mount it, and configure the database service to move the files to the new disk",
       "E": "In the Cloud Platform Console, create a snapshot of the persistent disk restore the snapshot to a new larger disk, unmount the old disk, mount the new disk and restart the database service"
+    },
+    "options-zh": {
+      "A": "在 Cloud Platform Console 中增加永久磁碟的大小，並在 Linux 中使用 resize2fs 命令",
+      "B": "關閉虛擬機器，使用 Cloud Platform Console 增加永久磁碟大小，然後重新啟動虛擬機器",
+      "C": "在 Cloud Platform Console 中增加永久磁碟的大小，並使用 Linux 中的 fdisk 命令驗證新空間已準備好使用",
+      "D": "在 Cloud Platform Console 中建立一個連接到虛擬機器的新永久磁碟，格式化並掛載它，並配置資料庫服務將檔案移動到新磁碟",
+      "E": "在 Cloud Platform Console 中建立永久磁碟的快照，將快照還原到更大的新磁碟，卸載舊磁碟，掛載新磁碟並重新啟動資料庫服務"
     },
     "images": [],
     "answers": [
@@ -240,12 +314,20 @@
   {
     "id": "Question #15",
     "question": "Your application needs to process credit card transactions. You want the smallest scope of Payment Card Industry (PCI) compliance without compromising the ability to analyze transactional data and trends relating to which payment methods are used.\n\nHow should you design your architecture?",
+    "question-zh": "您的應用程式需要處理信用卡交易。您希望在不影響分析交易資料和與所使用付款方式相關的趨勢能力的前提下，將支付卡產業（PCI）合規範圍縮至最小。\n\n您應該如何設計架構？",
     "options": {
       "A": "Create a tokenizer service and store only tokenized data",
       "B": "Create separate projects that only process credit card data",
       "C": "Create separate subnetworks and isolate the components that process credit card data",
       "D": "Streamline the audit discovery phase by labeling all of the virtual machines (VMs) that process PCI data",
       "E": "Enable Logging export to Google BigQuery and use ACLs and views to scope the data shared with the auditor"
+    },
+    "options-zh": {
+      "A": "建立代幣化服務，僅儲存代幣化資料",
+      "B": "建立僅處理信用卡資料的單獨專案",
+      "C": "建立單獨的子網路並隔離處理信用卡資料的元件",
+      "D": "透過標記所有處理 PCI 資料的虛擬機器（VM）來簡化稽核發現階段",
+      "E": "啟用日誌匯出到 Google BigQuery，並使用 ACL 和檢視來限定與稽核員共享的資料範圍"
     },
     "images": [],
     "answers": [
@@ -255,7 +337,14 @@
   {
     "id": "Question #16",
     "question": "You have been asked to select the storage system for the click-data of your company's large portfolio of websites. This data is streamed in from a custom website analytics package at a typical rate of 6,000 clicks per minute. With bursts of up to 8,500 clicks per second. It must have been stored for future analysis by your data science and user experience teams.\n\nWhich storage infrastructure should you choose?",
+    "question-zh": "您被要求為公司大型網站組合的點擊資料選擇儲存系統。這些資料從自訂網站分析套件以每分鐘 6,000 次點擊的典型速率串流傳入，爆發時最高可達每秒 8,500 次點擊。它必須被儲存以供資料科學和使用者體驗團隊進行未來分析。\n\n您應該選擇哪種儲存基礎設施？",
     "options": {
+      "A": "Google Cloud SQL",
+      "B": "Google Cloud Bigtable",
+      "C": "Google Cloud Storage",
+      "D": "Google Cloud Datastore"
+    },
+    "options-zh": {
       "A": "Google Cloud SQL",
       "B": "Google Cloud Bigtable",
       "C": "Google Cloud Storage",
@@ -269,11 +358,18 @@
   {
     "id": "Question #17",
     "question": "You are creating a solution to remove backup files older than 90 days from your backup Cloud Storage bucket. You want to optimize ongoing Cloud Storage spend.\n\nWhat should you do?",
+    "question-zh": "您正在建立一個解決方案，以從備份 Cloud Storage 儲存桶中移除超過 90 天的備份檔案。您希望優化持續的 Cloud Storage 支出。\n\n您應該怎麼做？",
     "options": {
       "A": "Write a lifecycle management rule in XML and push it to the bucket with gsutil",
       "B": "Write a lifecycle management rule in JSON and push it to the bucket with gsutil",
       "C": "Schedule a cron script using gsutil ls ג€\"lr gs://backups/** to find and remove items older than 90 days",
       "D": "Schedule a cron script using gsutil ls ג€\"l gs://backups/** to find and remove items older than 90 days and schedule it with cron"
+    },
+    "options-zh": {
+      "A": "以 XML 格式編寫生命週期管理規則，並使用 gsutil 將其推送到儲存桶",
+      "B": "以 JSON 格式編寫生命週期管理規則，並使用 gsutil 將其推送到儲存桶",
+      "C": "使用 gsutil ls -lr gs://backups/** 安排 cron 腳本以尋找並移除超過 90 天的項目",
+      "D": "使用 gsutil ls -l gs://backups/** 安排 cron 腳本以尋找並移除超過 90 天的項目，並使用 cron 安排它"
     },
     "images": [],
     "answers": [
@@ -283,7 +379,14 @@
   {
     "id": "Question #18",
     "question": "Your company is forecasting a sharp increase in the number and size of Apache Spark and Hadoop jobs being run on your local datacenter. You want to utilize the cloud to help you scale this upcoming demand with the least amount of operations work and code change.\n\nWhich product should you use?",
+    "question-zh": "您的公司預測在本地資料中心運行的 Apache Spark 和 Hadoop 作業的數量和規模將大幅增加。您希望利用雲端來幫助您擴展這一即將到來的需求，並且以最少的營運工作和程式碼變更。\n\n您應該使用哪種產品？",
     "options": {
+      "A": "Google Cloud Dataflow",
+      "B": "Google Cloud Dataproc",
+      "C": "Google Compute Engine",
+      "D": "Google Kubernetes Engine"
+    },
+    "options-zh": {
       "A": "Google Cloud Dataflow",
       "B": "Google Cloud Dataproc",
       "C": "Google Compute Engine",
@@ -297,12 +400,20 @@
   {
     "id": "Question #19",
     "question": "The database administration team has asked you to help them improve the performance of their new database server running on Google Compute Engine. The database is for importing and normalizing their performance statistics and is built with MySQL running on Debian Linux. They have an n1-standard-8 virtual machine with 80 GB of SSD persistent disk.\n\nWhat should they change to get better performance from this system?",
+    "question-zh": "資料庫管理團隊請您協助改善他們在 Google Compute Engine 上運行的新資料庫伺服器的效能。該資料庫用於匯入和規範化其效能統計資料，並使用在 Debian Linux 上運行的 MySQL 建構。他們擁有一台 n1-standard-8 虛擬機器，配備 80 GB 的 SSD 永久磁碟。\n\n他們應該變更什麼以從此系統獲得更好的效能？",
     "options": {
       "A": "Increase the virtual machine's memory to 64 GB",
       "B": "Create a new virtual machine running PostgreSQL",
       "C": "Dynamically resize the SSD persistent disk to 500 GB",
       "D": "Migrate their performance metrics warehouse to BigQuery",
       "E": "Modify all of their batch jobs to use bulk inserts into the database"
+    },
+    "options-zh": {
+      "A": "將虛擬機器的記憶體增加到 64 GB",
+      "B": "建立一台運行 PostgreSQL 的新虛擬機器",
+      "C": "動態調整 SSD 永久磁碟大小至 500 GB",
+      "D": "將其效能指標倉儲遷移到 BigQuery",
+      "E": "修改所有批次作業以使用批次插入資料庫"
     },
     "images": [],
     "answers": [
@@ -312,7 +423,14 @@
   {
     "id": "Question #20",
     "question": "You want to optimize the performance of an accurate, real-time, weather-charting application. The data comes from 50,000 sensors sending 10 readings a second, in the format of a timestamp and sensor reading.\n\nWhere should you store the data?",
+    "question-zh": "您希望優化準確、即時的天氣圖表應用程式的效能。資料來自 50,000 個感測器，每秒發送 10 個讀數，格式為時間戳記和感測器讀數。\n\n您應該將資料儲存在哪裡？",
     "options": {
+      "A": "Google BigQuery",
+      "B": "Google Cloud SQL",
+      "C": "Google Cloud Bigtable",
+      "D": "Google Cloud Storage"
+    },
+    "options-zh": {
       "A": "Google BigQuery",
       "B": "Google Cloud SQL",
       "C": "Google Cloud Bigtable",
@@ -326,11 +444,18 @@
   {
     "id": "Question #21",
     "question": "Your company's user-feedback portal comprises a standard LAMP stack replicated across two zones. It is deployed in the us-central1 region and uses autoscaled managed instance groups on all layers, except the database. Currently, only a small group of select customers have access to the portal. The portal meets a\n\n99,99% availability SLA under these conditions. However next quarter, your company will be making the portal available to all users, including unauthenticated users. You need to develop a resiliency testing strategy to ensure the system maintains the SLA once they introduce additional user load.\n\nWhat should you do?",
+    "question-zh": "您公司的使用者回饋入口網站由跨兩個區域複製的標準 LAMP 堆疊組成。它部署在 us-central1 區域，並在除資料庫之外的所有層級上使用自動擴展的受管理實例群組。目前，只有一小群特定客戶可以存取該入口網站。在這些條件下，入口網站達到了\n\n99.99% 的可用性 SLA。然而，下一季度，您的公司將向所有使用者（包括未經身份驗證的使用者）開放該入口網站。您需要制定彈性測試策略，以確保系統在引入額外使用者負載後仍能維持 SLA。\n\n您應該怎麼做？",
     "options": {
       "A": "Capture existing users input, and replay captured user load until autoscale is triggered on all layers. At the same time, terminate all resources in one of the zones",
       "B": "Create synthetic random user input, replay synthetic load until autoscale logic is triggered on at least one layer, and introduce ג€chaosג€ to the system by terminating random resources on both zones",
       "C": "Expose the new system to a larger group of users, and increase group size each day until autoscale logic is triggered on all layers. At the same time, terminate random resources on both zones",
       "D": "Capture existing users input, and replay captured user load until resource utilization crosses 80%. Also, derive estimated number of users based on existing user's usage of the app, and deploy enough resources to handle 200% of expected load"
+    },
+    "options-zh": {
+      "A": "捕獲現有使用者輸入，並重播捕獲的使用者負載，直到所有層級觸發自動擴展。同時，終止其中一個區域中的所有資源",
+      "B": "建立合成隨機使用者輸入，重播合成負載直到至少一層觸發自動擴展邏輯，並透過終止兩個區域中的隨機資源向系統引入「混亂」",
+      "C": "將新系統暴露給更大的使用者群組，並每天增加群組大小，直到所有層級觸發自動擴展邏輯。同時，終止兩個區域中的隨機資源",
+      "D": "捕獲現有使用者輸入，並重播捕獲的使用者負載，直到資源利用率超過 80%。同時，根據現有使用者對應用程式的使用情況推導估計的使用者數量，並部署足夠的資源來處理預期負載的 200%"
     },
     "images": [],
     "answers": [
@@ -340,12 +465,20 @@
   {
     "id": "Question #22*Topic 1*",
     "question": "One of the developers on your team deployed their application in Google Container Engine with the Dockerfile below. They report that their application deployments are taking too long.\n\nYou want to optimize this Dockerfile for faster deployment times without adversely affecting the app's functionality.\n\nWhich two actions should you take? (Choose two.)",
+    "question-zh": "您團隊中的一位開發人員使用下面的 Dockerfile 在 Google Container Engine 中部署了他們的應用程式。他們報告說應用程式部署花費的時間太長。\n\n您希望優化此 Dockerfile 以加快部署時間，而不會對應用程式的功能產生不利影響。\n\n您應該採取哪兩項行動？（請選擇兩項。）",
     "options": {
       "A": "Remove Python after running pip",
       "B": "Remove dependencies from requirements.txt",
       "C": "Use a slimmed-down base image like Alpine Linux",
       "D": "Use larger machine types for your Google Container Engine node pools",
       "E": "Copy the source after he package dependencies (Python and pip) are installed"
+    },
+    "options-zh": {
+      "A": "在運行 pip 後移除 Python",
+      "B": "從 requirements.txt 中移除依賴項",
+      "C": "使用精簡的基礎映像檔，例如 Alpine Linux",
+      "D": "為您的 Google Container Engine 節點池使用更大的機器類型",
+      "E": "在安裝套件依賴項（Python 和 pip）後複製原始碼"
     },
     "images": [
       "images/Question-22.png"
@@ -358,11 +491,18 @@
   {
     "id": "Question #23",
     "question": "Your solution is producing performance bugs in production that you did not see in staging and test environments. You want to adjust your test and deployment procedures to avoid this problem in the future.\n\nWhat should you do?",
+    "question-zh": "您的解決方案在生產環境中產生了效能錯誤，而這些錯誤在預備和測試環境中並未出現。您希望調整測試和部署程序，以避免將來出現此問題。\n\n您應該怎麼做？",
     "options": {
       "A": "Deploy fewer changes to production",
       "B": "Deploy smaller changes to production",
       "C": "Increase the load on your test and staging environments",
       "D": "Deploy changes to a small subset of users before rolling out to production"
+    },
+    "options-zh": {
+      "A": "減少部署到生產環境的變更",
+      "B": "將較小的變更部署到生產環境",
+      "C": "增加測試和預備環境的負載",
+      "D": "在推出到生產環境之前，先將變更部署到一小部分使用者"
     },
     "images": [],
     "answers": [
@@ -372,11 +512,18 @@
   {
     "id": "Question #24",
     "question": "A small number of API requests to your microservices-based application take a very long time. You know that each request to the API can traverse many services.\n\nYou want to know which service takes the longest in those cases.\n\nWhat should you do?",
+    "question-zh": "您的微服務應用程式中有少數 API 請求需要非常長的時間。您知道每個 API 請求可能會經過許多服務。\n\n您想知道在這些情況下哪個服務花費的時間最長。\n\n您應該怎麼做？",
     "options": {
       "A": "Set timeouts on your application so that you can fail requests faster",
       "B": "Send custom metrics for each of your requests to Stackdriver Monitoring",
       "C": "Use Stackdriver Monitoring to look for insights that show when your API latencies are high",
       "D": "Instrument your application with Stackdriver Trace in order to break down the request latencies at each microservice"
+    },
+    "options-zh": {
+      "A": "在應用程式上設定逾時，以便更快地使請求失敗",
+      "B": "將每個請求的自訂指標發送到 Stackdriver Monitoring",
+      "C": "使用 Stackdriver Monitoring 尋找顯示 API 延遲高的見解",
+      "D": "使用 Stackdriver Trace 檢測您的應用程式，以便分解每個微服務的請求延遲"
     },
     "images": [],
     "answers": [
@@ -386,11 +533,18 @@
   {
     "id": "Question #25",
     "question": "During a high traffic portion of the day, one of your relational databases crashes, but the replica is never promoted to a master. You want to avoid this in the future.\n\nWhat should you do?",
+    "question-zh": "在一天中的高流量時段，您的其中一個關係型資料庫崩潰了，但複本從未被提升為主資料庫。您希望將來避免這種情況。\n\n您應該怎麼做？",
     "options": {
       "A": "Use a different database",
       "B": "Choose larger instances for your database",
       "C": "Create snapshots of your database more regularly",
       "D": "Implement routinely scheduled failovers of your databases"
+    },
+    "options-zh": {
+      "A": "使用不同的資料庫",
+      "B": "為您的資料庫選擇更大的實例",
+      "C": "更定期地建立資料庫快照",
+      "D": "實施定期排程的資料庫故障轉移"
     },
     "images": [],
     "answers": [
@@ -400,11 +554,18 @@
   {
     "id": "Question #26",
     "question": "Your organization requires that metrics from all applications be retained for 5 years for future analysis in possible legal proceedings.\n\nWhich approach should you use?",
+    "question-zh": "您的組織要求保留所有應用程式的指標 5 年，以供未來可能的法律訴訟中進行分析。\n\n您應該使用哪種方法？",
     "options": {
       "A": "Grant the security team access to the logs in each Project",
       "B": "Configure Stackdriver Monitoring for all Projects, and export to BigQuery",
       "C": "Configure Stackdriver Monitoring for all Projects with the default retention policies",
       "D": "Configure Stackdriver Monitoring for all Projects, and export to Google Cloud Storage"
+    },
+    "options-zh": {
+      "A": "授予安全團隊存取每個專案中日誌的權限",
+      "B": "為所有專案配置 Stackdriver Monitoring，並匯出到 BigQuery",
+      "C": "為所有專案配置 Stackdriver Monitoring，使用預設保留政策",
+      "D": "為所有專案配置 Stackdriver Monitoring，並匯出到 Google Cloud Storage"
     },
     "images": [],
     "answers": [
@@ -414,11 +575,18 @@
   {
     "id": "Question #27",
     "question": "Your company has decided to build a backup replica of their on-premises user authentication PostgreSQL database on Google Cloud Platform. The database is 4TB, and large updates are frequent. Replication requires private address space communication.\n\nWhich networking approach should you use?",
+    "question-zh": "您的公司決定在 Google Cloud Platform 上建立其地端使用者身份驗證 PostgreSQL 資料庫的備份複本。該資料庫為 4TB，且大型更新頻繁。複寫需要私有位址空間通訊。\n\n您應該使用哪種網路方法？",
     "options": {
       "A": "Google Cloud Dedicated Interconnect",
       "B": "Google Cloud VPN connected to the data center network",
       "C": "A NAT and TLS translation gateway installed on-premises",
       "D": "A Google Compute Engine instance with a VPN server installed connected to the data center network"
+    },
+    "options-zh": {
+      "A": "Google Cloud Dedicated Interconnect",
+      "B": "連接到資料中心網路的 Google Cloud VPN",
+      "C": "在地端安裝 NAT 和 TLS 轉譯閘道",
+      "D": "安裝了 VPN 伺服器並連接到資料中心網路的 Google Compute Engine 實例"
     },
     "images": [],
     "answers": [
@@ -428,11 +596,18 @@
   {
     "id": "Question #28",
     "question": "Auditors visit your teams every 12 months and ask to review all the Google Cloud Identity and Access Management (Cloud IAM) policy changes in the previous 12 months. You want to streamline and expedite the analysis and audit process.\n\nWhat should you do?",
+    "question-zh": "稽核員每 12 個月造訪您的團隊一次，並要求審查前 12 個月內所有 Google Cloud Identity and Access Management（Cloud IAM）政策變更。您希望簡化並加快分析和稽核流程。\n\n您應該怎麼做？",
     "options": {
       "A": "Create custom Google Stackdriver alerts and send them to the auditor",
       "B": "Enable Logging export to Google BigQuery and use ACLs and views to scope the data shared with the auditor",
       "C": "Use cloud functions to transfer log entries to Google Cloud SQL and use ACLs and views to limit an auditor's view",
       "D": "Enable Google Cloud Storage (GCS) log export to audit logs into a GCS bucket and delegate access to the bucket"
+    },
+    "options-zh": {
+      "A": "建立自訂 Google Stackdriver 警示並將其發送給稽核員",
+      "B": "啟用日誌匯出到 Google BigQuery，並使用 ACL 和檢視來限定與稽核員共享的資料範圍",
+      "C": "使用雲端函式將日誌項目傳輸到 Google Cloud SQL，並使用 ACL 和檢視來限制稽核員的檢視",
+      "D": "啟用 Google Cloud Storage（GCS）日誌匯出以將稽核日誌匯出到 GCS 儲存桶，並委派儲存桶的存取權限"
     },
     "images": [],
     "answers": [
@@ -442,11 +617,18 @@
   {
     "id": "Question #29",
     "question": "You are designing a large distributed application with 30 microservices. Each of your distributed microservices needs to connect to a database back-end. You want to store the credentials securely.\n\nWhere should you store the credentials?",
+    "question-zh": "您正在設計一個具有 30 個微服務的大型分散式應用程式。您的每個分散式微服務都需要連接到資料庫後端。您希望安全地儲存憑證。\n\n您應該將憑證儲存在哪裡？",
     "options": {
       "A": "In the source code",
       "B": "In an environment variable",
       "C": "In a secret management system",
       "D": "In a config file that has restricted access through ACLs"
+    },
+    "options-zh": {
+      "A": "在原始碼中",
+      "B": "在環境變數中",
+      "C": "在機密管理系統中",
+      "D": "在透過 ACL 限制存取的配置檔案中"
     },
     "images": [],
     "answers": [
@@ -456,6 +638,7 @@
   {
     "id": "Question #30",
     "question": "A lead engineer wrote a custom tool that deploys virtual machines in the legacy data center. He wants to migrate the custom tool to the new cloud environment.\n\nYou want to advocate for the adoption of Google Cloud Deployment Manager.\n\nWhat are two business risks of migrating to Cloud Deployment Manager? (Choose two.)",
+    "question-zh": "一位首席工程師編寫了一個在舊有資料中心部署虛擬機器的自訂工具。他希望將該自訂工具遷移到新的雲端環境。\n\n您希望倡導採用 Google Cloud Deployment Manager。\n\n遷移到 Cloud Deployment Manager 有哪兩個業務風險？（請選擇兩項。）",
     "options": {
       "A": "Cloud Deployment Manager uses Python",
       "B": "Cloud Deployment Manager APIs could be deprecated in the future",
@@ -463,6 +646,14 @@
       "D": "Cloud Deployment Manager requires a Google APIs service account to run",
       "E": "Cloud Deployment Manager can be used to permanently delete cloud resources",
       "F": "Cloud Deployment Manager only supports automation of Google Cloud resources"
+    },
+    "options-zh": {
+      "A": "Cloud Deployment Manager 使用 Python",
+      "B": "Cloud Deployment Manager API 未來可能會被棄用",
+      "C": "Cloud Deployment Manager 對公司的工程師來說不熟悉",
+      "D": "Cloud Deployment Manager 需要 Google API 服務帳戶才能運行",
+      "E": "Cloud Deployment Manager 可用於永久刪除雲端資源",
+      "F": "Cloud Deployment Manager 僅支援 Google Cloud 資源的自動化"
     },
     "images": [],
     "answers": [
@@ -473,11 +664,18 @@
   {
     "id": "Question #31",
     "question": "A development manager is building a new application. He asks you to review his requirements and identify what cloud technologies he can use to meet them. The application must:\n\n1. Be based on open-source technology for cloud portability\n\n2. Dynamically scale compute capacity based on demand\n\n3. Support continuous software delivery\n\n4. Run multiple segregated copies of the same application stack\n\n5. Deploy application bundles using dynamic templates\n\n6. Route network traffic to specific services based on URL\n\nWhich combination of technologies will meet all of his requirements?",
+    "question-zh": "一位開發經理正在建構新的應用程式。他要求您審查他的需求並確定可以使用哪些雲端技術來滿足這些需求。應用程式必須：\n\n1. 基於開源技術以實現雲端可攜性\n\n2. 根據需求動態擴展運算容量\n\n3. 支援持續軟體交付\n\n4. 運行同一應用程式堆疊的多個隔離副本\n\n5. 使用動態範本部署應用程式套件\n\n6. 根據 URL 將網路流量路由到特定服務\n\n哪種技術組合將滿足他的所有需求？",
     "options": {
       "A": "Google Kubernetes Engine, Jenkins, and Helm",
       "B": "Google Kubernetes Engine and Cloud Load Balancing",
       "C": "Google Kubernetes Engine and Cloud Deployment Manager",
       "D": "Google Kubernetes Engine, Jenkins, and Cloud Load Balancing"
+    },
+    "options-zh": {
+      "A": "Google Kubernetes Engine、Jenkins 和 Helm",
+      "B": "Google Kubernetes Engine 和 Cloud Load Balancing",
+      "C": "Google Kubernetes Engine 和 Cloud Deployment Manager",
+      "D": "Google Kubernetes Engine、Jenkins 和 Cloud Load Balancing"
     },
     "images": [],
     "answers": [
@@ -487,11 +685,18 @@
   {
     "id": "Question #32",
     "question": "You have created several pre-emptible Linux virtual machine instances using Google Compute Engine. You want to properly shut down your application before the virtual machines are preempted.\n\nWhat should you do?",
+    "question-zh": "您使用 Google Compute Engine 建立了多個可搶佔的 Linux 虛擬機器執行個體。您希望在虛擬機器被搶佔之前正確關閉您的應用程式。\n\n您應該怎麼做？",
     "options": {
       "A": "Create a shutdown script named k99.shutdown in the /etc/rc.6.d/ directory",
       "B": "Create a shutdown script registered as a xinetd service in Linux and configure a Stackdriver endpoint check to call the service",
       "C": "Create a shutdown script and use it as the value for a new metadata entry with the key shutdown-script in the Cloud Platform Console when you create the new virtual machine instance",
       "D": "Create a shutdown script, registered as a xinetd service in Linux, and use the gcloud compute instances add-metadata command to specify the service URL as the value for a new metadata entry with the key shutdown-script-url"
+    },
+    "options-zh": {
+      "A": "在 /etc/rc.6.d/ 目錄中建立名為 k99.shutdown 的關閉腳本",
+      "B": "建立一個在 Linux 中註冊為 xinetd 服務的關閉腳本，並配置 Stackdriver 端點檢查來呼叫該服務",
+      "C": "建立一個關閉腳本，並在 Cloud Platform Console 中建立新的虛擬機器執行個體時，將其用作具有 shutdown-script 金鑰的新中繼資料項目的值",
+      "D": "建立一個在 Linux 中註冊為 xinetd 服務的關閉腳本，並使用 gcloud compute instances add-metadata 命令將服務 URL 指定為具有 shutdown-script-url 金鑰的新中繼資料項目的值"
     },
     "images": [],
     "answers": [
@@ -501,11 +706,18 @@
   {
     "id": "Question #33",
     "question": "Your organization has a 3-tier web application deployed in the same network on Google Cloud Platform. Each tier (web, API, and database) scales independently of the others. Network traffic should flow through the web to the API tier and then on to the database tier. Traffic should not flow between the web and the database tier.\n\nHow should you configure the network?",
+    "question-zh": "您的組織在 Google Cloud Platform 的同一網路中部署了一個三層式網頁應用程式。每一層（網頁、API 和資料庫）都可以獨立擴展。網路流量應該從網頁層流向 API 層，然後流向資料庫層。流量不應在網頁層和資料庫層之間流動。\n\n您應該如何配置網路？",
     "options": {
       "A": "Add each tier to a different subnetwork",
       "B": "Set up software based firewalls on individual VMs",
       "C": "Add tags to each tier and set up routes to allow the desired traffic flow",
       "D": "Add tags to each tier and set up firewall rules to allow the desired traffic flow"
+    },
+    "options-zh": {
+      "A": "將每一層加入不同的子網路",
+      "B": "在個別 VM 上設定基於軟體的防火牆",
+      "C": "為每一層新增標籤並設定路由以允許所需的流量流動",
+      "D": "為每一層新增標籤並設定防火牆規則以允許所需的流量流動"
     },
     "images": [],
     "answers": [
@@ -515,6 +727,7 @@
   {
     "id": "Question #34",
     "question": "Your development team has installed a new Linux kernel module on the batch servers in Google Compute Engine (GCE) virtual machines (VMs) to speed up the nightly batch process. Two days after the installation, 50% of the batch servers failed the nightly batch run. You want to collect details on the failure to pass back to the development team.\n\nWhich three actions should you take? (Choose three.)",
+    "question-zh": "您的開發團隊在 Google Compute Engine（GCE）虛擬機器（VM）的批次伺服器上安裝了新的 Linux 核心模組，以加快夜間批次處理流程。安裝後兩天，50% 的批次伺服器在夜間批次執行時失敗。您想收集失敗的詳細資訊以回報給開發團隊。\n\n您應該採取哪三項行動？（請選擇三項。）",
     "options": {
       "A": "Use Stackdriver Logging to search for the module log entries",
       "B": "Read the debug GCE Activity log using the API or Cloud Console",
@@ -522,6 +735,14 @@
       "D": "Identify whether a live migration event of the failed server occurred, using in the activity log",
       "E": "Adjust the Google Stackdriver timeline to match the failure time, and observe the batch server metrics",
       "F": "Export a debug VM into an image, and run the image on a local server where kernel log messages will be displayed on the native screen"
+    },
+    "options-zh": {
+      "A": "使用 Stackdriver Logging 搜尋模組日誌項目",
+      "B": "使用 API 或 Cloud Console 讀取除錯 GCE 活動日誌",
+      "C": "使用 gcloud 或 Cloud Console 連接到序列主控台並觀察日誌",
+      "D": "使用活動日誌識別失敗伺服器是否發生了即時遷移事件",
+      "E": "調整 Google Stackdriver 時間軸以符合失敗時間，並觀察批次伺服器指標",
+      "F": "將除錯 VM 匯出為映像檔，並在本地伺服器上運行該映像檔，核心日誌訊息將顯示在本機螢幕上"
     },
     "images": [],
     "answers": [
