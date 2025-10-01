@@ -2124,11 +2124,18 @@ const questions = [
   {
     "id": "Question #101",
     "question": "Your company is building a new architecture to support its data-centric business focus. You are responsible for setting up the network. Your company's mobile and web-facing applications will be deployed on-premises, and all data analysis will be conducted in GCP. The plan is to process and load 7 years of archived .csv files totaling 900 TB of data and then continue loading 10 TB of data daily. You currently have an existing 100-MB internet connection.\n\nWhat actions will meet your company's needs?",
+    "question-zh": "您的公司正在建立新架構以支持以資料為中心的業務重點。您負責網路設置。公司的行動與 Web 應用將部署於地端，所有資料分析則在 GCP 進行。計畫處理並載入 7 年共 900 TB 的 .csv 歷史檔案，之後每天持續載入 10 TB 資料。現有網路為 100MB。\n\n應採取哪些行動？",
     "options": {
       "A": "Compress and upload both archived files and files uploaded daily using the gsutil ג€\"m option.",
       "B": "Lease a Transfer Appliance, upload archived files to it, and send it to Google to transfer archived data to Cloud Storage. Establish a connection with Google using a Dedicated Interconnect or Direct Peering connection and use it to upload files daily.",
       "C": "Lease a Transfer Appliance, upload archived files to it, and send it to Google to transfer archived data to Cloud Storage. Establish one Cloud VPN Tunnel to VPC networks over the public internet, and compress and upload files daily using the gsutil ג€\"m option.",
       "D": "Lease a Transfer Appliance, upload archived files to it, and send it to Google to transfer archived data to Cloud Storage. Establish a Cloud VPN Tunnel to VPC networks over the public internet, and compress and upload files daily."
+    },
+    "options-zh": {
+      "A": "使用 gsutil -m 參數壓縮並上傳歷史檔案與每日檔案。",
+      "B": "租用 Transfer Appliance 上傳歷史檔案，寄回 Google 匯入 Cloud Storage。再用 Dedicated Interconnect 或 Direct Peering 連線每日上傳。",
+      "C": "租用 Transfer Appliance 上傳歷史檔案，寄回 Google 匯入 Cloud Storage。再用 Cloud VPN 連線並用 gsutil -m 上傳每日檔案。",
+      "D": "租用 Transfer Appliance 上傳歷史檔案，寄回 Google 匯入 Cloud Storage。再用 Cloud VPN 連線每日上傳。"
     },
     "images": [],
     "answers": [
@@ -2138,11 +2145,18 @@ const questions = [
   {
     "id": "Question #102",
     "question": "You are developing a globally scaled frontend for a legacy streaming backend data API. This API expects events in strict chronological order with no repeat data for proper processing.\n\nWhich products should you deploy to ensure guaranteed-once FIFO (first-in, first-out) delivery of data?",
+    "question-zh": "您正在為舊有串流後端資料 API 開發全球規模前端。該 API 需嚴格依時序且無重複資料。\n\n要確保資料 FIFO（先進先出）且僅送達一次，應部署哪些產品？",
     "options": {
       "A": "Cloud Pub/Sub alone",
       "B": "Cloud Pub/Sub to Cloud Dataflow",
       "C": "Cloud Pub/Sub to Stackdriver",
       "D": "Cloud Pub/Sub to Cloud SQL"
+    },
+    "options-zh": {
+      "A": "僅用 Cloud Pub/Sub",
+      "B": "Cloud Pub/Sub 搭配 Cloud Dataflow",
+      "C": "Cloud Pub/Sub 搭配 Stackdriver",
+      "D": "Cloud Pub/Sub 搭配 Cloud SQL"
     },
     "images": [],
     "answers": [
@@ -2152,11 +2166,18 @@ const questions = [
   {
     "id": "Question #103",
     "question": "Your company is planning to perform a lift and shift migration of their Linux RHEL 6.5+ virtual machines. The virtual machines are running in an on-premises\n\nVMware environment. You want to migrate them to Compute Engine following Google-recommended practices. What should you do?",
+    "question-zh": "您的公司計畫將 Linux RHEL 6.5+ VM 由地端 VMware 環境 lift & shift 遷移到 Compute Engine，需依 Google 建議做法。應怎麼做？",
     "options": {
       "A": "1. Define a migration plan based on the list of the applications and their dependencies. 2. Migrate all virtual machines into Compute Engine individually with Migrate for Compute Engine.",
       "B": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Create images of all disks. Import disks on Compute Engine. 3. Create standard virtual machines where the boot disks are the ones you have imported.",
       "C": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Define a migration plan, prepare a Migrate for Compute Engine migration RunBook, and execute the migration.",
       "D": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Install a third-party agent on all selected virtual machines. 3. Migrate all virtual machines into Compute Engine."
+    },
+    "options-zh": {
+      "A": "1. 根據應用及相依清單訂定遷移計畫。2. 用 Migrate for Compute Engine 個別遷移所有 VM。",
+      "B": "1. 盤點現有 VMware VM。2. 建立所有磁碟映像並匯入 Compute Engine。3. 用匯入的磁碟建立標準 VM。",
+      "C": "1. 盤點現有 VMware VM。2. 訂定遷移計畫，準備 Migrate for Compute Engine RunBook 並執行。",
+      "D": "1. 盤點現有 VMware VM。2. 安裝第三方代理程式。3. 遷移所有 VM 至 Compute Engine。"
     },
     "images": [],
     "answers": [
@@ -2166,11 +2187,18 @@ const questions = [
   {
     "id": "Question #104",
     "question": "You need to deploy an application to Google Cloud. The application receives traffic via TCP and reads and writes data to the filesystem. The application does not support horizontal scaling. The application process requires full control over the data on the file system because concurrent access causes corruption. The business is willing to accept a downtime when an incident occurs, but the application must be available 24/7 to support their business operations. You need to design the architecture of this application on Google Cloud. What should you do?",
+    "question-zh": "您要將一個應用部署到 Google Cloud。該應用透過 TCP 收發流量並存取檔案系統，不支援水平擴展，且需完全控制檔案系統（多執行緒會損毀資料）。業務可接受故障時停機，但應用需全年無休。應如何設計架構？",
     "options": {
       "A": "Use a managed instance group with instances in multiple zones, use Cloud Filestore, and use an HTTP load balancer in front of the instances.",
       "B": "Use a managed instance group with instances in multiple zones, use Cloud Filestore, and use a network load balancer in front of the instances.",
       "C": "Use an unmanaged instance group with an active and standby instance in different zones, use a regional persistent disk, and use an HTTP load balancer in front of the instances.",
       "D": "Use an unmanaged instance group with an active and standby instance in different zones, use a regional persistent disk, and use a network load balancer in front of the instances."
+    },
+    "options-zh": {
+      "A": "用多區受管實例群組 + Cloud Filestore + HTTP 負載平衡器。",
+      "B": "用多區受管實例群組 + Cloud Filestore + 網路負載平衡器。",
+      "C": "用非受管群組，跨區主備 VM + 區域性永久磁碟 + HTTP 負載平衡器。",
+      "D": "用非受管群組，跨區主備 VM + 區域性永久磁碟 + 網路負載平衡器。"
     },
     "images": [],
     "answers": [
@@ -2180,11 +2208,18 @@ const questions = [
   {
     "id": "Question #105",
     "question": "Your company has an application running on multiple Compute Engine instances. You need to ensure that the application can communicate with an on-premises service that requires high throughput via internal IPs, while minimizing latency. What should you do?",
+    "question-zh": "公司有多台 Compute Engine 執行應用，需與地端高頻寬服務（僅內部 IP）通訊且延遲低。應怎麼做？",
     "options": {
       "A": "Use OpenVPN to configure a VPN tunnel between the on-premises environment and Google Cloud.",
       "B": "Configure a direct peering connection between the on-premises environment and Google Cloud.",
       "C": "Use Cloud VPN to configure a VPN tunnel between the on-premises environment and Google Cloud.",
       "D": "Configure a Cloud Dedicated Interconnect connection between the on-premises environment and Google Cloud"
+    },
+    "options-zh": {
+      "A": "用 OpenVPN 建立地端與 Google Cloud 間 VPN 通道。",
+      "B": "設 direct peering 連線地端與 Google Cloud。",
+      "C": "用 Cloud VPN 建立 VPN 通道。",
+      "D": "設 Cloud Dedicated Interconnect 連線地端與 Google Cloud。"
     },
     "images": [],
     "answers": [
@@ -2194,11 +2229,18 @@ const questions = [
   {
     "id": "Question #106",
     "question": "You are managing an application deployed on Cloud Run for Anthos, and you need to define a strategy for deploying new versions of the application. You want to evaluate the new code with a subset of production traffic to decide whether to proceed with the rollout. What should you do?",
+    "question-zh": "您管理的應用部署於 Cloud Run for Anthos，需規劃新版部署策略，想用部分生產流量驗證新版本再決定是否全面推送。應怎麼做？",
     "options": {
       "A": "Deploy a new revision to Cloud Run with the new version. Configure traffic percentage between revisions.",
       "B": "Deploy a new service to Cloud Run with the new version. Add a Cloud Load Balancing instance in front of both services.",
       "C": "In the Google Cloud Console page for Cloud Run, set up continuous deployment using Cloud Build for the development branch. As part of the Cloud Build trigger, configure the substitution variable TRAFFIC_PERCENTAGE with the percentage of traffic you want directed to a new version.",
       "D": "In the Google Cloud Console, configure Traffic Director with a new Service that points to the new version of the application on Cloud Run. Configure Traffic Director to send a small percentage of traffic to the new version of the application."
+    },
+    "options-zh": {
+      "A": "將新版部署為 Cloud Run 新修訂，設定流量分配比例。",
+      "B": "將新版部署為 Cloud Run 新服務，前方加 Cloud Load Balancing。",
+      "C": "在 Cloud Run 主控台設 Cloud Build 持續部署，並用 TRAFFIC_PERCENTAGE 變數分流。",
+      "D": "在主控台用 Traffic Director 指向新版服務，設定小部分流量導向新版。"
     },
     "images": [],
     "answers": [
@@ -2208,11 +2250,18 @@ const questions = [
   {
     "id": "Question #107",
     "question": "You are monitoring Google Kubernetes Engine (GKE) clusters in a Cloud Monitoring workspace. As a Site Reliability Engineer (SRE), you need to triage incidents quickly. What should you do?",
+    "question-zh": "您在 Cloud Monitoring 監控 GKE 叢集，作為 SRE 需快速分流事件。應怎麼做？",
     "options": {
       "A": "Navigate the predefined dashboards in the Cloud Monitoring workspace, and then add metrics and create alert policies.",
       "B": "Navigate the predefined dashboards in the Cloud Monitoring workspace, create custom metrics, and install alerting software on a Compute Engine instance.",
       "C": "Write a shell script that gathers metrics from GKE nodes, publish these metrics to a Pub/Sub topic, export the data to BigQuery, and make a Data Studio dashboard.",
       "D": "Create a custom dashboard in the Cloud Monitoring workspace for each incident, and then add metrics and create alert policies."
+    },
+    "options-zh": {
+      "A": "瀏覽 Cloud Monitoring 預設儀表板，新增指標並設警示。",
+      "B": "瀏覽預設儀表板，建立自訂指標並在 Compute Engine 裝警示軟體。",
+      "C": "寫 shell script 收集 GKE 節點指標，發到 Pub/Sub，匯出 BigQuery，做 Data Studio 儀表板。",
+      "D": "每個事件都建自訂儀表板再加指標與警示。"
     },
     "images": [],
     "answers": [
@@ -2222,12 +2271,20 @@ const questions = [
   {
     "id": "Question #108",
     "question": "You are implementing a single Cloud SQL MySQL second-generation database that contains business-critical transaction data. You want to ensure that the minimum amount of data is lost in case of catastrophic failure. Which two features should you implement? (Choose two.)",
+    "question-zh": "您要部署一個 Cloud SQL MySQL 二代資料庫，存放關鍵交易資料。希望災難時資料損失最小。應實作哪兩項功能？（選兩項）",
     "options": {
       "A": "Sharding",
       "B": "Read replicas",
       "C": "Binary logging",
       "D": "Automated backups",
       "E": "Semisynchronous replication"
+    },
+    "options-zh": {
+      "A": "分片（Sharding）",
+      "B": "讀取複本（Read replicas）",
+      "C": "二進位日誌（Binary logging）",
+      "D": "自動備份（Automated backups）",
+      "E": "半同步複寫（Semisynchronous replication）"
     },
     "images": [],
     "answers": [
@@ -2238,11 +2295,18 @@ const questions = [
   {
     "id": "Question #109",
     "question": "You are working at a sports association whose members range in age from 8 to 30. The association collects a large amount of health data, such as sustained injuries. You are storing this data in BigQuery. Current legislation requires you to delete such information upon request of the subject. You want to design a solution that can accommodate such a request. What should you do?",
+    "question-zh": "您在體育協會工作，會員年齡 8-30 歲，收集大量健康資料（如受傷紀錄），存於 BigQuery。現行法規要求當事人要求時必須刪除其資料。應如何設計？",
     "options": {
       "A": "Use a unique identifier for each individual. Upon a deletion request, delete all rows from BigQuery with this identifier.",
       "B": "When ingesting new data in BigQuery, run the data through the Data Loss Prevention (DLP) API to identify any personal information. As part of the DLP scan, save the result to Data Catalog. Upon a deletion request, query Data Catalog to find the column with personal information.",
       "C": "Create a BigQuery view over the table that contains all data. Upon a deletion request, exclude the rows that affect the subject's data from this view. Use this view instead of the source table for all analysis tasks.",
       "D": "Use a unique identifier for each individual. Upon a deletion request, overwrite the column with the unique identifier with a salted SHA256 of its value."
+    },
+    "options-zh": {
+      "A": "每人用唯一識別碼，刪除請求時刪除該識別碼所有資料列。",
+      "B": "新資料匯入 BigQuery 前用 DLP API 掃描個資，結果存 Data Catalog。刪除請求時查 Data Catalog 找個資欄位。",
+      "C": "建立 BigQuery 檢視表，刪除請求時排除該人資料，分析都用檢視表。",
+      "D": "每人用唯一識別碼，刪除請求時將該欄位覆寫為加鹽 SHA256。"
     },
     "images": [],
     "answers": [
@@ -2252,7 +2316,14 @@ const questions = [
   {
     "id": "Question #110",
     "question": "Your company has announced that they will be outsourcing operations functions. You want to allow developers to easily stage new versions of a cloud-based application in the production environment and allow the outsourced operations team to autonomously promote staged versions to production. You want to minimize the operational overhead of the solution. Which Google Cloud product should you migrate to?",
+    "question-zh": "公司宣布將外包營運職能。您希望開發者能輕鬆在生產環境預備新版本，外包團隊能自主推升至正式版，且營運負擔最小。應遷移到哪個 Google Cloud 產品？",
     "options": {
+      "A": "App Engine",
+      "B": "GKE On-Prem",
+      "C": "Compute Engine",
+      "D": "Google Kubernetes Engine"
+    },
+    "options-zh": {
       "A": "App Engine",
       "B": "GKE On-Prem",
       "C": "Compute Engine",
@@ -2266,11 +2337,18 @@ const questions = [
   {
     "id": "Question #111",
     "question": "Your company is running its application workloads on Compute Engine. The applications have been deployed in production, acceptance, and development environments. The production environment is business-critical and is used 24/7, while the acceptance and development environments are only critical during office hours. Your CFO has asked you to optimize these environments to achieve cost savings during idle times. What should you do?",
+    "question-zh": "公司所有應用部署於 Compute Engine，分生產、驗收、開發三環境。生產全年無休，驗收/開發只在上班時段重要。CFO 要求閒置時節省成本。應怎麼做？",
     "options": {
       "A": "Create a shell script that uses the gcloud command to change the machine type of the development and acceptance instances to a smaller machine type outside of office hours. Schedule the shell script on one of the production instances to automate the task.",
       "B": "Use Cloud Scheduler to trigger a Cloud Function that will stop the development and acceptance environments after office hours and start them just before office hours.",
       "C": "Deploy the development and acceptance applications on a managed instance group and enable autoscaling.",
       "D": "Use regular Compute Engine instances for the production environment, and use preemptible VMs for the acceptance and development environments."
+    },
+    "options-zh": {
+      "A": "寫 shell script 用 gcloud 指令在非上班時將驗收/開發機型縮小，排程於生產機自動執行。",
+      "B": "用 Cloud Scheduler 觸發 Cloud Function，在下班後關閉驗收/開發環境，上班前再啟動。",
+      "C": "將驗收/開發部署於受管群組並啟用自動擴展。",
+      "D": "生產用一般 VM，驗收/開發用可搶佔 VM。"
     },
     "images": [],
     "answers": [
@@ -2280,11 +2358,18 @@ const questions = [
   {
     "id": "Question #112",
     "question": "You are moving an application that uses MySQL from on-premises to Google Cloud. The application will run on Compute Engine and will use Cloud SQL. You want to cut over to the Compute Engine deployment of the application with minimal downtime and no data loss to your customers. You want to migrate the application with minimal modification. You also need to determine the cutover strategy. What should you do?",
+    "question-zh": "您要將使用 MySQL 的應用從地端遷移到 Google Cloud，應用將跑在 Compute Engine 並用 Cloud SQL。希望切換時停機最短且無資料遺失，且應用程式改動最少。應如何規劃切換？",
     "options": {
       "A": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. 2. Stop the on-premises application. 3. Create a mysqldump of the on-premises MySQL server. 4. Upload the dump to a Cloud Storage bucket. 5. Import the dump into Cloud SQL. 6. Modify the source code of the application to write queries to both databases and read from its local database. 7. Start the Compute Engine application. 8. Stop the on-premises application.",
       "B": "1. Set up Cloud SQL proxy and MySQL proxy. 2. Create a mysqldump of the on-premises MySQL server. 3. Upload the dump to a Cloud Storage bucket. 4. Import the dump into Cloud SQL. 5. Stop the on-premises application. 6. Start the Compute Engine application.",
       "C": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. 2. Stop the on-premises application. 3. Start the Compute Engine application, configured to read and write to the on-premises MySQL server. 4. Create the replication configuration in Cloud SQL. 5. Configure the source database server to accept connections from the Cloud SQL replica. 6. Finalize the Cloud SQL replica configuration. 7. When replication has been completed, stop the Compute Engine application. 8. Promote the Cloud SQL replica to a standalone instance. 9. Restart the Compute Engine application, configured to read and write to the Cloud SQL standalone instance.",
       "D": "1. Stop the on-premises application. 2. Create a mysqldump of the on-premises MySQL server. 3. Upload the dump to a Cloud Storage bucket. 4. Import the dump into Cloud SQL. 5. Start the application on Compute Engine."
+    },
+    "options-zh": {
+      "A": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。2. 停地端應用。3. mysqldump 匯出地端 MySQL。4. 上傳 Cloud Storage。5. 匯入 Cloud SQL。6. 應用程式同時寫兩邊、讀本地。7. 啟動 Compute Engine 應用。8. 停地端應用。",
+      "B": "1. 設 Cloud SQL proxy 與 MySQL proxy。2. mysqldump 匯出地端 MySQL。3. 上傳 Cloud Storage。4. 匯入 Cloud SQL。5. 停地端應用。6. 啟動 Compute Engine 應用。",
+      "C": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。2. 停地端應用。3. 啟動 Compute Engine 應用，連地端 MySQL。4. 設 Cloud SQL 複寫。5. 設地端資料庫允許 Cloud SQL 連線。6. 完成 Cloud SQL 複寫設定。7. 複寫完成後停 Compute Engine 應用。8. 將 Cloud SQL 複本升級為獨立實例。9. 重啟 Compute Engine 應用，改連 Cloud SQL。",
+      "D": "1. 停地端應用。2. mysqldump 匯出地端 MySQL。3. 上傳 Cloud Storage。4. 匯入 Cloud SQL。5. 啟動 Compute Engine 應用。"
     },
     "images": [],
     "answers": [
@@ -2294,11 +2379,18 @@ const questions = [
   {
     "id": "Question #113",
     "question": "Your organization has decided to restrict the use of external IP addresses on instances to only approved instances. You want to enforce this requirement across all of your Virtual Private Clouds (VPCs). What should you do?",
+    "question-zh": "組織決定僅允許核准的 VM 使用外部 IP，且要在所有 VPC 強制執行。應怎麼做？",
     "options": {
       "A": "Remove the default route on all VPCs. Move all approved instances into a new subnet that has a default route to an internet gateway.",
       "B": "Create a new VPC in custom mode. Create a new subnet for the approved instances, and set a default route to the internet gateway on this new subnet.",
       "C": "Implement a Cloud NAT solution to remove the need for external IP addresses entirely.",
       "D": "Set an Organization Policy with a constraint on constraints/compute.vmExternalIpAccess. List the approved instances in the allowedValues list."
+    },
+    "options-zh": {
+      "A": "移除所有 VPC 的預設路由，將核准 VM 移到有網際網路閘道的新子網。",
+      "B": "新建自訂 VPC，核准 VM 用新子網並設預設路由。",
+      "C": "用 Cloud NAT 完全移除外部 IP 需求。",
+      "D": "設組織政策 constraints/compute.vmExternalIpAccess，allowedValues 僅列核准 VM。"
     },
     "images": [],
     "answers": [
@@ -2308,11 +2400,18 @@ const questions = [
   {
     "id": "Question #114",
     "question": "Your company uses the Firewall Insights feature in the Google Network Intelligence Center. You have several firewall rules applied to Compute Engine instances.\n\nYou need to evaluate the efficiency of the applied firewall ruleset. When you bring up the Firewall Insights page in the Google Cloud Console, you notice that there are no log rows to display. What should you do to troubleshoot the issue?",
+    "question-zh": "公司用 Google Network Intelligence Center 的 Firewall Insights，已對 Compute Engine 設多條防火牆規則。\n\n要評估規則效率，但進入 Insights 頁面時發現無日誌。應如何排查？",
     "options": {
       "A": "Enable Virtual Private Cloud (VPC) flow logging.",
       "B": "Enable Firewall Rules Logging for the firewall rules you want to monitor.",
       "C": "Verify that your user account is assigned the compute.networkAdmin Identity and Access Management (IAM) role.",
       "D": "Install the Google Cloud SDK, and verify that there are no Firewall logs in the command line output."
+    },
+    "options-zh": {
+      "A": "啟用 VPC flow logging。",
+      "B": "啟用要監控規則的 Firewall Rules Logging。",
+      "C": "確認帳號有 compute.networkAdmin IAM 角色。",
+      "D": "安裝 Google Cloud SDK，並用指令列查無防火牆日誌。"
     },
     "images": [],
     "answers": [
@@ -2322,11 +2421,18 @@ const questions = [
   {
     "id": "Question #115",
     "question": "Your company has sensitive data in Cloud Storage buckets. Data analysts have Identity Access Management (IAM) permissions to read the buckets. You want to prevent data analysts from retrieving the data in the buckets from outside the office network. What should you do?",
+    "question-zh": "公司 Cloud Storage bucket 有敏感資料，資料分析師有 IAM 讀取權限。要防止分析師在辦公室外存取。應怎麼做？",
     "options": {
       "A": "1. Create a VPC Service Controls perimeter that includes the projects with the buckets. 2. Create an access level with the CIDR of the office network.",
       "B": "1. Create a firewall rule for all instances in the Virtual Private Cloud (VPC) network for source range. 2. Use the Classless Inter-domain Routing (CIDR) of the office network.",
       "C": "1. Create a Cloud Function to remove IAM permissions from the buckets, and another Cloud Function to add IAM permissions to the buckets. 2. Schedule the Cloud Functions with Cloud Scheduler to add permissions at the start of business and remove permissions at the end of business.",
       "D": "1. Create a Cloud VPN to the office network. 2. Configure Private Google Access for on-premises hosts."
+    },
+    "options-zh": {
+      "A": "1. 建立 VPC Service Controls 周界納入 bucket 專案。2. 建立僅允許辦公室 CIDR 的存取層級。",
+      "B": "1. 為所有 VPC 實例設防火牆規則，來源設辦公室 CIDR。",
+      "C": "1. 用 Cloud Function 移除/新增 bucket IAM 權限，並用 Cloud Scheduler 在上下班時切換。",
+      "D": "1. 建 Cloud VPN 連辦公室網路。2. 為地端主機設 Private Google Access。"
     },
     "images": [],
     "answers": [
@@ -2336,11 +2442,18 @@ const questions = [
   {
     "id": "Question #116",
     "question": "You have developed a non-critical update to your application that is running in a managed instance group, and have created a new instance template with the update that you want to release. To prevent any possible impact to the application, you don't want to update any running instances. You want any new instances that are created by the managed instance group to contain the new update. What should you do?",
+    "question-zh": "您已為受管實例群組的應用開發非關鍵更新，並建立新實例範本。為避免影響現有執行個體，僅希望新建立的執行個體套用新版本。應怎麼做？",
     "options": {
       "A": "Start a new rolling restart operation.",
       "B": "Start a new rolling replace operation.",
       "C": "Start a new rolling update. Select the Proactive update mode.",
       "D": "Start a new rolling update. Select the Opportunistic update mode."
+    },
+    "options-zh": {
+      "A": "啟動新的 rolling restart 作業。",
+      "B": "啟動新的 rolling replace 作業。",
+      "C": "啟動新的 rolling update，選 Proactive 模式。",
+      "D": "啟動新的 rolling update，選 Opportunistic 模式。"
     },
     "images": [],
     "answers": [
@@ -2350,11 +2463,18 @@ const questions = [
   {
     "id": "Question #117",
     "question": "Your company is designing its application landscape on Compute Engine. Whenever a zonal outage occurs, the application should be restored in another zone as quickly as possible with the latest application data. You need to design the solution to meet this requirement. What should you do?",
+    "question-zh": "公司在 Compute Engine 規劃應用架構，需確保區域故障時能快速於其他區域復原且資料最新。應如何設計？",
     "options": {
       "A": "Create a snapshot schedule for the disk containing the application data. Whenever a zonal outage occurs, use the latest snapshot to restore the disk in the same zone.",
       "B": "Configure the Compute Engine instances with an instance template for the application, and use a regional persistent disk for the application data. Whenever a zonal outage occurs, use the instance template to spin up the application in another zone in the same region. Use the regional persistent disk for the application data.",
       "C": "Create a snapshot schedule for the disk containing the application data. Whenever a zonal outage occurs, use the latest snapshot to restore the disk in another zone within the same region.",
       "D": "Configure the Compute Engine instances with an instance template for the application, and use a regional persistent disk for the application data. Whenever a zonal outage occurs, use the instance template to spin up the application in another region. Use the regional persistent disk for the application data."
+    },
+    "options-zh": {
+      "A": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區復原。",
+      "B": "用實例範本 + 區域性永久磁碟，區域故障時於同區其他區啟動並掛載磁碟。",
+      "C": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區其他區復原。",
+      "D": "用實例範本 + 區域性永久磁碟，區域故障時於其他區域啟動並掛載磁碟。"
     },
     "images": [],
     "answers": [
@@ -2364,11 +2484,18 @@ const questions = [
   {
     "id": "Question #118",
     "question": "Your company has just acquired another company, and you have been asked to integrate their existing Google Cloud environment into your company's data center. Upon investigation, you discover that some of the RFC 1918 IP ranges being used in the new company's Virtual Private Cloud (VPC) overlap with your data center IP space. What should you do to enable connectivity and make sure that there are no routing conflicts when connectivity is established?",
+    "question-zh": "公司併購新公司，需整合其 GCP 環境至本公司資料中心。發現新公司 VPC 用的 RFC 1918 IP 與本地重疊。要連線且避免路由衝突，應怎麼做？",
     "options": {
       "A": "Create a Cloud VPN connection from the new VPC to the data center, create a Cloud Router, and apply new IP addresses so there is no overlapping IP space.",
       "B": "Create a Cloud VPN connection from the new VPC to the data center, and create a Cloud NAT instance to perform NAT on the overlapping IP space.",
       "C": "Create a Cloud VPN connection from the new VPC to the data center, create a Cloud Router, and apply a custom route advertisement to block the overlapping IP space.",
       "D": "Create a Cloud VPN connection from the new VPC to the data center, and apply a firewall rule that blocks the overlapping IP space."
+    },
+    "options-zh": {
+      "A": "新 VPC 用 Cloud VPN 連資料中心，設 Cloud Router 並換新 IP 避免重疊。",
+      "B": "新 VPC 用 Cloud VPN 連資料中心，設 Cloud NAT 對重疊 IP 做 NAT。",
+      "C": "新 VPC 用 Cloud VPN 連資料中心，設 Cloud Router 並自訂路由封鎖重疊 IP。",
+      "D": "新 VPC 用 Cloud VPN 連資料中心，設防火牆封鎖重疊 IP。"
     },
     "images": [],
     "answers": [
@@ -2378,11 +2505,18 @@ const questions = [
   {
     "id": "Question #119",
     "question": "You need to migrate Hadoop jobs for your company's Data Science team without modifying the underlying infrastructure. You want to minimize costs and infrastructure management effort. What should you do?",
+    "question-zh": "需將資料科學團隊的 Hadoop 任務遷移到雲端，且不更動底層架構，並盡量降低成本與管理負擔。應怎麼做？",
     "options": {
       "A": "Create a Dataproc cluster using standard worker instances.",
       "B": "Create a Dataproc cluster using preemptible worker instances.",
       "C": "Manually deploy a Hadoop cluster on Compute Engine using standard instances.",
       "D": "Manually deploy a Hadoop cluster on Compute Engine using preemptible instances."
+    },
+    "options-zh": {
+      "A": "用標準工作節點建立 Dataproc 叢集。",
+      "B": "用可搶佔工作節點建立 Dataproc 叢集。",
+      "C": "手動在 Compute Engine 用標準 VM 部署 Hadoop。",
+      "D": "手動在 Compute Engine 用可搶佔 VM 部署 Hadoop。"
     },
     "images": [],
     "answers": [
@@ -2392,11 +2526,18 @@ const questions = [
   {
     "id": "Question #120 Topic #1",
     "question": "Your company has a project in Google Cloud with three Virtual Private Clouds (VPCs). There is a Compute Engine instance on each VPC. Network subnets do not overlap and must remain separated. The network configuration is shown below.",
+    "question-zh": "公司在 GCP 有三個 VPC，各有一台 Compute Engine，子網不重疊且需隔離。如下圖所示。",
     "options": {
       "A": "Create a cloud router to advertise subnet #2 and subnet #3 to subnet #1.",
       "B": "Add two additional NICs to Instance #1 with the following configuration: ג€¢ NIC1 ג—‹ VPC: VPC #2 ג—‹ SUBNETWORK: subnet #2 ג€¢ NIC2 ג—‹ VPC: VPC #3 ג—‹ SUBNETWORK: subnet #3 Update firewall rules to enable traffic between instances.",
       "C": "Create two VPN tunnels via CloudVPN: ג€¢ 1 between VPC #1 and VPC #2. ג€¢ 1 between VPC #2 and VPC #3. Update firewall rules to enable traffic between the instances.",
       "D": "Peer all three VPCs: ג€¢ Peer VPC #1 with VPC #2. ג€¢ Peer VPC #2 with VPC #3. Update firewall rules to enable traffic between the instances."
+    },
+    "options-zh": {
+      "A": "用 cloud router 廣播子網 #2、#3 給 #1。",
+      "B": "在 Instance #1 加兩張網卡，分別連 VPC #2/#3，並調整防火牆。",
+      "C": "用 CloudVPN 建兩條 VPN：VPC #1↔#2、#2↔#3，並調整防火牆。",
+      "D": "三個 VPC 互相 peering：#1↔#2、#2↔#3，並調整防火牆。"
     },
     "images": [
       "images/Question-120.jpg"
@@ -2408,11 +2549,18 @@ const questions = [
   {
     "id": "Question #121",
     "question": "You need to deploy an application on Google Cloud that must run on a Debian Linux environment. The application requires extensive configuration in order to operate correctly. You want to ensure that you can install Debian distribution updates with minimal manual intervention whenever they become available. What should you do?",
+    "question-zh": "您要在 Google Cloud 部署必須運行於 Debian Linux 的應用，且需大量設定。希望日後能自動安裝 Debian 更新，減少人工。應怎麼做？",
     "options": {
       "A": "Create a Compute Engine instance template using the most recent Debian image. Create an instance from this template, and install and configure the application as part of the startup script. Repeat this process whenever a new Google-managed Debian image becomes available.",
       "B": "Create a Debian-based Compute Engine instance, install and configure the application, and use OS patch management to install available updates.",
       "C": "Create an instance with the latest available Debian image. Connect to the instance via SSH, and install and configure the application on the instance. Repeat this process whenever a new Google-managed Debian image becomes available.",
       "D": "Create a Docker container with Debian as the base image. Install and configure the application as part of the Docker image creation process. Host the container on Google Kubernetes Engine and restart the container whenever a new update is available."
+    },
+    "options-zh": {
+      "A": "用最新 Debian 建立 Compute Engine 範本，啟動時安裝設定應用，每次有新版就重建。",
+      "B": "建立 Debian VM，安裝設定應用，並用 OS patch 管理自動更新。",
+      "C": "用最新 Debian 建 VM，SSH 進去安裝設定，每次有新版就重建。",
+      "D": "用 Debian 為基底建 Docker，安裝設定應用，部署於 GKE，更新時重啟容器。"
     },
     "images": [],
     "answers": [
@@ -2422,11 +2570,18 @@ const questions = [
   {
     "id": "Question #122",
     "question": "You have an application that runs in Google Kubernetes Engine (GKE). Over the last 2 weeks, customers have reported that a specific part of the application returns errors very frequently. You currently have no logging or monitoring solution enabled on your GKE cluster. You want to diagnose the problem, but you have not been able to replicate the issue. You want to cause minimal disruption to the application. What should you do?",
+    "question-zh": "您的應用跑在 GKE，近兩週有部分功能常出錯，且目前未啟用監控或日誌。您無法重現問題，且希望排查時對應用影響最小。應怎麼做？",
     "options": {
       "A": "1. Update your GKE cluster to use Cloud Operations for GKE. 2. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
       "B": "1. Create a new GKE cluster with Cloud Operations for GKE enabled. 2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. 3. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
       "C": "1. Update your GKE cluster to use Cloud Operations for GKE, and deploy Prometheus. 2. Set an alert to trigger whenever the application returns an error.",
       "D": "1. Create a new GKE cluster with Cloud Operations for GKE enabled, and deploy Prometheus. 2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. 3. Set an alert to trigger whenever the application returns an error."
+    },
+    "options-zh": {
+      "A": "1. 將 GKE 叢集升級啟用 Cloud Operations。2. 用 GKE 監控儀表板查詢異常 Pod 日誌。",
+      "B": "1. 新建啟用 Cloud Operations 的 GKE 叢集。2. 遷移異常 Pod 並導流。3. 用 GKE 監控儀表板查日誌。",
+      "C": "1. GKE 叢集啟用 Cloud Operations 並部署 Prometheus。2. 設定錯誤警示。",
+      "D": "1. 新建啟用 Cloud Operations 並部署 Prometheus 的 GKE 叢集。2. 遷移異常 Pod 並導流。3. 設定錯誤警示。"
     },
     "images": [],
     "answers": [
@@ -2436,11 +2591,18 @@ const questions = [
   {
     "id": "Question #123",
     "question": "You need to deploy a stateful workload on Google Cloud. The workload can scale horizontally, but each instance needs to read and write to the same POSIX filesystem. At high load, the stateful workload needs to support up to 100 MB/s of writes. What should you do?",
+    "question-zh": "您要在 Google Cloud 部署可橫向擴展的有狀態工作負載，每個執行個體都需存取同一 POSIX 檔案系統，且高負載時寫入需達 100MB/s。應怎麼做？",
     "options": {
       "A": "Use a persistent disk for each instance.",
       "B": "Use a regional persistent disk for each instance.",
       "C": "Create a Cloud Filestore instance and mount it in each instance.",
       "D": "Create a Cloud Storage bucket and mount it in each instance using gcsfuse."
+    },
+    "options-zh": {
+      "A": "每個執行個體用一顆永久磁碟。",
+      "B": "每個執行個體用一顆區域性永久磁碟。",
+      "C": "建立 Cloud Filestore 並掛載於所有執行個體。",
+      "D": "用 gcsfuse 掛載 Cloud Storage bucket。"
     },
     "images": [],
     "answers": [
@@ -2450,11 +2612,18 @@ const questions = [
   {
     "id": "Question #124",
     "question": "Your company has an application deployed on Anthos clusters (formerly Anthos GKE) that is running multiple microservices. The cluster has both Anthos Service\n\nMesh and Anthos Config Management configured. End users inform you that the application is responding very slowly. You want to identify the microservice that is causing the delay. What should you do?",
+    "question-zh": "公司有應用部署於 Anthos 叢集（含 Service Mesh 與 Config Management），用戶反映回應慢。要找出拖慢的微服務，應怎麼做？",
     "options": {
       "A": "Use the Service Mesh visualization in the Cloud Console to inspect the telemetry between the microservices.",
       "B": "Use Anthos Config Management to create a ClusterSelector selecting the relevant cluster. On the Google Cloud Console page for Google Kubernetes Engine, view the Workloads and filter on the cluster. Inspect the configurations of the filtered workloads.",
       "C": "Use Anthos Config Management to create a namespaceSelector selecting the relevant cluster namespace. On the Google Cloud Console page for Google Kubernetes Engine, visit the workloads and filter on the namespace. Inspect the configurations of the filtered workloads.",
       "D": "Reinstall istio using the default istio profile in order to collect request latency. Evaluate the telemetry between the microservices in the Cloud Console."
+    },
+    "options-zh": {
+      "A": "用 Cloud Console 的 Service Mesh 視覺化檢查微服務間遙測。",
+      "B": "用 Anthos Config Management 建 ClusterSelector，於 GKE 主控台篩選並檢查工作負載。",
+      "C": "用 Anthos Config Management 建 namespaceSelector，於 GKE 主控台篩選並檢查工作負載。",
+      "D": "重裝 istio 並用預設設定收集延遲，再於 Console 評估。"
     },
     "images": [],
     "answers": [
@@ -2464,11 +2633,18 @@ const questions = [
   {
     "id": "Question #125",
     "question": "You are working at a financial institution that stores mortgage loan approval documents on Cloud Storage. Any change to these approval documents must be uploaded as a separate approval file, so you want to ensure that these documents cannot be deleted or overwritten for the next 5 years. What should you do?",
+    "question-zh": "您在金融機構工作，房貸核准文件存於 Cloud Storage，任何異動都需另存新檔，且 5 年內不得刪除或覆蓋。應怎麼做？",
     "options": {
       "A": "Create a retention policy on the bucket for the duration of 5 years. Create a lock on the retention policy.",
       "B": "Create the bucket with uniform bucket-level access, and grant a service account the role of Object Writer. Use the service account to upload new files.",
       "C": "Use a customer-managed key for the encryption of the bucket. Rotate the key after 5 years.",
       "D": "Create the bucket with fine-grained access control, and grant a service account the role of Object Writer. Use the service account to upload new files."
+    },
+    "options-zh": {
+      "A": "為 bucket 設 5 年保留政策並加鎖。",
+      "B": "bucket 設 uniform 存取，授權 Object Writer 上傳。",
+      "C": "用自管金鑰加密，5 年後輪替。",
+      "D": "bucket 設細緻存取，授權 Object Writer 上傳。"
     },
     "images": [],
     "answers": [
@@ -2478,11 +2654,18 @@ const questions = [
   {
     "id": "Question #126",
     "question": "Your team will start developing a new application using microservices architecture on Kubernetes Engine. As part of the development lifecycle, any code change that has been pushed to the remote develop branch on your GitHub repository should be built and tested automatically. When the build and test are successful, the relevant microservice will be deployed automatically in the development environment. You want to ensure that all code deployed in the development environment follows this process. What should you do?",
+    "question-zh": "您的團隊將在 Kubernetes Engine 開發微服務新應用，任何推到 GitHub develop 分支的程式都要自動建置測試並自動部署到開發環境。如何確保所有部署都經過這流程？",
     "options": {
       "A": "Have each developer install a pre-commit hook on their workstation that tests the code and builds the container when committing on the development branch. After a successful commit, have the developer deploy the newly built container image on the development cluster.",
       "B": "Install a post-commit hook on the remote git repository that tests the code and builds the container when code is pushed to the development branch. After a successful commit, have the developer deploy the newly built container image on the development cluster.",
       "C": "Create a Cloud Build trigger based on the development branch that tests the code, builds the container, and stores it in Container Registry. Create a deployment pipeline that watches for new images and deploys the new image on the development cluster. Ensure only the deployment tool has access to deploy new versions.",
       "D": "Create a Cloud Build trigger based on the development branch to build a new container image and store it in Container Registry. Rely on Vulnerability Scanning to ensure the code tests succeed. As the final step of the Cloud Build process, deploy the new container image on the development cluster. Ensure only Cloud Build has access to deploy new versions."
+    },
+    "options-zh": {
+      "A": "每位開發者本機裝 pre-commit hook，commit 時測試並建容器，成功後手動部署。",
+      "B": "遠端 git 裝 post-commit hook，push 時測試並建容器，成功後手動部署。",
+      "C": "設 Cloud Build 觸發器監控 develop 分支，自動測試、建容器並存 Container Registry，再用部署管線自動部署，僅允許部署工具推新版本。",
+      "D": "設 Cloud Build 觸發器監控 develop 分支，自動建容器並存 Container Registry，靠弱點掃描確保測試通過，最後 Cloud Build 自動部署，僅允許 Cloud Build 推新版本。"
     },
     "images": [],
     "answers": [
@@ -2492,11 +2675,18 @@ const questions = [
   {
     "id": "Question #127",
     "question": "Your operations team has asked you to help diagnose a performance issue in a production application that runs on Compute Engine. The application is dropping requests that reach it when under heavy load. The process list for affected instances shows a single application process that is consuming all available CPU, and autoscaling has reached the upper limit of instances. There is no abnormal load on any other related systems, including the database. You want to allow production traffic to be served again as quickly as possible. Which action should you recommend?",
+    "question-zh": "運維團隊請你協助診斷 Compute Engine 上生產應用的效能問題。高負載時應用丟失請求，且單一進程吃滿 CPU，autoscaling 已達上限，其他系統正常。要盡快恢復服務，建議怎麼做？",
     "options": {
       "A": "Change the autoscaling metric to agent.googleapis.com/memory/percent_used.",
       "B": "Restart the affected instances on a staggered schedule.",
       "C": "SSH to each instance and restart the application process.",
       "D": "Increase the maximum number of instances in the autoscaling group."
+    },
+    "options-zh": {
+      "A": "autoscaling 指標改用記憶體使用率。",
+      "B": "分批重啟受影響的 VM。",
+      "C": "SSH 進每台機器重啟應用進程。",
+      "D": "提高 autoscaling 群組最大 VM 數。"
     },
     "images": [],
     "answers": [
@@ -2506,11 +2696,18 @@ const questions = [
   {
     "id": "Question #128",
     "question": "You are implementing the infrastructure for a web service on Google Cloud. The web service needs to receive and store the data from 500,000 requests per second. The data will be queried later in real time, based on exact matches of a known set of attributes. There will be periods where the web service will not receive any requests. The business wants to keep costs low. Which web service platform and database should you use for the application?",
+    "question-zh": "您要在 Google Cloud 實作一個 Web 服務，需每秒接收 50 萬筆請求並儲存，日後根據屬性精確查詢。流量有高有低，需低成本。應選哪種平台與資料庫？",
     "options": {
       "A": "Cloud Run and BigQuery",
       "B": "Cloud Run and Cloud Bigtable",
       "C": "A Compute Engine autoscaling managed instance group and BigQuery",
       "D": "A Compute Engine autoscaling managed instance group and Cloud Bigtable"
+    },
+    "options-zh": {
+      "A": "Cloud Run + BigQuery",
+      "B": "Cloud Run + Cloud Bigtable",
+      "C": "Compute Engine 自動擴展群組 + BigQuery",
+      "D": "Compute Engine 自動擴展群組 + Cloud Bigtable"
     },
     "images": [],
     "answers": [
@@ -2520,11 +2717,18 @@ const questions = [
   {
     "id": "Question #129 Topic #1",
     "question": "You are developing your application using different microservices that should remain internal to the cluster. You want to be able to configure each microservice with a specific number of replicas. You also want to be able to address a specific microservice from any other microservice in a uniform way, regardless of the number of replicas the microservice scales to. You need to implement this solution on Google Kubernetes Engine. What should you do?",
+    "question-zh": "您的應用由多個微服務組成，僅限叢集內部存取，且每個微服務需可設定副本數，並能用統一方式互相存取。要在 GKE 實作，應怎麼做？",
     "options": {
       "A": "Deploy each microservice as a Deployment. Expose the Deployment in the cluster using a Service, and use the Service DNS name to address it from other microservices within the cluster.",
       "B": "Deploy each microservice as a Deployment. Expose the Deployment in the cluster using an Ingress, and use the Ingress IP address to address the Deployment from other microservices within the cluster.",
       "C": "Deploy each microservice as a Pod. Expose the Pod in the cluster using a Service, and use the Service DNS name to address the microservice from other microservices within the cluster.",
       "D": "Deploy each microservice as a Pod. Expose the Pod in the cluster using an Ingress, and use the Ingress IP address name to address the Pod from other microservices within the cluster."
+    },
+    "options-zh": {
+      "A": "每個微服務用 Deployment 部署，並用 Service 暴露，其他服務用 Service DNS 存取。",
+      "B": "每個微服務用 Deployment 部署，用 Ingress 暴露，其他服務用 Ingress IP 存取。",
+      "C": "每個微服務用 Pod 部署，用 Service 暴露，其他服務用 Service DNS 存取。",
+      "D": "每個微服務用 Pod 部署，用 Ingress 暴露，其他服務用 Ingress IP 存取。"
     },
     "images": [],
     "answers": [
@@ -2534,11 +2738,18 @@ const questions = [
   {
     "id": "Question #130",
     "question": "Your company has a networking team and a development team. The development team runs applications on Compute Engine instances that contain sensitive data. The development team requires administrative permissions for Compute Engine. Your company requires all network resources to be managed by the networking team. The development team does not want the networking team to have access to the sensitive data on the instances. What should you do?",
+    "question-zh": "公司有網路與開發團隊，開發團隊的 Compute Engine 執行機密資料，需管理權限但不想讓網路團隊存取資料。公司要求所有網路資源由網路團隊管理。應怎麼做？",
     "options": {
       "A": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. 2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. 3. Use Cloud VPN to join the two VPCs.",
       "B": "1. Create a project with a standalone Virtual Private Cloud (VPC), assign the Network Admin role to the networking team, and assign the Compute Admin role to the development team.",
       "C": "1. Create a project with a Shared VPC and assign the Network Admin role to the networking team. 2. Create a second project without a VPC, configure it as a Shared VPC service project, and assign the Compute Admin role to the development team.",
       "D": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. 2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. 3. Use VPC Peering to join the two VPCs."
+    },
+    "options-zh": {
+      "A": "1. 建獨立 VPC 專案給網路團隊 Network Admin。2. 再建獨立 VPC 專案給開發團隊 Compute Admin。3. 用 Cloud VPN 連兩 VPC。",
+      "B": "1. 建獨立 VPC 專案，網路團隊 Network Admin，開發團隊 Compute Admin。",
+      "C": "1. 建 Shared VPC 專案給網路團隊 Network Admin。2. 再建無 VPC 專案設為 Shared VPC 服務專案給開發團隊 Compute Admin。",
+      "D": "1. 建獨立 VPC 專案給網路團隊 Network Admin。2. 再建獨立 VPC 專案給開發團隊 Compute Admin。3. 用 VPC Peering 連兩 VPC。"
     },
     "images": [],
     "answers": [
@@ -2548,11 +2759,18 @@ const questions = [
   {
     "id": "Question #131",
     "question": "Your company is building a highly reliable web application with a few public APIs as the backend. You don't expect a lot of user traffic, but traffic could spike occasionally. You want to leverage Cloud Load Balancing, and the solution must be cost-effective for users. What should you do?",
+    "question-zh": "公司要建高可靠性的 Web 應用，後端有少量公開 API，流量平時不大但偶有高峰，需用 Cloud Load Balancing 且成本低。應怎麼做？",
     "options": {
       "A": "Store static content such as HTML and images in Cloud CDN. Host the APIs on App Engine and store the user data in Cloud SQL.",
       "B": "Store static content such as HTML and images in a Cloud Storage bucket. Host the APIs on a zonal Google Kubernetes Engine cluster with worker nodes in multiple zones, and save the user data in Cloud Spanner.",
       "C": "Store static content such as HTML and images in Cloud CDN. Use Cloud Run to host the APIs and save the user data in Cloud SQL.",
       "D": "Store static content such as HTML and images in a Cloud Storage bucket. Use Cloud Functions to host the APIs and save the user data in Firestore."
+    },
+    "options-zh": {
+      "A": "靜態內容用 Cloud CDN，API 用 App Engine，資料存 Cloud SQL。",
+      "B": "靜態內容用 Cloud Storage，API 用 zonal GKE 多區節點，資料存 Cloud Spanner。",
+      "C": "靜態內容用 Cloud CDN，API 用 Cloud Run，資料存 Cloud SQL。",
+      "D": "靜態內容用 Cloud Storage，API 用 Cloud Functions，資料存 Firestore。"
     },
     "images": [],
     "answers": [
@@ -2562,11 +2780,18 @@ const questions = [
   {
     "id": "Question #132 Topic #1",
     "question": "Your company sends all Google Cloud logs to Cloud Logging. Your security team wants to monitor the logs. You want to ensure that the security team can react quickly if an anomaly such as an unwanted firewall change or server breach is detected. You want to follow Google-recommended practices. What should you do?",
+    "question-zh": "公司所有 GCP 日誌都送 Cloud Logging，資安團隊需監控並能即時反應異常（如防火牆異動或伺服器入侵），要依 Google 建議做法。應怎麼做？",
     "options": {
       "A": "Schedule a cron job with Cloud Scheduler. The scheduled job queries the logs every minute for the relevant events.",
       "B": "Export logs to BigQuery, and trigger a query in BigQuery to process the log data for the relevant events.",
       "C": "Export logs to a Pub/Sub topic, and trigger Cloud Function with the relevant log events.",
       "D": "Export logs to a Cloud Storage bucket, and trigger Cloud Run with the relevant log events."
+    },
+    "options-zh": {
+      "A": "用 Cloud Scheduler 設 cron job，每分鐘查詢日誌。",
+      "B": "日誌匯出到 BigQuery，定期查詢異常。",
+      "C": "日誌匯出到 Pub/Sub，異常時觸發 Cloud Function。",
+      "D": "日誌匯出到 Cloud Storage，異常時觸發 Cloud Run。"
     },
     "images": [],
     "answers": [
@@ -2576,11 +2801,18 @@ const questions = [
   {
     "id": "Question #133",
     "question": "You have deployed several instances on Compute Engine. As a security requirement, instances cannot have a public IP address. There is no VPN connection between Google Cloud and your office, and you need to connect via SSH into a specific machine without violating the security requirements. What should you do?",
+    "question-zh": "您在 Compute Engine 部署多台 VM，安全規定不得有公網 IP，且無 VPN 連線，但需 SSH 進特定機器。應怎麼做？",
     "options": {
       "A": "Configure Cloud NAT on the subnet where the instance is hosted. Create an SSH connection to the Cloud NAT IP address to reach the instance.",
       "B": "Add all instances to an unmanaged instance group. Configure TCP Proxy Load Balancing with the instance group as a backend. Connect to the instance using the TCP Proxy IP.",
       "C": "Configure Identity-Aware Proxy (IAP) for the instance and ensure that you have the role of IAP-secured Tunnel User. Use the gcloud command line tool to ssh into the instance.",
       "D": "Create a bastion host in the network to SSH into the bastion host from your office location. From the bastion host, SSH into the desired instance."
+    },
+    "options-zh": {
+      "A": "子網設 Cloud NAT，SSH 連 Cloud NAT IP。",
+      "B": "全部 VM 加入 unmanaged 群組，用 TCP Proxy LB，SSH 連 Proxy IP。",
+      "C": "設 IAP 並給 IAP-secured Tunnel User 角色，用 gcloud ssh。",
+      "D": "建 bastion host，先 SSH 進 bastion，再進目標 VM。"
     },
     "images": [],
     "answers": [
@@ -2590,11 +2822,18 @@ const questions = [
   {
     "id": "Question #134",
     "question": "Your company is using Google Cloud. You have two folders under the Organization: Finance and Shopping. The members of the development team are in a\n\nGoogle Group. The development team group has been assigned the Project Owner role on the Organization. You want to prevent the development team from creating resources in projects in the Finance folder. What should you do?",
+    "question-zh": "公司用 GCP，組織下有 Finance 與 Shopping 兩資料夾，開發團隊是 Google 群組，並有組織層 Project Owner 權限。要防止他們在 Finance 下建資源，應怎麼做？",
     "options": {
       "A": "Assign the development team group the Project Viewer role on the Finance folder, and assign the development team group the Project Owner role on the Shopping folder.",
       "B": "Assign the development team group only the Project Viewer role on the Finance folder.",
       "C": "Assign the development team group the Project Owner role on the Shopping folder, and remove the development team group Project Owner role from the Organization.",
       "D": "Assign the development team group only the Project Owner role on the Shopping folder."
+    },
+    "options-zh": {
+      "A": "Finance 資料夾給 Project Viewer，Shopping 給 Project Owner。",
+      "B": "Finance 資料夾只給 Project Viewer。",
+      "C": "Shopping 給 Project Owner，並移除組織層 Project Owner。",
+      "D": "只給 Shopping Project Owner。"
     },
     "images": [],
     "answers": [
@@ -2604,11 +2843,18 @@ const questions = [
   {
     "id": "Question #135 Topic #1",
     "question": "You are developing your microservices application on Google Kubernetes Engine. During testing, you want to validate the behavior of your application in case a specific microservice should suddenly crash. What should you do?",
+    "question-zh": "您在 GKE 開發微服務應用，測試時想驗證某微服務突然當機的行為。應怎麼做？",
     "options": {
       "A": "Add a taint to one of the nodes of the Kubernetes cluster. For the specific microservice, configure a pod anti-affinity label that has the name of the tainted node as a value.",
       "B": "Use Istio's fault injection on the particular microservice whose faulty behavior you want to simulate.",
       "C": "Destroy one of the nodes of the Kubernetes cluster to observe the behavior.",
       "D": "Configure Istio's traffic management features to steer the traffic away from a crashing microservice."
+    },
+    "options-zh": {
+      "A": "在某節點加 taint，目標微服務設 pod anti-affinity 指向該節點。",
+      "B": "用 Istio fault injection 模擬該微服務故障。",
+      "C": "直接銷毀某節點觀察行為。",
+      "D": "用 Istio 流量管理避開當機微服務。"
     },
     "images": [],
     "answers": [
@@ -2618,7 +2864,14 @@ const questions = [
   {
     "id": "Question #136 Topic #1",
     "question": "Your company is developing a new application that will allow globally distributed users to upload pictures and share them with other selected users. The application will support millions of concurrent users. You want to allow developers to focus on just building code without having to create and maintain the underlying infrastructure. Which service should you use to deploy the application?",
+    "question-zh": "公司開發新應用，全球用戶可上傳並分享圖片，需支援百萬並發，開發者只需專注寫程式不需管基礎設施。應用部署該用哪個服務？",
     "options": {
+      "A": "App Engine",
+      "B": "Cloud Endpoints",
+      "C": "Compute Engine",
+      "D": "Google Kubernetes Engine"
+    },
+    "options-zh": {
       "A": "App Engine",
       "B": "Cloud Endpoints",
       "C": "Compute Engine",
@@ -2632,11 +2885,18 @@ const questions = [
   {
     "id": "Question #137",
     "question": "Your company provides a recommendation engine for retail customers. You are providing retail customers with an API where they can submit a user ID and the\n\nAPI returns a list of recommendations for that user. You are responsible for the API lifecycle and want to ensure stability for your customers in case the API makes backward-incompatible changes. You want to follow Google-recommended practices. What should you do?",
+    "question-zh": "公司提供零售推薦引擎，API 讓客戶送 user ID 回傳推薦清單。你負責 API 生命週期，需確保遇到不相容變更時客戶穩定。依 Google 建議應怎麼做？",
     "options": {
       "A": "Create a distribution list of all customers to inform them of an upcoming backward-incompatible change at least one month before replacing the old API with the new API.",
       "B": "Create an automated process to generate API documentation, and update the public API documentation as part of the CI/CD process when deploying an update to the API.",
       "C": "Use a versioning strategy for the APIs that increases the version number on every backward-incompatible change.",
       "D": "Use a versioning strategy for the APIs that adds the suffix ג€DEPRECATEDג€ to the current API version number on every backward-incompatible change. Use the current version number for the new API."
+    },
+    "options-zh": {
+      "A": "建立客戶郵件清單，API 不相容變更前一個月通知。",
+      "B": "自動產生 API 文件並隨 CI/CD 更新。",
+      "C": "API 每次不相容變更就升版號。",
+      "D": "API 不相容變更時加 DEPRECATED 後綴，新 API 用新版本號。"
     },
     "images": [],
     "answers": [
@@ -2646,11 +2906,18 @@ const questions = [
   {
     "id": "Question #138",
     "question": "You are using Cloud Build for your CI/CD pipeline to complete several tasks, including copying certain files to Compute Engine virtual machines. Your pipeline requires a flat file that is generated in one builder in the pipeline to be accessible by subsequent builders in the same pipeline. How should you store the file so that all the builders in the pipeline can access it?",
+    "question-zh": "你用 Cloud Build 做 CI/CD，需讓一個 builder 產生的檔案後續 builder 都能存取。該怎麼做？",
     "options": {
       "A": "Store and retrieve the file contents using Compute Engine instance metadata.",
       "B": "Output the file contents to a file in /workspace. Read from the same /workspace file in the subsequent build step.",
       "C": "Use gsutil to output the file contents to a Cloud Storage object. Read from the same object in the subsequent build step.",
       "D": "Add a build argument that runs an HTTP POST via curl to a separate web server to persist the value in one builder. Use an HTTP GET via curl from the subsequent build step to read the value."
+    },
+    "options-zh": {
+      "A": "用 Compute Engine metadata 儲存/讀取檔案內容。",
+      "B": "輸出到 /workspace，後續步驟從同檔案讀取。",
+      "C": "用 gsutil 存到 Cloud Storage，後續步驟讀同物件。",
+      "D": "用 curl POST 存到外部伺服器，後續用 GET 讀回。"
     },
     "images": [],
     "answers": [
@@ -2660,11 +2927,18 @@ const questions = [
   {
     "id": "Question #139",
     "question": "Your team is developing a web application that will be deployed on Google Kubernetes Engine (GKE). Your CTO expects a successful launch and you need to ensure your application can handle the expected load of tens of thousands of users. You want to test the current deployment to ensure the latency of your application stays below a certain threshold. What should you do?",
+    "question-zh": "團隊要將 Web 應用部署到 GKE，CTO 預期大量用戶，需測試延遲是否低於門檻。應怎麼做？",
     "options": {
       "A": "Use a load testing tool to simulate the expected number of concurrent users and total requests to your application, and inspect the results.",
       "B": "Enable autoscaling on the GKE cluster and enable horizontal pod autoscaling on your application deployments. Send curl requests to your application, and validate if the auto scaling works.",
       "C": "Replicate the application over multiple GKE clusters in every Google Cloud region. Configure a global HTTP(S) load balancer to expose the different clusters over a single global IP address.",
       "D": "Use Cloud Debugger in the development environment to understand the latency between the different microservices."
+    },
+    "options-zh": {
+      "A": "用壓力測試工具模擬用戶與請求量，檢查結果。",
+      "B": "GKE 叢集與應用啟用自動擴展，curl 測試自動擴展。",
+      "C": "多區 GKE 複製應用，設全球 LB。",
+      "D": "開發環境用 Cloud Debugger 查微服務延遲。"
     },
     "images": [],
     "answers": [
@@ -2674,11 +2948,18 @@ const questions = [
   {
     "id": "Question #140",
     "question": "Your company has a Kubernetes application that pulls messages from Pub/Sub and stores them in Filestore. Because the application is simple, it was deployed as a single pod. The infrastructure team has analyzed Pub/Sub metrics and discovered that the application cannot process the messages in real time. Most of them wait for minutes before being processed. You need to scale the elaboration process that is I/O-intensive. What should you do?",
+    "question-zh": "公司有個 Kubernetes 應用從 Pub/Sub 拉訊息存 Filestore，僅單一 pod，發現無法即時處理訊息，多數延遲數分鐘。需擴展 I/O 密集處理。應怎麼做？",
     "options": {
       "A": "Use kubectl autoscale deployment APP_NAME --max 6 --min 2 --cpu-percent 50 to configure Kubernetes autoscaling deployment.",
       "B": "Configure a Kubernetes autoscaling deployment based on the subscription/push_request_latencies metric.",
       "C": "Use the --enable-autoscaling flag when you create the Kubernetes cluster.",
       "D": "Configure a Kubernetes autoscaling deployment based on the subscription/num_undelivered_messages metric."
+    },
+    "options-zh": {
+      "A": "用 kubectl autoscale 設 max 6 min 2 cpu 50% 自動擴展。",
+      "B": "依 subscription/push_request_latencies 設自動擴展。",
+      "C": "建叢集時加 --enable-autoscaling。",
+      "D": "依 subscription/num_undelivered_messages 設自動擴展。"
     },
     "images": [],
     "answers": [
@@ -2688,11 +2969,18 @@ const questions = [
   {
     "id": "Question #141",
     "question": "Your company is developing a web-based application. You need to make sure that production deployments are linked to source code commits and are fully auditable. What should you do?",
+    "question-zh": "公司開發 Web 應用，需確保生產部署可追溯到原始碼 commit 並可稽核。應怎麼做？",
     "options": {
       "A": "Make sure a developer is tagging the code commit with the date and time of commit.",
       "B": "Make sure a developer is adding a comment to the commit that links to the deployment.",
       "C": "Make the container tag match the source code commit hash.",
       "D": "Make sure the developer is tagging the commits with latest."
+    },
+    "options-zh": {
+      "A": "要求開發者用日期時間標記 commit。",
+      "B": "要求 commit 註解連結部署。",
+      "C": "容器 tag 與 commit hash 一致。",
+      "D": "要求 commit 標記 latest。"
     },
     "images": [],
     "answers": [
@@ -2702,11 +2990,18 @@ const questions = [
   {
     "id": "Question #142",
     "question": "An application development team has come to you for advice. They are planning to write and deploy an HTTP(S) API using Go 1.12. The API will have a very unpredictable workload and must remain reliable during peaks in traffic. They want to minimize operational overhead for this application. Which approach should you recommend?",
+    "question-zh": "開發團隊要用 Go 1.12 寫 HTTP(S) API，流量極不穩定且高峰需可靠，想降低運維負擔。建議用哪種方式？",
     "options": {
       "A": "Develop the application with containers, and deploy to Google Kubernetes Engine.",
       "B": "Develop the application for App Engine standard environment.",
       "C": "Use a Managed Instance Group when deploying to Compute Engine.",
       "D": "Develop the application for App Engine flexible environment, using a custom runtime."
+    },
+    "options-zh": {
+      "A": "用容器開發並部署到 GKE。",
+      "B": "開發 App Engine 標準環境。",
+      "C": "Compute Engine 用 Managed Instance Group。",
+      "D": "App Engine 彈性環境用自訂 runtime。"
     },
     "images": [],
     "answers": [
@@ -2716,11 +3011,18 @@ const questions = [
   {
     "id": "Question #143",
     "question": "Your company is designing its data lake on Google Cloud and wants to develop different ingestion pipelines to collect unstructured data from different sources.\n\nAfter the data is stored in Google Cloud, it will be processed in several data pipelines to build a recommendation engine for end users on the website. The structure of the data retrieved from the source systems can change at any time. The data must be stored exactly as it was retrieved for reprocessing purposes in case the data structure is incompatible with the current processing pipelines. You need to design an architecture to support the use case after you retrieve the data. What should you do?",
+    "question-zh": "公司在 GCP 設計 data lake，需收集多來源非結構化資料，且來源結構可能隨時變動，必須原樣儲存以便重處理。應如何設計？",
     "options": {
       "A": "Send the data through the processing pipeline, and then store the processed data in a BigQuery table for reprocessing.",
       "B": "Store the data in a BigQuery table. Design the processing pipelines to retrieve the data from the table.",
       "C": "Send the data through the processing pipeline, and then store the processed data in a Cloud Storage bucket for reprocessing.",
       "D": "Store the data in a Cloud Storage bucket. Design the processing pipelines to retrieve the data from the bucket."
+    },
+    "options-zh": {
+      "A": "先經處理管線再存 BigQuery 以便重處理。",
+      "B": "直接存 BigQuery，處理管線從表取資料。",
+      "C": "先經處理管線再存 Cloud Storage 以便重處理。",
+      "D": "直接存 Cloud Storage，處理管線從 bucket 取資料。"
     },
     "images": [],
     "answers": [
@@ -2730,11 +3032,18 @@ const questions = [
   {
     "id": "Question #144",
     "question": "You are responsible for the Google Cloud environment in your company. Multiple departments need access to their own projects, and the members within each department will have the same project responsibilities. You want to structure your Google Cloud environment for minimal maintenance and maximum overview of\n\nIAM permissions as each department's projects start and end. You want to follow Google-recommended practices. What should you do?",
+    "question-zh": "你負責公司 GCP 環境，多部門需各自專案權限，且每部門成員權限一致。要最少維護、最佳權限總覽，依 Google 建議怎麼做？",
     "options": {
       "A": "Grant all department members the required IAM permissions for their respective projects.",
       "B": "Create a Google Group per department and add all department members to their respective groups. Create a folder per department and grant the respective group the required IAM permissions at the folder level. Add the projects under the respective folders.",
       "C": "Create a folder per department and grant the respective members of the department the required IAM permissions at the folder level. Structure all projects for each department under the respective folders.",
       "D": "Create a Google Group per department and add all department members to their respective groups. Grant each group the required IAM permissions for their respective projects."
+    },
+    "options-zh": {
+      "A": "每部門成員直接給專案權限。",
+      "B": "每部門建 Google 群組，建資料夾並給群組權限，專案放資料夾下。",
+      "C": "每部門建資料夾並直接給成員權限，專案放資料夾下。",
+      "D": "每部門建 Google 群組，直接給群組專案權限。"
     },
     "images": [],
     "answers": [
@@ -2744,11 +3053,18 @@ const questions = [
   {
     "id": "Question #145",
     "question": "Your company has an application running as a Deployment in a Google Kubernetes Engine (GKE) cluster. You have separate clusters for development, staging, and production. You have discovered that the team is able to deploy a Docker image to the production cluster without first testing the deployment in development and then staging. You want to allow the team to have autonomy but want to prevent this from happening. You want a Google Cloud solution that can be implemented quickly with minimal effort. What should you do?",
+    "question-zh": "公司 GKE 有 dev/stage/prod 三叢集，發現團隊能直接將 Docker image 部署到 prod 而未經 dev/stage 測試。要讓團隊有自主權又防止此事，且解決方案要快且簡單。應怎麼做？",
     "options": {
       "A": "Configure a Kubernetes lifecycle hook to prevent the container from starting if it is not approved for usage in the given environment.",
       "B": "Implement a corporate policy to prevent teams from deploying Docker images to an environment unless the Docker image was tested in an earlier environment.",
       "C": "Configure binary authorization policies for the development, staging, and production clusters. Create attestations as part of the continuous integration pipeline.",
       "D": "Create a Kubernetes admissions controller to prevent the container from starting if it is not approved for usage in the given environment."
+    },
+    "options-zh": {
+      "A": "設 Kubernetes lifecycle hook，未核准則不啟動容器。",
+      "B": "訂公司政策，未經前環境測試不得部署。",
+      "C": "dev/stage/prod 設 binary authorization，CI/CD 產生 attestation。",
+      "D": "設 Kubernetes admissions controller，未核准則不啟動容器。"
     },
     "images": [],
     "answers": [
@@ -2758,11 +3074,18 @@ const questions = [
   {
     "id": "Question #146",
     "question": "Your company wants to migrate their 10-TB on-premises database export into Cloud Storage. You want to minimize the time it takes to complete this activity, the overall cost, and database load. The bandwidth between the on-premises environment and Google Cloud is 1 Gbps. You want to follow Google-recommended practices. What should you do?",
+    "question-zh": "公司要將 10TB 地端資料庫匯出檔遷移到 Cloud Storage，需最小化時間、成本與資料庫負載，地端到 GCP 頻寬 1Gbps，依 Google 建議怎麼做？",
     "options": {
       "A": "Develop a Dataflow job to read data directly from the database and write it into Cloud Storage.",
       "B": "Use the Data Transfer appliance to perform an offline migration.",
       "C": "Use a commercial partner ETL solution to extract the data from the on-premises database and upload it into Cloud Storage.",
       "D": "Compress the data and upload it with gsutil -m to enable multi-threaded copy."
+    },
+    "options-zh": {
+      "A": "用 Dataflow 直接從資料庫讀寫到 Cloud Storage。",
+      "B": "用 Data Transfer appliance 離線遷移。",
+      "C": "用商業 ETL 工具抽取並上傳。",
+      "D": "壓縮後用 gsutil -m 多執行緒上傳。"
     },
     "images": [],
     "answers": [
@@ -2772,11 +3095,18 @@ const questions = [
   {
     "id": "Question #147",
     "question": "Your company has an enterprise application running on Compute Engine that requires high availability and high performance. The application has been deployed on two instances in two zones in the same region in active-passive mode. The application writes data to a persistent disk. In the case of a single zone outage, that data should be immediately made available to the other instance in the other zone. You want to maximize performance while minimizing downtime and data loss.\n\nWhat should you do?",
+    "question-zh": "公司有企業應用跑在 Compute Engine，需高可用高效能，兩區 VM active-passive，資料寫入永久磁碟。若單一區故障，資料要能立即給另一區 VM 用。要效能高又降停機與資料遺失。怎麼做？",
     "options": {
       "A": "1. Attach a persistent SSD disk to the first instance. 2. Create a snapshot every hour. 3. In case of a zone outage, recreate a persistent SSD disk in the second instance where data is coming from the created snapshot.",
       "B": "1. Create a Cloud Storage bucket. 2. Mount the bucket into the first instance with gcs-fuse. 3. In case of a zone outage, mount the Cloud Storage bucket to the second instance with gcs-fuse.",
       "C": "1. Attach a regional SSD persistent disk to the first instance. 2. In case of a zone outage, force-attach the disk to the other instance.",
       "D": "1. Attach a local SSD to the first instance disk. 2. Execute an rsync command every hour where the target is a persistent SSD disk attached to the second instance. 3. In case of a zone outage, use the second instance."
+    },
+    "options-zh": {
+      "A": "1. 第一台掛 SSD 永久磁碟，每小時快照，故障時用快照重建。",
+      "B": "1. 建 Cloud Storage bucket，gcs-fuse 掛載，故障時另一台也掛載。",
+      "C": "1. 第一台掛區域性 SSD 永久磁碟，故障時強制掛到另一台。",
+      "D": "1. 第一台掛 local SSD，每小時 rsync 到第二台的永久磁碟，故障時用第二台。"
     },
     "images": [],
     "answers": [
@@ -2786,11 +3116,18 @@ const questions = [
   {
     "id": "Question #148",
     "question": "You are designing a Data Warehouse on Google Cloud and want to store sensitive data in BigQuery. Your company requires you to generate the encryption keys outside of Google Cloud. You need to implement a solution. What should you do?",
+    "question-zh": "你要在 GCP 設計數據倉儲並存敏感資料，公司要求加密金鑰須在 GCP 外產生。應怎麼做？",
     "options": {
       "A": "Generate a new key in Cloud Key Management Service (Cloud KMS). Store all data in Cloud Storage using the customer-managed key option and select the created key. Set up a Dataflow pipeline to decrypt the data and to store it in a new BigQuery dataset.",
       "B": "Generate a new key in Cloud KMS. Create a dataset in BigQuery using the customer-managed key option and select the created key.",
       "C": "Import a key in Cloud KMS. Store all data in Cloud Storage using the customer-managed key option and select the created key. Set up a Dataflow pipeline to decrypt the data and to store it in a new BigQuery dataset.",
       "D": "Import a key in Cloud KMS. Create a dataset in BigQuery using the customer-supplied key option and select the created key."
+    },
+    "options-zh": {
+      "A": "Cloud KMS 產生金鑰，Cloud Storage 用客戶管理金鑰，Dataflow 解密存新 BigQuery。",
+      "B": "Cloud KMS 產生金鑰，BigQuery 用客戶管理金鑰。",
+      "C": "Cloud KMS 匯入金鑰，Cloud Storage 用客戶管理金鑰，Dataflow 解密存新 BigQuery。",
+      "D": "Cloud KMS 匯入金鑰，BigQuery 用客戶自帶金鑰。"
     },
     "images": [],
     "answers": [
@@ -2800,11 +3137,18 @@ const questions = [
   {
     "id": "Question #149",
     "question": "Your organization has stored sensitive data in a Cloud Storage bucket. For regulatory reasons, your company must be able to rotate the encryption key used to encrypt the data in the bucket. The data will be processed in Dataproc. You want to follow Google-recommended practices for security. What should you do?",
+    "question-zh": "組織將敏感資料存於 Cloud Storage，法規要求金鑰可輪替，資料會用 Dataproc 處理。依 Google 建議怎麼做？",
     "options": {
       "A": "Create a key with Cloud Key Management Service (KMS). Encrypt the data using the encrypt method of Cloud KMS.",
       "B": "Create a key with Cloud Key Management Service (KMS). Set the encryption key on the bucket to the Cloud KMS key.",
       "C": "Generate a GPG key pair. Encrypt the data using the GPG key. Upload the encrypted data to the bucket.",
       "D": "Generate an AES-256 encryption key. Encrypt the data in the bucket using the customer-supplied encryption keys feature."
+    },
+    "options-zh": {
+      "A": "Cloud KMS 建金鑰，用 encrypt 方法加密。",
+      "B": "Cloud KMS 建金鑰，bucket 設為該金鑰。",
+      "C": "產生 GPG 金鑰對加密後上傳。",
+      "D": "產生 AES-256 金鑰，用客戶自帶金鑰加密。"
     },
     "images": [],
     "answers": [
@@ -2814,11 +3158,18 @@ const questions = [
   {
     "id": "Question #150",
     "question": "Your team needs to create a Google Kubernetes Engine (GKE) cluster to host a newly built application that requires access to third-party services on the internet.\n\nYour company does not allow any Compute Engine instance to have a public IP address on Google Cloud. You need to create a deployment strategy that adheres to these guidelines. What should you do?",
+    "question-zh": "團隊要建 GKE 叢集部署新應用，需存取網路第三方服務，公司規定所有 Compute Engine 不可有公網 IP。部署策略該怎麼做？",
     "options": {
       "A": "Configure the GKE cluster as a private cluster, and configure Cloud NAT Gateway for the cluster subnet.",
       "B": "Configure the GKE cluster as a private cluster. Configure Private Google Access on the Virtual Private Cloud (VPC).",
       "C": "Configure the GKE cluster as a route-based cluster. Configure Private Google Access on the Virtual Private Cloud (VPC).",
       "D": "Create a Compute Engine instance, and install a NAT Proxy on the instance. Configure all workloads on GKE to pass through this proxy to access third-party services on the Internet."
+    },
+    "options-zh": {
+      "A": "GKE 設為 private cluster，子網設 Cloud NAT Gateway。",
+      "B": "GKE 設 private cluster，VPC 設 Private Google Access。",
+      "C": "GKE 設 route-based cluster，VPC 設 Private Google Access。",
+      "D": "建 VM 裝 NAT Proxy，GKE 全部流量經 Proxy。"
     },
     "images": [],
     "answers": [
@@ -2828,11 +3179,18 @@ const questions = [
   {
     "id": "Question #151",
     "question": "Your company has a support ticketing solution that uses App Engine Standard. The project that contains the App Engine application already has a Virtual Private\n\nCloud (VPC) network fully connected to the company's on-premises environment through a Cloud VPN tunnel. You want to enable the App Engine application to communicate with a database that is running in the company's on-premises environment. What should you do?",
+    "question-zh": "公司有 App Engine Standard 的客服系統，專案已用 Cloud VPN 連地端 VPC。要讓 App Engine 應用能連地端資料庫，該怎麼做？",
     "options": {
       "A": "Configure private Google access for on-premises hosts only.",
       "B": "Configure private Google access.",
       "C": "Configure private services access.",
       "D": "Configure serverless VPC access."
+    },
+    "options-zh": {
+      "A": "只設地端主機 private Google access。",
+      "B": "設 private Google access。",
+      "C": "設 private services access。",
+      "D": "設 serverless VPC access。"
     },
     "images": [],
     "answers": [
@@ -2842,11 +3200,18 @@ const questions = [
   {
     "id": "Question #152",
     "question": "Your company is planning to upload several important files to Cloud Storage. After the upload is completed, they want to verify that the uploaded content is identical to what they have on-premises. You want to minimize the cost and effort of performing this check. What should you do?",
+    "question-zh": "公司要上傳多個重要檔案到 Cloud Storage，完成後要驗證雲端與地端內容一致，且要省成本省力。怎麼做？",
     "options": {
       "A": "1. Use Linux shasum to compute a digest of files you want to upload. 2. Use gsutil -m to upload all the files to Cloud Storage. 3. Use gsutil cp to download the uploaded files. 4. Use Linux shasum to compute a digest of the downloaded files. 5. Compare the hashes.",
       "B": "1. Use gsutil -m to upload the files to Cloud Storage. 2. Develop a custom Java application that computes CRC32C hashes. 3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. 4. Compare the hashes.",
       "C": "1. Use gsutil -m to upload all the files to Cloud Storage. 2. Use gsutil cp to download the uploaded files. 3. Use Linux diff to compare the content of the files.",
       "D": "1. Use gsutil -m to upload the files to Cloud Storage. 2. Use gsutil hash -c FILE_NAME to generate CRC32C hashes of all on-premises files. 3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. 4. Compare the hashes."
+    },
+    "options-zh": {
+      "A": "1. 用 shasum 算地端檔案雜湊。2. gsutil -m 上傳。3. gsutil cp 下載。4. shasum 算下載檔案雜湊。5. 比對。",
+      "B": "1. gsutil -m 上傳。2. 自製 Java 算 CRC32C。3. gsutil ls -L 取雲端 CRC32C。4. 比對。",
+      "C": "1. gsutil -m 上傳。2. gsutil cp 下載。3. diff 比對內容。",
+      "D": "1. gsutil -m 上傳。2. gsutil hash -c 算地端 CRC32C。3. gsutil ls -L 取雲端 CRC32C。4. 比對。"
     },
     "images": [],
     "answers": [
@@ -2856,11 +3221,18 @@ const questions = [
   {
     "id": "Question #153",
     "question": "You have deployed an application on Anthos clusters (formerly Anthos GKE). According to the SRE practices at your company, you need to be alerted if request latency is above a certain threshold for a specified amount of time. What should you do?",
+    "question-zh": "你在 Anthos 叢集部署應用，依 SRE 規範需監控請求延遲超標時發警示。應怎麼做？",
     "options": {
       "A": "Install Anthos Service Mesh on your cluster. Use the Google Cloud Console to define a Service Level Objective (SLO), and create an alerting policy based on this SLO.",
       "B": "Enable the Cloud Trace API on your project, and use Cloud Monitoring Alerts to send an alert based on the Cloud Trace metrics.",
       "C": "Use Cloud Profiler to follow up the request latency. Create a custom metric in Cloud Monitoring based on the results of Cloud Profiler, and create an Alerting policy in case this metric exceeds the threshold.",
       "D": "Configure Anthos Config Management on your cluster, and create a yaml file that defines the SLO and alerting policy you want to deploy in your cluster."
+    },
+    "options-zh": {
+      "A": "叢集裝 Anthos Service Mesh，Console 設 SLO 並建警示。",
+      "B": "專案啟用 Cloud Trace API，Cloud Monitoring 設警示。",
+      "C": "用 Cloud Profiler 追蹤延遲，結果建自訂指標並設警示。",
+      "D": "叢集設 Anthos Config Management，yaml 定義 SLO 與警示。"
     },
     "images": [],
     "answers": [
@@ -2870,11 +3242,18 @@ const questions = [
   {
     "id": "Question #154",
     "question": "Your company has a stateless web API that performs scientific calculations. The web API runs on a single Google Kubernetes Engine (GKE) cluster. The cluster is currently deployed in us-central1. Your company has expanded to offer your API to customers in Asia. You want to reduce the latency for users in Asia.\n\nWhat should you do?",
+    "question-zh": "公司有無狀態 Web API 做科學運算，跑在 us-central1 的 GKE，現要服務亞洲客戶並降延遲。應怎麼做？",
     "options": {
       "A": "Create a second GKE cluster in asia-southeast1, and expose both APIs using a Service of type LoadBalancer. Add the public IPs to the Cloud DNS zone.",
       "B": "Use a global HTTP(s) load balancer with Cloud CDN enabled.",
       "C": "Create a second GKE cluster in asia-southeast1, and use kubemci to create a global HTTP(s) load balancer.",
       "D": "Increase the memory and CPU allocated to the application in the cluster."
+    },
+    "options-zh": {
+      "A": "亞洲再建 GKE 並用 LoadBalancer，兩組 IP 加入 Cloud DNS。",
+      "B": "用全球 HTTP(s) LB 並啟用 Cloud CDN。",
+      "C": "亞洲再建 GKE 並用 kubemci 建全球 HTTP(s) LB。",
+      "D": "加大叢集資源。"
     },
     "images": [],
     "answers": [
@@ -2884,11 +3263,18 @@ const questions = [
   {
     "id": "Question #155",
     "question": "You are migrating third-party applications from optimized on-premises virtual machines to Google Cloud. You are unsure about the optimum CPU and memory options. The applications have a consistent usage pattern across multiple weeks. You want to optimize resource usage for the lowest cost. What should you do?",
+    "question-zh": "你要將第三方應用從最佳化地端 VM 遷移到 GCP，對最佳 CPU/記憶體不確定，應用負載週期穩定，想用最低成本。怎麼做？",
     "options": {
       "A": "Create an instance template with the smallest available machine type, and use an image of the third-party application taken from a current on-premises virtual machine. Create a managed instance group that uses average CPU utilization to autoscale the number of instances in the group. Modify the average CPU utilization threshold to optimize the number of instances running.",
       "B": "Create an App Engine flexible environment, and deploy the third-party application using a Dockerfile and a custom runtime. Set CPU and memory options similar to your application's current on-premises virtual machine in the app.yaml file.",
       "C": "Create multiple Compute Engine instances with varying CPU and memory options. Install the Cloud Monitoring agent, and deploy the third-party application on each of them. Run a load test with high traffic levels on the application, and use the results to determine the optimal settings.",
       "D": "Create a Compute Engine instance with CPU and memory options similar to your application's current on-premises virtual machine. Install the Cloud Monitoring agent, and deploy the third-party application. Run a load test with normal traffic levels on the application, and follow the Rightsizing Recommendations in the Cloud Console."
+    },
+    "options-zh": {
+      "A": "建最小型 VM 範本，現有映像建受管群組，依 CPU 利用率自動擴展並調整門檻。",
+      "B": "App Engine 彈性環境用 Dockerfile 部署，app.yaml 設定資源。",
+      "C": "多台 VM 測不同資源，裝 Monitoring 跑壓測找最佳組合。",
+      "D": "建與現有 VM 相同資源的 VM，裝 Monitoring 跑正常流量壓測，依 Console 建議調整。"
     },
     "images": [],
     "answers": [
@@ -2898,11 +3284,18 @@ const questions = [
   {
     "id": "Question #156",
     "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. They have a VPN tunnel between the on-premises environment and Google\n\nCloud that is configured with Cloud VPN. The security team wants to avoid data exfiltration by malicious insiders, compromised code, and accidental oversharing.\n\nWhat should they do?",
+    "question-zh": "公司 GCP 專案用 BigQuery 做數據倉儲，地端與 GCP 用 Cloud VPN 連線，資安團隊要防止內賊、惡意程式或誤分享造成資料外洩。怎麼做？",
     "options": {
       "A": "Configure Private Google Access for on-premises only.",
       "B": "Perform the following tasks: 1. Create a service account. 2. Give the BigQuery JobUser role and Storage Reader role to the service account. 3. Remove all other IAM access from the project.",
       "C": "Configure VPC Service Controls and configure Private Google Access.",
       "D": "Configure Private Google Access."
+    },
+    "options-zh": {
+      "A": "只設地端 Private Google Access。",
+      "B": "1. 建 service account 並給 BigQuery JobUser 與 Storage Reader，移除其他 IAM。",
+      "C": "設 VPC Service Controls 並設 Private Google Access。",
+      "D": "設 Private Google Access。"
     },
     "images": [],
     "answers": [
@@ -2912,11 +3305,18 @@ const questions = [
   {
     "id": "Question #157",
     "question": "You are working at an institution that processes medical data. You are migrating several workloads onto Google Cloud. Company policies require all workloads to run on physically separated hardware, and workloads from different clients must also be separated. You created a sole-tenant node group and added a node for each client. You need to deploy the workloads on these dedicated hosts. What should you do?",
+    "question-zh": "你在醫療機構工作，需將多個工作負載遷移到 GCP，政策要求每個工作負載都要物理隔離且不同客戶也要隔離。你已建 sole-tenant node group 並每客戶一台，如何部署？",
     "options": {
       "A": "Add the node group name as a network tag when creating Compute Engine instances in order to host each workload on the correct node group.",
       "B": "Add the node name as a network tag when creating Compute Engine instances in order to host each workload on the correct node.",
       "C": "Use node affinity labels based on the node group name when creating Compute Engine instances in order to host each workload on the correct node group.",
       "D": "Use node affinity labels based on the node name when creating Compute Engine instances in order to host each workload on the correct node."
+    },
+    "options-zh": {
+      "A": "建 VM 時用 node group 名稱做網路標籤。",
+      "B": "建 VM 時用 node 名稱做網路標籤。",
+      "C": "建 VM 時用 node group 名稱做 node affinity label。",
+      "D": "建 VM 時用 node 名稱做 node affinity label。"
     },
     "images": [],
     "answers": [
