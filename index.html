@@ -107,8 +107,9 @@
         header {
             background-color: var(--color-white);
             box-shadow: var(--shadow-md);
-            padding: var(--spacing-sm) 0;
-            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-xs) 0;
+            margin-bottom: var(--spacing-xs);
+            max-height: 100px;
         }
 
         .header-content {
@@ -120,7 +121,7 @@
         }
 
         .header-title {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-xl);
             font-weight: 900;
             color: var(--color-primary);
             margin: 0;
@@ -291,7 +292,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
+            margin: var(--spacing-md);
         }
 
         .question-id {
@@ -446,41 +447,31 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-primary);
+            border-radius: var(--radius-full);
             display: flex;
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: 6px;
-            gap: 4px;
+            align-items: center;
+            justify-content: center;
             box-shadow: var(--shadow-xl);
             z-index: 1000;
-            border: 2px solid var(--color-gray-200);
-        }
-
-        .language-toggle__btn {
-            padding: 10px 20px;
             border: none;
-            border-radius: var(--radius-md);
-            background-color: transparent;
-            color: var(--color-gray-600);
-            font-weight: 600;
-            font-size: var(--font-size-sm);
             cursor: pointer;
             transition: all 0.3s ease;
-            min-height: 40px;
-        }
-
-        .language-toggle__btn.active {
-            background-color: var(--color-primary);
             color: var(--color-white);
+            font-weight: 700;
+            font-size: var(--font-size-lg);
         }
 
-        .language-toggle__btn:hover {
-            color: var(--color-primary-dark);
-        }
-
-        .language-toggle__btn.active:hover {
-            color: var(--color-white);
+        .language-toggle:hover {
             background-color: var(--color-primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 200, 81, 0.4);
+        }
+
+        .language-toggle:active {
+            transform: scale(0.95);
         }
 
         /* ==================== Utility Classes ==================== */
@@ -591,10 +582,7 @@
     </main>
 
     <!-- Floating Language Toggle -->
-    <div class="language-toggle">
-        <button class="language-toggle__btn active" data-lang="zh">中文</button>
-        <button class="language-toggle__btn" data-lang="en">English</button>
-    </div>
+    <button id="languageToggleBtn" class="language-toggle">中</button>
 
     <script>
         // ==================== Global Variables ====================
@@ -620,7 +608,7 @@
             prevQuestionBtn: document.getElementById('prevQuestionBtn'),
             nextQuestionBtn: document.getElementById('nextQuestionBtn'),
             resultMessage: document.getElementById('resultMessage'),
-            languageToggle: document.querySelectorAll('.language-toggle__btn')
+            languageToggleBtn: document.getElementById('languageToggleBtn')
         };
 
         // ==================== Utility Functions ====================
@@ -939,23 +927,14 @@
         }
 
         /**
-         * Switch language
+         * Toggle language
          */
-        function switchLanguage(lang) {
-            if (currentLanguage === lang) {
-                return;
-            }
+        function toggleLanguage() {
+            // Switch between languages
+            currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
 
-            currentLanguage = lang;
-
-            // Update language toggle buttons
-            elements.languageToggle.forEach(btn => {
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            // Update button text
+            elements.languageToggleBtn.textContent = currentLanguage === 'zh' ? '中' : 'EN';
 
             // Update question list if visible
             if (!elements.questionListView.classList.contains('hidden')) {
@@ -994,9 +973,8 @@
         // Header title click to go back to question list
         document.querySelector('.header-title').addEventListener('click', backToQuestionList);
 
-        elements.languageToggle.forEach(btn => {
-            btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
-        });
+        // Language toggle button
+        elements.languageToggleBtn.addEventListener('click', toggleLanguage);
 
         // ==================== Initialization ====================
         
