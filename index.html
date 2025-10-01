@@ -223,10 +223,16 @@
             border-top: 1px solid var(--color-gray-100);
             background-color: var(--color-gray-50);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: var(--spacing-md);
+        }
+
+        .button-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
         }
 
         /* ==================== Question List ==================== */
@@ -571,11 +577,15 @@
                     <div id="resultMessage" class="result-message"></div>
                 </div>
                 <div class="card__footer">
-                    <button id="backToListBtn" class="btn btn--secondary">返回題目清單</button>
-                    <button id="prevQuestionBtn" class="btn btn--secondary">上一題</button>
-                    <button id="submitAnswerBtn" class="btn btn--primary">送出答案</button>
-                    <button id="resetAnswerBtn" class="btn btn--secondary" style="display: none;">重新作答</button>
-                    <button id="nextQuestionBtn" class="btn btn--secondary">下一題</button>
+                    <div class="button-group">
+                        <button id="backToListBtn" class="btn btn--secondary">返回題目清單</button>
+                        <button id="submitAnswerBtn" class="btn btn--primary">送出答案</button>
+                        <button id="resetAnswerBtn" class="btn btn--secondary" style="display: none;">重新作答</button>
+                    </div>
+                    <div class="button-group">
+                        <button id="prevQuestionBtn" class="btn btn--secondary">上一題</button>
+                        <button id="nextQuestionBtn" class="btn btn--secondary">下一題</button>
+                    </div>
                 </div>
             </div>
         </div>
