@@ -3716,11 +3716,18 @@ const questions = [
   {
     "id": "Question #176",
     "question": "Your company has an application running on multiple instances of Compute Engine. It generates 1 TB per day of logs. For compliance reasons, the logs need to be kept for at least two years. The logs need to be available for active query for 30 days. After that, they just need to be retained for audit purposes. You want to implement a storage solution that is compliant, minimizes costs, and follows Google-recommended practices. What should you do?",
+    "question-zh": "公司有多台 Compute Engine 跑應用，每天產生 1TB 日誌，合規需保存兩年，30 天內要能查詢，之後僅供稽核。怎麼設計最省錢又合規？",
     "options": {
       "A": "1. Install a Cloud Logging agent on all instances. 2. Create a sink to export logs into a regional Cloud Storage bucket. 3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month. 4. Configure a retention policy at the bucket level using bucket lock.",
       "B": "1. Write a daily cron job, running on all instances, that uploads logs into a Cloud Storage bucket. 2. Create a sink to export logs into a regional Cloud Storage bucket. 3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month.",
       "C": "1. Install a Cloud Logging agent on all instances. 2. Create a sink to export logs into a partitioned BigQuery table. 3. Set a time_partitioning_expiration of 30 days.",
       "D": "1. Create a daily cron job, running on all instances, that uploads logs into a partitioned BigQuery table. 2. Set a time_partitioning_expiration of 30 days."
+    },
+    "options-zh": {
+      "A": "所有機器裝 Cloud Logging agent，sink 匯出日誌到區域 Cloud Storage，1 個月後用生命週期規則移到 Coldline，設 bucket lock 保存。",
+      "B": "每天 cron job 上傳日誌到 Cloud Storage，sink 匯出日誌到區域 Cloud Storage，1 個月後移到 Coldline。",
+      "C": "所有機器裝 Cloud Logging agent，sink 匯出日誌到分區 BigQuery，設 30 天過期。",
+      "D": "每天 cron job 上傳日誌到分區 BigQuery，設 30 天過期。"
     },
     "images": [],
     "answers": [
@@ -3730,11 +3737,18 @@ const questions = [
   {
     "id": "Question #177",
     "question": "Your company has just recently activated Cloud Identity to manage users. The Google Cloud Organization has been configured as well. The security team needs to secure projects that will be part of the Organization. They want to prohibit IAM users outside the domain from gaining permissions from now on. What should they do?",
+    "question-zh": "公司剛啟用 Cloud Identity 管理用戶，GCP Org 也設好了。資安團隊要防止外部網域 IAM 用戶取得權限，該怎麼做？",
     "options": {
       "A": "Configure an organization policy to restrict identities by domain.",
       "B": "Configure an organization policy to block creation of service accounts.",
       "C": "Configure Cloud Scheduler to trigger a Cloud Function every hour that removes all users that don't belong to the Cloud Identity domain from all projects.",
       "D": "Create a technical user (e.g., crawler@yourdomain.com), and give it the project owner role at root organization level. Write a bash script that: ג€¢ Lists all the IAM rules of all projects within the organization. ג€¢ Deletes all users that do not belong to the company domain. Create a Compute Engine instance in a project within the Organization and configure gcloud to be executed with technical user credentials. Configure a cron job that executes the bash script every hour."
+    },
+    "options-zh": {
+      "A": "Org policy 限定只能本網域身分。",
+      "B": "Org policy 禁止建立 service account。",
+      "C": "Cloud Scheduler 每小時觸發 Cloud Function，移除非本網域用戶。",
+      "D": "建技術用戶給 org root owner，寫 bash 列出所有 IAM 規則並刪除非本網域用戶，Compute Engine 跑 cron job。"
     },
     "images": [],
     "answers": [
@@ -3744,11 +3758,18 @@ const questions = [
   {
     "id": "Question #178",
     "question": "Your company has an application running on Google Cloud that is collecting data from thousands of physical devices that are globally distributed. Data is published to Pub/Sub and streamed in real time into an SSD Cloud Bigtable cluster via a Dataflow pipeline. The operations team informs you that your Cloud\n\nBigtable cluster has a hotspot, and queries are taking longer than expected. You need to resolve the problem and prevent it from happening in the future. What should you do?",
+    "question-zh": "公司有全球裝置資料經 Pub/Sub、Dataflow 寫入 SSD Bigtable，運維說有 hotspot 查詢變慢，要怎麼解決並防止再發生？",
     "options": {
       "A": "Advise your clients to use HBase APIs instead of NodeJS APIs.",
       "B": "Delete records older than 30 days.",
       "C": "Review your RowKey strategy and ensure that keys are evenly spread across the alphabet.",
       "D": "Double the number of nodes you currently have."
+    },
+    "options-zh": {
+      "A": "建議用戶改用 HBase API。",
+      "B": "刪除 30 天前資料。",
+      "C": "檢查 RowKey 策略，確保分布均勻。",
+      "D": "節點數加倍。"
     },
     "images": [],
     "answers": [
@@ -3758,11 +3779,18 @@ const questions = [
   {
     "id": "Question #179",
     "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. There are some tables that contain personally identifiable information (PII).\n\nOnly the compliance team may access the PII. The other information in the tables must be available to the data science team. You want to minimize cost and the time it takes to assign appropriate access to the tables. What should you do?",
+    "question-zh": "公司有 GCP 專案用 BigQuery 做數據倉儲，有些表含個資，僅合規團隊能看，其他資料要給 data science team。怎麼做最省時省錢？",
     "options": {
       "A": "1. From the dataset where you have the source data, create views of tables that you want to share, excluding PII. 2. Assign an appropriate project-level IAM role to the members of the data science team. 3. Assign access controls to the dataset that contains the view.",
       "B": "1. From the dataset where you have the source data, create materialized views of tables that you want to share, excluding PII. 2. Assign an appropriate project-level IAM role to the members of the data science team. 3. Assign access controls to the dataset that contains the view.",
       "C": "1. Create a dataset for the data science team. 2. Create views of tables that you want to share, excluding PII. 3. Assign an appropriate project-level IAM role to the members of the data science team. 4. Assign access controls to the dataset that contains the view. 5. Authorize the view to access the source dataset.",
       "D": "1. Create a dataset for the data science team. 2. Create materialized views of tables that you want to share, excluding PII. 3. Assign an appropriate project-level IAM role to the members of the data science team. 4. Assign access controls to the dataset that contains the view. 5. Authorize the view to access the source dataset."
+    },
+    "options-zh": {
+      "A": "原始資料集建 view 排除個資，給 data science team 專案層 IAM，view 資料集設權限。",
+      "B": "原始資料集建 materialized view 排除個資，給 data science team 專案層 IAM，view 資料集設權限。",
+      "C": "為 data science team 建新資料集，建 view 排除個資，給專案層 IAM，view 資料集設權限並授權存取原始資料集。",
+      "D": "為 data science team 建新資料集，建 materialized view 排除個資，給專案層 IAM，view 資料集設權限並授權存取原始資料集。"
     },
     "images": [],
     "answers": [
@@ -3772,11 +3800,18 @@ const questions = [
   {
     "id": "Question #180",
     "question": "Your operations team currently stores 10 TB of data in an object storage service from a third-party provider. They want to move this data to a Cloud Storage bucket as quickly as possible, following Google-recommended practices. They want to minimize the cost of this data migration. Which approach should they use?",
+    "question-zh": "運維團隊有 10TB 資料在第三方物件儲存，要盡快搬到 Cloud Storage 並省錢，怎麼做最符合 Google 建議？",
     "options": {
       "A": "Use the gsutil mv command to move the data.",
       "B": "Use the Storage Transfer Service to move the data.",
       "C": "Download the data to a Transfer Appliance, and ship it to Google.",
       "D": "Download the data to the on-premises data center, and upload it to the Cloud Storage bucket."
+    },
+    "options-zh": {
+      "A": "用 gsutil mv 搬資料。",
+      "B": "用 Storage Transfer Service 搬資料。",
+      "C": "下載到 Transfer Appliance 再寄給 Google。",
+      "D": "下載到本地再上傳 Cloud Storage。"
     },
     "images": [],
     "answers": [
@@ -3786,11 +3821,18 @@ const questions = [
   {
     "id": "Question #181",
     "question": "You have a Compute Engine managed instance group that adds and removes Compute Engine instances from the group in response to the load on your application. The instances have a shutdown script that removes REDIS database entries associated with the instance. You see that many database entries have not been removed, and you suspect that the shutdown script is the problem. You need to ensure that the commands in the shutdown script are run reliably every time an instance is shut down. You create a Cloud Function to remove the database entries. What should you do next?",
+    "question-zh": "你有 Compute Engine 受管群組，依負載增減 VM，VM 關機時執行腳本刪除 REDIS 資料，但常有資料沒刪掉，懷疑腳本問題。你已建 Cloud Function 處理刪除，下一步怎麼做？",
     "options": {
       "A": "Modify the shutdown script to wait for 30 seconds before triggering the Cloud Function.",
       "B": "Do not use the Cloud Function. Modify the shutdown script to restart if it has not completed in 30 seconds.",
       "C": "Set up a Cloud Monitoring sink that triggers the Cloud Function after an instance removal log message arrives in Cloud Logging.",
       "D": "Modify the shutdown script to wait for 30 seconds and then publish a message to a Pub/Sub queue."
+    },
+    "options-zh": {
+      "A": "腳本等 30 秒再觸發 Cloud Function。",
+      "B": "不用 Cloud Function，腳本 30 秒沒完成就重跑。",
+      "C": "Cloud Monitoring sink 收到移除日誌時觸發 Cloud Function。",
+      "D": "腳本等 30 秒再發訊息到 Pub/Sub。"
     },
     "images": [],
     "answers": [
@@ -3800,11 +3842,18 @@ const questions = [
   {
     "id": "Question #182",
     "question": "You are managing several projects on Google Cloud and need to interact on a daily basis with BigQuery, Bigtable, and Kubernetes Engine using the gcloud CL tool. You are travelling a lot and work on different workstations during the week. You want to avoid having to manage the gcloud CLI manually. What should you do?",
+    "question-zh": "你管理多個 GCP 專案，每天用 gcloud CLI 操作 BigQuery、Bigtable、Kubernetes Engine，常換電腦。怎麼避免每台都要裝 gcloud CLI？",
     "options": {
       "A": "Use Google Cloud Shell in the Google Cloud Console to interact with Google Cloud.",
       "B": "Create a Compute Engine instance and install gcloud on the instance. Connect to this instance via SSH to always use the same gcloud installation when interacting with Google Cloud.",
       "C": "Install gcloud on all of your workstations. Run the command gcloud components auto-update on each workstation",
       "D": "Use a package manager to install gcloud on your workstations instead of installing it manually."
+    },
+    "options-zh": {
+      "A": "用 Cloud Shell 操作 GCP。",
+      "B": "建 Compute Engine 裝 gcloud，SSH 連線統一用。",
+      "C": "每台都裝 gcloud 並自動更新。",
+      "D": "用套件管理工具安裝 gcloud。"
     },
     "images": [],
     "answers": [
@@ -3814,11 +3863,18 @@ const questions = [
   {
     "id": "Question #183",
     "question": "Your company recently acquired a company that has infrastructure in Google Cloud. Each company has its own Google Cloud organization. Each company is using a Shared Virtual Private Cloud (VPC) to provide network connectivity for its applications. Some of the subnets used by both companies overlap. In order for both businesses to integrate, the applications need to have private network connectivity. These applications are not on overlapping subnets. You want to provide connectivity with minimal re-engineering. What should you do?",
+    "question-zh": "公司併購另一家也用 GCP 的公司，雙方都有 Shared VPC，有些子網重疊但應用沒重疊，要讓應用能私網互通且改動最少，怎麼做？",
     "options": {
       "A": "Set up VPC peering and peer each Shared VPC together.",
       "B": "Migrate the projects from the acquired company into your company's Google Cloud organization. Re-launch the instances in your companies Shared VPC.",
       "C": "Set up a Cloud VPN gateway in each Shared VPC and peer Cloud VPNs.",
       "D": "Configure SSH port forwarding on each application to provide connectivity between applications in the different Shared VPCs."
+    },
+    "options-zh": {
+      "A": "設 VPC peering 讓兩邊 Shared VPC 互通。",
+      "B": "併購專案搬進本公司 Org，重建 VM 用本公司 Shared VPC。",
+      "C": "各自 Shared VPC 設 Cloud VPN 並互連。",
+      "D": "每個應用設 SSH port forwarding 互通。"
     },
     "images": [],
     "answers": [
@@ -3828,11 +3884,18 @@ const questions = [
   {
     "id": "Question #184",
     "question": "You are managing several internal applications that are deployed on Compute Engine. Business users inform you that an application has become very slow over the past few days. You want to find the underlying cause in order to solve the problem. What should you do first?",
+    "question-zh": "你管理多個 Compute Engine 內部應用，最近有一個變很慢，商業用戶反映。你要先怎麼查原因？",
     "options": {
       "A": "Inspect the logs and metrics from the instances in Cloud Logging and Cloud Monitoring.",
       "B": "Change the Compute Engine Instances behind the application to a machine type with more CPU and memory.",
       "C": "Restore a backup of the application database from a time before the application became slow.",
       "D": "Deploy the applications on a managed instance group with autoscaling enabled. Add a load balancer in front of the managed instance group, and have the users connect to the IP of the load balancer."
+    },
+    "options-zh": {
+      "A": "查 Cloud Logging 與 Monitoring 日誌與指標。",
+      "B": "換更大機型。",
+      "C": "還原變慢前的資料庫備份。",
+      "D": "用受管群組與自動擴展，前面加負載平衡。"
     },
     "images": [],
     "answers": [
@@ -3842,11 +3905,18 @@ const questions = [
   {
     "id": "Question #185",
     "question": "Your company has an application running as a Deployment in a Google Kubernetes Engine (GKE) cluster. When releasing new versions of the application via a rolling deployment, the team has been causing outages. The root cause of the outages is misconfigurations with parameters that are only used in production. You want to put preventive measures for this in the platform to prevent outages. What should you do?",
+    "question-zh": "公司有 GKE 應用，每次 rolling 部署新版常出包，都是 production 參數設錯。要怎麼預防？",
     "options": {
       "A": "Configure liveness and readiness probes in the Pod specification.",
       "B": "Configure health checks on the managed instance group.",
       "C": "Create a Scheduled Task to check whether the application is available.",
       "D": "Configure an uptime alert in Cloud Monitoring."
+    },
+    "options-zh": {
+      "A": "Pod 設 liveness/readiness probe。",
+      "B": "受管群組設健康檢查。",
+      "C": "排程任務檢查應用可用性。",
+      "D": "Cloud Monitoring 設 uptime alert。"
     },
     "images": [],
     "answers": [
@@ -3856,11 +3926,18 @@ const questions = [
   {
     "id": "Question #186",
     "question": "Your company uses Google Kubernetes Engine (GKE) as a platform for all workloads. Your company has a single large GKE cluster that contains batch, stateful, and stateless workloads. The GKE cluster is configured with a single node pool with 200 nodes. Your company needs to reduce the cost of this cluster but does not want to compromise availability. What should you do?",
+    "question-zh": "公司所有工作負載都跑 GKE，單一大叢集 200 節點，含 batch/stateful/stateless。要降成本又不影響可用性，怎麼做？",
     "options": {
       "A": "Create a second GKE cluster for the batch workloads only. Allocate the 200 original nodes across both clusters.",
       "B": "Configure CPU and memory limits on the namespaces in the cluster. Configure all Pods to have a CPU and memory limits.",
       "C": "Configure a HorizontalPodAutoscaler for all stateless workloads and for all compatible stateful workloads. Configure the cluster to use node auto scaling.",
       "D": "Change the node pool to use preemptible VMs."
+    },
+    "options-zh": {
+      "A": "另建 GKE 叢集專跑 batch，200 節點分兩叢集。",
+      "B": "namespace 設 CPU/記憶體上限，Pod 也設。",
+      "C": "stateless/stateful 都設 HPA，叢集設節點自動擴縮。",
+      "D": "改用 preemptible VM。"
     },
     "images": [],
     "answers": [
@@ -3870,11 +3947,18 @@ const questions = [
   {
     "id": "Question #187",
     "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing on a pay-per-use basis. You want to monitor queries in real time to discover the most costly queries and which users spend the most. What should you do?",
+    "question-zh": "公司用 BigQuery 做數據倉儲，按用量計費。要即時監控最貴查詢與花最多的用戶，怎麼做？",
     "options": {
       "A": "1. In the BigQuery dataset that contains all the tables to be queried, add a label for each user that can launch a query. 2. Open the Billing page of the project. 3. Select Reports. 4. Select BigQuery as the product and filter by the user you want to check.",
       "B": "1. Create a Cloud Logging sink to export BigQuery data access logs to BigQuery. 2. Perform a BigQuery query on the generated table to extract the information you need.",
       "C": "1. Create a Cloud Logging sink to export BigQuery data access logs to Cloud Storage. 2. Develop a Dataflow pipeline to compute the cost of queries split by users.",
       "D": "1. Activate billing export into BigQuery. 2. Perform a BigQuery query on the billing table to extract the information you need."
+    },
+    "options-zh": {
+      "A": "BigQuery 資料集每個用戶加 label，Billing 頁查報表。",
+      "B": "Cloud Logging sink 匯出 BigQuery 存取日誌到 BigQuery，再查詢。",
+      "C": "Cloud Logging sink 匯出日誌到 Cloud Storage，Dataflow 算每人花費。",
+      "D": "啟用帳單匯出到 BigQuery，再查詢。"
     },
     "images": [],
     "answers": [
@@ -3884,11 +3968,18 @@ const questions = [
   {
     "id": "Question #188",
     "question": "Your company and one of its partners each have a Google Cloud project in separate organizations. Your company's project (prj-a) runs in Virtual Private Cloud\n\n(vpc-a). The partner's project (prj-b) runs in vpc-b. There are two instances running on vpc-a and one instance running on vpc-b. Subnets defined in both VPCs are not overlapping. You need to ensure that all instances communicate with each other via internal IPs, minimizing latency and maximizing throughput. What should you do?",
+    "question-zh": "你公司和合作夥伴各有 GCP 專案，分別在 vpc-a/vpc-b，子網不重疊，要讓所有 VM 內部 IP 互通且低延遲高吞吐，怎麼做？",
     "options": {
       "A": "Set up a network peering between vpc-a and vpc-b.",
       "B": "Set up a VPN between vpc-a and vpc-b using Cloud VPN.",
       "C": "Configure IAP TCP forwarding on the instance in vpc-b, and then launch the following gcloud command from one of the instances in vpc-a gcloud: gcloud compute start-iap-tunnel INSTANCE_NAME_IN_VPC_8 22 \\ --local-host-port=localhost:22",
       "D": "1. Create an additional instance in vpc-a. 2. Create an additional instance in vpc-b. 3. Install OpenVPN in newly created instances. 4. Configure a VPN tunnel between vpc-a and vpc-b with the help of OpenVPN."
+    },
+    "options-zh": {
+      "A": "設 vpc-a/vpc-b peering。",
+      "B": "用 Cloud VPN 連 vpc-a/vpc-b。",
+      "C": "vpc-b 設 IAP TCP 轉發，vpc-a 執行 gcloud 指令。",
+      "D": "各加一台 VM 裝 OpenVPN，設 VPN 互通。"
     },
     "images": [],
     "answers": [
@@ -3898,11 +3989,18 @@ const questions = [
   {
     "id": "Question #189",
     "question": "You want to store critical business information in Cloud Storage buckets. The information is regularly changed, but previous versions need to be referenced on a regular basis. You want to ensure that there is a record of all changes to any information in these buckets. You want to ensure that accidental edits or deletions can be easily rolled back. Which feature should you enable?",
+    "question-zh": "你要把重要商業資訊存 Cloud Storage，資料常變但要能查舊版，也要能輕鬆還原誤刪誤改，該開啟哪個功能？",
     "options": {
       "A": "Bucket Lock",
       "B": "Object Versioning",
       "C": "Object change notification",
       "D": "Object Lifecycle Management"
+    },
+    "options-zh": {
+      "A": "Bucket Lock（桶鎖）。",
+      "B": "Object Versioning（物件版本）。",
+      "C": "物件變更通知。",
+      "D": "物件生命週期管理。"
     },
     "images": [],
     "answers": [
@@ -3912,11 +4010,18 @@ const questions = [
   {
     "id": "Question #190",
     "question": "You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows:\n\n✑ Metric identifier: agent.googleapis.com/memory/percent_used\n\n✑ Filter: metric.label.state = 'used'\n\n✑ Target utilization level: 80\n\n✑ Target type: GAUGE\n\nYou observe that the application does not scale under high load. You want to resolve this. What should you do?",
+    "question-zh": "你有 Compute Engine 應用，想在記憶體用量超過 80% 時自動擴展，已裝 Monitoring agent 並設好 autoscale，但高負載時沒擴展，要怎麼解決？",
     "options": {
       "A": "Change the Target type to DELTA_PER_MINUTE.",
       "B": "Change the Metric identifier to agent.googleapis.com/memory/bytes_used.",
       "C": "Change the filter to metric.label.state = 'used' AND metric.label.state = 'buffered' AND metric.label.state = 'cached' AND metric.label.state = 'slab'.",
       "D": "Change the filter to metric.label.state = 'free' and the Target utilization to 20."
+    },
+    "options-zh": {
+      "A": "Target type 改 DELTA_PER_MINUTE。",
+      "B": "Metric identifier 改 agent.googleapis.com/memory/bytes_used。",
+      "C": "filter 改同時含 used/buffered/cached/slab。",
+      "D": "filter 改 free，目標利用率設 20。"
     },
     "images": [],
     "answers": [
@@ -3926,11 +4031,18 @@ const questions = [
   {
     "id": "Question #191",
     "question": "You are deploying an application to Google Cloud. The application is part of a system. The application in Google Cloud must communicate over a private network with applications in a non-Google Cloud environment. The expected average throughput is 200 kbps. The business requires:\n\n✑ as close to 100% system availability as possible\n\n✑ cost optimization\n\nYou need to design the connectivity between the locations to meet the business requirements. What should you provision?",
+    "question-zh": "你要在 GCP 部署應用，需與非 GCP 應用私網通訊，平均 200kbps，要求接近 100% 可用性且要省錢，該怎麼設計連線？",
     "options": {
       "A": "An HA Cloud VPN gateway connected with two tunnels to an on-premises VPN gateway",
       "B": "Two Classic Cloud VPN gateways connected to two on-premises VPN gateways Configure each Classic Cloud VPN gateway to have two tunnels, each connected to different on-premises VPN gateways",
       "C": "Two HA Cloud VPN gateways connected to two on-premises VPN gateways Configure each HA Cloud VPN gateway to have two tunnels, each connected to different on-premises VPN gateways",
       "D": "A single Cloud VPN gateway connected to an on-premises VPN gateway"
+    },
+    "options-zh": {
+      "A": "HA Cloud VPN + 兩條通道連 on-prem VPN。",
+      "B": "兩台 Classic Cloud VPN 各連兩台 on-prem VPN。",
+      "C": "兩台 HA Cloud VPN 各連兩台 on-prem VPN。",
+      "D": "單一 Cloud VPN 連 on-prem VPN。"
     },
     "images": [],
     "answers": [
@@ -3940,11 +4052,18 @@ const questions = [
   {
     "id": "Question #192",
     "question": "Your company has an application running on App Engine that allows users to upload music files and share them with other people. You want to allow users to upload files directly into Cloud Storage from their browser session. The payload should not be passed through the backend. What should you do?",
+    "question-zh": "公司有 App Engine 應用讓用戶上傳音樂並分享，要讓用戶直接從瀏覽器上傳到 Cloud Storage，不經後端，怎麼做？",
     "options": {
       "A": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.2. Use the Cloud Storage Signed URL feature to generate a POST URL.",
       "B": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.2. Assign the Cloud Storage WRITER role to users who upload files.",
       "C": "1. Use the Cloud Storage Signed URL feature to generate a POST URL.2. Use App Engine default credentials to sign requests against Cloud Storage.",
       "D": "1. Assign the Cloud Storage WRITER role to users who upload files.2. Use App Engine default credentials to sign requests against Cloud Storage."
+    },
+    "options-zh": {
+      "A": "Cloud Storage 設 CORS，允許 App Engine 網域，並用 Signed URL 產生 POST。",
+      "B": "Cloud Storage 設 CORS 並給用戶 WRITER 角色。",
+      "C": "用 Signed URL 並用 App Engine 預設憑證簽名。",
+      "D": "給用戶 WRITER 角色並用 App Engine 預設憑證簽名。"
     },
     "images": [],
     "answers": [
@@ -3954,11 +4073,18 @@ const questions = [
   {
     "id": "Question #193",
     "question": "You are configuring the cloud network architecture for a newly created project in Google Cloud that will host applications in Compute Engine. Compute Engine virtual machine instances will be created in two different subnets (sub-a and sub-b) within a single region:\n\n- Instances in sub-a will have public IP addresses.\n- Instances in sub-b will have only private IP addresses.\n\nTo download updated packages, instances must connect to a public repository outside the boundaries of Google Cloud. You need to allow sub-b to access the external repository. What should you do?",
+    "question-zh": "你在 GCP 新專案設網路架構，Compute Engine VM 分 sub-a（有公網 IP）和 sub-b（僅私網 IP），sub-b 要能下載外部套件，怎麼做？",
     "options": {
       "A": "Enable Private Google Access on sub-b.",
       "B": "Configure Cloud NAT and select sub-b in the NAT mapping section.",
       "C": "Configure a bastion host instance in sub-a to connect to instances in sub-b.",
       "D": "Enable Identity-Aware Proxy for TCP forwarding for instances in sub-b."
+    },
+    "options-zh": {
+      "A": "sub-b 啟用 Private Google Access。",
+      "B": "設 Cloud NAT 並選 sub-b。",
+      "C": "sub-a 設 bastion host 連 sub-b。",
+      "D": "sub-b 啟用 IAP TCP 轉發。"
     },
     "images": [],
     "answers": [
@@ -3968,11 +4094,18 @@ const questions = [
   {
     "id": "Question #194",
     "question": "Your company is planning to migrate their Windows Server 2022 from their on-premises data center to Google Cloud. You need to bring the licenses that are currently in use in on-premises virtual machines into the target cloud environment. What should you do?",
+    "question-zh": "公司要把 Windows Server 2022 從本地搬到 GCP，要把現有授權帶進雲端，怎麼做？",
     "options": {
       "A": "1. Create an image of the on-premises virtual machines and upload into Cloud Storage.2. Import the image as a virtual disk on Compute Engine.",
       "B": "1. Create standard instances on Compute Engine.2. Select as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.",
       "C": "1. Create an image of the on-premises virtual machine.2. Import the image as a virtual disk on Compute Engine.3. Create a standard instance on Compute Engine, selecting as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.4. Attach a data disk that includes data that matches the created image.",
       "D": "1. Create an image of the on-premises virtual machines.2. Import the image as a virtual disk on Compute Engine using --os=windows-2022-dc-v.3. Create a sole-tenancy instance on Compute Engine that uses the imported disk as a boot disk."
+    },
+    "options-zh": {
+      "A": "本地 VM 製作映像檔，上傳 Cloud Storage，匯入 Compute Engine。",
+      "B": "Compute Engine 建標準 VM，選同版 Windows。",
+      "C": "本地 VM 製作映像檔，匯入 Compute Engine，建標準 VM 並掛資料碟。",
+      "D": "本地 VM 製作映像檔，--os=windows-2022-dc-v 匯入，建專屬租用 VM 當開機碟。"
     },
     "images": [],
     "answers": [
@@ -3982,11 +4115,18 @@ const questions = [
   {
     "id": "Question #195",
     "question": "You are deploying an application to Google Cloud. The application is part of a system. The application in Google Cloud must communicate over a private network with applications in a non-Google Cloud environment. The expected average throughput is 200 kbps. The business requires:\n\n- 99.99% system availability\n- cost optimization\n\nYou need to design the connectivity between the locations to meet the business requirements. What should you provision?",
+    "question-zh": "你要在 GCP 部署應用，需與非 GCP 應用私網通訊，平均 200kbps，要求 99.99% 可用性且要省錢，該怎麼設計連線？",
     "options": {
       "A": "An HA Cloud VPN gateway connected with two tunnels to an on-premises VPN gateway.",
       "B": "A Classic Cloud VPN gateway connected with two tunnels to an on-premises VPN gateway.",
       "C": "Two HA Cloud VPN gateways connected to two on-premises VPN gateways. Configure each HA Cloud VPN gateway to have two tunnels, each connected to different on-premises VPN gateways.",
       "D": "A Classic Cloud VPN gateway connected with one tunnel to an on-premises VPN gateway."
+    },
+    "options-zh": {
+      "A": "HA Cloud VPN + 兩條通道連 on-prem VPN。",
+      "B": "Classic Cloud VPN + 兩條通道連 on-prem VPN。",
+      "C": "兩台 HA Cloud VPN 各連兩台 on-prem VPN。",
+      "D": "Classic Cloud VPN + 一條通道連 on-prem VPN。"
     },
     "images": [],
     "answers": [
@@ -3996,11 +4136,18 @@ const questions = [
   {
     "id": "Question #196",
     "question": "Your company wants to migrate their 10-TB on-premises database export into Cloud Storage. You want to minimize the time it takes to complete this activity and the overall cost. The bandwidth between the on-premises environment and Google Cloud is 1 Gbps. You want to follow Google-recommended practices. What should you do?",
+    "question-zh": "公司要把 10TB 本地資料庫匯出搬到 Cloud Storage，要省時省錢，頻寬 1Gbps，怎麼做最符合 Google 建議？",
     "options": {
       "A": "Develop a Dataflow job to read data directly from the database and write it into Cloud Storage.",
       "B": "Use the Data Transfer appliance to perform an offline migration.",
       "C": "Use a commercial partner ETL solution to extract the data from the on-premises database and upload it into Cloud Storage.",
       "D": "Upload the data with gcloud storage cp."
+    },
+    "options-zh": {
+      "A": "Dataflow 直接讀資料庫寫 Cloud Storage。",
+      "B": "用 Data Transfer appliance 離線搬遷。",
+      "C": "用商業 ETL 工具抽取上傳。",
+      "D": "用 gcloud storage cp 上傳。"
     },
     "images": [],
     "answers": [
@@ -4010,11 +4157,18 @@ const questions = [
   {
     "id": "Question #197",
     "question": "You are working at a financial institution that stores mortgage loan approval documents on Cloud Storage. Any change to these approval documents must be uploaded as a separate approval file. You need to ensure that these documents cannot be deleted or overwritten for the next 5 years. What should you do?",
+    "question-zh": "你在金融機構，房貸核准文件存 Cloud Storage，任何異動都要另存新檔，且 5 年內不能刪改，怎麼做？",
     "options": {
       "A": "Create a retention policy on the bucket for the duration of 5 years. Create a lock on the retention policy.",
       "B": "Create a retention policy organizational constraint constraints/storage.retentionPolicySeconds at the organization level. Set the duration to 5 years.",
       "C": "Use a customer-managed key for the encryption of the bucket. Rotate the key after 5 years.",
       "D": "Create a retention policy organizational constraint constraints/storage.retentionPolicySeconds at the project level. Set the duration to 5 years."
+    },
+    "options-zh": {
+      "A": "bucket 設 5 年保存政策並上鎖。",
+      "B": "Org 設保存政策 constraints/storage.retentionPolicySeconds，5 年。",
+      "C": "用自管金鑰加密，5 年後輪替。",
+      "D": "專案層設保存政策 constraints/storage.retentionPolicySeconds，5 年。"
     },
     "images": [],
     "answers": [
@@ -4024,11 +4178,18 @@ const questions = [
   {
     "id": "Question #198",
     "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
+    "question-zh": "公司要大改 API，舊版要能繼續用，新客戶與測試者可試新版，SSL/DNS 不變，怎麼做？",
     "options": {
       "A": "Configure a new load balancer for the new version of the API",
       "B": "Reconfigure old clients to use a new endpoint for the new API",
       "C": "Have the old API forward traffic to the new API based on the path",
       "D": "Use separate backend pools for each API path behind the load balancer"
+    },
+    "options-zh": {
+      "A": "新 API 設新負載平衡器。",
+      "B": "舊客戶改用新版 endpoint。",
+      "C": "舊 API 依路徑轉發到新版。",
+      "D": "負載平衡器用不同後端池對應不同 API 路徑。"
     },
     "images": [],
     "answers": [
@@ -4038,11 +4199,18 @@ const questions = [
   {
     "id": "Question #199",
     "question": "You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows:",
+    "question-zh": "你有 Compute Engine 應用，想在記憶體用量超過 80% 時自動擴展，已裝 Monitoring agent 並設好 autoscale。怎麼修正？",
     "options": {
       "A": "Change the Target type to DELTA_PER_MINUTE.",
       "B": "Change the Metric identifier to agent.googleapis.com/memory/bytes_used.",
       "C": "Change the filter to metric.label.state = ‘used’.",
       "D": "Change the filter to metric.label.state = ‘free’ and the Target utilization to 20."
+    },
+    "options-zh": {
+      "A": "Target type 改 DELTA_PER_MINUTE。",
+      "B": "Metric identifier 改 agent.googleapis.com/memory/bytes_used。",
+      "C": "filter 改 ‘used’。",
+      "D": "filter 改 ‘free’，目標利用率設 20。"
     },
     "images": [
       "images/Question-199.png"
@@ -4054,11 +4222,18 @@ const questions = [
   {
     "id": "HRL-Question #1",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Your team is in charge of creating a payment card data vault for card numbers used to bill tens of thousands of viewers, merchandise consumers, and season ticket holders. You need to implement a custom card tokenization service that meets the following requirements:\n\n- It must provide low latency at minimal cost.\n- It must be able to identify duplicate credit cards and must not store plaintext card numbers.\n- It should support annual key rotation.\n\nWhich storage approach should you adopt for your tokenization service?",
+    "question-zh": "（HRL 案例）你負責建立信用卡資料庫，需低延遲低成本、能判重、不能存明碼卡號、支援年輪換金鑰。該用哪種儲存方案？",
     "options": {
       "A": "Store the card data in Secret Manager after running a query to identify duplicates.",
       "B": "Encrypt the card data with a deterministic algorithm stored in Firestore using Datastore mode.",
       "C": "Encrypt the card data with a deterministic algorithm and shard it across multiple Memorystore instances.",
       "D": "Use column-level encryption to store the data in Cloud SQL."
+    },
+    "options-zh": {
+      "A": "查重後存 Secret Manager。",
+      "B": "用決定性加密存 Firestore（Datastore 模式）。",
+      "C": "決定性加密後分片存 Memorystore。",
+      "D": "Cloud SQL 欄位加密。"
     },
     "images": [],
     "answers": [
@@ -4068,11 +4243,18 @@ const questions = [
   {
     "id": "HRL-Question #2-1",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Recently HRL started a new regional racing league in Cape Town, South Africa. In an effort to give customers in Cape Town a better user experience, HRL has partnered with the Content Delivery Network provider, Fastly. HRL needs to allow traffic coming from all of the Fastly IP address ranges into their Virtual Private Cloud network (VPC network). You are a member of the HRL security team and you need to configure the update that will allow only the Fastly IP address ranges through the External HTTP(S) load balancer. Which command should you use?",
+    "question-zh": "（HRL 案例）HRL 在開普敦新賽區，合作 CDN Fastly，要讓 Fastly IP 通過 VPC 的 HTTP(S) 負載平衡器，該用哪個指令？",
     "options": {
       "A": "Image 1",
       "B": "Image 2",
       "C": "Image 3",
       "D": "Image 4"
+    },
+    "options-zh": {
+      "A": "圖 1",
+      "B": "圖 2",
+      "C": "圖 3",
+      "D": "圖 4"
     },
     "images": [
       "images/HRL-Question-2-1-1.png",
@@ -4087,11 +4269,18 @@ const questions = [
   {
     "id": "HRL-Question #2-2",
     "question": "As someone pointed out answers are reworked.\nInstead of asking for the command, the choices were given in wordings - something like the below. (Not the exact words)",
+    "question-zh": "（HRL 案例）有題目改成用敘述選項而非指令，內容大致如下。",
     "options": {
       "A": "Create Cloud Armor Security Policy with the source ip ranges.",
       "B": "Create Cloud Armor Security Policy with the source ip list",
       "C": "Create firewall rule to allow source ip list",
       "D": "Create firewall rule to allow source ip range"
+    },
+    "options-zh": {
+      "A": "Cloud Armor 設來源 IP 範圍政策。",
+      "B": "Cloud Armor 設來源 IP 清單政策。",
+      "C": "設防火牆規則允許來源 IP 清單。",
+      "D": "設防火牆規則允許來源 IP 範圍。"
     },
     "images": [],
     "answers": [
@@ -4101,11 +4290,18 @@ const questions = [
   {
     "id": "HRL-Question #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called\n\nAirwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?",
+    "question-zh": "（HRL 案例）HRL 開發團隊每週二 3am UTC 發新版預測應用，資安團隊有 Cloud Function Airwolf 要每週自動測新版，怎麼設？",
     "options": {
       "A": "Set up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function.",
       "B": "Set up a Cloud Logging sink and a Cloud Storage bucket that triggers a Cloud Function.",
       "C": "Configure the deployment job to notify a Pub/Sub queue that triggers a Cloud Function.",
       "D": "Set up Identity and Access Management (IAM) and Confidential Computing to trigger a Cloud Function."
+    },
+    "options-zh": {
+      "A": "Cloud Tasks + Cloud Storage 觸發 Cloud Function。",
+      "B": "Cloud Logging sink + Cloud Storage 觸發 Cloud Function。",
+      "C": "部署作業通知 Pub/Sub 觸發 Cloud Function。",
+      "D": "IAM + Confidential Computing 觸發 Cloud Function。"
     },
     "images": [],
     "answers": [
@@ -4115,11 +4311,18 @@ const questions = [
   {
     "id": "HRL-Question #4 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL wants better prediction accuracy from their ML prediction models. They want you to use Google's AI Platform so HRL can understand and interpret the predictions. What should you do?",
+    "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。HRL 希望提升機器學習預測模型的準確度，並希望你使用 Google 的 AI Platform 來協助 HRL 理解與解釋預測結果。你該怎麼做？",
     "options": {
       "A": "Use Explainable AI.",
       "B": "Use Vision AI.",
       "C": "Use Google Cloud's operations suite.",
       "D": "Use Jupyter Notebooks."
+    },
+    "options-zh": {
+      "A": "使用可解釋 AI（Explainable AI）",
+      "B": "使用 Vision AI",
+      "C": "使用 Google Cloud 的營運套件（operations suite）",
+      "D": "使用 Jupyter Notebooks"
     },
     "images": [],
     "answers": [
@@ -4129,11 +4332,18 @@ const questions = [
   {
     "id": "HRL-Question #5 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL is looking for a cost-effective approach for storing their race data such as telemetry. They want to keep all historical records, train models using only the previous season's data, and plan for data growth in terms of volume and information collected. You need to propose a data solution. Considering HRL business requirements and the goals expressed by CEO S. Hawke, what should you do?",
+    "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。HRL 希望以具成本效益的方式儲存賽事資料（如遙測數據），並保留所有歷史紀錄，只用前一賽季資料訓練模型，且需規劃資料量與資訊成長。根據 HRL 的業務需求與 CEO S. Hawke 的目標，請提出資料解決方案。你該怎麼做？",
     "options": {
       "A": "Use Firestore for its scalable and flexible document-based database. Use collections to aggregate race data by season and event.",
       "B": "Use Cloud Spanner for its scalability and ability to version schemas with zero downtime. Split race data using season as a primary key.",
       "C": "Use BigQuery for its scalability and ability to add columns to a schema. Partition race data based on season.",
       "D": "Use Cloud SQL for its ability to automatically manage storage increases and compatibility with MySQL. Use separate database instances for each season."
+    },
+    "options-zh": {
+      "A": "使用 Firestore，因其具備可擴展且彈性的文件型資料庫。以 collection 匯總每季與每場賽事的資料。",
+      "B": "使用 Cloud Spanner，因其可擴展性與無停機版本管理。以賽季作為主鍵分割資料。",
+      "C": "使用 BigQuery，因其可擴展性與可動態新增欄位。以賽季分割資料。",
+      "D": "使用 Cloud SQL，能自動管理儲存空間並相容 MySQL。每季使用不同資料庫實例。"
     },
     "images": [],
     "answers": [
@@ -4143,11 +4353,18 @@ const questions = [
   {
     "id": "HRL-Question #6",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of\n\nCompute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?",
+    "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。最近財務稽核發現雲端基礎設施有大量 Compute Engine 實例用於影片編碼與轉檔。你懷疑這些 VM 是工作完成後未刪除的殭屍機器。你需要快速取得閒置 VM 實例清單。你該怎麼做？",
     "options": {
       "A": "Log into each Compute Engine instance and collect disk, CPU, memory, and network usage statistics for analysis.",
       "B": "Use the gcloud compute instances list to list the virtual machine instances that have the idle: true label set.",
       "C": "Use the gcloud recommender command to list the idle virtual machine instances.",
       "D": "From the Google Console, identify which Compute Engine instances in the managed instance groups are no longer responding to health check probes."
+    },
+    "options-zh": {
+      "A": "登入每個 Compute Engine 實例，收集磁碟、CPU、記憶體與網路使用統計資料進行分析。",
+      "B": "使用 gcloud compute instances list 指令，列出標記為 idle: true 的 VM 實例。",
+      "C": "使用 gcloud recommender 指令，列出閒置的 VM 實例。",
+      "D": "在 Google Console 中，找出受管實例群組中未回應健康檢查的 Compute Engine 實例。"
     },
     "images": [],
     "answers": [
@@ -4157,12 +4374,20 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #1",
     "question": "For this question, refer to the EHR Healthcare case study. You are responsible for ensuring that EHR's use of Google Cloud will pass an upcoming privacy compliance audit. What should you do? (Choose two.)",
+    "question-zh": "本題請參考 EHR Healthcare 案例。你負責確保 EHR 使用 Google Cloud 能通過即將到來的隱私合規稽核。你該怎麼做？（選兩項）",
     "options": {
       "A": "Verify EHR's product usage against the list of compliant products on the Google Cloud compliance page.",
       "B": "Advise EHR to execute a Business Associate Agreement (BAA) with Google Cloud.",
       "C": "Use Firebase Authentication for EHR's user facing applications.",
       "D": "Implement Prometheus to detect and prevent security breaches on EHR's web-based applications.",
       "E": "Use GKE private clusters for all Kubernetes workloads."
+    },
+    "options-zh": {
+      "A": "根據 Google Cloud 合規頁面，核對 EHR 使用的產品是否合規。",
+      "B": "建議 EHR 與 Google Cloud 簽署商業夥伴協議（BAA）。",
+      "C": "EHR 的用戶端應用程式使用 Firebase Authentication。",
+      "D": "導入 Prometheus 以偵測並防止網頁應用程式的安全漏洞。",
+      "E": "所有 Kubernetes 工作負載皆使用 GKE 私有叢集。"
     },
     "images": [],
     "answers": [
@@ -4173,11 +4398,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #2",
     "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for securely deploying workloads to Google Cloud. You also need to ensure that only verified containers are deployed using Google Cloud services. What should you do? (Choose two.)",
+    "question-zh": "本題請參考 EHR Healthcare 案例。你需要定義安全部署工作負載到 Google Cloud 的技術架構，並確保僅有經驗證的容器能被部署。你該怎麼做？（選兩項）",
     "options": {
       "A": "Enable Binary Authorization on GKE, and sign containers as part of a CI/CD pipeline.",
       "B": "Configure Jenkins to utilize Kritis to cryptographically sign a container as part of a CI/CD pipeline.",
       "C": "Configure Container Registry to only allow trusted service accounts to create and deploy containers from the registry.",
       "D": "Configure Container Registry to use vulnerability scanning to confirm that there are no vulnerabilities before deploying the workload."
+    },
+    "options-zh": {
+      "A": "在 GKE 啟用 Binary Authorization，並於 CI/CD 流程中簽署容器。",
+      "B": "設定 Jenkins 使用 Kritis，在 CI/CD 流程中對容器進行加密簽章。",
+      "C": "設定 Container Registry 僅允許受信任的服務帳號建立與部署容器。",
+      "D": "設定 Container Registry 於部署前進行漏洞掃描，確保無漏洞。"
     },
     "images": [],
     "answers": [
@@ -4188,11 +4420,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #3",
     "question": "You need to upgrade the EHR connection to comply with their requirements. The new connection design must support business-critical needs and meet the same network and security policy requirements. What should you do?",
+    "question-zh": "你需要升級 EHR 的連線以符合其需求。新設計必須支援關鍵業務並符合相同的網路與安全政策。你該怎麼做？",
     "options": {
       "A": "Add a new Dedicated Interconnect connection.",
       "B": "Upgrade the bandwidth on the Dedicated Interconnect connection to 100 G.",
       "C": "Add three new Cloud VPN connections.",
       "D": "Add a new Carrier Peering connection."
+    },
+    "options-zh": {
+      "A": "新增一條 Dedicated Interconnect 連線。",
+      "B": "將 Dedicated Interconnect 連線頻寬升級至 100G。",
+      "C": "新增三條 Cloud VPN 連線。",
+      "D": "新增一條 Carrier Peering 連線。"
     },
     "images": [],
     "answers": [
@@ -4202,11 +4441,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #4",
     "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for hybrid connectivity between EHR's on-premises systems and Google Cloud. You want to follow Google's recommended practices for production-level applications. Considering the EHR Healthcare business and technical requirements, what should you do?",
+    "question-zh": "本題請參考 EHR Healthcare 案例。你需要設計 EHR 內部系統與 Google Cloud 的混合連線架構，並遵循 Google 的生產環境建議。根據 EHR 的業務與技術需求，你該怎麼做？",
     "options": {
       "A": "Configure two Partner Interconnect connections in one metro (City), and make sure the Interconnect connections are placed in different metro zones.",
       "B": "Configure two VPN connections from on-premises to Google Cloud, and make sure the VPN devices on-premises are in separate racks.",
       "C": "Configure Direct Peering between EHR Healthcare and Google Cloud, and make sure you are peering at least two Google locations.",
       "D": "Configure two Dedicated Interconnect connections in one metro (City) and two connections in another metro, and make sure the Interconnect connections are placed in different metro zones."
+    },
+    "options-zh": {
+      "A": "在同一城市設置兩條 Partner Interconnect，並確保分布於不同 metro zone。",
+      "B": "從內部到 Google Cloud 設置兩條 VPN，並確保內部 VPN 設備分別在不同機架。",
+      "C": "設置 Direct Peering，並確保至少在兩個 Google 地點進行對等連線。",
+      "D": "在同一城市設置兩條 Dedicated Interconnect，另一城市再設兩條，並確保分布於不同 metro zone。"
     },
     "images": [],
     "answers": [
@@ -4216,11 +4462,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #5",
     "question": "For this question, refer to the EHR Healthcare case study. You are a developer on the EHR customer portal team. Your team recently migrated the customer portal application to Google Cloud. The load has increased on the application servers, and now the application is logging many timeout errors. You recently incorporated Pub/Sub into the application architecture, and the application is not logging any Pub/Sub publishing errors. You want to improve publishing latency.\n\nWhat should you do?",
+    "question-zh": "本題請參考 EHR Healthcare 案例。你是 EHR 客戶入口網站團隊的開發人員。團隊最近將入口網站遷移到 Google Cloud，伺服器負載增加，應用程式出現許多逾時錯誤。你已將 Pub/Sub 納入架構，且未記錄任何發佈錯誤。你想改善發佈延遲，該怎麼做？",
     "options": {
       "A": "Increase the Pub/Sub Total Timeout retry value.",
       "B": "Move from a Pub/Sub subscriber pull model to a push model.",
       "C": "Turn off Pub/Sub message batching.",
       "D": "Create a backup Pub/Sub message queue."
+    },
+    "options-zh": {
+      "A": "提高 Pub/Sub 總逾時重試值。",
+      "B": "將 Pub/Sub 訂閱者從拉取模式改為推送模式。",
+      "C": "關閉 Pub/Sub 訊息批次處理。",
+      "D": "建立備用 Pub/Sub 訊息佇列。"
     },
     "images": [],
     "answers": [
@@ -4230,11 +4483,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #6",
     "question": "For this question, refer to the EHR Healthcare case study. In the past, configuration errors put public IP addresses on backend servers that should not have been accessible from the Internet. You need to ensure that no one can put external IP addresses on backend Compute Engine instances and that external IP addresses can only be configured on frontend Compute Engine instances. What should you do?",
+    "question-zh": "本題請參考 EHR Healthcare 案例。過去設定錯誤導致後端伺服器被配置了公網 IP，應不可從網際網路存取。你需確保僅前端 Compute Engine 實例可設外部 IP，後端不可。你該怎麼做？",
     "options": {
       "A": "Create an Organizational Policy with a constraint to allow external IP addresses only on the frontend Compute Engine instances.",
       "B": "Revoke the compute.networkAdmin role from all users in the project with front end instances.",
       "C": "Create an Identity and Access Management (IAM) policy that maps the IT staff to the compute.networkAdmin role for the organization.",
       "D": "Create a custom Identity and Access Management (IAM) role named GCE_FRONTEND with the compute.addresses.create permission."
+    },
+    "options-zh": {
+      "A": "建立組織政策，僅允許前端 Compute Engine 實例配置外部 IP。",
+      "B": "撤銷所有前端專案用戶的 compute.networkAdmin 角色。",
+      "C": "建立 IAM 政策，將 IT 人員對應到組織的 compute.networkAdmin 角色。",
+      "D": "建立名為 GCE_FRONTEND 的自訂 IAM 角色，並賦予 compute.addresses.create 權限。"
     },
     "images": [],
     "answers": [
@@ -4244,11 +4504,18 @@ const questions = [
   {
     "id": "EHR Healthcare-Question #7",
     "question": "For this question, refer to the EHR Healthcare case study. You are responsible for designing the Google Cloud network architecture for Google Kubernetes Engine. You want to follow Google best practices. Considering the EHR Healthcare business and technical requirements, what should you do to reduce the attack surface?",
+    "question-zh": "本題請參考 EHR Healthcare 案例。你負責設計 Google Kubernetes Engine 的雲端網路架構，並希望遵循 Google 最佳實踐。根據 EHR 的業務與技術需求，如何降低攻擊面？",
     "options": {
       "A": "Use a private cluster with a private endpoint with master authorized networks configured.",
       "B": "Use a public cluster with firewall rules and Virtual Private Cloud (VPC) routes.",
       "C": "Use a private cluster with a public endpoint with master authorized networks configured.",
       "D": "Use a public cluster with master authorized networks enabled and firewall rules."
+    },
+    "options-zh": {
+      "A": "使用私有叢集，並設定私有端點與 master 授權網路。",
+      "B": "使用公開叢集，並設防火牆規則與 VPC 路由。",
+      "C": "使用私有叢集，公開端點並設 master 授權網路。",
+      "D": "使用公開叢集，啟用 master 授權網路並設防火牆規則。"
     },
     "images": [],
     "answers": [
@@ -4258,11 +4525,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #1 Topic #5",
     "question": "Mountkirk Games wants you to design their new testing strategy. How should the test coverage differ from their existing backends on the other platforms?",
+    "question-zh": "Mountkirk Games 希望你設計新的測試策略。測試覆蓋率應如何與現有平台的後端不同？",
     "options": {
       "A": "Tests should scale well beyond the prior approaches",
       "B": "Unit tests are no longer required, only end-to-end tests",
       "C": "Tests should be applied after the release is in the production environment",
       "D": "Tests should include directly testing the Google Cloud Platform (GCP) infrastructure"
+    },
+    "options-zh": {
+      "A": "測試規模應遠超以往方法。",
+      "B": "不再需要單元測試，只需端到端測試。",
+      "C": "測試應在產品上線後才執行。",
+      "D": "測試應直接涵蓋 Google Cloud Platform（GCP）基礎設施。"
     },
     "images": [],
     "answers": [
@@ -4272,11 +4546,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #2 Topic #5",
     "question": "Mountkirk Games has deployed their new backend on Google Cloud Platform (GCP). You want to create a through testing process for new versions of the backend before they are released to the public. You want the testing environment to scale in an economical way. How should you design the process?",
+    "question-zh": "Mountkirk Games 已將新後端部署於 Google Cloud Platform（GCP）。你希望為新版本建立完整測試流程，並讓測試環境具經濟規模。該如何設計？",
     "options": {
       "A": "Create a scalable environment in GCP for simulating production load",
       "B": "Use the existing infrastructure to test the GCP-based backend at scale",
       "C": "Build stress tests into each component of your application using resources internal to GCP to simulate load",
       "D": "Create a set of static environments in GCP to test different levels of load ג€\" for example, high, medium, and low"
+    },
+    "options-zh": {
+      "A": "在 GCP 建立可擴展環境以模擬生產負載。",
+      "B": "利用現有基礎設施大規模測試 GCP 後端。",
+      "C": "將壓力測試內建於每個應用元件，並用 GCP 內部資源模擬負載。",
+      "D": "在 GCP 建立多組靜態環境，測試不同負載（如高、中、低）。"
     },
     "images": [],
     "answers": [
@@ -4286,11 +4567,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #3 Topic #5",
     "question": "Mountkirk Games wants to set up a continuous delivery pipeline. Their architecture includes many small services that they want to be able to update and roll back quickly. Mountkirk Games has the following requirements:\n\n✑ Services are deployed redundantly across multiple regions in the US and Europe\n\n✑ Only frontend services are exposed on the public internet\n\n✑ They can provide a single frontend IP for their fleet of services\n\n✑ Deployment artifacts are immutable\n\nWhich set of products should they use?",
+    "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變\n\n他們應該用哪些產品？",
     "options": {
       "A": "Google Cloud Storage, Google Cloud Dataflow, Google Compute Engine",
       "B": "Google Cloud Storage, Google App Engine, Google Network Load Balancer",
       "C": "Google Kubernetes Registry, Google Container Engine, Google HTTP(S) Load Balancer",
       "D": "Google Cloud Functions, Google Cloud Pub/Sub, Google Cloud Deployment Manager"
+    },
+    "options-zh": {
+      "A": "Google Cloud Storage、Google Cloud Dataflow、Google Compute Engine",
+      "B": "Google Cloud Storage、Google App Engine、Google Network Load Balancer",
+      "C": "Google Kubernetes Registry、Google Container Engine、Google HTTP(S) Load Balancer",
+      "D": "Google Cloud Functions、Google Cloud Pub/Sub、Google Cloud Deployment Manager"
     },
     "images": [],
     "answers": [
@@ -4300,11 +4588,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #4 Topic #5",
     "question": "Mountkirk Games' gaming servers are not automatically scaling properly. Last month, they rolled out a new feature, which suddenly became very popular. A record number of users are trying to use the service, but many of them are getting 503 errors and very slow response times. What should they investigate first?",
+    "question-zh": "Mountkirk Games 的遊戲伺服器未能自動擴展。上月推出新功能後爆紅，創下用戶新高，但許多用戶遇到 503 錯誤與回應緩慢。應先調查什麼？",
     "options": {
       "A": "Verify that the database is online",
       "B": "Verify that the project quota hasn't been exceeded",
       "C": "Verify that the new feature code did not introduce any performance bugs",
       "D": "Verify that the load-testing team is not running their tool against production"
+    },
+    "options-zh": {
+      "A": "確認資料庫是否在線上。",
+      "B": "確認專案配額是否已超過。",
+      "C": "確認新功能程式碼未引入效能問題。",
+      "D": "確認壓力測試團隊未對正式環境執行測試。"
     },
     "images": [],
     "answers": [
@@ -4314,11 +4609,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #5 Topic #5",
     "question": "Mountkirk Games needs to create a repeatable and configurable mechanism for deploying isolated application environments. Developers and testers can access each other's environments and resources, but they cannot access staging or production resources. The staging environment needs access to some services from production.\n\nWhat should you do to isolate development environments from staging and production?",
+    "question-zh": "Mountkirk Games 需要建立可重複且可設定的機制來部署隔離的應用環境。開發與測試人員可互相存取彼此環境，但不能存取預備或正式資源。預備環境需能存取部分正式服務。你該如何隔離開發、預備與正式環境？",
     "options": {
       "A": "Create a project for development and test and another for staging and production",
       "B": "Create a network for development and test and another for staging and production",
       "C": "Create one subnetwork for development and another for staging and production",
       "D": "Create one project for development, a second for staging and a third for production"
+    },
+    "options-zh": {
+      "A": "為開發與測試建立一個專案，預備與正式共用另一個專案。",
+      "B": "為開發與測試建立一個網路，預備與正式共用另一個網路。",
+      "C": "建立一個子網給開發，一個給預備與正式。",
+      "D": "分別為開發、預備、正式建立三個專案。"
     },
     "images": [],
     "answers": [
@@ -4328,12 +4630,20 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #6 Topic #5",
     "question": "Mountkirk Games wants to set up a real-time analytics platform for their new game. The new platform must meet their technical requirements.\n\nWhich combination of Google technologies will meet all of their requirements?",
+    "question-zh": "Mountkirk Games 想為新遊戲建立即時分析平台，需符合技術需求。下列哪組 Google 技術能滿足所有需求？",
     "options": {
       "A": "Kubernetes Engine, Cloud Pub/Sub, and Cloud SQL",
       "B": "Cloud Dataflow, Cloud Storage, Cloud Pub/Sub, and BigQuery",
       "C": "Cloud SQL, Cloud Storage, Cloud Pub/Sub, and Cloud Dataflow",
       "D": "Cloud Dataproc, Cloud Pub/Sub, Cloud SQL, and Cloud Dataflow",
       "E": "Cloud Pub/Sub, Compute Engine, Cloud Storage, and Cloud Dataproc"
+    },
+    "options-zh": {
+      "A": "Kubernetes Engine、Cloud Pub/Sub、Cloud SQL",
+      "B": "Cloud Dataflow、Cloud Storage、Cloud Pub/Sub、BigQuery",
+      "C": "Cloud SQL、Cloud Storage、Cloud Pub/Sub、Cloud Dataflow",
+      "D": "Cloud Dataproc、Cloud Pub/Sub、Cloud SQL、Cloud Dataflow",
+      "E": "Cloud Pub/Sub、Compute Engine、Cloud Storage、Cloud Dataproc"
     },
     "images": [],
     "answers": [
@@ -4343,12 +4653,20 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #1 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants to migrate from their current analytics and statistics reporting model to one that meets their technical requirements on Google Cloud Platform.\n\nWhich two steps should be part of their migration plan? (Choose two.)",
+      "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望將現有分析與統計報表模型遷移到符合 Google Cloud Platform 技術需求的新模型。\n\n下列哪兩個步驟應納入遷移計畫？（選兩項）",
     "options": {
       "A": "Evaluate the impact of migrating their current batch ETL code to Cloud Dataflow.",
       "B": "Write a schema migration plan to denormalize data for better performance in BigQuery.",
       "C": "Draw an architecture diagram that shows how to move from a single MySQL database to a MySQL cluster.",
       "D": "Load 10 TB of analytics data from a previous game into a Cloud SQL instance, and run test queries against the full dataset to confirm that they complete successfully.",
       "E": "Integrate Cloud Armor to defend against possible SQL injection attacks in analytics files uploaded to Cloud Storage."
+      },
+      "options-zh": {
+        "A": "評估將現有批次 ETL 程式碼遷移到 Cloud Dataflow 的影響。",
+        "B": "撰寫資料結構遷移計畫，將資料去正規化以提升 BigQuery 效能。",
+        "C": "繪製架構圖，說明如何從單一 MySQL 資料庫遷移到 MySQL 叢集。",
+        "D": "將前一款遊戲的 10TB 分析資料載入 Cloud SQL，並對完整資料集執行測試查詢以確認成功。",
+        "E": "整合 Cloud Armor，防禦上傳至 Cloud Storage 的分析檔案可能遭受的 SQL 注入攻擊。"
     },
     "images": [],
     "answers": [
@@ -4359,11 +4677,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #2 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. You need to analyze and define the technical architecture for the compute workloads for your company, Mountkirk Games. Considering the Mountkirk Games business and technical requirements, what should you do?",
+      "question-zh": "本題請參考 Mountkirk Games 案例。你需要分析並定義 Mountkirk Games 的運算工作負載技術架構。根據業務與技術需求，你該怎麼做？",
     "options": {
       "A": "Create network load balancers. Use preemptible Compute Engine instances.",
       "B": "Create network load balancers. Use non-preemptible Compute Engine instances.",
       "C": "Create a global load balancer with managed instance groups and autoscaling policies. Use preemptible Compute Engine instances.",
       "D": "Create a global load balancer with managed instance groups and autoscaling policies. Use non-preemptible Compute Engine instances."
+      },
+      "options-zh": {
+        "A": "建立網路負載平衡器，並使用可搶佔型 Compute Engine 實例。",
+        "B": "建立網路負載平衡器，並使用非可搶佔型 Compute Engine 實例。",
+        "C": "建立全球負載平衡器，搭配受管實例群組與自動擴展政策，並使用可搶佔型 Compute Engine 實例。",
+        "D": "建立全球負載平衡器，搭配受管實例群組與自動擴展政策，並使用非可搶佔型 Compute Engine 實例。"
     },
     "images": [],
     "answers": [
@@ -4373,12 +4698,20 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #3 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants to design their solution for the future in order to take advantage of cloud and technology improvements as they become available. Which two steps should they take? (Choose two.)",
+      "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望設計能因應未來雲端與技術進步的解決方案。下列哪兩個步驟應採取？（選兩項）",
     "options": {
       "A": "Store as much analytics and game activity data as financially feasible today so it can be used to train machine learning models to predict user behavior in the future.",
       "B": "Begin packaging their game backend artifacts in container images and running them on Google Kubernetes Engine to improve the ability to scale up or down based on game activity.",
       "C": "Set up a CI/CD pipeline using Jenkins and Spinnaker to automate canary deployments and improve development velocity.",
       "D": "Adopt a schema versioning tool to reduce downtime when adding new game features that require storing additional player data in the database.",
       "E": "Implement a weekly rolling maintenance process for the Linux virtual machines so they can apply critical kernel patches and package updates and reduce the risk of 0-day vulnerabilities."
+      },
+      "options-zh": {
+        "A": "盡可能多儲存分析與遊戲活動資料，以便未來訓練機器學習模型預測用戶行為。",
+        "B": "將遊戲後端產物包裝成容器映像，並在 Google Kubernetes Engine 執行，以利依遊戲活動彈性擴縮。",
+        "C": "建置 Jenkins 與 Spinnaker 的 CI/CD 流程，自動化金絲雀部署並提升開發速度。",
+        "D": "採用資料結構版本管理工具，減少新增玩家資料欄位時的停機。",
+        "E": "對 Linux 虛擬機實施每週輪替維護，及時套用核心修補與套件更新，降低 0-day 漏洞風險。"
     },
     "images": [],
     "answers": [
@@ -4389,11 +4722,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #4 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants you to design a way to test the analytics platform's resilience to changes in mobile network latency. What should you do?",
+      "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望你設計方法測試分析平台對行動網路延遲變化的韌性。你該怎麼做？",
     "options": {
       "A": "Deploy failure injection software to the game analytics platform that can inject additional latency to mobile client analytics traffic.",
       "B": "Build a test client that can be run from a mobile phone emulator on a Compute Engine virtual machine, and run multiple copies in Google Cloud Platform regions all over the world to generate realistic traffic.",
       "C": "Add the ability to introduce a random amount of delay before beginning to process analytics files uploaded from mobile devices.",
       "D": "Create an opt-in beta of the game that runs on players' mobile devices and collects response times from analytics endpoints running in Google Cloud Platform regions all over the world."
+      },
+      "options-zh": {
+        "A": "在遊戲分析平台部署故障注入軟體，向行動端分析流量注入額外延遲。",
+        "B": "建立測試客戶端，於 Compute Engine VM 上模擬手機執行，並在全球多區產生真實流量。",
+        "C": "新增隨機延遲處理機制，於處理行動裝置上傳分析檔案前隨機延遲。",
+        "D": "推出遊戲測試版，於玩家行動裝置收集全球各區分析端點回應時間。"
     },
     "images": [],
     "answers": [
@@ -4403,11 +4743,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #5 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. You need to analyze and define the technical architecture for the database workloads for your company, Mountkirk Games. Considering the business and technical requirements, what should you do?",
+      "question-zh": "本題請參考 Mountkirk Games 案例。你需要分析並定義 Mountkirk Games 的資料庫工作負載技術架構。根據業務與技術需求，你該怎麼做？",
     "options": {
       "A": "Use Cloud SQL for time series data, and use Cloud Bigtable for historical data queries.",
       "B": "Use Cloud SQL to replace MySQL, and use Cloud Spanner for historical data queries.",
       "C": "Use Cloud Bigtable to replace MySQL, and use BigQuery for historical data queries.",
       "D": "Use Cloud Bigtable for time series data, use Cloud Spanner for transactional data, and use BigQuery for historical data queries."
+      },
+      "options-zh": {
+        "A": "時間序列資料用 Cloud SQL，歷史查詢用 Cloud Bigtable。",
+        "B": "用 Cloud SQL 取代 MySQL，歷史查詢用 Cloud Spanner。",
+        "C": "用 Cloud Bigtable 取代 MySQL，歷史查詢用 BigQuery。",
+        "D": "時間序列資料用 Cloud Bigtable，交易資料用 Cloud Spanner，歷史查詢用 BigQuery。"
     },
     "images": [],
     "answers": [
@@ -4417,11 +4764,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #6 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. Which managed storage option meets Mountkirk's technical requirement for storing game activity in a time series database service?",
+      "question-zh": "本題請參考 Mountkirk Games 案例。下列哪個託管儲存方案符合 Mountkirk 的遊戲活動時間序列資料庫需求？",
     "options": {
       "A": "Cloud Bigtable",
       "B": "Cloud Spanner",
       "C": "BigQuery",
       "D": "Cloud Datastore"
+      },
+      "options-zh": {
+        "A": "Cloud Bigtable",
+        "B": "Cloud Spanner",
+        "C": "BigQuery",
+        "D": "Cloud Datastore"
     },
     "images": [],
     "answers": [
@@ -4431,11 +4785,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #7 Topic #6",
     "question": "For this question, refer to the Mountkirk Games case study. You are in charge of the new Game Backend Platform architecture. The game communicates with the backend over a REST API.\n\nYou want to follow Google-recommended practices. How should you design the backend?",
+      "question-zh": "本題請參考 Mountkirk Games 案例。你負責新遊戲後端平台架構，遊戲透過 REST API 與後端溝通。你想遵循 Google 建議做法，該如何設計？",
     "options": {
       "A": "Create an instance template for the backend. For every region, deploy it on a multi-zone managed instance group. Use an L4 load balancer.",
       "B": "Create an instance template for the backend. For every region, deploy it on a single-zone managed instance group. Use an L4 load balancer.",
       "C": "Create an instance template for the backend. For every region, deploy it on a multi-zone managed instance group. Use an L7 load balancer.",
       "D": "Create an instance template for the backend. For every region, deploy it on a single-zone managed instance group. Use an L7 load balancer."
+      },
+      "options-zh": {
+        "A": "為後端建立實例範本，每區部署於多區受管實例群組，並用 L4 負載平衡器。",
+        "B": "為後端建立實例範本，每區部署於單區受管實例群組，並用 L4 負載平衡器。",
+        "C": "為後端建立實例範本，每區部署於多區受管實例群組，並用 L7 負載平衡器。",
+        "D": "為後端建立實例範本，每區部署於單區受管實例群組，並用 L7 負載平衡器。"
     },
     "images": [],
     "answers": [
@@ -4445,11 +4806,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #1 Topic #7",
     "question": "You need to optimize batch file transfers into Cloud Storage for Mountkirk Games' new Google Cloud solution. The batch files contain game statistics that need to be staged in Cloud Storage and be processed by an extract transform load (ETL) tool. What should you do?",
+      "question-zh": "你需要為 Mountkirk Games 的新 Google Cloud 解決方案最佳化批次檔案傳輸。這些批次檔案包含遊戲統計資料，需先暫存於 Cloud Storage，再由 ETL 工具處理。你該怎麼做？",
     "options": {
       "A": "Use gsutil to batch move files in sequence.",
       "B": "Use gsutil to batch copy the files in parallel.",
       "C": "Use gsutil to extract the files as the first part of ETL.",
       "D": "Use gsutil to load the files as the last part of ETL."
+      },
+      "options-zh": {
+        "A": "用 gsutil 依序批次移動檔案。",
+        "B": "用 gsutil 並行批次複製檔案。",
+        "C": "用 gsutil 做為 ETL 首步驟提取檔案。",
+        "D": "用 gsutil 做為 ETL 最後步驟載入檔案。"
     },
     "images": [],
     "answers": [
@@ -4459,11 +4827,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #2 Topic #7",
     "question": "You are implementing Firestore for Mountkirk Games. Mountkirk Games wants to give a new game programmatic access to a legacy game's Firestore database.\n\nAccess should be as restricted as possible. What should you do?",
+      "question-zh": "你正在為 Mountkirk Games 實作 Firestore。Mountkirk Games 希望讓新遊戲以程式方式存取舊遊戲的 Firestore 資料庫，且權限應盡量限制。你該怎麼做？",
     "options": {
       "A": "Create a service account (SA) in the legacy game's Google Cloud project, add a second SA in the new game's IAM page, and then give the Organization Admin role to both SAs.",
       "B": "Create a service account (SA) in the legacy game's Google Cloud project, give the SA the Organization Admin role, and then give it the Firebase Admin role in both projects.",
       "C": "Create a service account (SA) in the legacy game's Google Cloud project, add this SA in the new game's IAM page, and then give it the Firebase Admin role in both projects.",
       "D": "Create a service account (SA) in the legacy game's Google Cloud project, give it the Firebase Admin role, and then migrate the new game to the legacy game's project."
+      },
+      "options-zh": {
+        "A": "在舊遊戲專案建立服務帳號（SA），於新遊戲 IAM 頁面新增第二個 SA，並給予兩者組織管理員權限。",
+        "B": "在舊遊戲專案建立 SA，給予組織管理員權限，再給兩專案 Firebase 管理員權限。",
+        "C": "在舊遊戲專案建立 SA，於新遊戲 IAM 頁面新增該 SA，並給兩專案 Firebase 管理員權限。",
+        "D": "在舊遊戲專案建立 SA，給予 Firebase 管理員權限，並將新遊戲遷移至舊遊戲專案。"
     },
     "images": [],
     "answers": [
@@ -4473,11 +4848,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #3 Topic #7",
     "question": "Mountkirk Games wants to limit the physical location of resources to their operating Google Cloud regions. What should you do?",
+      "question-zh": "Mountkirk Games 希望限制資源僅部署於其營運的 Google Cloud 區域。你該怎麼做？",
     "options": {
       "A": "Configure an organizational policy which constrains where resources can be deployed.",
       "B": "Configure IAM conditions to limit what resources can be configured.",
       "C": "Configure the quotas for resources in the regions not being used to 0.",
       "D": "Configure a custom alert in Cloud Monitoring so you can disable resources as they are created in other regions."
+      },
+      "options-zh": {
+        "A": "設定組織政策，限制資源部署區域。",
+        "B": "設定 IAM 條件，限制可設定的資源。",
+        "C": "將未使用區域的資源配額設為 0。",
+        "D": "在 Cloud Monitoring 設自訂警示，於其他區域建立資源時可停用。"
     },
     "images": [],
     "answers": [
@@ -4487,11 +4869,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #4",
     "question": "You need to implement a network ingress for a new game that meets the defined business and technical requirements. Mountkirk Games wants each regional game instance to be located in multiple Google Cloud regions. What should you do?",
+      "question-zh": "你需要為新遊戲實作網路入口，滿足業務與技術需求。Mountkirk Games 希望每個地區遊戲實例都部署於多個 Google Cloud 區域。你該怎麼做？",
     "options": {
       "A": "Configure a global load balancer connected to a managed instance group running Compute Engine instances.",
       "B": "Configure kubemci with a global load balancer and Google Kubernetes Engine.",
       "C": "Configure a global load balancer with Google Kubernetes Engine.",
       "D": "Configure Ingress for Anthos with a global load balancer and Google Kubernetes Engine."
+      },
+      "options-zh": {
+        "A": "設定全球負載平衡器，連接執行 Compute Engine 實例的受管實例群組。",
+        "B": "用 kubemci 配置全球負載平衡器與 Google Kubernetes Engine。",
+        "C": "設定全球負載平衡器與 Google Kubernetes Engine。",
+        "D": "用 Anthos Ingress 配置全球負載平衡器與 Google Kubernetes Engine。"
     },
     "images": [],
     "answers": [
@@ -4501,11 +4890,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #5 Topic #7",
     "question": "Your development teams release new versions of games running on Google Kubernetes Engine (GKE) daily. You want to create service level indicators (SLIs) to evaluate the quality of the new versions from the user's perspective. What should you do?",
+      "question-zh": "你的開發團隊每天都會在 Google Kubernetes Engine（GKE）上發佈新遊戲版本。你想建立服務層級指標（SLI），從用戶角度評估新版本品質。你該怎麼做？",
     "options": {
       "A": "Create CPU Utilization and Request Latency as service level indicators.",
       "B": "Create GKE CPU Utilization and Memory Utilization as service level indicators.",
       "C": "Create Request Latency and Error Rate as service level indicators.",
       "D": "Create Server Uptime and Error Rate as service level indicators."
+      },
+      "options-zh": {
+        "A": "以 CPU 使用率與請求延遲作為服務層級指標。",
+        "B": "以 GKE CPU 與記憶體使用率作為服務層級指標。",
+        "C": "以請求延遲與錯誤率作為服務層級指標。",
+        "D": "以伺服器運作時間與錯誤率作為服務層級指標。"
     },
     "images": [],
     "answers": [
@@ -4515,11 +4911,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #6 Topic #7",
     "question": "Mountkirk Games wants you to secure the connectivity from the new gaming application platform to Google Cloud. You want to streamline the process and follow\n\nGoogle-recommended practices. What should you do?",
+      "question-zh": "Mountkirk Games 希望你保護新遊戲應用平台與 Google Cloud 的連線。你想簡化流程並遵循 Google 建議做法。你該怎麼做？",
     "options": {
       "A": "Configure Workload Identity and service accounts to be used by the application platform.",
       "B": "Use Kubernetes Secrets, which are obfuscated by default. Configure these Secrets to be used by the application platform.",
       "C": "Configure Kubernetes Secrets to store the secret, enable Application-Layer Secrets Encryption, and use Cloud Key Management Service (Cloud KMS) to manage the encryption keys. Configure these Secrets to be used by the application platform.",
       "D": "Configure HashiCorp Vault on Compute Engine, and use customer managed encryption keys and Cloud Key Management Service (Cloud KMS) to manage the encryption keys. Configure these Secrets to be used by the application platform."
+      },
+      "options-zh": {
+        "A": "設定 Workload Identity 與服務帳號供應用平台使用。",
+        "B": "使用 Kubernetes Secrets（預設已模糊化），並設定供應用平台使用。",
+        "C": "設定 Kubernetes Secrets 儲存機密，啟用應用層加密並用 Cloud KMS 管理金鑰，供應用平台使用。",
+        "D": "在 Compute Engine 上設 HashiCorp Vault，並用自管金鑰與 Cloud KMS 管理金鑰，供應用平台使用。"
     },
     "images": [],
     "answers": [
@@ -4529,11 +4932,18 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #7 Topic #7",
     "question": "Your development team has created a mobile game app. You want to test the new mobile app on Android and iOS devices with a variety of configurations. You need to ensure that testing is efficient and cost-effective. What should you do?",
+      "question-zh": "你的開發團隊已開發出一款手機遊戲 App。你想在多種配置的 Android 與 iOS 裝置上測試新 App，需確保測試高效且具成本效益。你該怎麼做？",
     "options": {
       "A": "Upload your mobile app to the Firebase Test Lab, and test the mobile app on Android and iOS devices.",
       "B": "Create Android and iOS VMs on Google Cloud, install the mobile app on the VMs, and test the mobile app.",
       "C": "Create Android and iOS containers on Google Kubernetes Engine (GKE), install the mobile app on the containers, and test the mobile app.",
       "D": "Upload your mobile app with different configurations to Firebase Hosting and test each configuration."
+      },
+      "options-zh": {
+        "A": "將手機 App 上傳至 Firebase Test Lab，在 Android 與 iOS 裝置上測試。",
+        "B": "在 Google Cloud 建立 Android 與 iOS VM，安裝並測試 App。",
+        "C": "在 GKE 建立 Android 與 iOS 容器，安裝並測試 App。",
+        "D": "將不同配置的 App 上傳至 Firebase Hosting 並逐一測試。"
     },
     "images": [],
     "answers": [
@@ -4543,11 +4953,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #1 Topic #8",
     "question": "TerramEarth's CTO wants to use the raw data from connected vehicles to help identify approximately when a vehicle in the field will have a catastrophic failure.\n\nYou want to allow analysts to centrally query the vehicle data.\n\nWhich architecture should you recommend?",
+      "question-zh": "TerramEarth 的 CTO 希望利用連網車輛的原始資料，協助預測車輛在現場發生重大故障的大致時間。你希望分析師能集中查詢車輛資料。你會建議哪種架構？",
     "options": {
       "A": "Image 1",
       "B": "Image 2",
       "C": "Image 3",
       "D": "Image 4"
+      },
+      "options-zh": {
+        "A": "圖片 1",
+        "B": "圖片 2",
+        "C": "圖片 3",
+        "D": "圖片 4"
     },
     "images": [
       "images/TerramEarth-Question-1.png",
@@ -4562,12 +4979,20 @@ const questions = [
   {
     "id": "TerramEarth-Question #2 Topic #8",
     "question": "The TerramEarth development team wants to create an API to meet the company's business requirements. You want the development team to focus their development effort on business value versus creating a custom framework.\n\nWhich method should they use?",
+      "question-zh": "TerramEarth 開發團隊希望建立 API 以滿足公司業務需求。你希望團隊專注於業務價值而非自訂框架。應該採用哪種方法？",
     "options": {
       "A": "Use Google App Engine with Google Cloud Endpoints. Focus on an API for dealers and partners",
       "B": "Use Google App Engine with a JAX-RS Jersey Java-based framework. Focus on an API for the public",
       "C": "Use Google App Engine with the Swagger (Open API Specification) framework. Focus on an API for the public",
       "D": "Use Google Container Engine with a Django Python container. Focus on an API for the public",
       "E": "Use Google Container Engine with a Tomcat container with the Swagger (Open API Specification) framework. Focus on an API for dealers and partners"
+      },
+      "options-zh": {
+        "A": "使用 Google App Engine 搭配 Google Cloud Endpoints，專注於經銷商與合作夥伴的 API。",
+        "B": "使用 Google App Engine 搭配 JAX-RS Jersey Java 框架，專注於對外 API。",
+        "C": "使用 Google App Engine 搭配 Swagger（Open API 規範）框架，專注於對外 API。",
+        "D": "使用 Google Container Engine 搭配 Django Python 容器，專注於對外 API。",
+        "E": "使用 Google Container Engine 搭配 Tomcat 與 Swagger 框架，專注於經銷商與合作夥伴的 API。"
     },
     "images": [],
     "answers": [
@@ -4577,11 +5002,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #3 Topic #8",
     "question": "Your development team has created a structured API to retrieve vehicle data. They want to allow third parties to develop tools for dealerships that use this vehicle event data. You want to support delegated authorization against this data.\n\nWhat should you do?",
+      "question-zh": "你的開發團隊已建立結構化 API 以取得車輛資料，並希望第三方能為經銷商開發工具。你想支援委託授權，該怎麼做？",
     "options": {
       "A": "Build or leverage an OAuth-compatible access control system",
       "B": "Build SAML 2.0 SSO compatibility into your authentication system",
       "C": "Restrict data access based on the source IP address of the partner systems",
       "D": "Create secondary credentials for each dealer that can be given to the trusted third party"
+      },
+      "options-zh": {
+        "A": "建置或利用支援 OAuth 的存取控制系統。",
+        "B": "在驗證系統中加入 SAML 2.0 SSO 相容性。",
+        "C": "根據合作夥伴系統來源 IP 限制資料存取。",
+        "D": "為每個經銷商建立次要憑證，提供給受信任的第三方。"
     },
     "images": [],
     "answers": [
@@ -4591,11 +5023,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #4 Topic #8",
     "question": "TerramEarth plans to connect all 20 million vehicles in the field to the cloud. This increases the volume to 20 million 600 byte records a second for 40 TB an hour.\n\nHow should you design the data ingestion?",
+      "question-zh": "TerramEarth 計畫將 2,000 萬輛車連上雲端，每秒產生 2,000 萬筆 600 位元組紀錄，每小時 40TB。你該如何設計資料匯入？",
     "options": {
       "A": "Vehicles write data directly to GCS",
       "B": "Vehicles write data directly to Google Cloud Pub/Sub",
       "C": "Vehicles stream data directly to Google BigQuery",
       "D": "Vehicles continue to write data using the existing system (FTP)"
+      },
+      "options-zh": {
+        "A": "車輛直接寫入 GCS。",
+        "B": "車輛直接寫入 Google Cloud Pub/Sub。",
+        "C": "車輛直接串流資料到 Google BigQuery。",
+        "D": "車輛繼續用現有 FTP 系統寫入資料。"
     },
     "images": [],
     "answers": [
@@ -4605,11 +5044,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #5 Topic #8",
     "question": "You analyzed TerramEarth's business requirement to reduce downtime, and found that they can achieve a majority of time saving by reducing customer's wait time for parts. You decided to focus on reduction of the 3 weeks aggregate reporting time.\n\nWhich modifications to the company's processes should you recommend?",
+      "question-zh": "你分析 TerramEarth 的業務需求，發現減少客戶等候零件時間可大幅縮短停機時數，因此決定著重於縮短 3 週的彙總報告時間。你會建議公司流程做哪些調整？",
     "options": {
       "A": "Migrate from CSV to binary format, migrate from FTP to SFTP transport, and develop machine learning analysis of metrics",
       "B": "Migrate from FTP to streaming transport, migrate from CSV to binary format, and develop machine learning analysis of metrics",
       "C": "Increase fleet cellular connectivity to 80%, migrate from FTP to streaming transport, and develop machine learning analysis of metrics",
       "D": "Migrate from FTP to SFTP transport, develop machine learning analysis of metrics, and increase dealer local inventory by a fixed factor"
+      },
+      "options-zh": {
+        "A": "從 CSV 轉為二進位格式，FTP 轉為 SFTP 傳輸，並開發機器學習指標分析。",
+        "B": "FTP 轉為串流傳輸，CSV 轉為二進位格式，並開發機器學習指標分析。",
+        "C": "將車隊行動連線率提升至 80%，FTP 轉為串流傳輸，並開發機器學習指標分析。",
+        "D": "FTP 轉為 SFTP 傳輸，開發機器學習指標分析，並固定增加經銷商庫存。"
     },
     "images": [],
     "answers": [
@@ -4619,11 +5065,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #6 Topic #8",
     "question": "Which of TerramEarth's legacy enterprise processes will experience significant change as a result of increased Google Cloud Platform adoption?",
+      "question-zh": "隨著 TerramEarth 擴大採用 Google Cloud Platform，下列哪項傳統企業流程將有重大改變？",
     "options": {
       "A": "Opex/capex allocation, LAN changes, capacity planning",
       "B": "Capacity planning, TCO calculations, opex/capex allocation",
       "C": "Capacity planning, utilization measurement, data center expansion",
       "D": "Data Center expansion, TCO calculations, utilization measurement"
+      },
+      "options-zh": {
+        "A": "營運/資本支出分配、LAN 變更、容量規劃。",
+        "B": "容量規劃、TCO 計算、營運/資本支出分配。",
+        "C": "容量規劃、使用率量測、資料中心擴建。",
+        "D": "資料中心擴建、TCO 計算、使用率量測。"
     },
     "images": [],
     "answers": [
@@ -4633,11 +5086,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #7 Topic #8",
     "question": "To speed up data retrieval, more vehicles will be upgraded to cellular connections and be able to transmit data to the ETL process. The current FTP process is error-prone and restarts the data transfer from the start of the file when connections fail, which happens often. You want to improve the reliability of the solution and minimize data transfer time on the cellular connections.\n\nWhat should you do?",
+      "question-zh": "為加快資料擷取，更多車輛將升級為行動連線並能傳送資料至 ETL 流程。現有 FTP 流程易出錯且連線失敗時會重傳整個檔案。你想提升解決方案可靠性並減少行動連線的資料傳輸時間，該怎麼做？",
     "options": {
       "A": "Use one Google Container Engine cluster of FTP servers. Save the data to a Multi-Regional bucket. Run the ETL process using data in the bucket",
       "B": "Use multiple Google Container Engine clusters running FTP servers located in different regions. Save the data to Multi-Regional buckets in US, EU, and Asia. Run the ETL process using the data in the bucket",
       "C": "Directly transfer the files to different Google Cloud Multi-Regional Storage bucket locations in US, EU, and Asia using Google APIs over HTTP(S). Run the ETL process using the data in the bucket",
       "D": "Directly transfer the files to a different Google Cloud Regional Storage bucket location in US, EU, and Asia using Google APIs over HTTP(S). Run the ETL process to retrieve the data from each Regional bucket"
+      },
+      "options-zh": {
+        "A": "用一組 Google Container Engine FTP 叢集，資料存 Multi-Regional bucket，ETL 直接處理 bucket 內資料。",
+        "B": "多組 Google Container Engine FTP 叢集分布各區，資料存美、歐、亞多區 bucket，ETL 直接處理 bucket 內資料。",
+        "C": "直接用 Google API 將檔案傳到美、歐、亞多區 Multi-Regional Storage bucket，ETL 直接處理 bucket 內資料。",
+        "D": "直接用 Google API 傳到美、歐、亞不同 Regional Storage bucket，ETL 從各區 bucket 擷取資料。"
     },
     "images": [],
     "answers": [
@@ -4647,11 +5107,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #8 Topic #8",
     "question": "TerramEarth's 20 million vehicles are scattered around the world. Based on the vehicle's location, its telemetry data is stored in a Google Cloud Storage (GCS) regional bucket (US, Europe, or Asia). The CTO has asked you to run a report on the raw telemetry data to determine why vehicles are breaking down after 100 K miles. You want to run this job on all the data.\n\nWhat is the most cost-effective way to run this job?",
+      "question-zh": "TerramEarth 的 2,000 萬輛車分布全球，根據位置將遙測資料存於 GCS 區域 bucket（美、歐、亞）。CTO 要你分析原始資料找出車輛 10 萬英里後故障原因。你想對所有資料執行分析，最省錢的方法是？",
     "options": {
       "A": "Move all the data into 1 zone, then launch a Cloud Dataproc cluster to run the job",
       "B": "Move all the data into 1 region, then launch a Google Cloud Dataproc cluster to run the job",
       "C": "Launch a cluster in each region to preprocess and compress the raw data, then move the data into a multi-region bucket and use a Dataproc cluster to finish the job",
       "D": "Launch a cluster in each region to preprocess and compress the raw data, then move the data into a region bucket and use a Cloud Dataproc cluster to finish the job"
+      },
+      "options-zh": {
+        "A": "將所有資料集中到一個 zone，再啟動 Cloud Dataproc 叢集執行分析。",
+        "B": "將所有資料集中到一個 region，再啟動 Cloud Dataproc 叢集執行分析。",
+        "C": "各區啟動叢集預處理與壓縮原始資料，再移到多區 bucket，最後用 Dataproc 叢集完成分析。",
+        "D": "各區啟動叢集預處理與壓縮原始資料，再移到區域 bucket，最後用 Cloud Dataproc 叢集完成分析。"
     },
     "images": [],
     "answers": [
@@ -4661,11 +5128,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #9 Topic #8",
     "question": "TerramEarth has equipped all connected trucks with servers and sensors to collect telemetry data. Next year they want to use the data to train machine learning models. They want to store this data in the cloud while reducing costs.\n\nWhat should they do?",
+      "question-zh": "TerramEarth 為所有連網卡車安裝伺服器與感測器收集遙測資料，明年要用這些資料訓練機器學習模型。希望雲端儲存並降低成本，該怎麼做？",
     "options": {
       "A": "Have the vehicle's computer compress the data in hourly snapshots, and store it in a Google Cloud Storage (GCS) Nearline bucket",
       "B": "Push the telemetry data in real-time to a streaming dataflow job that compresses the data, and store it in Google BigQuery",
       "C": "Push the telemetry data in real-time to a streaming dataflow job that compresses the data, and store it in Cloud Bigtable",
       "D": "Have the vehicle's computer compress the data in hourly snapshots, and store it in a GCS Coldline bucket"
+      },
+      "options-zh": {
+        "A": "車載電腦每小時壓縮快照，存到 GCS Nearline bucket。",
+        "B": "即時推送遙測資料到串流 dataflow 壓縮後存 Google BigQuery。",
+        "C": "即時推送遙測資料到串流 dataflow 壓縮後存 Cloud Bigtable。",
+        "D": "車載電腦每小時壓縮快照，存到 GCS Coldline bucket。"
     },
     "images": [],
     "answers": [
@@ -4675,6 +5149,7 @@ const questions = [
   {
     "id": "TerramEarth-Question #10 Topic #8",
     "question": "Your agricultural division is experimenting with fully autonomous vehicles. You want your architecture to promote strong security during vehicle operation.\n\nWhich two architectures should you consider? (Choose two.)",
+      "question-zh": "你的農業部門正在測試全自動車輛。你希望架構能在車輛運作時強化安全，下列哪兩種架構應考慮？（選兩項）",
     "options": {
       "A": "Treat every micro service call between modules on the vehicle as untrusted.",
       "B": "Require IPv6 for connectivity to ensure a secure address space.",
@@ -4682,6 +5157,14 @@ const questions = [
       "D": "Use a functional programming language to isolate code execution cycles.",
       "E": "Use multiple connectivity subsystems for redundancy.",
       "F": "Enclose the vehicle's drive electronics in a Faraday cage to isolate chips."
+      },
+      "options-zh": {
+        "A": "將車上模組間每次微服務呼叫都視為不可信。",
+        "B": "要求連線必須用 IPv6 以確保安全位址空間。",
+        "C": "使用可信平台模組（TPM），開機時驗證韌體與執行檔。",
+        "D": "用函數式程式語言隔離程式執行週期。",
+        "E": "多重連線子系統備援。",
+        "F": "將驅動電子元件包覆於法拉第籠內隔離晶片。"
     },
     "images": [],
     "answers": [
@@ -4692,11 +5175,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #11 Topic #8",
     "question": "Operational parameters such as oil pressure are adjustable on each of TerramEarth's vehicles to increase their efficiency, depending on their environmental conditions. Your primary goal is to increase the operating efficiency of all 20 million cellular and unconnected vehicles in the field.\n\nHow can you accomplish this goal?",
+      "question-zh": "TerramEarth 每輛車的運作參數（如油壓）可依環境調整以提升效率。你的首要目標是提升全球 2,000 萬輛連網與未連網車輛的運作效率。你該怎麼做？",
     "options": {
       "A": "Have you engineers inspect the data for patterns, and then create an algorithm with rules that make operational adjustments automatically",
       "B": "Capture all operating data, train machine learning models that identify ideal operations, and run locally to make operational adjustments automatically",
       "C": "Implement a Google Cloud Dataflow streaming job with a sliding window, and use Google Cloud Messaging (GCM) to make operational adjustments automatically",
       "D": "Capture all operating data, train machine learning models that identify ideal operations, and host in Google Cloud Machine Learning (ML) Platform to make operational adjustments automatically"
+      },
+      "options-zh": {
+        "A": "由工程師檢查資料找出模式，再寫演算法自動調整運作參數。",
+        "B": "收集所有運作資料，訓練機器學習模型找出最佳運作，並於本地自動調整。",
+        "C": "用 Google Cloud Dataflow 串流作業與滑動視窗，並用 GCM 自動調整運作。",
+        "D": "收集所有運作資料，訓練機器學習模型找出最佳運作，並部署於 Google Cloud ML 平台自動調整。"
     },
     "images": [],
     "answers": [
@@ -4706,11 +5196,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #1 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. To be compliant with European GDPR regulation, TerramEarth is required to delete data generated from its\n\nEuropean customers after a period of 36 months when it contains personal data. In the new architecture, this data will be stored in both Cloud Storage and\n\nBigQuery. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。為符合法國 GDPR，含個資的歐洲客戶資料需於 36 個月後刪除。新架構下資料存於 Cloud Storage 與 BigQuery，該怎麼做？",
     "options": {
       "A": "Create a BigQuery table for the European data, and set the table retention period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months.",
       "B": "Create a BigQuery table for the European data, and set the table retention period to 36 months. For Cloud Storage, use gsutil to create a SetStorageClass to NONE action when with an Age condition of 36 months.",
       "C": "Create a BigQuery time-partitioned table for the European data, and set the partition expiration period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months.",
       "D": "Create a BigQuery time-partitioned table for the European data, and set the partition expiration period to 36 months. For Cloud Storage, use gsutil to create a SetStorageClass to NONE action with an Age condition of 36 months."
+      },
+      "options-zh": {
+        "A": "為歐洲資料建立 BigQuery 資料表，設保留期 36 個月。Cloud Storage 用 gsutil 設定 36 個月自動刪除。",
+        "B": "為歐洲資料建立 BigQuery 資料表，設保留期 36 個月。Cloud Storage 用 gsutil 設定 36 個月自動轉為 NONE。",
+        "C": "為歐洲資料建立 BigQuery 分區表，設分區過期 36 個月。Cloud Storage 用 gsutil 設定 36 個月自動刪除。",
+        "D": "為歐洲資料建立 BigQuery 分區表，設分區過期 36 個月。Cloud Storage 用 gsutil 設定 36 個月自動轉為 NONE。"
     },
     "images": [],
     "answers": [
@@ -4720,11 +5217,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #2 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. TerramEarth has decided to store data files in Cloud Storage. You need to configure Cloud Storage lifecycle rule to store 1 year of data and minimize file storage cost.\n\nWhich two actions should you take?",
+      "question-zh": "本題請參考 TerramEarth 案例。公司決定將資料檔案存於 Cloud Storage。你需設定生命週期規則，保存一年並降低儲存成本。應採取哪兩項措施？",
     "options": {
       "A": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Coldlineג€, and create a second GCS life-cycle rule with Age: ג€365ג€, Storage Class: ג€Coldlineג€, and Action: ג€Deleteג€.",
       "B": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Coldlineג€, and Action: ג€Set to Nearlineג€, and create a second GCS life-cycle rule with Age: ג€91ג€, Storage Class: ג€Coldlineג€, and Action: ג€Set to Nearlineג€.",
       "C": "Create a Cloud Storage lifecycle rule with Age: ג€90ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Nearlineג€, and create a second GCS life-cycle rule with Age: ג€91ג€, Storage Class: ג€Nearlineג€, and Action: ג€Set to Coldlineג€.",
       "D": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Coldlineג€, and create a second GCS life-cycle rule with Age: ג€365ג€, Storage Class: ג€Nearlineג€, and Action: ג€Deleteג€."
+      },
+      "options-zh": {
+        "A": "建立 Cloud Storage 生命週期規則，30 天後轉 Coldline，365 天後刪除。",
+        "B": "建立 Cloud Storage 生命週期規則，30 天後轉 Coldline，91 天後轉 Nearline。",
+        "C": "建立 Cloud Storage 生命週期規則，90 天後轉 Nearline，91 天後轉 Coldline。",
+        "D": "建立 Cloud Storage 生命週期規則，30 天後轉 Coldline，365 天後 Nearline 並刪除。"
     },
     "images": [],
     "answers": [
@@ -4734,11 +5238,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #3 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. You need to implement a reliable, scalable GCP solution for the data warehouse for your company,\n\nTerramEarth.\n\nConsidering the TerramEarth business and technical requirements, what should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。你需為公司建置可靠且可擴展的 GCP 數據倉儲解決方案。根據業務與技術需求，該怎麼做？",
     "options": {
       "A": "Replace the existing data warehouse with BigQuery. Use table partitioning.",
       "B": "Replace the existing data warehouse with a Compute Engine instance with 96 CPUs.",
       "C": "Replace the existing data warehouse with BigQuery. Use federated data sources.",
       "D": "Replace the existing data warehouse with a Compute Engine instance with 96 CPUs. Add an additional Compute Engine preemptible instance with 32 CPUs."
+      },
+      "options-zh": {
+        "A": "用 BigQuery 取代現有數據倉儲，並使用分區表。",
+        "B": "用 96 核心 Compute Engine 取代現有數據倉儲。",
+        "C": "用 BigQuery 取代現有數據倉儲，並用聯邦資料來源。",
+        "D": "用 96 核心 Compute Engine 取代現有數據倉儲，並加一台 32 核心可搶佔實例。"
     },
     "images": [],
     "answers": [
@@ -4748,11 +5259,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #4 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. A new architecture that writes all incoming data to BigQuery has been introduced. You notice that the data is dirty, and want to ensure data quality on an automated daily basis while managing cost.\n\nWhat should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。新架構將所有資料寫入 BigQuery，但你發現資料品質不佳，想自動化每日清理並控管成本，該怎麼做？",
     "options": {
       "A": "Set up a streaming Cloud Dataflow job, receiving data by the ingestion process. Clean the data in a Cloud Dataflow pipeline.",
       "B": "Create a Cloud Function that reads data from BigQuery and cleans it. Trigger the Cloud Function from a Compute Engine instance.",
       "C": "Create a SQL statement on the data in BigQuery, and save it as a view. Run the view daily, and save the result to a new table.",
       "D": "Use Cloud Dataprep and configure the BigQuery tables as the source. Schedule a daily job to clean the data."
+      },
+      "options-zh": {
+        "A": "設置 Cloud Dataflow 串流作業，於匯入流程中清理資料。",
+        "B": "建立 Cloud Function 讀取並清理 BigQuery 資料，並由 Compute Engine 觸發。",
+        "C": "在 BigQuery 上寫 SQL，存成 view，每日執行並存新表。",
+        "D": "用 Cloud Dataprep 設定 BigQuery 為來源，每日排程清理。"
     },
     "images": [],
     "answers": [
@@ -4762,11 +5280,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #5",
     "question": "For this question, refer to the TerramEarth case study. Considering the technical requirements, how should you reduce the unplanned vehicle downtime in GCP?",
+      "question-zh": "本題請參考 TerramEarth 案例。根據技術需求，如何在 GCP 上減少車輛非預期停機？",
     "options": {
       "A": "Use BigQuery as the data warehouse. Connect all vehicles to the network and stream data into BigQuery using Cloud Pub/Sub and Cloud Dataflow. Use Google Data Studio for analysis and reporting.",
       "B": "Use BigQuery as the data warehouse. Connect all vehicles to the network and upload gzip files to a Multi-Regional Cloud Storage bucket using gcloud. Use Google Data Studio for analysis and reporting.",
       "C": "Use Cloud Dataproc Hive as the data warehouse. Upload gzip files to a Multi-Regional Cloud Storage bucket. Upload this data into BigQuery using gcloud. Use Google Data Studio for analysis and reporting.",
       "D": "Use Cloud Dataproc Hive as the data warehouse. Directly stream data into partitioned Hive tables. Use Pig scripts to analyze data."
+      },
+      "options-zh": {
+        "A": "用 BigQuery 當數據倉儲，所有車輛連網後用 Cloud Pub/Sub 與 Dataflow 串流資料進 BigQuery，分析報表用 Google Data Studio。",
+        "B": "用 BigQuery 當數據倉儲，所有車輛連網後用 gcloud 上傳 gzip 檔到多區 Cloud Storage，分析報表用 Google Data Studio。",
+        "C": "用 Cloud Dataproc Hive 當數據倉儲，上傳 gzip 檔到多區 Cloud Storage，再用 gcloud 匯入 BigQuery，分析報表用 Google Data Studio。",
+        "D": "用 Cloud Dataproc Hive 當數據倉儲，直接串流資料進分區 Hive 表，分析用 Pig script。"
     },
     "images": [],
     "answers": [
@@ -4776,11 +5301,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #6 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. You are asked to design a new architecture for the ingestion of the data of the 200,000 vehicles that are connected to a cellular network. You want to follow Google-recommended practices.\n\nConsidering the technical requirements, which components should you use for the ingestion of the data?",
+      "question-zh": "本題請參考 TerramEarth 案例。你需設計新架構以匯入 20 萬輛連網車輛資料，並遵循 Google 建議做法。根據技術需求，應用哪些元件？",
     "options": {
       "A": "Google Kubernetes Engine with an SSL Ingress",
       "B": "Cloud IoT Core with public/private key pairs",
       "C": "Compute Engine with project-wide SSH keys",
       "D": "Compute Engine with specific SSH keys"
+      },
+      "options-zh": {
+        "A": "Google Kubernetes Engine 搭配 SSL Ingress。",
+        "B": "Cloud IoT Core 搭配公私鑰。",
+        "C": "Compute Engine 搭配專案層級 SSH 金鑰。",
+        "D": "Compute Engine 搭配專屬 SSH 金鑰。"
     },
     "images": [],
     "answers": [
@@ -4790,11 +5322,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #1 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. You start to build a new application that uses a few Cloud Functions for the backend. One use case requires a Cloud Function func_display to invoke another Cloud Function func_query. You want func_query only to accept invocations from func_display. You also want to follow Google's recommended best practices. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。你開始建置新應用，後端用多個 Cloud Functions。有一個情境需 func_display 呼叫 func_query，且只允許 func_display 呼叫 func_query，並遵循 Google 最佳實踐。你該怎麼做？",
     "options": {
       "A": "Create a token and pass it in as an environment variable to func_display. When invoking func_query, include the token in the request. Pass the same token to func_query and reject the invocation if the tokens are different.",
       "B": "Make func_query 'Require authentication.' Create a unique service account and associate it to func_display. Grant the service account invoker role for func_query. Create an id token in func_display and include the token to the request when invoking func_query.",
       "C": "Make func_query 'Require authentication' and only accept internal traffic. Create those two functions in the same VPC. Create an ingress firewall rule for func_query to only allow traffic from func_display.",
       "D": "Create those two functions in the same project and VPC. Make func_query only accept internal traffic. Create an ingress firewall for func_query to only allow traffic from func_display. Also, make sure both functions use the same service account."
+      },
+      "options-zh": {
+        "A": "建立 token 並設為 func_display 環境變數，呼叫 func_query 時帶入 token，func_query 驗證 token 不同則拒絕。",
+        "B": "func_query 設定需驗證，建立專屬服務帳號給 func_display，授權其為 func_query invoker，func_display 產生 id token 並帶入請求。",
+        "C": "func_query 設定需驗證且僅允許內部流量，兩 function 建於同一 VPC，func_query 設 ingress firewall 僅允許 func_display。",
+        "D": "兩 function 建於同專案與 VPC，func_query 僅允許內部流量，設 ingress firewall 僅允許 func_display，並用同一服務帳號。"
     },
     "images": [],
     "answers": [
@@ -4804,11 +5343,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #2 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. You have broken down a legacy monolithic application into a few containerized RESTful microservices.\n\nYou want to run those microservices on Cloud Run. You also want to make sure the services are highly available with low latency to your customers. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。你已將傳統單體應用拆分為多個容器化 RESTful 微服務，想在 Cloud Run 執行並確保高可用與低延遲。你該怎麼做？",
     "options": {
       "A": "Deploy Cloud Run services to multiple availability zones. Create Cloud Endpoints that point to the services. Create a global HTTP(S) Load Balancing instance and attach the Cloud Endpoints to its backend.",
       "B": "Deploy Cloud Run services to multiple regions. Create serverless network endpoint groups pointing to the services. Add the serverless NEGs to a backend service that is used by a global HTTP(S) Load Balancing instance.",
       "C": "Deploy Cloud Run services to multiple regions. In Cloud DNS, create a latency-based DNS name that points to the services.",
       "D": "Deploy Cloud Run services to multiple availability zones. Create a TCP/IP global load balancer. Add the Cloud Run Endpoints to its backend service."
+      },
+      "options-zh": {
+        "A": "Cloud Run 服務部署多可用區，設 Cloud Endpoints 指向服務，建全球 HTTP(S) 負載平衡器並掛 Cloud Endpoints。",
+        "B": "Cloud Run 服務部署多區，建 serverless NEG 指向服務，將其加到全球 HTTP(S) 負載平衡器後端。",
+        "C": "Cloud Run 服務部署多區，Cloud DNS 設延遲型 DNS 名稱指向服務。",
+        "D": "Cloud Run 服務部署多可用區，建 TCP/IP 全球負載平衡器並加 Cloud Run Endpoints。"
     },
     "images": [],
     "answers": [
@@ -4818,12 +5364,20 @@ const questions = [
   {
     "id": "TerramEarth-Question #3 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. You are migrating a Linux-based application from your private data center to Google Cloud. The\n\nTerramEarth security team sent you several recent Linux vulnerabilities published by Common Vulnerabilities and Exposures (CVE). You need assistance in understanding how these vulnerabilities could impact your migration. What should you do? (Choose two.)",
+      "question-zh": "本題請參考 TerramEarth 案例。你正將 Linux 應用從私有資料中心遷移到 Google Cloud，安全團隊提供多個 CVE 漏洞。你需了解這些漏洞對遷移的影響，該怎麼做？（選兩項）",
     "options": {
       "A": "Open a support case regarding the CVE and chat with the support engineer.",
       "B": "Read the CVEs from the Google Cloud Status Dashboard to understand the impact.",
       "C": "Read the CVEs from the Google Cloud Platform Security Bulletins to understand the impact.",
       "D": "Post a question regarding the CVE in Stack Overflow to get an explanation.",
       "E": "Post a question regarding the CVE in a Google Cloud discussion group to get an explanation."
+      },
+      "options-zh": {
+        "A": "針對 CVE 建立支援案件並與工程師討論。",
+        "B": "從 Google Cloud 狀態儀表板查閱 CVE 影響。",
+        "C": "從 Google Cloud Platform 安全公告查閱 CVE 影響。",
+        "D": "在 Stack Overflow 發問取得說明。",
+        "E": "在 Google Cloud 討論區發問取得說明。"
     },
     "images": [],
     "answers": [
@@ -4834,11 +5388,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #4 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. TerramEarth has a legacy web application that you cannot migrate to cloud. However, you still want to build a cloud-native way to monitor the application. If the application goes down, you want the URL to point to a \"Site is unavailable\" page as soon as possible. You also want your Ops team to receive a notification for the issue. You need to build a reliable solution for minimum cost. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。公司有無法遷移上雲的傳統網頁應用，但你想用雲端原生方式監控。若應用掛掉，URL 要能盡快導向「網站暫時無法使用」頁，並通知運維團隊。你需建低成本可靠方案，該怎麼做？",
     "options": {
       "A": "Create a scheduled job in Cloud Run to invoke a container every minute. The container will check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team.",
       "B": "Create a cron job on a Compute Engine VM that runs every minute. The cron job invokes a Python program to check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team.",
       "C": "Create a Cloud Monitoring uptime check to validate the application URL. If it fails, put a message in a Pub/Sub queue that triggers a Cloud Function to switch the URL to the \"Site is unavailable\" page, and notify the Ops team.",
       "D": "Use Cloud Error Reporting to check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team."
+      },
+      "options-zh": {
+        "A": "Cloud Run 設排程每分鐘呼叫容器檢查應用 URL，若掛掉則切換 URL 並通知運維。",
+        "B": "Compute Engine VM 設 cron job 每分鐘執行 Python 檢查 URL，若掛掉則切換 URL 並通知運維。",
+        "C": "Cloud Monitoring 設 uptime 檢查 URL，失敗則送 Pub/Sub 觸發 Cloud Function 切換 URL 並通知運維。",
+        "D": "用 Cloud Error Reporting 檢查 URL，若掛掉則切換 URL 並通知運維。"
     },
     "images": [],
     "answers": [
@@ -4848,11 +5409,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #5 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. You are building a microservice-based application for TerramEarth. The application is based on Docker containers. You want to follow Google-recommended practices to build the application continuously and store the build artifacts. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。你正為公司建置微服務應用，採用 Docker 容器。你想遵循 Google 建議持續建置並儲存產物，該怎麼做？",
     "options": {
       "A": "Configure a trigger in Cloud Build for new source changes. Invoke Cloud Build to build container images for each microservice, and tag them using the code commit hash. Push the images to the Container Registry.",
       "B": "Configure a trigger in Cloud Build for new source changes. The trigger invokes build jobs and build container images for the microservices. Tag the images with a version number, and push them to Cloud Storage.",
       "C": "Create a Scheduler job to check the repo every minute. For any new change, invoke Cloud Build to build container images for the microservices. Tag the images using the current timestamp, and push them to the Container Registry.",
       "D": "Configure a trigger in Cloud Build for new source changes. Invoke Cloud Build to build one container image, and tag the image with the label 'latest.' Push the image to the Container Registry."
+      },
+      "options-zh": {
+        "A": "Cloud Build 設新原始碼變更觸發器，建每個微服務容器映像並用 commit hash 標記，推送到 Container Registry。",
+        "B": "Cloud Build 設新原始碼變更觸發器，觸發建置微服務映像並用版本號標記，推送到 Cloud Storage。",
+        "C": "設 Scheduler 每分鐘檢查 repo，有新變更則 Cloud Build 建映像並用時間戳標記，推送到 Container Registry。",
+        "D": "Cloud Build 設新原始碼變更觸發器，僅建一個映像並標記 latest，推送到 Container Registry。"
     },
     "images": [],
     "answers": [
@@ -4862,11 +5430,18 @@ const questions = [
   {
     "id": "TerramEarth-Question #6 Topic #10",
     "question": "For this question, refer to the TerramEarth case study. TerramEarth has about 1 petabyte (PB) of vehicle testing data in a private data center. You want to move the data to Cloud Storage for your machine learning team. Currently, a 1-Gbps interconnect link is available for you. The machine learning team wants to start using the data in a month. What should you do?",
+      "question-zh": "本題請參考 TerramEarth 案例。公司有約 1PB 車輛測試資料在私有資料中心，需一個月內搬到 Cloud Storage 給機器學習團隊用，目前有 1Gbps 連線。你該怎麼做？",
     "options": {
       "A": "Request Transfer Appliances from Google Cloud, export the data to appliances, and return the appliances to Google Cloud.",
       "B": "Configure the Storage Transfer service from Google Cloud to send the data from your data center to Cloud Storage.",
       "C": "Make sure there are no other users consuming the 1Gbps link, and use multi-thread transfer to upload the data to Cloud Storage.",
       "D": "Export files to an encrypted USB device, send the device to Google Cloud, and request an import of the data to Cloud Storage."
+      },
+      "options-zh": {
+        "A": "向 Google Cloud 申請 Transfer Appliance，匯出資料後寄回。",
+        "B": "設定 Google Cloud Storage Transfer 服務，將資料從資料中心傳到 Cloud Storage。",
+        "C": "確保 1Gbps 連線無其他用戶，並用多執行緒上傳資料到 Cloud Storage。",
+        "D": "匯出檔案到加密 USB，寄給 Google Cloud 並請求匯入 Cloud Storage。"
     },
     "images": [],
     "answers": [
