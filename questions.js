@@ -114,7 +114,7 @@ const questions = [
   },
   {
     "id": "Question #6",
-    "question": "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA/\n\nTest processes accomplished an 80% reduction.\n\nWhich additional two approaches can you take to further reduce the rollbacks? (Choose two.)",
+    "question": "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA Test processes accomplished an 80% reduction.\n\nWhich additional two approaches can you take to further reduce the rollbacks? (Choose two.)",
     "question-zh": "您需要減少公司網頁託管平台中錯誤生產部署的未計劃回滾次數。改進質量保證/測試流程已經實現了 80% 的減少。\n\n您還可以採取哪兩種方法進一步減少回滾？（請選擇兩項。）",
     "options": {
       "A": "Introduce a green-blue deployment model",
@@ -138,7 +138,7 @@ const questions = [
   },
   {
     "id": "Question #7",
-    "question": "To reduce costs, the Director of Engineering has required all developers to move their development infrastructure resources from on-premises virtual machines\n\n(VMs) to Google Cloud Platform. These resources go through multiple start/stop events during the day and require state to persist. You have been asked to design the process of running a development environment in Google Cloud while providing cost visibility to the finance department.\n\nWhich two steps should you take? (Choose two.)",
+    "question": "To reduce costs, the Director of Engineering has required all developers to move their development infrastructure resources from on-premises virtual machines(VMs) to Google Cloud Platform. These resources go through multiple start/stop events during the day and require state to persist. You have been asked to design the process of running a development environment in Google Cloud while providing cost visibility to the finance department.\n\nWhich two steps should you take? (Choose two.)",
     "question-zh": "為了降低成本，工程總監要求所有開發人員將其開發基礎設施資源從地端虛擬機器（VM）遷移到 Google Cloud Platform。這些資源在白天會經歷多次啟動/停止事件，並且需要持久化狀態。您被要求設計在 Google Cloud 中運行開發環境的流程，同時向財務部門提供成本可見性。\n\n您應該採取哪兩個步驟？（請選擇兩項。）",
     "options": {
       "A": "Use the - -no-auto-delete flag on all persistent disks and stop the VM",
@@ -443,8 +443,8 @@ const questions = [
   },
   {
     "id": "Question #21",
-    "question": "Your company's user-feedback portal comprises a standard LAMP stack replicated across two zones. It is deployed in the us-central1 region and uses autoscaled managed instance groups on all layers, except the database. Currently, only a small group of select customers have access to the portal. The portal meets a\n\n99,99% availability SLA under these conditions. However next quarter, your company will be making the portal available to all users, including unauthenticated users. You need to develop a resiliency testing strategy to ensure the system maintains the SLA once they introduce additional user load.\n\nWhat should you do?",
-    "question-zh": "您公司的使用者回饋入口網站由跨兩個區域複製的標準 LAMP 堆疊組成。它部署在 us-central1 區域，並在除資料庫之外的所有層級上使用自動擴展的受管理實例群組。目前，只有一小群特定客戶可以存取該入口網站。在這些條件下，入口網站達到了\n\n99.99% 的可用性 SLA。然而，下一季度，您的公司將向所有使用者（包括未經身份驗證的使用者）開放該入口網站。您需要制定彈性測試策略，以確保系統在引入額外使用者負載後仍能維持 SLA。\n\n您應該怎麼做？",
+    "question": "Your company's user-feedback portal comprises a standard LAMP stack replicated across two zones. It is deployed in the us-central1 region and uses autoscaled managed instance groups on all layers, except the database. Currently, only a small group of select customers have access to the portal. The portal meets a 99,99% availability SLA under these conditions. However next quarter, your company will be making the portal available to all users, including unauthenticated users. You need to develop a resiliency testing strategy to ensure the system maintains the SLA once they introduce additional user load.\n\nWhat should you do?",
+    "question-zh": "您公司的使用者回饋入口網站由跨兩個區域複製的標準 LAMP 堆疊組成。它部署在 us-central1 區域，並在除資料庫之外的所有層級上使用自動擴展的受管理實例群組。目前，只有一小群特定客戶可以存取該入口網站。在這些條件下，入口網站達到了 99.99% 的可用性 SLA。然而，下一季度，您的公司將向所有使用者（包括未經身份驗證的使用者）開放該入口網站。您需要制定彈性測試策略，以確保系統在引入額外使用者負載後仍能維持 SLA。\n\n您應該怎麼做？",
     "options": {
       "A": "Capture existing users input, and replay captured user load until autoscale is triggered on all layers. At the same time, terminate all resources in one of the zones",
       "B": "Create synthetic random user input, replay synthetic load until autoscale logic is triggered on at least one layer, and introduce ג€chaosג€ to the system by terminating random resources on both zones",
@@ -861,7 +861,7 @@ const questions = [
   },
   {
     "id": "Question #40",
-    "question": "As part of implementing their disaster災難 recovery plan, your company is trying to replicate their production MySQL database from their private data center to their\n\nGCP project using a Google Cloud VPN connection. They are experiencing latency issues and a small amount of packet loss that is disrupting擾亂 the replication.\n\nWhat should they do?",
+    "question": "As part of implementing their disaster災難 recovery plan, your company is trying to replicate their production MySQL database from their private data center to their GCP project using a Google Cloud VPN connection. They are experiencing latency issues and a small amount of packet loss that is disrupting擾亂 the replication.\n\nWhat should they do?",
     "question-zh": "作為實施災難復原計畫的一部分，貴公司正嘗試使用 Google Cloud VPN 連線將其生產 MySQL 資料庫從私有資料中心複製到其 GCP 專案。他們遇到了延遲問題和少量資料包遺失，導致複製中斷。\n\n 他們應該怎麼做？",
     "options": {
       "A": "Configure their replication to use UDP.",
@@ -926,8 +926,8 @@ const questions = [
   },
   {
     "id": "Question #43",
-    "question": "You want to create a private connection between your instances on Compute Engine and your on-premises data center. You require a connection of at least 20\n\nGbps. You want to follow Google-recommended practices. How should you set up the connection?",
-    "question-zh": "您想要在 Compute Engine 上的實例和本地資料中心之間建立私有連線。您需要至少 20\n\nGbps 的連線速度。您想遵循 Google 建議的做法。您應該如何設定連線？",
+    "question": "You want to create a private connection between your instances on Compute Engine and your on-premises data center. You require a connection of at least 20 Gbps. You want to follow Google-recommended practices. How should you set up the connection?",
+    "question-zh": "您想要在 Compute Engine 上的實例和本地資料中心之間建立私有連線。您需要至少 20 Gbps 的連線速度。您想遵循 Google 建議的做法。您應該如何設定連線？",
     "options": {
       "A": "Create a VPC and connect it to your on-premises data center using Dedicated Interconnect.",
       "B": "Create a VPC and connect it to your on-premises data center using a single Cloud VPN.",
@@ -1283,7 +1283,7 @@ const questions = [
   },
   {
     "id": "Question #60",
-    "question": "You need to set up Microsoft SQL Server on GCP. Management requires that there's no downtime in case of a data center outage**停電** in any of the zones within a\n\nGCP region. What should you do?",
+    "question": "You need to set up Microsoft SQL Server on GCP. Management requires that there's no downtime in case of a data center outage**停電** in any of the zones within a GCP region. What should you do?",
     "question-zh": "您需要在 GCP 上設置 Microsoft SQL Server。管理階層要求在 GCP 區域內任何區域發生資料中心停機時都不能有停機時間。您該怎麼做？",
     "options": {
       "A": "Configure a Cloud SQL instance with high availability enabled.",
@@ -2186,7 +2186,7 @@ const questions = [
   },
   {
     "id": "Question #103",
-    "question": "Your company is planning to perform a lift and shift migration of their Linux RHEL 6.5+ virtual machines. The virtual machines are running in an on-premises\n\nVMware environment. You want to migrate them to Compute Engine following Google-recommended practices. What should you do?",
+    "question": "Your company is planning to perform a lift and shift migration of their Linux RHEL 6.5+ virtual machines. The virtual machines are running in an on-premises VMware environment. You want to migrate them to Compute Engine following Google-recommended practices. What should you do?",
     "question-zh": "您的公司計畫將 Linux RHEL 6.5+ VM 由地端 VMware 環境 lift & shift 遷移到 Compute Engine，需依 Google 建議做法。應怎麼做？",
     "options": {
       "A": "1. Define a migration plan based on the list of the applications and their dependencies. 2. Migrate all virtual machines into Compute Engine individually with Migrate for Compute Engine.",
@@ -2632,7 +2632,7 @@ const questions = [
   },
   {
     "id": "Question #124",
-    "question": "Your company has an application deployed on Anthos clusters (formerly Anthos GKE) that is running multiple microservices. The cluster has both Anthos Service\n\nMesh and Anthos Config Management configured. End users inform you that the application is responding very slowly. You want to identify the microservice that is causing the delay. What should you do?",
+    "question": "Your company has an application deployed on Anthos clusters (formerly Anthos GKE) that is running multiple microservices. The cluster has both Anthos Service Mesh and Anthos Config Management configured. End users inform you that the application is responding very slowly. You want to identify the microservice that is causing the delay. What should you do?",
     "question-zh": "公司有應用部署於 Anthos 叢集（含 Service Mesh 與 Config Management），用戶反映回應慢。要找出拖慢的微服務，應怎麼做？",
     "options": {
       "A": "Use the Service Mesh visualization in the Cloud Console to inspect the telemetry between the microservices.",
@@ -2842,7 +2842,7 @@ const questions = [
   },
   {
     "id": "Question #134",
-    "question": "Your company is using Google Cloud. You have two folders under the Organization: Finance and Shopping. The members of the development team are in a\n\nGoogle Group. The development team group has been assigned the Project Owner role on the Organization. You want to prevent the development team from creating resources in projects in the Finance folder. What should you do?",
+    "question": "Your company is using Google Cloud. You have two folders under the Organization: Finance and Shopping. The members of the development team are in a Google Group. The development team group has been assigned the Project Owner role on the Organization. You want to prevent the development team from creating resources in projects in the Finance folder. What should you do?",
     "question-zh": "公司用 GCP，組織下有 Finance 與 Shopping 兩資料夾，開發團隊是 Google 群組，並有組織層 Project Owner 權限。要防止他們在 Finance 下建資源，應怎麼做？",
     "options": {
       "A": "Assign the development team group the Project Viewer role on the Finance folder, and assign the development team group the Project Owner role on the Shopping folder.",
@@ -2905,7 +2905,7 @@ const questions = [
   },
   {
     "id": "Question #137",
-    "question": "Your company provides a recommendation engine for retail customers. You are providing retail customers with an API where they can submit a user ID and the\n\nAPI returns a list of recommendations for that user. You are responsible for the API lifecycle and want to ensure stability for your customers in case the API makes backward-incompatible changes. You want to follow Google-recommended practices. What should you do?",
+    "question": "Your company provides a recommendation engine for retail customers. You are providing retail customers with an API where they can submit a user ID and the API returns a list of recommendations for that user. You are responsible for the API lifecycle and want to ensure stability for your customers in case the API makes backward-incompatible changes. You want to follow Google-recommended practices. What should you do?",
     "question-zh": "公司提供零售推薦引擎，API 讓客戶送 user ID 回傳推薦清單。你負責 API 生命週期，需確保遇到不相容變更時客戶穩定。依 Google 建議應怎麼做？",
     "options": {
       "A": "Create a distribution list of all customers to inform them of an upcoming backward-incompatible change at least one month before replacing the old API with the new API.",
@@ -3052,7 +3052,7 @@ const questions = [
   },
   {
     "id": "Question #144",
-    "question": "You are responsible for the Google Cloud environment in your company. Multiple departments need access to their own projects, and the members within each department will have the same project responsibilities. You want to structure your Google Cloud environment for minimal maintenance and maximum overview of\n\nIAM permissions as each department's projects start and end. You want to follow Google-recommended practices. What should you do?",
+    "question": "You are responsible for the Google Cloud environment in your company. Multiple departments need access to their own projects, and the members within each department will have the same project responsibilities. You want to structure your Google Cloud environment for minimal maintenance and maximum overview of IAM permissions as each department's projects start and end. You want to follow Google-recommended practices. What should you do?",
     "question-zh": "你負責公司 GCP 環境，多部門需各自專案權限，且每部門成員權限一致。要最少維護、最佳權限總覽，依 Google 建議怎麼做？",
     "options": {
       "A": "Grant all department members the required IAM permissions for their respective projects.",
@@ -3199,7 +3199,7 @@ const questions = [
   },
   {
     "id": "Question #151",
-    "question": "Your company has a support ticketing solution that uses App Engine Standard. The project that contains the App Engine application already has a Virtual Private\n\nCloud (VPC) network fully connected to the company's on-premises environment through a Cloud VPN tunnel. You want to enable the App Engine application to communicate with a database that is running in the company's on-premises environment. What should you do?",
+    "question": "Your company has a support ticketing solution that uses App Engine Standard. The project that contains the App Engine application already has a Virtual Private Cloud (VPC) network fully connected to the company's on-premises environment through a Cloud VPN tunnel. You want to enable the App Engine application to communicate with a database that is running in the company's on-premises environment. What should you do?",
     "question-zh": "公司有 App Engine Standard 的客服系統，專案已用 Cloud VPN 連地端 VPC。要讓 App Engine 應用能連地端資料庫，該怎麼做？",
     "options": {
       "A": "Configure private Google access for on-premises hosts only.",
@@ -3304,7 +3304,7 @@ const questions = [
   },
   {
     "id": "Question #156",
-    "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. They have a VPN tunnel between the on-premises environment and Google\n\nCloud that is configured with Cloud VPN. The security team wants to avoid data exfiltration by malicious insiders, compromised code, and accidental oversharing.\n\nWhat should they do?",
+    "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. They have a VPN tunnel between the on-premises environment and Google Cloud that is configured with Cloud VPN. The security team wants to avoid data exfiltration by malicious insiders, compromised code, and accidental oversharing.\n\nWhat should they do?",
     "question-zh": "公司 GCP 專案用 BigQuery 做數據倉儲，地端與 GCP 用 Cloud VPN 連線，資安團隊要防止內賊、惡意程式或誤分享造成資料外洩。怎麼做？",
     "options": {
       "A": "Configure Private Google Access for on-premises only.",
@@ -3472,7 +3472,7 @@ const questions = [
   },
   {
     "id": "Question #164",
-    "question": "You are helping the QA team to roll out a new load-testing tool to test the scalability of your primary cloud services that run on Google Compute Engine with Cloud\n\nBigtable.\n\nWhich three requirements should they include? (Choose three.)",
+    "question": "You are helping the QA team to roll out a new load-testing tool to test the scalability of your primary cloud services that run on Google Compute Engine with Cloud Bigtable.\n\nWhich three requirements should they include? (Choose three.)",
     "question-zh": "你協助 QA 團隊導入新壓力測試工具，測試 Compute Engine + Cloud Bigtable 的主力服務擴展性。應納入哪三項需求？（選三項）",
     "options": {
       "A": "Ensure that the load tests validate the performance of Cloud Bigtable",
@@ -3778,7 +3778,7 @@ const questions = [
   },
   {
     "id": "Question #178",
-    "question": "Your company has an application running on Google Cloud that is collecting data from thousands of physical devices that are globally distributed. Data is published to Pub/Sub and streamed in real time into an SSD Cloud Bigtable cluster via a Dataflow pipeline. The operations team informs you that your Cloud\n\nBigtable cluster has a hotspot, and queries are taking longer than expected. You need to resolve the problem and prevent it from happening in the future. What should you do?",
+    "question": "Your company has an application running on Google Cloud that is collecting data from thousands of physical devices that are globally distributed. Data is published to Pub/Sub and streamed in real time into an SSD Cloud Bigtable cluster via a Dataflow pipeline. The operations team informs you that your Cloud Bigtable cluster has a hotspot, and queries are taking longer than expected. You need to resolve the problem and prevent it from happening in the future. What should you do?",
     "question-zh": "公司有全球裝置資料經 Pub/Sub、Dataflow 寫入 SSD Bigtable，運維說有 hotspot 查詢變慢，要怎麼解決並防止再發生？",
     "options": {
       "A": "Advise your clients to use HBase APIs instead of NodeJS APIs.",
@@ -3988,7 +3988,7 @@ const questions = [
   },
   {
     "id": "Question #188",
-    "question": "Your company and one of its partners each have a Google Cloud project in separate organizations. Your company's project (prj-a) runs in Virtual Private Cloud\n\n(vpc-a). The partner's project (prj-b) runs in vpc-b. There are two instances running on vpc-a and one instance running on vpc-b. Subnets defined in both VPCs are not overlapping. You need to ensure that all instances communicate with each other via internal IPs, minimizing latency and maximizing throughput. What should you do?",
+    "question": "Your company and one of its partners each have a Google Cloud project in separate organizations. Your company's project (prj-a) runs in Virtual Private Cloud(vpc-a). The partner's project (prj-b) runs in vpc-b. There are two instances running on vpc-a and one instance running on vpc-b. Subnets defined in both VPCs are not overlapping. You need to ensure that all instances communicate with each other via internal IPs, minimizing latency and maximizing throughput. What should you do?",
     "question-zh": "你公司和合作夥伴各有 GCP 專案，分別在 vpc-a/vpc-b，子網不重疊，要讓所有 VM 內部 IP 互通且低延遲高吞吐，怎麼做？",
     "options": {
       "A": "Set up a network peering between vpc-a and vpc-b.",
@@ -4310,7 +4310,7 @@ const questions = [
   },
   {
     "id": "HRL-Question #3",
-    "question": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called\n\nAirwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?",
+    "question": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called Airwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?",
     "question-zh": "（HRL 案例）HRL 開發團隊每週二 3am UTC 發新版預測應用，資安團隊有 Cloud Function Airwolf 要每週自動測新版，怎麼設？",
     "options": {
       "A": "Set up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function.",
@@ -4373,7 +4373,7 @@ const questions = [
   },
   {
     "id": "HRL-Question #6",
-    "question": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of\n\nCompute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?",
+    "question": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of Compute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?",
     "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。最近財務稽核發現雲端基礎設施有大量 Compute Engine 實例用於影片編碼與轉檔。你懷疑這些 VM 是工作完成後未刪除的殭屍機器。你需要快速取得閒置 VM 實例清單。你該怎麼做？",
     "options": {
       "A": "Log into each Compute Engine instance and collect disk, CPU, memory, and network usage statistics for analysis.",
@@ -4588,7 +4588,7 @@ const questions = [
   {
     "id": "Mountkirk Games-Question #3 Topic #5",
     "question": "Mountkirk Games wants to set up a continuous delivery pipeline. Their architecture includes many small services that they want to be able to update and roll back quickly. Mountkirk Games has the following requirements:\n\n✑ Services are deployed redundantly across multiple regions in the US and Europe\n\n✑ Only frontend services are exposed on the public internet\n\n✑ They can provide a single frontend IP for their fleet of services\n\n✑ Deployment artifacts are immutable\n\nWhich set of products should they use?",
-    "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變\n\n他們應該用哪些產品？",
+    "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變他們應該用哪些產品？",
     "options": {
       "A": "Google Cloud Storage, Google Cloud Dataflow, Google Compute Engine",
       "B": "Google Cloud Storage, Google App Engine, Google Network Load Balancer",
@@ -4931,7 +4931,7 @@ const questions = [
   },
   {
     "id": "Mountkirk Games-Question #6 Topic #7",
-    "question": "Mountkirk Games wants you to secure the connectivity from the new gaming application platform to Google Cloud. You want to streamline the process and follow\n\nGoogle-recommended practices. What should you do?",
+    "question": "Mountkirk Games wants you to secure the connectivity from the new gaming application platform to Google Cloud. You want to streamline the process and follow Google-recommended practices. What should you do?",
       "question-zh": "Mountkirk Games 希望你保護新遊戲應用平台與 Google Cloud 的連線。你想簡化流程並遵循 Google 建議做法。你該怎麼做？",
     "options": {
       "A": "Configure Workload Identity and service accounts to be used by the application platform.",
@@ -5216,7 +5216,7 @@ const questions = [
   },
   {
     "id": "TerramEarth-Question #1 Topic #9",
-    "question": "For this question, refer to the TerramEarth case study. To be compliant with European GDPR regulation, TerramEarth is required to delete data generated from its\n\nEuropean customers after a period of 36 months when it contains personal data. In the new architecture, this data will be stored in both Cloud Storage and\n\nBigQuery. What should you do?",
+    "question": "For this question, refer to the TerramEarth case study. To be compliant with European GDPR regulation, TerramEarth is required to delete data generated from its European customers after a period of 36 months when it contains personal data. In the new architecture, this data will be stored in both Cloud Storage and BigQuery. What should you do?",
       "question-zh": "本題請參考 TerramEarth 案例。為符合法國 GDPR，含個資的歐洲客戶資料需於 36 個月後刪除。新架構下資料存於 Cloud Storage 與 BigQuery，該怎麼做？",
     "options": {
       "A": "Create a BigQuery table for the European data, and set the table retention period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months.",
@@ -5258,7 +5258,7 @@ const questions = [
   },
   {
     "id": "TerramEarth-Question #3 Topic #9",
-    "question": "For this question, refer to the TerramEarth case study. You need to implement a reliable, scalable GCP solution for the data warehouse for your company,\n\nTerramEarth.\n\nConsidering the TerramEarth business and technical requirements, what should you do?",
+    "question": "For this question, refer to the TerramEarth case study. You need to implement a reliable, scalable GCP solution for the data warehouse for your company, TerramEarth.\n\nConsidering the TerramEarth business and technical requirements, what should you do?",
       "question-zh": "本題請參考 TerramEarth 案例。你需為公司建置可靠且可擴展的 GCP 數據倉儲解決方案。根據業務與技術需求，該怎麼做？",
     "options": {
       "A": "Replace the existing data warehouse with BigQuery. Use table partitioning.",
@@ -5384,7 +5384,7 @@ const questions = [
   },
   {
     "id": "TerramEarth-Question #3 Topic #10",
-    "question": "For this question, refer to the TerramEarth case study. You are migrating a Linux-based application from your private data center to Google Cloud. The\n\nTerramEarth security team sent you several recent Linux vulnerabilities published by Common Vulnerabilities and Exposures (CVE). You need assistance in understanding how these vulnerabilities could impact your migration. What should you do? (Choose two.)",
+    "question": "For this question, refer to the TerramEarth case study. You are migrating a Linux-based application from your private data center to Google Cloud. The TerramEarth security team sent you several recent Linux vulnerabilities published by Common Vulnerabilities and Exposures (CVE). You need assistance in understanding how these vulnerabilities could impact your migration. What should you do? (Choose two.)",
       "question-zh": "本題請參考 TerramEarth 案例。你正將 Linux 應用從私有資料中心遷移到 Google Cloud，安全團隊提供多個 CVE 漏洞。你需了解這些漏洞對遷移的影響，該怎麼做？（選兩項）",
     "options": {
       "A": "Open a support case regarding the CVE and chat with the support engineer.",
