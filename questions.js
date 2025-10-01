@@ -1095,11 +1095,18 @@ const questions = [
   {
     "id": "Question #51",
     "question": "You have found an error in your App Engine application caused by missing Cloud Datastore indexes. You have created a YAML file with the required indexes and want to deploy these new indexes to Cloud Datastore. What should you do?",
+      "question-zh": "你發現 App Engine 應用程式因缺少 Cloud Datastore 索引而出錯。你已建立包含所需索引的 YAML 檔案，想將這些新索引部署到 Cloud Datastore。你該怎麼做？",
     "options": {
       "A": "Point gcloud datastore create-indexes to your configuration file",
       "B": "Upload the configuration file to App Engine's default Cloud Storage bucket, and have App Engine detect the new indexes",
       "C": "In the GCP Console, use Datastore Admin to delete the current indexes and upload the new configuration file",
       "D": "Create an HTTP request to the built-in python module to send the index configuration file to your application"
+      },
+      "options-zh": {
+        "A": "使用 gcloud datastore create-indexes 指向你的設定檔案。",
+        "B": "將設定檔上傳到 App Engine 預設的 Cloud Storage bucket，讓 App Engine 偵測新索引。",
+        "C": "在 GCP 控制台使用 Datastore Admin 刪除現有索引並上傳新設定檔。",
+        "D": "建立 HTTP 請求，透過內建 python 模組將索引設定檔傳送到應用程式。"
     },
     "images": [],
     "answers": [
@@ -1109,11 +1116,18 @@ const questions = [
   {
     "id": "Question #52",
     "question": "You have an application that will run on Compute Engine. You need to design an architecture that takes into account a disaster**災難** recovery plan that requires your application to fail over to another region in case of a regional outage. What should you do?",
+      "question-zh": "你有一個要在 Compute Engine 執行的應用程式，需設計能因應災難復原的架構，當某區域故障時應能切換到其他區域。你該怎麼做？",
     "options": {
       "A": "Deploy the application on two Compute Engine instances in the same project but in a different region. Use the first instance to serve traffic, and use the HTTP load balancing service to fail over to the standby instance in case of a disaster.",
       "B": "Deploy the application on a Compute Engine instance. Use the instance to serve traffic, and use the HTTP load balancing service to fail over to an instance on your premises in case of a disaster.",
       "C": "Deploy the application on two Compute Engine instance groups, each in the same project but in a different region. Use the first instance group to serve traffic, and use the HTTP load balancing service to fail over to the standby instance group in case of a disaster.",
       "D": "Deploy the application on two Compute Engine instance groups, each in a separate project and a different region. Use the first instance group to serve traffic, and use the HTTP load balancing service to fail over to the standby instance group in case of a disaster."
+      },
+      "options-zh": {
+        "A": "在同一專案但不同區域部署兩個 Compute Engine 實例。主實例服務流量，災難時 HTTP 負載平衡切換到備援實例。",
+        "B": "在 Compute Engine 部署應用，主機服務流量，災難時 HTTP 負載平衡切換到本地端實例。",
+        "C": "在同一專案但不同區域部署兩個 Compute Engine 實例群組。主群組服務流量，災難時 HTTP 負載平衡切換到備援群組。",
+        "D": "在不同專案與區域部署兩個 Compute Engine 實例群組。主群組服務流量，災難時 HTTP 負載平衡切換到備援群組。"
     },
     "images": [],
     "answers": [
@@ -1123,11 +1137,18 @@ const questions = [
   {
     "id": "Question #53",
     "question": "You are deploying an application on App Engine that needs to integrate with an on-premises database. For security purposes, your on-premises database must not be accessible through the public internet. What should you do?",
+      "question-zh": "你要在 App Engine 部署一個需整合內部資料庫的應用程式。為了安全，內部資料庫不能經由公網存取。你該怎麼做？",
     "options": {
       "A": "Deploy your application on App Engine standard environment and use App Engine firewall rules to limit access to the open on-premises database.",
       "B": "Deploy your application on App Engine standard environment and use Cloud VPN to limit access to the on-premises database.",
       "C": "Deploy your application on App Engine flexible environment and use App Engine firewall rules to limit access to the on-premises database.",
       "D": "Deploy your application on App Engine flexible environment and use Cloud VPN to limit access to the on-premises database."
+      },
+      "options-zh": {
+        "A": "將應用程式部署於 App Engine 標準環境，並用 App Engine 防火牆規則限制對內部資料庫的存取。",
+        "B": "將應用程式部署於 App Engine 標準環境，並用 Cloud VPN 限制對內部資料庫的存取。",
+        "C": "將應用程式部署於 App Engine 彈性環境，並用 App Engine 防火牆規則限制對內部資料庫的存取。",
+        "D": "將應用程式部署於 App Engine 彈性環境，並用 Cloud VPN 限制對內部資料庫的存取。"
     },
     "images": [],
     "answers": [
