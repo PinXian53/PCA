@@ -235,6 +235,32 @@
             flex-wrap: wrap;
         }
 
+        /* ==================== Search Bar ==================== */
+        .search-container {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            transition: all 0.3s ease;
+            background-color: var(--color-white);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0, 200, 81, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--color-gray-600);
+        }
+
         /* ==================== Question List ==================== */
         .question-list {
             display: grid;
@@ -551,6 +577,9 @@
         <!-- Question List View -->
         <div id="questionListView">
             <h2>題目清單</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋題目 (ID、問題、選項)...">
+            </div>
             <div id="questionList" class="question-list">
                 <div class="loading">載入中...</div>
             </div>
@@ -601,11 +630,13 @@
         let currentLanguage = 'zh';
         let selectedOptions = new Set();
         let isAnswerSubmitted = false;
+        let searchTerm = '';
 
         // ==================== DOM Elements ====================
         const elements = {
             questionListView: document.getElementById('questionListView'),
             questionList: document.getElementById('questionList'),
+            searchInput: document.getElementById('searchInput'),
             examView: document.getElementById('examView'),
             questionId: document.getElementById('questionId'),
             questionTypeBadge: document.getElementById('questionTypeBadge'),
@@ -623,6 +654,73 @@
 
         // ==================== Utility Functions ====================
         
+        /**
+         * Debounce function to limit function calls
+         * @param {Function} func - Function to debounce
+         * @param {number} wait - Wait time in milliseconds
+         * @returns {Function} Debounced function
+         */
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        /**
+         * Fuzzy search function to check if search term matches question
+         * @param {Object} question - Question object
+         * @param {string} search - Search term
+         * @returns {boolean} True if question matches search term
+         */
+        function fuzzySearchQuestion(question, search) {
+            if (!search || search.trim() === '') {
+                return true;
+            }
+
+            const searchLower = search.toLowerCase().trim();
+            
+            // Search in question ID
+            if (question.id && question.id.toLowerCase().includes(searchLower)) {
+                return true;
+            }
+
+            // Search in English question text
+            if (question.question && question.question.toLowerCase().includes(searchLower)) {
+                return true;
+            }
+
+            // Search in Chinese question text
+            if (question['question-zh'] && question['question-zh'].toLowerCase().includes(searchLower)) {
+                return true;
+            }
+
+            // Search in English options
+            if (question.options) {
+                for (const optionValue of Object.values(question.options)) {
+                    if (optionValue && optionValue.toLowerCase().includes(searchLower)) {
+                        return true;
+                    }
+                }
+            }
+
+            // Search in Chinese options
+            if (question['options-zh']) {
+                for (const optionValue of Object.values(question['options-zh'])) {
+                    if (optionValue && optionValue.toLowerCase().includes(searchLower)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         /**
          * Load questions from questions.js
          */
@@ -678,10 +776,24 @@
 
             elements.questionList.innerHTML = '';
             
-            questions.forEach((question, index) => {
+            // Filter questions based on search term
+            const filteredQuestions = questions.filter(question => 
+                fuzzySearchQuestion(question, searchTerm)
+            );
+
+            // Show message if no results found
+            if (filteredQuestions.length === 0) {
+                elements.questionList.innerHTML = '<div class="loading">找不到符合條件的題目。</div>';
+                return;
+            }
+            
+            filteredQuestions.forEach((question, filteredIndex) => {
+                // Find original index in questions array
+                const originalIndex = questions.indexOf(question);
+                
                 const card = document.createElement('div');
                 card.className = 'card question-item';
-                card.onclick = () => showQuestion(index);
+                card.onclick = () => showQuestion(originalIndex);
 
                 const questionPreview = getQuestionText(question).substring(0, 150) + '...';
                 const isMultiple = isMultipleChoice(question);
@@ -985,6 +1097,14 @@
 
         // Language toggle button
         elements.languageToggleBtn.addEventListener('click', toggleLanguage);
+
+        // Search input with debounce
+        const handleSearch = debounce(() => {
+            searchTerm = elements.searchInput.value;
+            renderQuestionList();
+        }, 300);
+        
+        elements.searchInput.addEventListener('input', handleSearch);
 
         // ==================== Initialization ====================
         
