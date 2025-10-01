@@ -3326,11 +3326,18 @@ const questions = [
   {
     "id": "Question #158",
     "question": "Your company's test suite is a custom C++ application that runs tests throughout each day on Linux virtual machines. The full test suite takes several hours to complete, running on a limited number of on-premises servers reserved for testing. Your company wants to move the testing infrastructure to the cloud, to reduce the amount of time it takes to fully test a change to the system, while changing the tests as little as possible.\n\nWhich cloud infrastructure should you recommend?",
+    "question-zh": "公司測試套件是自製 C++ 應用，每天在 Linux VM 跑數小時，僅少數地端伺服器可用。希望搬到雲端加速測試且改動最少。建議用哪種雲端架構？",
     "options": {
       "A": "Google Compute Engine unmanaged instance groups and Network Load Balancer",
       "B": "Google Compute Engine managed instance groups with auto-scaling",
       "C": "Google Cloud Dataproc to run Apache Hadoop jobs to process each test",
       "D": "Google App Engine with Google StackDriver for logging"
+    },
+    "options-zh": {
+      "A": "Compute Engine 非受管群組 + 網路 LB。",
+      "B": "Compute Engine 受管群組 + 自動擴展。",
+      "C": "Cloud Dataproc 跑 Hadoop 處理測試。",
+      "D": "App Engine + StackDriver 日誌。"
     },
     "images": [],
     "answers": [
@@ -3340,11 +3347,18 @@ const questions = [
   {
     "id": "Question #159",
     "question": "A lead software engineer tells you that his new application design uses websockets and HTTP sessions that are not distributed across the web servers. You want to help him ensure his application will run properly on Google Cloud Platform.\n\nWhat should you do?",
+    "question-zh": "資深工程師說新應用設計用 websockets 與 HTTP session，且 session 不分散。你要協助他確保能在 GCP 正常運作。怎麼做？",
     "options": {
       "A": "Help the engineer to convert his websocket code to use HTTP streaming",
       "B": "Review the encryption requirements for websocket connections with the security team",
       "C": "Meet with the cloud operations team and the engineer to discuss load balancer options",
       "D": "Help the engineer redesign the application to use a distributed user session service that does not rely on websockets and HTTP sessions."
+    },
+    "options-zh": {
+      "A": "協助改 websocket 為 HTTP streaming。",
+      "B": "與資安團隊檢討 websocket 加密需求。",
+      "C": "與雲端運維和工程師討論 LB 選項。",
+      "D": "協助改為分散式 session 服務不依賴 websocket/HTTP session。"
     },
     "images": [],
     "answers": [
@@ -3354,11 +3368,18 @@ const questions = [
   {
     "id": "Question #160",
     "question": "The application reliability team at your company this added a debug feature to their backend service to send all server events to Google Cloud Storage for eventual analysis. The event records are at least 50 KB and at most 15 MB and are expected to peak at 3,000 events per second. You want to minimize data loss.\n\nWhich process should you implement?",
+    "question-zh": "應用可靠性團隊加了 debug 功能，將所有 server event 傳到 Cloud Storage 分析，事件大小 50KB~15MB，峰值每秒 3000 筆，要最小化資料遺失。應怎麼做？",
     "options": {
       "A": "ג€¢ Append metadata to file body ג€¢ Compress individual files ג€¢ Name files with serverName ג€\" Timestamp ג€¢ Create a new bucket if bucket is older than 1 hour and save individual files to the new bucket. Otherwise, save files to existing bucket.",
       "B": "ג€¢ Batch every 10,000 events with a single manifest file for metadata ג€¢ Compress event files and manifest file into a single archive file ג€¢ Name files using serverName ג€\" EventSequence ג€¢ Create a new bucket if bucket is older than 1 day and save the single archive file to the new bucket. Otherwise, save the single archive file to existing bucket.",
       "C": "ג€¢ Compress individual files ג€¢ Name files with serverName ג€\" EventSequence ג€¢ Save files to one bucket ג€¢ Set custom metadata headers for each object after saving",
       "D": "ג€¢ Append metadata to file body ג€¢ Compress individual files ג€¢ Name files with a random prefix pattern ג€¢ Save files to one bucket"
+    },
+    "options-zh": {
+      "A": "附加中繼資料於檔案，壓縮單檔，檔名 serverName+Timestamp，bucket 超過 1 小時新建，否則存舊 bucket。",
+      "B": "每萬筆事件批次+manifest，壓縮成單一檔案，檔名 serverName+EventSequence，bucket 超過一天新建，否則存舊 bucket。",
+      "C": "壓縮單檔，檔名 serverName+EventSequence，存同一 bucket，存後設自訂 metadata。",
+      "D": "附加中繼資料於檔案，壓縮單檔，檔名隨機前綴，存同一 bucket。"
     },
     "images": [],
     "answers": [
@@ -3368,11 +3389,18 @@ const questions = [
   {
     "id": "Question #161",
     "question": "A recent audit revealed that a new network was created in your GCP project. In this network, a GCE instance has an SSH port open to the world. You want to discover this network's origin.\n\nWhat should you do?",
+    "question-zh": "稽核發現 GCP 專案新建網路且 GCE SSH 對外開放，要查來源。怎麼做？",
     "options": {
       "A": "Search for Create VM entry in the Stackdriver alerting console",
       "B": "Navigate to the Activity page in the Home section. Set category to Data Access and search for Create VM entry",
       "C": "In the Logging section of the console, specify GCE Network as the logging section. Search for the Create Insert entry",
       "D": "Connect to the GCE instance using project SSH keys. Identify previous logins in system logs, and match these with the project owners list"
+    },
+    "options-zh": {
+      "A": "Stackdriver 警示台查 Create VM。",
+      "B": "Home→Activity 設 Data Access 查 Create VM。",
+      "C": "Console 日誌區選 GCE Network 查 Create Insert。",
+      "D": "用專案 SSH key 連 GCE 查登入紀錄對照專案擁有者。"
     },
     "images": [],
     "answers": [
@@ -3382,11 +3410,18 @@ const questions = [
   {
     "id": "Question #162",
     "question": "You want to make a copy of a production Linux virtual machine in the US-Central region. You want to manage and replace the copy easily if there are changes on the production virtual machine. You will deploy the copy as a new instance in a different project in the US-East region.\n\nWhat steps must you take?",
+    "question-zh": "你要複製 US-Central 的生產 Linux VM，並能隨時替換，將複本部署到 US-East 不同專案。步驟為何？",
     "options": {
       "A": "Use the Linux dd and netcat commands to copy and stream the root disk contents to a new virtual machine instance in the US-East region.",
       "B": "Create a snapshot of the root disk and select the snapshot as the root disk when you create a new virtual machine instance in the US-East region.",
       "C": "Create an image file from the root disk with Linux dd command, create a new virtual machine instance in the US-East region",
       "D": "Create a snapshot of the root disk, create an image file in Google Cloud Storage from the snapshot, and create a new virtual machine instance in the US-East region using the image file the root disk."
+    },
+    "options-zh": {
+      "A": "用 dd+netcat 複製 root disk 到 US-East 新 VM。",
+      "B": "對 root disk 建快照，US-East 新 VM 用此快照。",
+      "C": "dd 建映像檔，US-East 新 VM 用此映像。",
+      "D": "root disk 建快照，快照存 Cloud Storage，US-East 新 VM 用此映像。"
     },
     "images": [],
     "answers": [
@@ -3396,11 +3431,18 @@ const questions = [
   {
     "id": "Question #163",
     "question": "Your company runs several databases on a single MySQL instance. They need to take backups of a specific database at regular intervals. The backup activity needs to complete as quickly as possible and cannot be allowed to impact disk performance.\n\nHow should you configure the storage?",
+    "question-zh": "公司多個資料庫跑在同一 MySQL，要定期備份特定資料庫，且備份要快又不能影響磁碟效能。儲存怎麼設？",
     "options": {
       "A": "Configure a cron job to use the gcloud tool to take regular backups using persistent disk snapshots.",
       "B": "Mount a Local SSD volume as the backup location. After the backup is complete, use gsutil to move the backup to Google Cloud Storage.",
       "C": "Use gcsfise to mount a Google Cloud Storage bucket as a volume directly on the instance and write backups to the mounted location using mysqldump.",
       "D": "Mount additional persistent disk volumes onto each virtual machine (VM) instance in a RAID10 array and use LVM to create snapshots to send to Cloud Storage"
+    },
+    "options-zh": {
+      "A": "cron + gcloud 定期做永久磁碟快照。",
+      "B": "掛 Local SSD 做備份，完後用 gsutil 傳 Cloud Storage。",
+      "C": "gcsfuse 掛 Cloud Storage，mysqldump 備份到該掛載點。",
+      "D": "每台 VM 掛多顆永久磁碟做 RAID10，用 LVM 快照傳 Cloud Storage。"
     },
     "images": [],
     "answers": [
@@ -3410,6 +3452,7 @@ const questions = [
   {
     "id": "Question #164",
     "question": "You are helping the QA team to roll out a new load-testing tool to test the scalability of your primary cloud services that run on Google Compute Engine with Cloud\n\nBigtable.\n\nWhich three requirements should they include? (Choose three.)",
+    "question-zh": "你協助 QA 團隊導入新壓力測試工具，測試 Compute Engine + Cloud Bigtable 的主力服務擴展性。應納入哪三項需求？（選三項）",
     "options": {
       "A": "Ensure that the load tests validate the performance of Cloud Bigtable",
       "B": "Create a separate Google Cloud project to use for the load-testing environment",
@@ -3417,6 +3460,14 @@ const questions = [
       "D": "Ensure all third-party systems your services use is capable of handling high load",
       "E": "Instrument the production services to record every transaction for replay by the load-testing tool",
       "F": "Instrument the load-testing tool and the target services with detailed logging and metrics collection"
+    },
+    "options-zh": {
+      "A": "壓測需驗證 Cloud Bigtable 效能。",
+      "B": "壓測環境用獨立 GCP 專案。",
+      "C": "定期對正式環境壓測。",
+      "D": "確保所有第三方系統能承受高負載。",
+      "E": "正式服務記錄所有交易供壓測重播。",
+      "F": "壓測工具與目標服務都要詳細日誌與指標。"
     },
     "images": [],
     "answers": [
@@ -3428,11 +3479,18 @@ const questions = [
   {
     "id": "Question #165",
     "question": "Your customer is moving their corporate applications to Google Cloud Platform. The security team wants detailed visibility of all projects in the organization. You provision the Google Cloud Resource Manager and set up yourself as the org admin.\n\nWhat Google Cloud Identity and Access Management (Cloud IAM) roles should you give to the security team?",
+    "question-zh": "客戶將企業應用搬到 GCP，資安團隊要能細查所有專案。你設好 Resource Manager 並自設 org admin。資安團隊該給哪些 IAM 角色？",
     "options": {
       "A": "Org viewer, project owner",
       "B": "Org viewer, project viewer",
       "C": "Org admin, project browser",
       "D": "Project owner, network admin"
+    },
+    "options-zh": {
+      "A": "Org viewer、project owner。",
+      "B": "Org viewer、project viewer。",
+      "C": "Org admin、project browser。",
+      "D": "Project owner、network admin。"
     },
     "images": [],
     "answers": [
@@ -3442,12 +3500,20 @@ const questions = [
   {
     "id": "Question #166",
     "question": "Your company places a high value on being responsive and meeting customer needs quickly. Their primary business objectives are release speed and agility. You want to reduce the chance of security errors being accidentally introduced.\n\nWhich two actions can you take? (Choose two.)",
+    "question-zh": "公司重視回應速度與敏捷，目標是快速發佈。你要降低誤植資安漏洞的機率。可採取哪兩項行動？（選兩項）",
     "options": {
       "A": "Ensure every code check-in is peer reviewed by a security SME",
       "B": "Use source code security analyzers as part of the CI/CD pipeline",
       "C": "Ensure you have stubs to unit test all interfaces between components",
       "D": "Enable code signing and a trusted binary repository integrated with your CI/CD pipeline",
       "E": "Run a vulnerability security scanner as part of your continuous-integration /continuous-delivery (CI/CD) pipeline"
+    },
+    "options-zh": {
+      "A": "每次程式提交都由資安專家審查。",
+      "B": "CI/CD 流程納入原始碼安全分析。",
+      "C": "所有元件介面都要有 stub 做單元測試。",
+      "D": "啟用簽章與可信二進位倉庫整合 CI/CD。",
+      "E": "CI/CD 流程納入弱點掃描。"
     },
     "images": [],
     "answers": [
@@ -3458,11 +3524,18 @@ const questions = [
   {
     "id": "Question #167",
     "question": "You want to enable your running Google Kubernetes Engine cluster to scale as demand for your application changes.\n\nWhat should you do?",
+    "question-zh": "你要讓現有 GKE 叢集能隨需求自動擴展。怎麼做？",
     "options": {
       "A": "Add additional nodes to your Kubernetes Engine cluster using the following command: gcloud container clusters resize CLUSTER_Name ג€\" -size 10",
       "B": "Add a tag to the instances in the cluster with the following command: gcloud compute instances add-tags INSTANCE - -tags enable- autoscaling max-nodes-10",
       "C": "Update the existing Kubernetes Engine cluster with the following command: gcloud alpha container clusters update mycluster - -enable- autoscaling - -min-nodes=1 - -max-nodes=10",
       "D": "Create a new Kubernetes Engine cluster with the following command: gcloud alpha container clusters create mycluster - -enable- autoscaling - -min-nodes=1 - -max-nodes=10 and redeploy your application"
+    },
+    "options-zh": {
+      "A": "gcloud container clusters resize CLUSTER_Name --size 10 增加節點。",
+      "B": "gcloud compute instances add-tags INSTANCE --tags enable-autoscaling max-nodes-10。",
+      "C": "gcloud alpha container clusters update mycluster --enable-autoscaling --min-nodes=1 --max-nodes=10。",
+      "D": "gcloud alpha container clusters create mycluster --enable-autoscaling --min-nodes=1 --max-nodes=10 並重佈署應用。"
     },
     "images": [],
     "answers": [
@@ -3472,11 +3545,18 @@ const questions = [
   {
     "id": "Question #168",
     "question": "Your marketing department wants to send out a promotional email campaign. The development team wants to minimize direct operation management. They project a wide range of possible customer responses, from 100 to 500,000 click-through per day. The link leads to a simple website that explains the promotion and collects user information and preferences.\n\nWhich infrastructure should you recommend? (Choose two.)",
+    "question-zh": "行銷部要發促銷郵件，開發團隊想減少運維，預估點擊量 100~50 萬/天，連結到簡單網站收集用戶資料。建議用哪種架構？（選兩項）",
     "options": {
       "A": "Use Google App Engine to serve the website and Google Cloud Datastore to store user data.",
       "B": "Use a Google Container Engine cluster to serve the website and store data to persistent disk.",
       "C": "Use a managed instance group to serve the website and Google Cloud Bigtable to store user data.",
       "D": "Use a single Compute Engine virtual machine (VM) to host a web server, backend by Google Cloud SQL."
+    },
+    "options-zh": {
+      "A": "App Engine 服務網站，Cloud Datastore 存資料。",
+      "B": "Container Engine 服務網站，資料存永久磁碟。",
+      "C": "受管群組服務網站，Cloud Bigtable 存資料。",
+      "D": "單台 VM 跑網站，Cloud SQL 當後端。"
     },
     "images": [],
     "answers": [
@@ -3486,12 +3566,20 @@ const questions = [
   {
     "id": "Question #169",
     "question": "Your company just finished a rapid lift and shift to Google Compute Engine for your compute needs. You have another 9 months to design and deploy a more cloud-native solution. Specifically, you want a system that is no-ops and auto-scaling.\n\nWhich two compute products should you choose? (Choose two.)",
+    "question-zh": "公司剛完成 Compute Engine 快速遷移，還有 9 個月設計雲原生、無運維、自動擴展方案。該選哪兩種運算產品？（選兩項）",
     "options": {
       "A": "Compute Engine with containers",
       "B": "Google Kubernetes Engine with containers",
       "C": "Google App Engine Standard Environment",
       "D": "Compute Engine with custom instance types",
       "E": "Compute Engine with managed instance groups"
+    },
+    "options-zh": {
+      "A": "Compute Engine + 容器。",
+      "B": "Google Kubernetes Engine + 容器。",
+      "C": "Google App Engine 標準環境。",
+      "D": "Compute Engine + 自訂機型。",
+      "E": "Compute Engine + 受管群組。"
     },
     "images": [],
     "answers": [
@@ -3502,11 +3590,18 @@ const questions = [
   {
     "id": "Question #170",
     "question": "One of your primary business objectives is being able to trust the data stored in your application. You want to log all changes to the application data.\n\nHow can you design your logging system to verify authenticity of your logs?",
+    "question-zh": "你的主要目標之一是信任應用儲存的資料，想記錄所有資料異動。如何設計日誌系統驗證日誌真實性？",
     "options": {
       "A": "Write the log concurrently in the cloud and on premises",
       "B": "Use a SQL database and limit who can modify the log table",
       "C": "Digitally sign each timestamp and log entry and store the signature",
       "D": "Create a JSON dump of each log entry and store it in Google Cloud Storage"
+    },
+    "options-zh": {
+      "A": "雲端與本地同時寫日誌。",
+      "B": "用 SQL 限制誰能改日誌表。",
+      "C": "每筆日誌與時間戳都數位簽章並存簽章。",
+      "D": "每筆日誌轉 JSON 存 Cloud Storage。"
     },
     "images": [],
     "answers": [
@@ -3516,11 +3611,18 @@ const questions = [
   {
     "id": "Question #171",
     "question": "Your company has a Google Workspace account and Google Cloud Organization. Some developers in the company have created Google Cloud projects outside of the Google Cloud Organization.\n\nYou want to create an Organization structure that allows developers to create projects, but prevents them from modifying production projects. You want to manage policies for all projects centrally and be able to set more restrictive policies for production projects.\n\nYou want to minimize disruption to users and developers when business needs change in the future. You want to follow Google-recommended practices. Now should you design the Organization structure?",
+    "question-zh": "公司有 Workspace 與 GCP Org，有些開發者在 Org 外建專案。你要設計 Org 結構，讓開發者能建專案但不能改 production，並集中管理政策，production 可更嚴格。要最小化未來變動影響並遵循 Google 建議，該怎麼設計？",
     "options": {
       "A": "1. Create a second Google Workspace account and Organization. 2. Grant all developers the Project Creator IAM role on the new Organization. 3. Move the developer projects into the new Organization. 4. Set the policies for all projects on both Organizations. 5. Additionally, set the production policies on the original Organization.",
       "B": "1. Create a folder under the Organization resource named ג€Production.ג€ 2. Grant all developers the Project Creator IAM role on the new Organization. 3. Move the developer projects into the new Organization. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the ג€Productionג€ folder.",
       "C": "1. Create folders under the Organization resource named ג€Developmentג€ and ג€Production.ג€ 2. Grant all developers the Project Creator IAM role on the ג€Developmentג€ folder. 3. Move the developer projects into the ג€Developmentג€ folder. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the ג€Productionג€ folder.",
       "D": "1. Designate the Organization for production projects only. 2. Ensure that developers do not have the Project Creator IAM role on the Organization. 3. Create development projects outside of the Organization using the developer Google Workspace accounts. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the individual production projects."
+    },
+    "options-zh": {
+      "A": "1. 建第二個 Workspace 與 Org，給開發者 Project Creator 角色，移開發專案進新 Org，兩邊都設政策，production 政策設在原 Org。",
+      "B": "1. Org 下建 Production 資料夾，給開發者 Project Creator 角色，移開發專案進新 Org，Org 設政策，Production 資料夾設 production 政策。",
+      "C": "1. Org 下建 Development 與 Production 資料夾，給開發者 Project Creator 角色只在 Development，移開發專案進 Development，Org 設政策，Production 資料夾設 production 政策。",
+      "D": "1. Org 只給 production 專案，開發者不能有 Project Creator 角色，開發專案建在 Org 外，Org 設政策，production 個別設 production 政策。"
     },
     "images": [],
     "answers": [
@@ -3530,11 +3632,18 @@ const questions = [
   {
     "id": "Question #172",
     "question": "Your company has an application running on Compute Engine that allows users to play their favorite music. There are a fixed number of instances. Files are stored in Cloud Storage, and data is streamed directly to users. Users are reporting that they sometimes need to attempt to play popular songs multiple times before they are successful. You need to improve the performance of the application. What should you do?",
+    "question-zh": "公司有 Compute Engine 應用讓用戶聽音樂，檔案存 Cloud Storage，直接串流。用戶反映熱門歌常要重試才能播成功，要怎麼改善效能？",
     "options": {
       "A": "1. Mount the Cloud Storage bucket using gcsfuse on all backend Compute Engine instances. 2. Serve music files directly from the backend Compute Engine instance.",
       "B": "1. Create a Cloud Filestore NFS volume and attach it to the backend Compute Engine instances. 2. Download popular songs in Cloud Filestore. 3. Serve music files directly from the backend Compute Engine instance.",
       "C": "1. Copy popular songs into CloudSQL as a blob. 2. Update application code to retrieve data from CloudSQL when Cloud Storage is overloaded.",
       "D": "1. Create a managed instance group with Compute Engine instances. 2. Create a global load balancer and configure it with two backends: ג—‹ Managed instance group ג—‹ Cloud Storage bucket 3. Enable Cloud CDN on the bucket backend."
+    },
+    "options-zh": {
+      "A": "gcsfuse 掛載 Cloud Storage，直接從 Compute Engine 供應音樂。",
+      "B": "Cloud Filestore NFS 掛載到 Compute Engine，熱門歌下載到 Filestore，直接供應。",
+      "C": "熱門歌存 CloudSQL blob，Cloud Storage 超載時從 CloudSQL 取。",
+      "D": "建受管群組與全域負載平衡，兩後端：受管群組與 Cloud Storage，Cloud CDN 啟用。"
     },
     "images": [],
     "answers": [
@@ -3544,11 +3653,18 @@ const questions = [
   {
     "id": "Question #173",
     "question": "The operations team in your company wants to save Cloud VPN log events for one year. You need to configure the cloud infrastructure to save the logs. What should you do?",
+    "question-zh": "運維團隊要保存 Cloud VPN 日誌一年，該怎麼設置？",
     "options": {
       "A": "Set up a filter in Cloud Logging and a Cloud Storage bucket as an export target for the logs you want to save.",
       "B": "Enable the Compute Engine API, and then enable logging on the firewall rules that match the traffic you want to save.",
       "C": "Set up a Cloud Logging Dashboard titled Cloud VPN Logs, and then add a chart that queries for the VPN metrics over a one-year time period.",
       "D": "Set up a filter in Cloud Logging and a topic in Pub/Sub to publish the logs."
+    },
+    "options-zh": {
+      "A": "Cloud Logging 設 filter，日誌匯出到 Cloud Storage。",
+      "B": "啟用 Compute Engine API，防火牆規則開日誌。",
+      "C": "Cloud Logging 建 VPN 日誌儀表板，查詢一年內指標。",
+      "D": "Cloud Logging 設 filter，日誌發佈到 Pub/Sub。"
     },
     "images": [],
     "answers": [
@@ -3558,11 +3674,18 @@ const questions = [
   {
     "id": "Question #174",
     "question": "You are working with a data warehousing team that performs data analysis. The team needs to process data from external partners, but the data contains personally identifiable information (PII). You need to process and store the data without storing any of the PIIE data. What should you do?",
+    "question-zh": "你協助數據倉儲團隊分析資料，外部夥伴資料含個資，需處理但不能存個資。怎麼做？",
     "options": {
       "A": "Create a Dataflow pipeline to retrieve the data from the external sources. As part of the pipeline, use the Cloud Data Loss Prevention (Cloud DLP) API to remove any PII data. Store the result in BigQuery.",
       "B": "Create a Dataflow pipeline to retrieve the data from the external sources. As part of the pipeline, store all non-PII data in BigQuery and store all PII data in a Cloud Storage bucket that has a retention policy set.",
       "C": "Ask the external partners to upload all data on Cloud Storage. Configure Bucket Lock for the bucket. Create a Dataflow pipeline to read the data from the bucket. As part of the pipeline, use the Cloud Data Loss Prevention (Cloud DLP) API to remove any PII data. Store the result in BigQuery.",
       "D": "Ask the external partners to import all data in your BigQuery dataset. Create a dataflow pipeline to copy the data into a new table. As part of the Dataflow bucket, skip all data in columns that have PII data"
+    },
+    "options-zh": {
+      "A": "Dataflow 取資料，Cloud DLP API 移除個資，結果存 BigQuery。",
+      "B": "Dataflow 取資料，非個資存 BigQuery，個資存有保存政策的 Cloud Storage。",
+      "C": "夥伴上傳到 Cloud Storage，設 Bucket Lock，Dataflow 讀取並用 DLP API 移除個資，結果存 BigQuery。",
+      "D": "夥伴匯入 BigQuery，Dataflow 複製到新表，略過個資欄。"
     },
     "images": [],
     "answers": [
@@ -3572,11 +3695,18 @@ const questions = [
   {
     "id": "Question #175",
     "question": "You want to allow your operations team to store logs from all the production projects in your Organization, without including logs from other projects. All of the production projects are contained in a folder. You want to ensure that all logs for existing and new production projects are captured automatically. What should you do?",
+    "question-zh": "你要讓運維團隊儲存 Org 下所有 production 專案日誌，不含其他專案。production 都在同一資料夾，要自動收集所有 production 專案日誌。怎麼做？",
     "options": {
       "A": "Create an aggregated export on the Production folder. Set the log sink to be a Cloud Storage bucket in an operations project.",
       "B": "Create an aggregated export on the Organization resource. Set the log sink to be a Cloud Storage bucket in an operations project.",
       "C": "Create log exports in the production projects. Set the log sinks to be a Cloud Storage bucket in an operations project.",
       "D": "Create log exports in the production projects. Set the log sinks to be BigQuery datasets in the production projects, and grant IAM access to the operations team to run queries on the datasets."
+    },
+    "options-zh": {
+      "A": "Production 資料夾設彙總匯出，sink 指到運維專案的 Cloud Storage。",
+      "B": "Org 設彙總匯出，sink 指到運維專案的 Cloud Storage。",
+      "C": "production 專案各自設匯出，sink 指到運維專案的 Cloud Storage。",
+      "D": "production 專案各自設匯出，sink 指到 production 的 BigQuery，運維團隊有查詢權。"
     },
     "images": [],
     "answers": [
