@@ -1,4 +1,4 @@
-[
+const questions = [
   {
     "id": "Question #1",
     "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
@@ -3891,4 +3891,4 @@
       "A"
     ]
   }
-]
+];
