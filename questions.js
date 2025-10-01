@@ -754,12 +754,20 @@ const questions = [
   {
     "id": "Question #35",
     "question": "Your company wants to try out the cloud with low risk. They want to archive approximately大約 100 TB of their log data to the cloud and test the analytics features available to them there, while also retaining保留 that data as a long-term disaster recovery backup.\n\nWhich two steps should you take? (Choose two.)",
+    "question-zh": "您的公司希望以低風險嘗試雲端服務。他們希望將大約 100 TB 的日誌資料歸檔到雲端，並測試可用的分析功能，同時保留這些資料作為長期災難復原備份。\n\n您應該採取哪兩個步驟？（選兩個。）",
     "options": {
       "A": "Load logs into Google BigQuery",
       "B": "Load logs into Google Cloud SQL",
       "C": "Import logs into Google Stackdriver",
       "D": "Insert logs into Google Cloud Bigtable",
       "E": "Upload log files into Google Cloud Storage"
+    },
+    "options-zh": {
+      "A": "將日誌載入到 Google BigQuery",
+      "B": "將日誌載入到 Google Cloud SQL",
+      "C": "將日誌匯入 Google Stackdriver",
+      "D": "將日誌插入 Google Cloud Bigtable",
+      "E": "將日誌檔案上傳到 Google Cloud Storage"
     },
     "images": [],
     "answers": [
@@ -770,11 +778,18 @@ const questions = [
   {
     "id": "Question #36",
     "question": "You created a pipeline that can deploy your source code changes to your infrastructure in instance groups for self-healing. One of the changes negatively消極地 affects your key performance indicator指標. You are not sure how to fix it, and investigation調查 could take up to a week.\n\nWhat should you do?",
+    "question-zh": "您建立了一個管道，用於將原始碼變更部署到實例組中的基礎架構中，以實現自我修復。其中一項變更對您的關鍵績效指標 (KPI) 產生了負面影響。您不確定如何修復該問題，調查可能需要長達一周的時間。\n\n您應該怎麼做？",
     "options": {
       "A": "Log in to a server, and iterate on the fox locally",
       "B": "Revert the source code change, and rerun the deployment pipeline",
       "C": "Log into the servers with the bad code change, and swap in the previous code",
       "D": "Change the instance group template to the previous one, and delete all instances"
+    },
+    "options-zh": {
+      "A": "登入伺服器，在本地迭代 fox",
+      "B": "恢復原始碼更改，並重新運行部署管道",
+      "C": "使用錯誤代碼變更登入伺服器，並交換先前的代碼",
+      "D": "將實例群組模板變更為先前的模板，並刪除所有實例"
     },
     "images": [],
     "answers": [
@@ -784,11 +799,18 @@ const questions = [
   {
     "id": "Question #37",
     "question": "Your organization wants to control IAM policies for different departments independently, but centrally.\n\nWhich approach should you take?",
+    "question-zh": "您的組織希望獨立但集中地控制不同部門的 IAM 政策。\n\n您應該採用哪種方法？",
     "options": {
       "A": "Multiple Organizations with multiple Folders",
       "B": "Multiple Organizations, one for each department",
       "C": "A single Organization with Folders for each department",
       "D": "A single Organization with multiple projects, each with a central owner"
+    },
+    "options-zh": {
+      "A": "多個組織和多個資料夾",
+      "B": "多個組織，每個部門一個",
+      "C": "一個包含每個部門資料夾的組織",
+      "D": "一個擁有多個專案的組織，每個專案都有一個中央所有者"
     },
     "images": [],
     "answers": [
@@ -798,10 +820,16 @@ const questions = [
   {
     "id": "Question #38",
     "question": "You deploy your custom Java application to Google App Engine. It fails to deploy and gives you the following stack trace.",
+    "question-zh": "您將自訂 Java 應用程式部署至 Google App Engine。部署失敗，並顯示下列堆疊追蹤。",
     "options": {
       "A": "Upload missing JAR files and redeploy your application.",
       "B": "Digitally sign all of your JAR files and redeploy your application",
       "C": "Recompile the CLoakedServlet class using and MD5 hash instead of SHA1"
+    },
+    "options-zh": {
+      "A": "上傳遺失的 JAR 檔案並重新部署您的應用程式。",
+      "B": "對所有 JAR 檔案進行數位簽署並重新部署您的應用程式",
+      "C": "使用 MD5 哈希而不是 SHA1 重新編譯 CLoakedServlet 類別"
     },
     "images": [
       "images/Question-38.png"
@@ -813,11 +841,18 @@ const questions = [
   {
     "id": "Question #39",
     "question": "You are designing a mobile chat application. You want to ensure people cannot spoof欺騙 chat messages, by providing a message were sent by a specific user.\n\nWhat should you do?",
+    "question-zh": "您正在設計一個行動聊天應用程式。您希望透過提供由特定使用者發送的訊息來確保人們無法偽造聊天訊息。\n\n 您應該怎麼做？",
     "options": {
       "A": "Tag messages client side with the originating user identifier and the destination user.",
       "B": "Encrypt the message client side using block-based encryption with a shared key.",
       "C": "Use public key infrastructure (PKI) to encrypt the message client side using the originating user's private key.",
       "D": "Use a trusted certificate authority to enable SSL connectivity between the client application and the server."
+    },
+    "options-zh": {
+      "A": "在客戶端使用原始使用者識別碼和目標使用者標記訊息。",
+      "B": "使用基於區塊的加密和共用金鑰對客戶端訊息進行加密。",
+      "C": "使用公鑰基礎架構 (PKI) 透過原始使用者的私鑰加密用戶端訊息。",
+      "D": "使用受信任的憑證授權單位來啟用用戶端應用程式和伺服器之間的 SSL 連線。"
     },
     "images": [],
     "answers": [
@@ -827,12 +862,20 @@ const questions = [
   {
     "id": "Question #40",
     "question": "As part of implementing their disaster災難 recovery plan, your company is trying to replicate their production MySQL database from their private data center to their\n\nGCP project using a Google Cloud VPN connection. They are experiencing latency issues and a small amount of packet loss that is disrupting擾亂 the replication.\n\nWhat should they do?",
+    "question-zh": "作為實施災難復原計畫的一部分，貴公司正嘗試使用 Google Cloud VPN 連線將其生產 MySQL 資料庫從私有資料中心複製到其 GCP 專案。他們遇到了延遲問題和少量資料包遺失，導致複製中斷。\n\n 他們應該怎麼做？",
     "options": {
       "A": "Configure their replication to use UDP.",
       "B": "Configure a Google Cloud Dedicated Interconnect.",
       "C": "Restore their database daily using Google Cloud SQL.",
       "D": "Add additional VPN connections and load balance them.",
       "E": "Send the replicated transaction to Google Cloud Pub/Sub."
+    },
+    "options-zh": {
+      "A": "配置它們的複製以使用 UDP。",
+      "B": "設定 Google Cloud 專用互連。",
+      "C": "使用 Google Cloud SQL 每天恢復他們的資料庫。",
+      "D": "新增額外的 VPN 連線並對其進行負載平衡。",
+      "E": "將複製的交易傳送到 Google Cloud Pub/Sub。"
     },
     "images": [],
     "answers": [
@@ -842,11 +885,18 @@ const questions = [
   {
     "id": "Question #41",
     "question": "Your customer support tool logs all email and chat conversations to Cloud Bigtable for retention保留 and analysis. What is the recommended approach for sanitizing this data of personally identifiable information or payment card information before initial storage?",
+    "question-zh": "您的客戶支援工具會將所有電子郵件和聊天對話記錄到 Cloud Bigtable 中進行保留和分析。在初始儲存之前，建議如何清理這些資料中的個人識別資訊或支付卡資訊？",
     "options": {
       "A": "Hash all data using SHA256",
       "B": "Encrypt all data using elliptic curve cryptography",
       "C": "De-identify the data with the Cloud Data Loss Prevention API",
       "D": "Use regular expressions to find and redact phone numbers, email addresses, and credit card numbers"
+    },
+    "options-zh": {
+      "A": "使用 SHA256 對所有資料進行雜湊處理",
+      "B": "使用橢圓曲線密碼術加密所有資料",
+      "C": "使用 Cloud Data Loss Prevention API 對資料進行去識別化",
+      "D": "使用正規表示式尋找和編輯電話號碼、電子郵件地址和信用卡號碼"
     },
     "images": [],
     "answers": [
@@ -856,7 +906,14 @@ const questions = [
   {
     "id": "Question #42",
     "question": "You are using Cloud Shell and need to install a custom utility for use in a few weeks. Where can you store the file so it is in the default execution path and persists across sessions?",
+    "question-zh": "您正在使用 Cloud Shell，並且需要安裝自訂實用程式以供幾週後使用。您可以將該檔案儲存在哪裡，以便它位於預設執行路徑中並在會話之間持久保存？",
     "options": {
+      "A": "~/bin",
+      "B": "Cloud Storage",
+      "C": "/google/scripts",
+      "D": "/usr/local/bin"
+    },
+    "options-zh": {
       "A": "~/bin",
       "B": "Cloud Storage",
       "C": "/google/scripts",
@@ -870,11 +927,18 @@ const questions = [
   {
     "id": "Question #43",
     "question": "You want to create a private connection between your instances on Compute Engine and your on-premises data center. You require a connection of at least 20\n\nGbps. You want to follow Google-recommended practices. How should you set up the connection?",
+    "question-zh": "您想要在 Compute Engine 上的實例和本地資料中心之間建立私有連線。您需要至少 20\n\nGbps 的連線速度。您想遵循 Google 建議的做法。您應該如何設定連線？",
     "options": {
       "A": "Create a VPC and connect it to your on-premises data center using Dedicated Interconnect.",
       "B": "Create a VPC and connect it to your on-premises data center using a single Cloud VPN.",
       "C": "Create a Cloud Content Delivery Network (Cloud CDN) and connect it to your on-premises data center using Dedicated Interconnect.",
       "D": "Create a Cloud Content Delivery Network (Cloud CDN) and connect it to your on-premises datacenter using a single Cloud VPN."
+    },
+    "options-zh": {
+      "A": "建立一個 VPC 並使用專用互連將其連接到您的本地資料中心。",
+      "B": "建立一個 VPC 並使用單一 Cloud VPN 將其連接到您的本地資料中心。",
+      "C": "建立雲端內容傳遞網路 (Cloud CDN) 並使用專用互連將其連接到您的本地資料中心。",
+      "D": "創建雲端內容分發網路（Cloud CDN）並使用單一 Cloud VPN 將其連接到您的本地資料中心。"
     },
     "images": [],
     "answers": [
@@ -884,11 +948,18 @@ const questions = [
   {
     "id": "Question #44",
     "question": "You are analyzing and defining business processes to support your startup's trial usage試用 of GCP, and you don't yet know what consumer demand for your product will be. Your manager requires you to minimize GCP service costs and adhere to Google best practices. What should you do?",
+    "question-zh": "您正在分析和定義業務流程，以支援您的新創公司試用 GCP，但您尚不清楚消費者對您的產品的需求。您的經理要求您盡量降低 GCP 服務成本，並遵循 Google 的最佳實務。您應該怎麼做？",
     "options": {
       "A": "Utilize free tier and sustained use discounts. Provision a staff position for service cost management.",
       "B": "Utilize free tier and sustained use discounts. Provide training to the team about service cost management.",
       "C": "Utilize free tier and committed use承諾使用 discounts. Provision a staff position for service cost management.",
       "D": "Utilize free tier and committed use承諾使用 discounts. Provide training to the team about service cost management."
+    },
+    "options-zh": {
+      "A": "利用免費套餐和持續使用折扣。為服務成本管理提供員工職位。",
+      "B": "利用免費套餐和持續使用折扣。為團隊提供服務成本管理方面的培訓。",
+      "C": "利用免費套餐和承諾使用折扣。為服務成本管理提供一名員工職位。",
+      "D": "利用免費套餐和承諾使用折扣。為團隊提供服務成本管理方面的培訓。"
     },
     "images": [],
     "answers": [
@@ -898,11 +969,18 @@ const questions = [
   {
     "id": "Question #45",
     "question": "You are building a continuous連續的 deployment pipeline for a project stored in a Git source repository and want to ensure that code changes can be verified before deploying to production. What should you do?",
+    "question-zh": "您正在為儲存在 Git 來源儲存庫中的專案建立連續的部署管道，並希望確保在部署到生產環境之前可以驗證程式碼變更。您應該怎麼做？",
     "options": {
       "A": "Use Spinnaker to deploy builds to production using the red/black deployment strategy so that changes can easily be rolled back.",
       "B": "Use Spinnaker to deploy builds to production and run tests on production deployments.",
       "C": "Use Jenkins to build the staging branches and the master branch. Build and deploy changes to production for 10% of users before doing a complete rollout.",
       "D": "Use Jenkins to monitor tags in the repository. Deploy staging tags to a staging environment for testing. After testing, tag the repository for production and deploy that to the production environment."
+    },
+    "options-zh": {
+      "A": "使用 Spinnaker 透過紅/黑部署策略將建置部署到生產環境，以便輕鬆回滾變更。",
+      "B": "使用 Spinnaker 將建置部署到生產環境並在生產部署上執行測試。",
+      "C": "使用 Jenkins 建置暫存分支和主分支。在全面部署之前，先為 10% 的使用者建置並部署變更到生產環境。",
+      "D": "使用 Jenkins 監控倉庫中的標籤。將暫存標籤部署到暫存環境進行測試。測試完成後，將倉庫標記為生產環境，並將其部署到生產環境。"
     },
     "images": [],
     "answers": [
