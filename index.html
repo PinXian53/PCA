@@ -222,7 +222,7 @@
             border-top: 1px solid var(--color-gray-100);
             background-color: var(--color-gray-50);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             gap: var(--spacing-md);
@@ -441,26 +441,32 @@
             border: 2px solid var(--color-error);
         }
 
-        /* ==================== Language Toggle ==================== */
+        /* ==================== Language Toggle (Floating) ==================== */
         .language-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
             display: flex;
-            background-color: var(--color-gray-100);
-            border-radius: var(--radius-md);
-            padding: 4px;
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 6px;
             gap: 4px;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            border: 2px solid var(--color-gray-200);
         }
 
         .language-toggle__btn {
-            padding: 8px 20px;
+            padding: 10px 20px;
             border: none;
-            border-radius: var(--radius-sm);
+            border-radius: var(--radius-md);
             background-color: transparent;
             color: var(--color-gray-600);
             font-weight: 600;
             font-size: var(--font-size-sm);
             cursor: pointer;
             transition: all 0.3s ease;
-            min-height: 36px;
+            min-height: 40px;
         }
 
         .language-toggle__btn.active {
@@ -474,6 +480,7 @@
 
         .language-toggle__btn.active:hover {
             color: var(--color-white);
+            background-color: var(--color-primary-dark);
         }
 
         /* ==================== Utility Classes ==================== */
@@ -539,10 +546,6 @@
         <div class="container">
             <div class="header-content">
                 <h1 class="header-title">考試練習網站</h1>
-                <div class="language-toggle">
-                    <button class="language-toggle__btn active" data-lang="zh">中文</button>
-                    <button class="language-toggle__btn" data-lang="en">English</button>
-                </div>
             </div>
         </div>
     </header>
@@ -578,14 +581,20 @@
                 </div>
                 <div class="card__footer">
                     <button id="backToListBtn" class="btn btn--secondary">返回題目清單</button>
-                    <div class="controls">
-                        <button id="submitAnswerBtn" class="btn btn--primary">送出答案</button>
-                        <button id="resetAnswerBtn" class="btn btn--secondary" style="display: none;">重新作答</button>
-                    </div>
+                    <button id="prevQuestionBtn" class="btn btn--secondary">上一題</button>
+                    <button id="submitAnswerBtn" class="btn btn--primary">送出答案</button>
+                    <button id="resetAnswerBtn" class="btn btn--secondary" style="display: none;">重新作答</button>
+                    <button id="nextQuestionBtn" class="btn btn--secondary">下一題</button>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Floating Language Toggle -->
+    <div class="language-toggle">
+        <button class="language-toggle__btn active" data-lang="zh">中文</button>
+        <button class="language-toggle__btn" data-lang="en">English</button>
+    </div>
 
     <script>
         // ==================== Global Variables ====================
@@ -608,6 +617,8 @@
             submitAnswerBtn: document.getElementById('submitAnswerBtn'),
             resetAnswerBtn: document.getElementById('resetAnswerBtn'),
             backToListBtn: document.getElementById('backToListBtn'),
+            prevQuestionBtn: document.getElementById('prevQuestionBtn'),
+            nextQuestionBtn: document.getElementById('nextQuestionBtn'),
             resultMessage: document.getElementById('resultMessage'),
             languageToggle: document.querySelectorAll('.language-toggle__btn')
         };
@@ -728,6 +739,9 @@
             elements.submitAnswerBtn.disabled = false;
             elements.resetAnswerBtn.style.display = 'none';
             elements.resultMessage.classList.remove('show', 'success', 'error');
+            
+            // Update navigation buttons
+            updateNavigationButtons();
             
             // Switch views
             elements.questionListView.classList.add('hidden');
@@ -896,6 +910,35 @@
         }
 
         /**
+         * Go to previous question
+         */
+        function goToPrevQuestion() {
+            if (currentQuestionIndex > 0) {
+                showQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        /**
+         * Go to next question
+         */
+        function goToNextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                showQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        /**
+         * Update navigation button states
+         */
+        function updateNavigationButtons() {
+            // Disable prev button if at first question
+            elements.prevQuestionBtn.disabled = (currentQuestionIndex === 0);
+            
+            // Disable next button if at last question
+            elements.nextQuestionBtn.disabled = (currentQuestionIndex === questions.length - 1);
+        }
+
+        /**
          * Switch language
          */
         function switchLanguage(lang) {
@@ -945,6 +988,8 @@
         elements.submitAnswerBtn.addEventListener('click', submitAnswer);
         elements.resetAnswerBtn.addEventListener('click', resetAnswer);
         elements.backToListBtn.addEventListener('click', backToQuestionList);
+        elements.prevQuestionBtn.addEventListener('click', goToPrevQuestion);
+        elements.nextQuestionBtn.addEventListener('click', goToNextQuestion);
 
         // Header title click to go back to question list
         document.querySelector('.header-title').addEventListener('click', backToQuestionList);
