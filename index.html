@@ -1385,7 +1385,7 @@
             for (const section of topicSections) {
                 const header = section.querySelector('.topic-header');
                 const headerText = header?.querySelector('.topic-header-text');
-                if (headerText && headerText.textContent === `Topic ${topic}`) {
+                if (headerText && headerText.textContent.startsWith(`Topic ${topic}`)) {
                     // Calculate offset to account for sticky navigation
                     const navHeight = elements.topicNavigation.offsetHeight;
                     const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
