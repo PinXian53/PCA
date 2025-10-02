@@ -3270,7 +3270,8 @@ const questions = [
     {
         "topic": "#1",
         "no": "#141",
-        "link": "https://www.examtopics.com/discussions/google/view/60698-exam-professional-cloud-architect-topic-1-question-141/",
+        "link": "https://www.examtopics.com/discussions/google/view/60698-exam-professional-cloud-architect-topic-1-question-141/" +
+            "",
         "question": "Your company is developing a web-based application. You need to make sure that production deployments are linked to source code commits and are fully auditable. What should you do?",
         "question-zh": "公司開發 Web 應用，需確保生產部署可追溯到原始碼 commit 並可稽核。應怎麼做？",
         "options": {
@@ -3293,7 +3294,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#142",
-        "link": "https://www.examtopics.com/discussions/google/view/56367-exam-professional-cloud-architect-topic-1-question-142/",
+        "link": "https://www.examtopics.com/discussions/google/view/60437-exam-professional-cloud-architect-topic-1-question-142/",
         "question": "An application development team has come to you for advice. They are planning to write and deploy an HTTP(S) API using Go 1.12. The API will have a very unpredictable workload and must remain reliable during peaks in traffic. They want to minimize operational overhead for this application. Which approach should you recommend?",
         "question-zh": "開發團隊要用 Go 1.12 寫 HTTP(S) API，流量極不穩定且高峰需可靠，想降低運維負擔。建議用哪種方式？",
         "options": {
@@ -3316,7 +3317,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#143",
-        "link": "https://www.examtopics.com/discussions/google/view/56368-exam-professional-cloud-architect-topic-1-question-143/",
+        "link": "https://www.examtopics.com/discussions/google/view/60682-exam-professional-cloud-architect-topic-1-question-143/",
         "question": "Your company is designing its data lake on Google Cloud and wants to develop different ingestion pipelines to collect unstructured data from different sources.\n\nAfter the data is stored in Google Cloud, it will be processed in several data pipelines to build a recommendation engine for end users on the website. The structure of the data retrieved from the source systems can change at any time. The data must be stored exactly as it was retrieved for reprocessing purposes in case the data structure is incompatible with the current processing pipelines. You need to design an architecture to support the use case after you retrieve the data. What should you do?",
         "question-zh": "公司在 GCP 設計 data lake，需收集多來源非結構化資料，且來源結構可能隨時變動，必須原樣儲存以便重處理。應如何設計？",
         "options": {
@@ -3339,7 +3340,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#144",
-        "link": "https://www.examtopics.com/discussions/google/view/56370-exam-professional-cloud-architect-topic-1-question-144/",
+        "link": "https://www.examtopics.com/discussions/google/view/60743-exam-professional-cloud-architect-topic-1-question-144/",
         "question": "You are responsible for the Google Cloud environment in your company. Multiple departments need access to their own projects, and the members within each department will have the same project responsibilities. You want to structure your Google Cloud environment for minimal maintenance and maximum overview of IAM permissions as each department's projects start and end. You want to follow Google-recommended practices. What should you do?",
         "question-zh": "你負責公司 GCP 環境，多部門需各自專案權限，且每部門成員權限一致。要最少維護、最佳權限總覽，依 Google 建議怎麼做？",
         "options": {
@@ -3362,7 +3363,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#145",
-        "link": "https://www.examtopics.com/discussions/google/view/56371-exam-professional-cloud-architect-topic-1-question-145/",
+        "link": "https://www.examtopics.com/discussions/google/view/60438-exam-professional-cloud-architect-topic-1-question-145/",
         "question": "Your company has an application running as a Deployment in a Google Kubernetes Engine (GKE) cluster. You have separate clusters for development, staging, and production. You have discovered that the team is able to deploy a Docker image to the production cluster without first testing the deployment in development and then staging. You want to allow the team to have autonomy but want to prevent this from happening. You want a Google Cloud solution that can be implemented quickly with minimal effort. What should you do?",
         "question-zh": "公司 GKE 有 dev/stage/prod 三叢集，發現團隊能直接將 Docker image 部署到 prod 而未經 dev/stage 測試。要讓團隊有自主權又防止此事，且解決方案要快且簡單。應怎麼做？",
         "options": {
@@ -3385,7 +3386,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#146",
-        "link": "https://www.examtopics.com/discussions/google/view/56372-exam-professional-cloud-architect-topic-1-question-146/",
+        "link": "https://www.examtopics.com/discussions/google/view/60720-exam-professional-cloud-architect-topic-1-question-146/",
         "question": "Your company wants to migrate their 10-TB on-premises database export into Cloud Storage. You want to minimize the time it takes to complete this activity, the overall cost, and database load. The bandwidth between the on-premises environment and Google Cloud is 1 Gbps. You want to follow Google-recommended practices. What should you do?",
         "question-zh": "公司要將 10TB 地端資料庫匯出檔遷移到 Cloud Storage，需最小化時間、成本與資料庫負載，地端到 GCP 頻寬 1Gbps，依 Google 建議怎麼做？",
         "options": {
