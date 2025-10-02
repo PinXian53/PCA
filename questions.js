@@ -4591,7 +4591,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#198",
-        "link": "https://www.examtopics.com/discussions/google/view/138677-exam-professional-cloud-architect-topic-1-question-198/",
+        "link": "https://www.examtopics.com/discussions/google/view/146571-exam-professional-cloud-architect-topic-1-question-198/",
         "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
         "question-zh": "公司要大改 API，舊版要能繼續用，新客戶與測試者可試新版，SSL/DNS 不變，怎麼做？",
         "options": {
@@ -4614,7 +4614,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#199",
-        "link": "https://www.examtopics.com/discussions/google/view/138677-exam-professional-cloud-architect-topic-1-question-199/",
+        "link": "https://www.examtopics.com/discussions/google/view/146572-exam-professional-cloud-architect-topic-1-question-199/",
         "question": "You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows:",
         "question-zh": "你有 Compute Engine 應用，想在記憶體用量超過 80% 時自動擴展，已裝 Monitoring agent 並設好 autoscale。怎麼修正？",
         "options": {
@@ -4635,6 +4635,84 @@ const questions = [
         "answers": [
             "C"
         ]
+    },
+    {
+        "topic": "#2",
+        "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/10396-exam-professional-cloud-architect-topic-2-question-1/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#2",
+        "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/11917-exam-professional-cloud-architect-topic-2-question-2/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#2",
+        "no": "#3",
+        "link": "\thttps://www.examtopics.com/discussions/google/view/12793-exam-professional-cloud-architect-topic-2-question-3/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#2",
+        "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/14318-exam-professional-cloud-architect-topic-2-question-4/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#2",
+        "no": "#5",
+        "link": "\thttps://www.examtopics.com/discussions/google/view/6708-exam-professional-cloud-architect-topic-2-question-5/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#2",
+        "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/8497-exam-professional-cloud-architect-topic-2-question-6/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
     },
     {
         "topic": "#3",
@@ -5978,5 +6056,226 @@ const questions = [
         "answers": [
             "A"
         ]
+    },
+    {
+        "topic": "#11",
+        "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/6660-exam-professional-cloud-architect-topic-11-question-1/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/14731-exam-professional-cloud-architect-topic-11-question-2/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/7261-exam-professional-cloud-architect-topic-11-question-3/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/6617-exam-professional-cloud-architect-topic-11-question-4/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/6968-exam-professional-cloud-architect-topic-11-question-5/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/9198-exam-professional-cloud-architect-topic-11-question-6/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#7",
+        "link": "https://www.examtopics.com/discussions/google/view/7263-exam-professional-cloud-architect-topic-11-question-7/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#8",
+        "link": "https://www.examtopics.com/discussions/google/view/8251-exam-professional-cloud-architect-topic-11-question-8/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#9",
+        "link": "https://www.examtopics.com/discussions/google/view/14735-exam-professional-cloud-architect-topic-11-question-9/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#10",
+        "link": "https://www.examtopics.com/discussions/google/view/9199-exam-professional-cloud-architect-topic-11-question-10/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#11",
+        "no": "#11",
+        "link": "https://www.examtopics.com/discussions/google/view/6802-exam-professional-cloud-architect-topic-11-question-11/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/6803-exam-professional-cloud-architect-topic-12-question-1/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/7265-exam-professional-cloud-architect-topic-12-question-2/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/7266-exam-professional-cloud-architect-topic-12-question-3/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/6805-exam-professional-cloud-architect-topic-12-question-4/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/8252-exam-professional-cloud-architect-topic-12-question-5/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
+    },
+    {
+        "topic": "#12",
+        "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/6807-exam-professional-cloud-architect-topic-12-question-6/",
+        "question": "",
+        "question-zh": "",
+        "options": {
+        },
+        "options-zh": {
+        },
+        "images": [],
+        "answers": []
     }
 ];
