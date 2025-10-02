@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCA 考試練習網站</title>
     <script src="questions.js"></script>
+    <script src="topics.js"></script>
     <style>
         /* ==================== CSS Reset & Base ==================== */
         * {
@@ -388,6 +389,175 @@
             margin-bottom: var(--spacing-lg);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topic-header-text {
+            flex: 1;
+        }
+
+        .topic-info-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background-color: var(--color-info);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            border: none;
+            font-size: var(--font-size-base);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: var(--spacing-sm);
+        }
+
+        .topic-info-icon:hover {
+            background-color: #138496;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-info-icon:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== Modal ==================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: var(--spacing-lg);
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: var(--spacing-lg);
+            border-bottom: 2px solid var(--color-gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin: 0;
+        }
+
+        .modal-close-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xl);
+            color: var(--color-gray-600);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--color-gray-100);
+            color: var(--color-gray-900);
+        }
+
+        .modal-body {
+            padding: var(--spacing-lg);
+        }
+
+        .modal-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-section-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-section-content {
+            color: var(--color-gray-900);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .modal-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .modal-link-item {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            transform: translateX(4px);
+        }
+
+        .modal-link::before {
+            content: '🔗';
+            margin-right: var(--spacing-sm);
         }
 
         .topic-questions {
@@ -825,6 +995,30 @@
     <!-- Floating Language Toggle -->
     <button id="languageToggleBtn" class="language-toggle">中</button>
 
+    <!-- Topic Info Modal -->
+    <div id="topicInfoModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTopicTitle" class="modal-title"></h3>
+                <button id="modalCloseBtn" class="modal-close-btn" aria-label="關閉">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalTopicName" class="modal-section">
+                    <div class="modal-section-title">Topic Name</div>
+                    <div class="modal-section-content" id="modalTopicNameContent"></div>
+                </div>
+                <div id="modalTopicDescription" class="modal-section">
+                    <div class="modal-section-title">Description</div>
+                    <div class="modal-section-content" id="modalTopicDescriptionContent"></div>
+                </div>
+                <div id="modalTopicLinks" class="modal-section">
+                    <div class="modal-section-title">Links</div>
+                    <ul class="modal-links-list" id="modalTopicLinksList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ==================== Global Variables ====================
         // Note: questions array is loaded from questions.js
@@ -854,7 +1048,13 @@
             prevQuestionBtn: document.getElementById('prevQuestionBtn'),
             nextQuestionBtn: document.getElementById('nextQuestionBtn'),
             resultMessage: document.getElementById('resultMessage'),
-            languageToggleBtn: document.getElementById('languageToggleBtn')
+            languageToggleBtn: document.getElementById('languageToggleBtn'),
+            topicInfoModal: document.getElementById('topicInfoModal'),
+            modalCloseBtn: document.getElementById('modalCloseBtn'),
+            modalTopicTitle: document.getElementById('modalTopicTitle'),
+            modalTopicNameContent: document.getElementById('modalTopicNameContent'),
+            modalTopicDescriptionContent: document.getElementById('modalTopicDescriptionContent'),
+            modalTopicLinksList: document.getElementById('modalTopicLinksList')
         };
 
         // ==================== Utility Functions ====================
@@ -1068,6 +1268,72 @@
             return question.answers.length > 1;
         }
 
+        // ==================== Topic Modal Functions ====================
+        
+        /**
+         * Find topic data by topic ID
+         * @param {string} topicId - Topic ID (e.g., "#1", "#2")
+         * @returns {Object|null} Topic object or null if not found
+         */
+        function findTopicData(topicId) {
+            if (typeof topics === 'undefined' || !topics) {
+                console.warn('Topics data not loaded');
+                return null;
+            }
+            
+            return topics.find(topic => topic.id && topic.id.includes(topicId)) || null;
+        }
+
+        /**
+         * Open topic info modal
+         * @param {string} topicId - Topic ID to display
+         */
+        function openTopicInfoModal(topicId) {
+            const topicData = findTopicData(topicId);
+            
+            if (!topicData) {
+                console.warn('Topic data not found for:', topicId);
+                return;
+            }
+
+            // Set modal title
+            elements.modalTopicTitle.textContent = `Topic ${topicId} Information`;
+
+            // Set topic name
+            elements.modalTopicNameContent.textContent = topicData.name || 'N/A';
+
+            // Set topic description
+            if (topicData.description && topicData.description.trim() !== '') {
+                elements.modalTopicDescriptionContent.textContent = topicData.description;
+                document.getElementById('modalTopicDescription').style.display = 'block';
+            } else {
+                document.getElementById('modalTopicDescription').style.display = 'none';
+            }
+
+            // Set topic links
+            if (topicData.links && topicData.links.length > 0) {
+                elements.modalTopicLinksList.innerHTML = topicData.links.map(link => 
+                    `<li class="modal-link-item">
+                        <a href="${link}" class="modal-link" target="_blank" rel="noopener noreferrer">${link}</a>
+                    </li>`
+                ).join('');
+                document.getElementById('modalTopicLinks').style.display = 'block';
+            } else {
+                elements.modalTopicLinksList.innerHTML = '<li class="modal-link-item">無連結</li>';
+                document.getElementById('modalTopicLinks').style.display = 'block';
+            }
+
+            // Show modal
+            elements.topicInfoModal.classList.add('show');
+        }
+
+        /**
+         * Close topic info modal
+         */
+        function closeTopicInfoModal() {
+            elements.topicInfoModal.classList.remove('show');
+        }
+
         // ==================== Question List Functions ====================
         
         /**
@@ -1126,7 +1392,8 @@
             
             for (const section of topicSections) {
                 const header = section.querySelector('.topic-header');
-                if (header && header.textContent === `Topic ${topic}`) {
+                const headerText = header?.querySelector('.topic-header-text');
+                if (headerText && headerText.textContent === `Topic ${topic}`) {
                     // Calculate offset to account for sticky navigation
                     const navHeight = elements.topicNavigation.offsetHeight;
                     const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
@@ -1195,7 +1462,24 @@
                 // Create topic header
                 const topicHeader = document.createElement('div');
                 topicHeader.className = 'topic-header';
-                topicHeader.textContent = `Topic ${topic}`;
+                
+                // Create topic header text
+                const topicHeaderText = document.createElement('span');
+                topicHeaderText.className = 'topic-header-text';
+                topicHeaderText.textContent = `Topic ${topic}`;
+                topicHeader.appendChild(topicHeaderText);
+                
+                // Create info icon button
+                const infoIcon = document.createElement('button');
+                infoIcon.className = 'topic-info-icon';
+                infoIcon.textContent = 'ℹ';
+                infoIcon.setAttribute('aria-label', `查看 Topic ${topic} 資訊`);
+                infoIcon.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openTopicInfoModal(topic);
+                });
+                topicHeader.appendChild(infoIcon);
+                
                 topicSection.appendChild(topicHeader);
                 
                 // Create container for questions in this topic
@@ -1555,6 +1839,23 @@
                 }
             });
         }
+
+        // Topic info modal event listeners
+        elements.modalCloseBtn.addEventListener('click', closeTopicInfoModal);
+        
+        // Close modal when clicking overlay (outside the modal content)
+        elements.topicInfoModal.addEventListener('click', (e) => {
+            if (e.target === elements.topicInfoModal) {
+                closeTopicInfoModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && elements.topicInfoModal.classList.contains('show')) {
+                closeTopicInfoModal();
+            }
+        });
 
         // Handle browser back/forward navigation
         window.addEventListener('popstate', (event) => {

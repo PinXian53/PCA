@@ -1,7 +1,7 @@
 const topics = [
     {
         "id": ["#1"],
-        "name": "default",
+        "name": "Default",
         "description": "無",
         "links": []
     },
