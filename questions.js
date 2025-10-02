@@ -4663,7 +4663,7 @@ const questions = [
         "topic": "#2",
         "no": "#2",
         "link": "https://www.examtopics.com/discussions/google/view/11917-exam-professional-cloud-architect-topic-2-question-2/",
-        "question": "",
+        "question": "A few days after JencoMart migrates the user credentials database to Google Cloud Platform and shuts down the old server, the new database server stops responding to SSH connections. It is still serving database requests to the application servers correctly.\nWhat three steps should you take to diagnose the problem? (Choose three.)",
         "question-zh": "",
         "options": {
             "A": "Delete the virtual machine (VM) and disks and create a new one",
