@@ -8,7 +8,28 @@ const topics = [
     {
         "id": ["#2"],
         "name": "JencoMart",
-        "description": "",
+        "description": `JencoMart 案例概要與重點
+1. 案例背景 / 業務情景
+
+從整理的第三方資料來看，JencoMart 的重點在於其用戶資料庫與應用系統遷移的過程與安全性控制：
+JencoMart 計畫把 User Profiles (用戶個人資料) 移到 Google Cloud Datastore（或等價 NoSQL 資料庫） 
+應用伺服器 (Application servers) 則要遷移至 Google Compute Engine (GCE) 
+在遷移過程中，舊有系統仍必須能訪問新的資料庫 (on-premises 與雲端共存) 
+要確保最小權限 (least privilege)、分離職責 (separation of duties)，在 IAM 和金鑰管理上要謹慎設計 
+
+2. 核心議題 / 考慮事項
+
+金鑰管理 / 認證方式：如何讓 on-premise 系統與雲端 VM 安全地訪問 Datastore，而不暴露過度權限或長期金鑰？ 
+監控與成功指標 (Metrics / KPI)：在亞洲地區提供服務，需要監控延遲、錯誤率、使用者訪問量等指標來衡量系統效能 
+漸進遷移與混合運作：在遷移期可能要同時維持 on-premise 與雲端系統共存，需考慮網路連線、安全邊界、流量導向等策略
+資料一致性 / 延遲考量：對於用戶資料與資料存取可能要考慮一致性、延遲、讀寫頻率等因素
+
+3. 題目 / 練習題線索
+
+從練習題 / 題庫中可見：
+題目會要求選擇在雲端資料庫 (Datastore / Cloud SQL / Spanner) 的適當選項。 
+在監控時，要選擇對應於亞洲用戶的「總訪問量 + 平均延遲」等指標 
+在金鑰管理／ IAM 設計上，題目可能要求使用最小權限原則，為 on-premise 和 VM 提供適當認證方式`,
         "links": []
     },
     {
@@ -319,7 +340,31 @@ remaining legacy systems to the cloud
     {
         "id": ["#11", "#12"],
         "name": "Dress4Win",
-        "description": "",
-        "links": []
+        "description": `Dress4Win 案例概要與重點
+1. 公司背景 / 業務模式
+
+Dress4Win 是一家以網路與行動 App 為主的平台，讓使用者整理／管理個人衣櫥，同時建立社交網絡，與設計者與零售商互動。 
+收益來源：廣告、電商、推薦（referral）、Freemium 模式（部分功能免費、部分付費） 
+最初運行在創辦人的車庫伺服器，後來擴張到數百台伺服器與設備，在 colocated 資料中心運作。 
+隨著成長，現有基礎設施已無法滿足需求，需全面遷移至雲端。 
+
+2. 技術／架構挑戰與需求
+
+以下是第三方整理的重點需求／挑戰：
+類別\t                   挑戰 / 要求
+效能與可伸縮性\t在高流量時段:（如週末、早晨）流量高，用量低谷期間有大量閒置資源 
+快速資源配置 / 自動化     :希望能快速佈署新資源以支援快速創新 
+成本優化              \t:在流量低谷期減少資源用量、降低閒置成本 
+分區部署 / 全球分佈\t     :若用戶分布於不同地理區域，需考慮多區域佈署與負載平衡設計 
+備份 / 災難復原 /歸檔\t :要有低成本的備份與異地歸檔策略 
+
+3. 設計方向與建議（第三方分析）
+
+以下是一些常見在該案例中被提及的架構建議：
+- 選用 Managed Instance Groups + Global Load Balancer 來做跨區域的流量導向與故障切換 
+- 使用 區域自動擴縮 (autoscaling) 來因應流量高峰與閒置期，減少成本
+- 備份資料庫與日誌至冷存儲或歸檔儲存，做離線或冷備份 
+- 在現有資料中心與雲端之間建立 VPN 或專線互連，以確保資料傳輸的安全與穩定性`,
+        "links": ["https://medium.com/%40bincysjames/dress4win-sample-case-study-explained-9247979ee742"]
     }
 ]
