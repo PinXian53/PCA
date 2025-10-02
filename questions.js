@@ -4640,14 +4640,24 @@ const questions = [
         "topic": "#2",
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/10396-exam-professional-cloud-architect-topic-2-question-1/",
-        "question": "",
+        "question": "The JencoMart security team requires that all Google Cloud Platform infrastructure is deployed using a least privilege model with separation of duties for administration between production and development resources.\nWhat Google domain and project structure should you recommend?",
         "question-zh": "",
         "options": {
+            "A": "Create two G Suite accounts to manage users: one for development/test/staging and one for production. Each account should contain one project for every application",
+            "B": "Create two G Suite accounts to manage users: one with a single project for all development applications and one with a single project for all production applications",
+            "C": "Create a single G Suite account to manage users with each stage of each application in its own project",
+            "D": "Create a single G Suite account to manage users with one project for the development/test/staging environment and one project for the production environment"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": [
+            "C"
+        ]
     },
     {
         "topic": "#2",
@@ -4656,63 +4666,113 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "Delete the virtual machine (VM) and disks and create a new one",
+            "B": "Delete the instance, attach the disk to a new VM, and investigate",
+            "C": "Take a snapshot of the disk and connect to a new machine to investigate",
+            "D": "Check inbound firewall rules for the network the machine is connected to",
+            "E": "Connect the machine to another network with very simple firewall rules and investigate",
+            "F": "Print the Serial Console output for the instance for troubleshooting, activate the interactive console, and investigate"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": "",
+            "E": "",
+            "F": ""
         },
         "images": [],
-        "answers": []
+        "answers": [
+            "C", "D", "F"
+        ]
     },
     {
         "topic": "#2",
         "no": "#3",
-        "link": "\thttps://www.examtopics.com/discussions/google/view/12793-exam-professional-cloud-architect-topic-2-question-3/",
-        "question": "",
+        "link": "https://www.examtopics.com/discussions/google/view/12793-exam-professional-cloud-architect-topic-2-question-3/",
+        "question": "JencoMart has decided to migrate user profile storage to Google Cloud Datastore and the application servers to Google Compute Engine (GCE). During the migration, the existing infrastructure will need access to Datastore to upload the data.\nWhat service account key-management strategy should you recommend?",
         "question-zh": "",
         "options": {
+            "A": "Provision service account keys for the on-premises infrastructure and for the GCE virtual machines (VMs)",
+            "B": "Authenticate the on-premises infrastructure with a user account and provision service account keys for the VMs",
+            "C": "Provision service account keys for the on-premises infrastructure and use Google Cloud Platform (GCP) managed keys for the VMs",
+            "D": "Deploy a custom authentication service on GCE/Google Kubernetes Engine (GKE) for the on-premises infrastructure and use GCP managed keys for the VMs"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["C"]
     },
     {
         "topic": "#2",
         "no": "#4",
         "link": "https://www.examtopics.com/discussions/google/view/14318-exam-professional-cloud-architect-topic-2-question-4/",
-        "question": "",
+        "question": "JencoMart has built a version of their application on Google Cloud Platform that serves traffic to Asia. You want to measure success against their business and technical goals.\nWhich metrics should you track?",
         "question-zh": "",
         "options": {
+            "A": "Error rates for requests from Asia",
+            "B": "Latency difference between US and Asia",
+            "C": "Total visits, error rates, and latency from Asia",
+            "D": "Total visits and average latency for users from Asia",
+            "E": "The number of character sets present in the database"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": "",
+            "E": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["C"]
     },
     {
         "topic": "#2",
         "no": "#5",
-        "link": "\thttps://www.examtopics.com/discussions/google/view/6708-exam-professional-cloud-architect-topic-2-question-5/",
-        "question": "",
+        "link": "https://www.examtopics.com/discussions/google/view/6708-exam-professional-cloud-architect-topic-2-question-5/",
+        "question": "The migration of JencoMart's application to Google Cloud Platform (GCP) is progressing too slowly. The infrastructure is shown in the diagram. You want to maximize throughput.\nWhat are three potential bottlenecks? (Choose three.)",
         "question-zh": "",
         "options": {
+            "A": "A single VPN tunnel, which limits throughput",
+            "B": "A tier of Google Cloud Storage that is not suited for this task",
+            "C": "A copy command that is not suited to operate over long distances",
+            "D": "Fewer virtual machines (VMs) in GCP than on-premises machines",
+            "E": "A separate storage layer outside the VMs, which is not suited for this task",
+            "F": "Complicated internet connectivity between the on-premises infrastructure and GCP"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
-        "images": [],
-        "answers": []
+        "images": ["images/T2N5.png"],
+        "answers": ["A", "C", "F"]
     },
     {
         "topic": "#2",
         "no": "#6",
         "link": "https://www.examtopics.com/discussions/google/view/8497-exam-professional-cloud-architect-topic-2-question-6/",
-        "question": "",
+        "question": "JencoMart wants to move their User Profiles database to Google Cloud Platform.\nWhich Google Database should they use?",
         "question-zh": "",
         "options": {
+            "A": "Cloud Spanner",
+            "B": "Google BigQuery",
+            "C": "Google Cloud SQL",
+            "D": "Google Cloud Datastore"
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["D"]
     },
     {
         "topic": "#3",
@@ -6064,8 +6124,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6077,8 +6145,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6090,8 +6166,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6103,8 +6187,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6116,8 +6208,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6129,8 +6229,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6142,8 +6250,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6155,8 +6271,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6168,8 +6292,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6181,8 +6313,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6194,8 +6334,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6207,8 +6355,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6220,8 +6376,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6233,8 +6397,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6246,8 +6418,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6259,8 +6439,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
@@ -6272,8 +6460,16 @@ const questions = [
         "question": "",
         "question-zh": "",
         "options": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
         },
         "images": [],
         "answers": []
