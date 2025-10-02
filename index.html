@@ -1003,10 +1003,6 @@
                 <button id="modalCloseBtn" class="modal-close-btn" aria-label="關閉">✕</button>
             </div>
             <div class="modal-body">
-                <div id="modalTopicName" class="modal-section">
-                    <div class="modal-section-title">Topic Name</div>
-                    <div class="modal-section-content" id="modalTopicNameContent"></div>
-                </div>
                 <div id="modalTopicDescription" class="modal-section">
                     <div class="modal-section-title">Description</div>
                     <div class="modal-section-content" id="modalTopicDescriptionContent"></div>
@@ -1052,7 +1048,6 @@
             topicInfoModal: document.getElementById('topicInfoModal'),
             modalCloseBtn: document.getElementById('modalCloseBtn'),
             modalTopicTitle: document.getElementById('modalTopicTitle'),
-            modalTopicNameContent: document.getElementById('modalTopicNameContent'),
             modalTopicDescriptionContent: document.getElementById('modalTopicDescriptionContent'),
             modalTopicLinksList: document.getElementById('modalTopicLinksList')
         };
@@ -1297,10 +1292,7 @@
             }
 
             // Set modal title
-            elements.modalTopicTitle.textContent = `Topic ${topicId} Information`;
-
-            // Set topic name
-            elements.modalTopicNameContent.textContent = topicData.name || 'N/A';
+            elements.modalTopicTitle.textContent = `Topic ${topicId} ${topicData.name || 'N/A'}`;
 
             // Set topic description
             if (topicData.description && topicData.description.trim() !== '') {
