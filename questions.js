@@ -1,6 +1,6 @@
 const questions = [
   {
-    "id": "Question #1",
+    "id": "Topic #1 Question #1",
     "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
     "question-zh": "您的公司決定對其 API 進行重大修訂，以便為開發人員創造更好的體驗。他們需要保持舊版本 API 的可用性和可部署性，同時允許新客戶和測試人員試用新的 API。他們希望保持相同的 SSL 和 DNS 記錄來服務兩個 API。\n\n他們應該怎麼做？",
     "options": {
@@ -4241,7 +4241,7 @@ const questions = [
     ]
   },
   {
-    "id": "HRL-Question #1",
+    "id": "HRL-Question #1 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Your team is in charge of creating a payment card data vault for card numbers used to bill tens of thousands of viewers, merchandise consumers, and season ticket holders. You need to implement a custom card tokenization service that meets the following requirements:\n\n- It must provide low latency at minimal cost.\n- It must be able to identify duplicate credit cards and must not store plaintext card numbers.\n- It should support annual key rotation.\n\nWhich storage approach should you adopt for your tokenization service?",
     "question-zh": "（HRL 案例）你負責建立信用卡資料庫，需低延遲低成本、能判重、不能存明碼卡號、支援年輪換金鑰。該用哪種儲存方案？",
     "options": {
@@ -4262,7 +4262,7 @@ const questions = [
     ]
   },
   {
-    "id": "HRL-Question #2-1",
+    "id": "HRL-Question #2-1 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Recently HRL started a new regional racing league in Cape Town, South Africa. In an effort to give customers in Cape Town a better user experience, HRL has partnered with the Content Delivery Network provider, Fastly. HRL needs to allow traffic coming from all of the Fastly IP address ranges into their Virtual Private Cloud network (VPC network). You are a member of the HRL security team and you need to configure the update that will allow only the Fastly IP address ranges through the External HTTP(S) load balancer. Which command should you use?",
     "question-zh": "（HRL 案例）HRL 在開普敦新賽區，合作 CDN Fastly，要讓 Fastly IP 通過 VPC 的 HTTP(S) 負載平衡器，該用哪個指令？",
     "options": {
@@ -4288,7 +4288,7 @@ const questions = [
     ]
   },
   {
-    "id": "HRL-Question #2-2",
+    "id": "HRL-Question #2-2 Topic #3",
     "question": "As someone pointed out answers are reworked.\nInstead of asking for the command, the choices were given in wordings - something like the below. (Not the exact words)",
     "question-zh": "（HRL 案例）有題目改成用敘述選項而非指令，內容大致如下。",
     "options": {
@@ -4309,7 +4309,7 @@ const questions = [
     ]
   },
   {
-    "id": "HRL-Question #3",
+    "id": "HRL-Question #3 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called Airwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?",
     "question-zh": "（HRL 案例）HRL 開發團隊每週二 3am UTC 發新版預測應用，資安團隊有 Cloud Function Airwolf 要每週自動測新版，怎麼設？",
     "options": {
@@ -4372,7 +4372,7 @@ const questions = [
     ]
   },
   {
-    "id": "HRL-Question #6",
+    "id": "HRL-Question #6 Topic #3",
     "question": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of Compute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?",
     "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。最近財務稽核發現雲端基礎設施有大量 Compute Engine 實例用於影片編碼與轉檔。你懷疑這些 VM 是工作完成後未刪除的殭屍機器。你需要快速取得閒置 VM 實例清單。你該怎麼做？",
     "options": {
@@ -4393,7 +4393,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #1",
+    "id": "EHR Healthcare-Question #1 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. You are responsible for ensuring that EHR's use of Google Cloud will pass an upcoming privacy compliance audit. What should you do? (Choose two.)",
     "question-zh": "本題請參考 EHR Healthcare 案例。你負責確保 EHR 使用 Google Cloud 能通過即將到來的隱私合規稽核。你該怎麼做？（選兩項）",
     "options": {
@@ -4417,7 +4417,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #2",
+    "id": "EHR Healthcare-Question #2 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for securely deploying workloads to Google Cloud. You also need to ensure that only verified containers are deployed using Google Cloud services. What should you do? (Choose two.)",
     "question-zh": "本題請參考 EHR Healthcare 案例。你需要定義安全部署工作負載到 Google Cloud 的技術架構，並確保僅有經驗證的容器能被部署。你該怎麼做？（選兩項）",
     "options": {
@@ -4439,7 +4439,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #3",
+    "id": "EHR Healthcare-Question #3 Topic #4",
     "question": "You need to upgrade the EHR connection to comply with their requirements. The new connection design must support business-critical needs and meet the same network and security policy requirements. What should you do?",
     "question-zh": "你需要升級 EHR 的連線以符合其需求。新設計必須支援關鍵業務並符合相同的網路與安全政策。你該怎麼做？",
     "options": {
@@ -4460,7 +4460,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #4",
+    "id": "EHR Healthcare-Question #4 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for hybrid connectivity between EHR's on-premises systems and Google Cloud. You want to follow Google's recommended practices for production-level applications. Considering the EHR Healthcare business and technical requirements, what should you do?",
     "question-zh": "本題請參考 EHR Healthcare 案例。你需要設計 EHR 內部系統與 Google Cloud 的混合連線架構，並遵循 Google 的生產環境建議。根據 EHR 的業務與技術需求，你該怎麼做？",
     "options": {
@@ -4481,7 +4481,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #5",
+    "id": "EHR Healthcare-Question #5 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. You are a developer on the EHR customer portal team. Your team recently migrated the customer portal application to Google Cloud. The load has increased on the application servers, and now the application is logging many timeout errors. You recently incorporated Pub/Sub into the application architecture, and the application is not logging any Pub/Sub publishing errors. You want to improve publishing latency.\n\nWhat should you do?",
     "question-zh": "本題請參考 EHR Healthcare 案例。你是 EHR 客戶入口網站團隊的開發人員。團隊最近將入口網站遷移到 Google Cloud，伺服器負載增加，應用程式出現許多逾時錯誤。你已將 Pub/Sub 納入架構，且未記錄任何發佈錯誤。你想改善發佈延遲，該怎麼做？",
     "options": {
@@ -4502,7 +4502,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #6",
+    "id": "EHR Healthcare-Question #6 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. In the past, configuration errors put public IP addresses on backend servers that should not have been accessible from the Internet. You need to ensure that no one can put external IP addresses on backend Compute Engine instances and that external IP addresses can only be configured on frontend Compute Engine instances. What should you do?",
     "question-zh": "本題請參考 EHR Healthcare 案例。過去設定錯誤導致後端伺服器被配置了公網 IP，應不可從網際網路存取。你需確保僅前端 Compute Engine 實例可設外部 IP，後端不可。你該怎麼做？",
     "options": {
@@ -4523,7 +4523,7 @@ const questions = [
     ]
   },
   {
-    "id": "EHR Healthcare-Question #7",
+    "id": "EHR Healthcare-Question #7 Topic #4",
     "question": "For this question, refer to the EHR Healthcare case study. You are responsible for designing the Google Cloud network architecture for Google Kubernetes Engine. You want to follow Google best practices. Considering the EHR Healthcare business and technical requirements, what should you do to reduce the attack surface?",
     "question-zh": "本題請參考 EHR Healthcare 案例。你負責設計 Google Kubernetes Engine 的雲端網路架構，並希望遵循 Google 最佳實踐。根據 EHR 的業務與技術需求，如何降低攻擊面？",
     "options": {
@@ -4888,7 +4888,7 @@ const questions = [
     ]
   },
   {
-    "id": "Mountkirk Games-Question #4",
+    "id": "Mountkirk Games-Question #4 Topic #7",
     "question": "You need to implement a network ingress for a new game that meets the defined business and technical requirements. Mountkirk Games wants each regional game instance to be located in multiple Google Cloud regions. What should you do?",
       "question-zh": "你需要為新遊戲實作網路入口，滿足業務與技術需求。Mountkirk Games 希望每個地區遊戲實例都部署於多個 Google Cloud 區域。你該怎麼做？",
     "options": {
@@ -5299,7 +5299,7 @@ const questions = [
     ]
   },
   {
-    "id": "TerramEarth-Question #5",
+    "id": "TerramEarth-Question #5 Topic #9",
     "question": "For this question, refer to the TerramEarth case study. Considering the technical requirements, how should you reduce the unplanned vehicle downtime in GCP?",
       "question-zh": "本題請參考 TerramEarth 案例。根據技術需求，如何在 GCP 上減少車輛非預期停機？",
     "options": {
