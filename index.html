@@ -280,6 +280,14 @@
             margin-bottom: var(--spacing-sm);
         }
 
+        .question-id-topic {
+            color: var(--color-info);
+        }
+
+        .question-id-no {
+            color: var(--color-primary-dark);
+        }
+
         .question-item__preview {
             color: var(--color-gray-600);
             font-size: var(--font-size-sm);
@@ -655,6 +663,26 @@
         // ==================== Utility Functions ====================
         
         /**
+         * Get question ID from topic and no
+         * @param {Object} question - Question object
+         * @returns {string} Question ID (topic + no)
+         */
+        function getQuestionId(question) {
+            return (question.topic || '') + (question.no || '');
+        }
+
+        /**
+         * Get formatted question ID with colored HTML
+         * @param {Object} question - Question object
+         * @returns {string} Formatted HTML string with colored topic and no
+         */
+        function getFormattedQuestionId(question) {
+            const topic = question.topic || '';
+            const no = question.no || '';
+            return `<span class="question-id-topic">Topic ${topic}</span> <span class="question-id-no">No ${no}</span>`;
+        }
+        
+        /**
          * Debounce function to limit function calls
          * @param {Function} func - Function to debounce
          * @param {number} wait - Wait time in milliseconds
@@ -703,11 +731,11 @@
 
         /**
          * Find question index by ID
-         * @param {string} questionId - Question ID to find
+         * @param {string} questionId - Question ID to find (topic + no)
          * @returns {number} Question index or -1 if not found
          */
         function findQuestionIndexById(questionId) {
-            return questions.findIndex(q => q.id === questionId);
+            return questions.findIndex(q => getQuestionId(q) === questionId);
         }
 
         /**
@@ -723,8 +751,19 @@
 
             const searchLower = search.toLowerCase().trim();
             
-            // Search in question ID
-            if (question.id && question.id.toLowerCase().includes(searchLower)) {
+            // Search in question ID (topic + no)
+            const questionId = getQuestionId(question);
+            if (questionId && questionId.toLowerCase().includes(searchLower)) {
+                return true;
+            }
+
+            // Search in topic
+            if (question.topic && question.topic.toLowerCase().includes(searchLower)) {
+                return true;
+            }
+
+            // Search in no
+            if (question.no && question.no.toLowerCase().includes(searchLower)) {
                 return true;
             }
 
@@ -861,7 +900,7 @@
 
                 card.innerHTML = `
                     <div class="card__body">
-                        <div class="question-item__id">${question.id}</div>
+                        <div class="question-item__id">${getFormattedQuestionId(question)}</div>
                         <div class="question-item__preview">${questionPreview}</div>
                         <span class="question-item__badge ${badgeClass}">${badgeText}</span>
                     </div>
@@ -889,10 +928,10 @@
             const question = questions[index];
             
             // Update URL with question ID
-            updateUrlWithQuestionId(question.id);
+            updateUrlWithQuestionId(getQuestionId(question));
             
             // Update UI
-            elements.questionId.textContent = question.id;
+            elements.questionId.innerHTML = getFormattedQuestionId(question);
             elements.questionContent.textContent = getQuestionText(question);
             
             // Update question type badge
@@ -1186,7 +1225,7 @@
                     const question = questions[index];
                     
                     // Update UI
-                    elements.questionId.textContent = question.id;
+                    elements.questionId.innerHTML = getFormattedQuestionId(question);
                     elements.questionContent.textContent = getQuestionText(question);
                     
                     // Update question type badge
