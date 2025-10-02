@@ -2756,7 +2756,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "B"
+            "A"
         ]
     },
     {
@@ -3656,7 +3656,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "C"
+            "D"
         ]
     },
     {
@@ -3725,7 +3725,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "D"
+            "C"
         ]
     },
     {
@@ -3771,7 +3771,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "D"
+            "B"
         ]
     },
     {
@@ -4427,7 +4427,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "D"
+            "C"
         ]
     },
     {
@@ -5886,7 +5886,7 @@ const questions = [
         },
         "images": [],
         "answers": [
-            "C"
+            "A"
         ]
     },
     {
