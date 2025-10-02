@@ -355,10 +355,49 @@
         }
 
         .question-type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border: 2px solid;
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            background-color: transparent;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .question-type-badge.badge--single {
+            border-color: var(--color-info);
+            color: var(--color-info);
+        }
+        
+        .question-type-badge.badge--multiple {
+            border-color: var(--color-warning);
+            color: var(--color-warning);
+        }
+
+        .question-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 6px 12px;
+            background-color: var(--color-info);
+            color: var(--color-white);
             border-radius: var(--radius-md);
             font-size: var(--font-size-xs);
             font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: var(--spacing-sm);
+        }
+
+        .question-link-btn:hover {
+            background-color: #138496;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .question-link-btn.hidden {
+            display: none;
         }
 
         .question-content {
@@ -612,10 +651,13 @@
                 <div class="card__header">
                     <div class="question-header">
                         <span id="questionId" class="question-id"></span>
-                        <span id="questionTypeBadge" class="question-type-badge"></span>
+                        <div>
+                            <a id="questionLinkBtn" class="question-link-btn" href="#" target="_blank" rel="noopener noreferrer">🔗 連結</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card__body">
+                    <span id="questionTypeBadge" class="question-type-badge"></span>
                     <div id="questionContent" class="question-content"></div>
                     
                     <div id="questionImages" class="question-images"></div>
@@ -660,6 +702,7 @@
             searchInput: document.getElementById('searchInput'),
             examView: document.getElementById('examView'),
             questionId: document.getElementById('questionId'),
+            questionLinkBtn: document.getElementById('questionLinkBtn'),
             questionTypeBadge: document.getElementById('questionTypeBadge'),
             questionContent: document.getElementById('questionContent'),
             questionImages: document.getElementById('questionImages'),
@@ -947,6 +990,15 @@
             const isMultiple = isMultipleChoice(question);
             elements.questionTypeBadge.textContent = isMultiple ? '多選題' : '單選題';
             elements.questionTypeBadge.className = 'question-type-badge ' + (isMultiple ? 'badge--multiple' : 'badge--single');
+            
+            // Update link button
+            if (question.link && question.link.trim() !== '') {
+                elements.questionLinkBtn.href = question.link;
+                elements.questionLinkBtn.classList.remove('hidden');
+            } else {
+                elements.questionLinkBtn.href = '#';
+                elements.questionLinkBtn.classList.add('hidden');
+            }
             
             // Render images
             renderImages(question.images);
@@ -1241,6 +1293,15 @@
                     const isMultiple = isMultipleChoice(question);
                     elements.questionTypeBadge.textContent = isMultiple ? '多選題' : '單選題';
                     elements.questionTypeBadge.className = 'question-type-badge ' + (isMultiple ? 'badge--multiple' : 'badge--single');
+                    
+                    // Update link button
+                    if (question.link && question.link.trim() !== '') {
+                        elements.questionLinkBtn.href = question.link;
+                        elements.questionLinkBtn.classList.remove('hidden');
+                    } else {
+                        elements.questionLinkBtn.href = '#';
+                        elements.questionLinkBtn.classList.add('hidden');
+                    }
                     
                     // Render images
                     renderImages(question.images);
