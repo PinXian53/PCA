@@ -26,8 +26,8 @@ const topics = [
     {
         "id": ["#5", "#6", "#7"],
         "name": "Mountkirk Games",
-        "description": "https://www.youtube.com/watch?v=1w1olPjlPZY",
-        "links": []
+        "description": "",
+        "links": ["https://www.youtube.com/watch?v=1w1olPjlPZY"]
     },
     {
         "id": ["#8", "#9", "#10"],

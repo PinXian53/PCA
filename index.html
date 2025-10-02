@@ -1346,7 +1346,7 @@
         }
 
         /**
-         * Render topic navigation links
+         * Render topic navigation links grouped by topics.js categories
          * @param {Array} sortedTopics - Array of sorted topic strings
          */
         function renderTopicNavigation(sortedTopics) {
@@ -1357,19 +1357,74 @@
 
             elements.topicNavLinks.innerHTML = '';
             
-            sortedTopics.forEach(topic => {
-                const link = document.createElement('a');
-                link.className = 'topic-nav-link';
-                link.textContent = `Topic ${topic}`;
-                link.dataset.topic = topic;
-                link.href = '#';
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    scrollToTopic(topic);
+            // Check if topics data is available
+            if (typeof topics === 'undefined' || !topics) {
+                console.warn('Topics data not loaded, using default navigation');
+                // Fallback to original behavior
+                sortedTopics.forEach(topic => {
+                    const link = document.createElement('a');
+                    link.className = 'topic-nav-link';
+                    link.textContent = `Topic ${topic}`;
+                    link.dataset.topic = topic;
+                    link.href = '#';
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        scrollToTopic(topic);
+                    });
+                    elements.topicNavLinks.appendChild(link);
+                });
+            } else {
+                // Group topics by parent topic definition from topics.js
+                const topicGroups = {};
+                
+                // Map each topic ID to its parent topic data
+                sortedTopics.forEach(topicId => {
+                    const topicData = findTopicData(topicId);
+                    if (topicData) {
+                        const groupKey = topicData.name || topicId;
+                        if (!topicGroups[groupKey]) {
+                            topicGroups[groupKey] = {
+                                name: topicData.name,
+                                ids: [],
+                                firstId: topicId
+                            };
+                        }
+                        topicGroups[groupKey].ids.push(topicId);
+                    } else {
+                        // Handle topics not found in topics.js
+                        const groupKey = topicId;
+                        if (!topicGroups[groupKey]) {
+                            topicGroups[groupKey] = {
+                                name: `Topic ${topicId}`,
+                                ids: [topicId],
+                                firstId: topicId
+                            };
+                        }
+                    }
                 });
                 
-                elements.topicNavLinks.appendChild(link);
-            });
+                // Create navigation links for each group
+                // For categories with multiple topics, create individual buttons
+                Object.values(topicGroups).forEach(group => {
+                    // Create a button for each topic ID in the group
+                    group.ids.forEach(topicId => {
+                        const link = document.createElement('a');
+                        link.className = 'topic-nav-link';
+                        
+                        // Always show Topic #X first, followed by category name
+                        link.textContent = `Topic ${topicId} - ${group.name}`;
+                        
+                        link.dataset.topicId = topicId;
+                        link.href = '#';
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            scrollToTopic(topicId);
+                        });
+                        
+                        elements.topicNavLinks.appendChild(link);
+                    });
+                });
+            }
 
             // Show navigation
             elements.topicNavigation.classList.remove('hidden');
