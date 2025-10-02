@@ -3409,7 +3409,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#147",
-        "link": "https://www.examtopics.com/discussions/google/view/56374-exam-professional-cloud-architect-topic-1-question-147/",
+        "link": "https://www.examtopics.com/discussions/google/view/60583-exam-professional-cloud-architect-topic-1-question-147/",
         "question": "Your company has an enterprise application running on Compute Engine that requires high availability and high performance. The application has been deployed on two instances in two zones in the same region in active-passive mode. The application writes data to a persistent disk. In the case of a single zone outage, that data should be immediately made available to the other instance in the other zone. You want to maximize performance while minimizing downtime and data loss.\n\nWhat should you do?",
         "question-zh": "公司有企業應用跑在 Compute Engine，需高可用高效能，兩區 VM active-passive，資料寫入永久磁碟。若單一區故障，資料要能立即給另一區 VM 用。要效能高又降停機與資料遺失。怎麼做？",
         "options": {
@@ -3432,7 +3432,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#148",
-        "link": "https://www.examtopics.com/discussions/google/view/56377-exam-professional-cloud-architect-topic-1-question-148/",
+        "link": "https://www.examtopics.com/discussions/google/view/60439-exam-professional-cloud-architect-topic-1-question-148/",
         "question": "You are designing a Data Warehouse on Google Cloud and want to store sensitive data in BigQuery. Your company requires you to generate the encryption keys outside of Google Cloud. You need to implement a solution. What should you do?",
         "question-zh": "你要在 GCP 設計數據倉儲並存敏感資料，公司要求加密金鑰須在 GCP 外產生。應怎麼做？",
         "options": {
@@ -3455,7 +3455,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#149",
-        "link": "https://www.examtopics.com/discussions/google/view/56378-exam-professional-cloud-architect-topic-1-question-149/",
+        "link": "https://www.examtopics.com/discussions/google/view/60440-exam-professional-cloud-architect-topic-1-question-149/",
         "question": "Your organization has stored sensitive data in a Cloud Storage bucket. For regulatory reasons, your company must be able to rotate the encryption key used to encrypt the data in the bucket. The data will be processed in Dataproc. You want to follow Google-recommended practices for security. What should you do?",
         "question-zh": "組織將敏感資料存於 Cloud Storage，法規要求金鑰可輪替，資料會用 Dataproc 處理。依 Google 建議怎麼做？",
         "options": {
@@ -3478,7 +3478,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#150",
-        "link": "https://www.examtopics.com/discussions/google/view/56379-exam-professional-cloud-architect-topic-1-question-150/",
+        "link": "https://www.examtopics.com/discussions/google/view/60441-exam-professional-cloud-architect-topic-1-question-150/",
         "question": "Your team needs to create a Google Kubernetes Engine (GKE) cluster to host a newly built application that requires access to third-party services on the internet.\n\nYour company does not allow any Compute Engine instance to have a public IP address on Google Cloud. You need to create a deployment strategy that adheres to these guidelines. What should you do?",
         "question-zh": "團隊要建 GKE 叢集部署新應用，需存取網路第三方服務，公司規定所有 Compute Engine 不可有公網 IP。部署策略該怎麼做？",
         "options": {
@@ -3501,7 +3501,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#151",
-        "link": "https://www.examtopics.com/discussions/google/view/56380-exam-professional-cloud-architect-topic-1-question-151/",
+        "link": "https://www.examtopics.com/discussions/google/view/60436-exam-professional-cloud-architect-topic-1-question-151/",
         "question": "Your company has a support ticketing solution that uses App Engine Standard. The project that contains the App Engine application already has a Virtual Private Cloud (VPC) network fully connected to the company's on-premises environment through a Cloud VPN tunnel. You want to enable the App Engine application to communicate with a database that is running in the company's on-premises environment. What should you do?",
         "question-zh": "公司有 App Engine Standard 的客服系統，專案已用 Cloud VPN 連地端 VPC。要讓 App Engine 應用能連地端資料庫，該怎麼做？",
         "options": {
@@ -3524,7 +3524,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#152",
-        "link": "https://www.examtopics.com/discussions/google/view/56382-exam-professional-cloud-architect-topic-1-question-152/",
+        "link": "https://www.examtopics.com/discussions/google/view/60415-exam-professional-cloud-architect-topic-1-question-152/",
         "question": "Your company is planning to upload several important files to Cloud Storage. After the upload is completed, they want to verify that the uploaded content is identical to what they have on-premises. You want to minimize the cost and effort of performing this check. What should you do?",
         "question-zh": "公司要上傳多個重要檔案到 Cloud Storage，完成後要驗證雲端與地端內容一致，且要省成本省力。怎麼做？",
         "options": {
@@ -3547,7 +3547,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#153",
-        "link": "https://www.examtopics.com/discussions/google/view/56383-exam-professional-cloud-architect-topic-1-question-153/",
+        "link": "https://www.examtopics.com/discussions/google/view/60624-exam-professional-cloud-architect-topic-1-question-153/",
         "question": "You have deployed an application on Anthos clusters (formerly Anthos GKE). According to the SRE practices at your company, you need to be alerted if request latency is above a certain threshold for a specified amount of time. What should you do?",
         "question-zh": "你在 Anthos 叢集部署應用，依 SRE 規範需監控請求延遲超標時發警示。應怎麼做？",
         "options": {
@@ -3570,7 +3570,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#154",
-        "link": "https://www.examtopics.com/discussions/google/view/56385-exam-professional-cloud-architect-topic-1-question-154/",
+        "link": "https://www.examtopics.com/discussions/google/view/60627-exam-professional-cloud-architect-topic-1-question-154/",
         "question": "Your company has a stateless web API that performs scientific calculations. The web API runs on a single Google Kubernetes Engine (GKE) cluster. The cluster is currently deployed in us-central1. Your company has expanded to offer your API to customers in Asia. You want to reduce the latency for users in Asia.\n\nWhat should you do?",
         "question-zh": "公司有無狀態 Web API 做科學運算，跑在 us-central1 的 GKE，現要服務亞洲客戶並降延遲。應怎麼做？",
         "options": {
@@ -3593,7 +3593,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#155",
-        "link": "https://www.examtopics.com/discussions/google/view/56386-exam-professional-cloud-architect-topic-1-question-155/",
+        "link": "https://www.examtopics.com/discussions/google/view/60494-exam-professional-cloud-architect-topic-1-question-155/",
         "question": "You are migrating third-party applications from optimized on-premises virtual machines to Google Cloud. You are unsure about the optimum CPU and memory options. The applications have a consistent usage pattern across multiple weeks. You want to optimize resource usage for the lowest cost. What should you do?",
         "question-zh": "你要將第三方應用從最佳化地端 VM 遷移到 GCP，對最佳 CPU/記憶體不確定，應用負載週期穩定，想用最低成本。怎麼做？",
         "options": {
@@ -3616,7 +3616,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#156",
-        "link": "https://www.examtopics.com/discussions/google/view/56387-exam-professional-cloud-architect-topic-1-question-156/",
+        "link": "https://www.examtopics.com/discussions/google/view/60416-exam-professional-cloud-architect-topic-1-question-156/",
         "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. They have a VPN tunnel between the on-premises environment and Google Cloud that is configured with Cloud VPN. The security team wants to avoid data exfiltration by malicious insiders, compromised code, and accidental oversharing.\n\nWhat should they do?",
         "question-zh": "公司 GCP 專案用 BigQuery 做數據倉儲，地端與 GCP 用 Cloud VPN 連線，資安團隊要防止內賊、惡意程式或誤分享造成資料外洩。怎麼做？",
         "options": {
@@ -3639,7 +3639,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#157",
-        "link": "https://www.examtopics.com/discussions/google/view/56388-exam-professional-cloud-architect-topic-1-question-157/",
+        "link": "https://www.examtopics.com/discussions/google/view/60495-exam-professional-cloud-architect-topic-1-question-157/",
         "question": "You are working at an institution that processes medical data. You are migrating several workloads onto Google Cloud. Company policies require all workloads to run on physically separated hardware, and workloads from different clients must also be separated. You created a sole-tenant node group and added a node for each client. You need to deploy the workloads on these dedicated hosts. What should you do?",
         "question-zh": "你在醫療機構工作，需將多個工作負載遷移到 GCP，政策要求每個工作負載都要物理隔離且不同客戶也要隔離。你已建 sole-tenant node group 並每客戶一台，如何部署？",
         "options": {
@@ -3662,7 +3662,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#158",
-        "link": "https://www.examtopics.com/discussions/google/view/56389-exam-professional-cloud-architect-topic-1-question-158/",
+        "link": "https://www.examtopics.com/discussions/google/view/8340-exam-professional-cloud-architect-topic-1-question-158/",
         "question": "Your company's test suite is a custom C++ application that runs tests throughout each day on Linux virtual machines. The full test suite takes several hours to complete, running on a limited number of on-premises servers reserved for testing. Your company wants to move the testing infrastructure to the cloud, to reduce the amount of time it takes to fully test a change to the system, while changing the tests as little as possible.\n\nWhich cloud infrastructure should you recommend?",
         "question-zh": "公司測試套件是自製 C++ 應用，每天在 Linux VM 跑數小時，僅少數地端伺服器可用。希望搬到雲端加速測試且改動最少。建議用哪種雲端架構？",
         "options": {
@@ -3685,7 +3685,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#159",
-        "link": "https://www.examtopics.com/discussions/google/view/56390-exam-professional-cloud-architect-topic-1-question-159/",
+        "link": "https://www.examtopics.com/discussions/google/view/8341-exam-professional-cloud-architect-topic-1-question-159/",
         "question": "A lead software engineer tells you that his new application design uses websockets and HTTP sessions that are not distributed across the web servers. You want to help him ensure his application will run properly on Google Cloud Platform.\n\nWhat should you do?",
         "question-zh": "資深工程師說新應用設計用 websockets 與 HTTP session，且 session 不分散。你要協助他確保能在 GCP 正常運作。怎麼做？",
         "options": {
@@ -3708,7 +3708,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#160",
-        "link": "https://www.examtopics.com/discussions/google/view/56391-exam-professional-cloud-architect-topic-1-question-160/",
+        "link": "https://www.examtopics.com/discussions/google/view/54369-exam-professional-cloud-architect-topic-1-question-160/",
         "question": "The application reliability team at your company this added a debug feature to their backend service to send all server events to Google Cloud Storage for eventual analysis. The event records are at least 50 KB and at most 15 MB and are expected to peak at 3,000 events per second. You want to minimize data loss.\n\nWhich process should you implement?",
         "question-zh": "應用可靠性團隊加了 debug 功能，將所有 server event 傳到 Cloud Storage 分析，事件大小 50KB~15MB，峰值每秒 3000 筆，要最小化資料遺失。應怎麼做？",
         "options": {
@@ -3731,7 +3731,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#161",
-        "link": "https://www.examtopics.com/discussions/google/view/56392-exam-professional-cloud-architect-topic-1-question-161/",
+        "link": "https://www.examtopics.com/discussions/google/view/7016-exam-professional-cloud-architect-topic-1-question-161/",
         "question": "A recent audit revealed that a new network was created in your GCP project. In this network, a GCE instance has an SSH port open to the world. You want to discover this network's origin.\n\nWhat should you do?",
         "question-zh": "稽核發現 GCP 專案新建網路且 GCE SSH 對外開放，要查來源。怎麼做？",
         "options": {
@@ -3754,7 +3754,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#162",
-        "link": "https://www.examtopics.com/discussions/google/view/56393-exam-professional-cloud-architect-topic-1-question-162/",
+        "link": "https://www.examtopics.com/discussions/google/view/7018-exam-professional-cloud-architect-topic-1-question-162/",
         "question": "You want to make a copy of a production Linux virtual machine in the US-Central region. You want to manage and replace the copy easily if there are changes on the production virtual machine. You will deploy the copy as a new instance in a different project in the US-East region.\n\nWhat steps must you take?",
         "question-zh": "你要複製 US-Central 的生產 Linux VM，並能隨時替換，將複本部署到 US-East 不同專案。步驟為何？",
         "options": {
@@ -3777,7 +3777,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#163",
-        "link": "https://www.examtopics.com/discussions/google/view/56394-exam-professional-cloud-architect-topic-1-question-163/",
+        "link": "https://www.examtopics.com/discussions/google/view/7020-exam-professional-cloud-architect-topic-1-question-163/",
         "question": "Your company runs several databases on a single MySQL instance. They need to take backups of a specific database at regular intervals. The backup activity needs to complete as quickly as possible and cannot be allowed to impact disk performance.\n\nHow should you configure the storage?",
         "question-zh": "公司多個資料庫跑在同一 MySQL，要定期備份特定資料庫，且備份要快又不能影響磁碟效能。儲存怎麼設？",
         "options": {
@@ -3800,7 +3800,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#164",
-        "link": "https://www.examtopics.com/discussions/google/view/56395-exam-professional-cloud-architect-topic-1-question-164/",
+        "link": "https://www.examtopics.com/discussions/google/view/54371-exam-professional-cloud-architect-topic-1-question-164/",
         "question": "You are helping the QA team to roll out a new load-testing tool to test the scalability of your primary cloud services that run on Google Compute Engine with Cloud Bigtable.\n\nWhich three requirements should they include? (Choose three.)",
         "question-zh": "你協助 QA 團隊導入新壓力測試工具，測試 Compute Engine + Cloud Bigtable 的主力服務擴展性。應納入哪三項需求？（選三項）",
         "options": {
@@ -3829,7 +3829,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#165",
-        "link": "https://www.examtopics.com/discussions/google/view/56396-exam-professional-cloud-architect-topic-1-question-165/",
+        "link": "https://www.examtopics.com/discussions/google/view/7068-exam-professional-cloud-architect-topic-1-question-165/",
         "question": "Your customer is moving their corporate applications to Google Cloud Platform. The security team wants detailed visibility of all projects in the organization. You provision the Google Cloud Resource Manager and set up yourself as the org admin.\n\nWhat Google Cloud Identity and Access Management (Cloud IAM) roles should you give to the security team?",
         "question-zh": "客戶將企業應用搬到 GCP，資安團隊要能細查所有專案。你設好 Resource Manager 並自設 org admin。資安團隊該給哪些 IAM 角色？",
         "options": {
@@ -3852,7 +3852,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#166",
-        "link": "https://www.examtopics.com/discussions/google/view/56397-exam-professional-cloud-architect-topic-1-question-166/",
+        "link": "https://www.examtopics.com/discussions/google/view/54372-exam-professional-cloud-architect-topic-1-question-166/",
         "question": "Your company places a high value on being responsive and meeting customer needs quickly. Their primary business objectives are release speed and agility. You want to reduce the chance of security errors being accidentally introduced.\n\nWhich two actions can you take? (Choose two.)",
         "question-zh": "公司重視回應速度與敏捷，目標是快速發佈。你要降低誤植資安漏洞的機率。可採取哪兩項行動？（選兩項）",
         "options": {
@@ -3878,7 +3878,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#167",
-        "link": "https://www.examtopics.com/discussions/google/view/56398-exam-professional-cloud-architect-topic-1-question-167/",
+        "link": "https://www.examtopics.com/discussions/google/view/7073-exam-professional-cloud-architect-topic-1-question-167/",
         "question": "You want to enable your running Google Kubernetes Engine cluster to scale as demand for your application changes.\n\nWhat should you do?",
         "question-zh": "你要讓現有 GKE 叢集能隨需求自動擴展。怎麼做？",
         "options": {
@@ -3901,7 +3901,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#168",
-        "link": "https://www.examtopics.com/discussions/google/view/56400-exam-professional-cloud-architect-topic-1-question-168/",
+        "link": "https://www.examtopics.com/discussions/google/view/54373-exam-professional-cloud-architect-topic-1-question-168/",
         "question": "Your marketing department wants to send out a promotional email campaign. The development team wants to minimize direct operation management. They project a wide range of possible customer responses, from 100 to 500,000 click-through per day. The link leads to a simple website that explains the promotion and collects user information and preferences.\n\nWhich infrastructure should you recommend? (Choose two.)",
         "question-zh": "行銷部要發促銷郵件，開發團隊想減少運維，預估點擊量 100~50 萬/天，連結到簡單網站收集用戶資料。建議用哪種架構？（選兩項）",
         "options": {
@@ -3924,7 +3924,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#169",
-        "link": "https://www.examtopics.com/discussions/google/view/56401-exam-professional-cloud-architect-topic-1-question-169/",
+        "link": "https://www.examtopics.com/discussions/google/view/54374-exam-professional-cloud-architect-topic-1-question-169/",
         "question": "Your company just finished a rapid lift and shift to Google Compute Engine for your compute needs. You have another 9 months to design and deploy a more cloud-native solution. Specifically, you want a system that is no-ops and auto-scaling.\n\nWhich two compute products should you choose? (Choose two.)",
         "question-zh": "公司剛完成 Compute Engine 快速遷移，還有 9 個月設計雲原生、無運維、自動擴展方案。該選哪兩種運算產品？（選兩項）",
         "options": {
@@ -3950,7 +3950,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#170",
-        "link": "https://www.examtopics.com/discussions/google/view/56402-exam-professional-cloud-architect-topic-1-question-170/",
+        "link": "https://www.examtopics.com/discussions/google/view/7082-exam-professional-cloud-architect-topic-1-question-170/",
         "question": "One of your primary business objectives is being able to trust the data stored in your application. You want to log all changes to the application data.\n\nHow can you design your logging system to verify authenticity of your logs?",
         "question-zh": "你的主要目標之一是信任應用儲存的資料，想記錄所有資料異動。如何設計日誌系統驗證日誌真實性？",
         "options": {
@@ -3973,7 +3973,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#171",
-        "link": "https://www.examtopics.com/discussions/google/view/56404-exam-professional-cloud-architect-topic-1-question-171/",
+        "link": "https://www.examtopics.com/discussions/google/view/68682-exam-professional-cloud-architect-topic-1-question-171/",
         "question": "Your company has a Google Workspace account and Google Cloud Organization. Some developers in the company have created Google Cloud projects outside of the Google Cloud Organization.\n\nYou want to create an Organization structure that allows developers to create projects, but prevents them from modifying production projects. You want to manage policies for all projects centrally and be able to set more restrictive policies for production projects.\n\nYou want to minimize disruption to users and developers when business needs change in the future. You want to follow Google-recommended practices. Now should you design the Organization structure?",
         "question-zh": "公司有 Workspace 與 GCP Org，有些開發者在 Org 外建專案。你要設計 Org 結構，讓開發者能建專案但不能改 production，並集中管理政策，production 可更嚴格。要最小化未來變動影響並遵循 Google 建議，該怎麼設計？",
         "options": {
@@ -3996,7 +3996,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#172",
-        "link": "https://www.examtopics.com/discussions/google/view/56405-exam-professional-cloud-architect-topic-1-question-172/",
+        "link": "https://www.examtopics.com/discussions/google/view/68683-exam-professional-cloud-architect-topic-1-question-172/",
         "question": "Your company has an application running on Compute Engine that allows users to play their favorite music. There are a fixed number of instances. Files are stored in Cloud Storage, and data is streamed directly to users. Users are reporting that they sometimes need to attempt to play popular songs multiple times before they are successful. You need to improve the performance of the application. What should you do?",
         "question-zh": "公司有 Compute Engine 應用讓用戶聽音樂，檔案存 Cloud Storage，直接串流。用戶反映熱門歌常要重試才能播成功，要怎麼改善效能？",
         "options": {
@@ -4019,7 +4019,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#173",
-        "link": "https://www.examtopics.com/discussions/google/view/56406-exam-professional-cloud-architect-topic-1-question-173/",
+        "link": "https://www.examtopics.com/discussions/google/view/68684-exam-professional-cloud-architect-topic-1-question-173/",
         "question": "The operations team in your company wants to save Cloud VPN log events for one year. You need to configure the cloud infrastructure to save the logs. What should you do?",
         "question-zh": "運維團隊要保存 Cloud VPN 日誌一年，該怎麼設置？",
         "options": {
@@ -4042,7 +4042,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#174",
-        "link": "https://www.examtopics.com/discussions/google/view/56407-exam-professional-cloud-architect-topic-1-question-174/",
+        "link": "https://www.examtopics.com/discussions/google/view/68685-exam-professional-cloud-architect-topic-1-question-174/",
         "question": "You are working with a data warehousing team that performs data analysis. The team needs to process data from external partners, but the data contains personally identifiable information (PII). You need to process and store the data without storing any of the PIIE data. What should you do?",
         "question-zh": "你協助數據倉儲團隊分析資料，外部夥伴資料含個資，需處理但不能存個資。怎麼做？",
         "options": {
@@ -4065,7 +4065,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#175",
-        "link": "https://www.examtopics.com/discussions/google/view/56408-exam-professional-cloud-architect-topic-1-question-175/",
+        "link": "https://www.examtopics.com/discussions/google/view/68686-exam-professional-cloud-architect-topic-1-question-175/",
         "question": "You want to allow your operations team to store logs from all the production projects in your Organization, without including logs from other projects. All of the production projects are contained in a folder. You want to ensure that all logs for existing and new production projects are captured automatically. What should you do?",
         "question-zh": "你要讓運維團隊儲存 Org 下所有 production 專案日誌，不含其他專案。production 都在同一資料夾，要自動收集所有 production 專案日誌。怎麼做？",
         "options": {
@@ -4088,7 +4088,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#176",
-        "link": "https://www.examtopics.com/discussions/google/view/56409-exam-professional-cloud-architect-topic-1-question-176/",
+        "link": "https://www.examtopics.com/discussions/google/view/68688-exam-professional-cloud-architect-topic-1-question-176/",
         "question": "Your company has an application running on multiple instances of Compute Engine. It generates 1 TB per day of logs. For compliance reasons, the logs need to be kept for at least two years. The logs need to be available for active query for 30 days. After that, they just need to be retained for audit purposes. You want to implement a storage solution that is compliant, minimizes costs, and follows Google-recommended practices. What should you do?",
         "question-zh": "公司有多台 Compute Engine 跑應用，每天產生 1TB 日誌，合規需保存兩年，30 天內要能查詢，之後僅供稽核。怎麼設計最省錢又合規？",
         "options": {
@@ -4111,7 +4111,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#177",
-        "link": "https://www.examtopics.com/discussions/google/view/56410-exam-professional-cloud-architect-topic-1-question-177/",
+        "link": "https://www.examtopics.com/discussions/google/view/68690-exam-professional-cloud-architect-topic-1-question-177/",
         "question": "Your company has just recently activated Cloud Identity to manage users. The Google Cloud Organization has been configured as well. The security team needs to secure projects that will be part of the Organization. They want to prohibit IAM users outside the domain from gaining permissions from now on. What should they do?",
         "question-zh": "公司剛啟用 Cloud Identity 管理用戶，GCP Org 也設好了。資安團隊要防止外部網域 IAM 用戶取得權限，該怎麼做？",
         "options": {
@@ -4134,7 +4134,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#178",
-        "link": "https://www.examtopics.com/discussions/google/view/56411-exam-professional-cloud-architect-topic-1-question-178/",
+        "link": "https://www.examtopics.com/discussions/google/view/68691-exam-professional-cloud-architect-topic-1-question-178/",
         "question": "Your company has an application running on Google Cloud that is collecting data from thousands of physical devices that are globally distributed. Data is published to Pub/Sub and streamed in real time into an SSD Cloud Bigtable cluster via a Dataflow pipeline. The operations team informs you that your Cloud Bigtable cluster has a hotspot, and queries are taking longer than expected. You need to resolve the problem and prevent it from happening in the future. What should you do?",
         "question-zh": "公司有全球裝置資料經 Pub/Sub、Dataflow 寫入 SSD Bigtable，運維說有 hotspot 查詢變慢，要怎麼解決並防止再發生？",
         "options": {
@@ -4157,7 +4157,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#179",
-        "link": "https://www.examtopics.com/discussions/google/view/56412-exam-professional-cloud-architect-topic-1-question-179/",
+        "link": "https://www.examtopics.com/discussions/google/view/68692-exam-professional-cloud-architect-topic-1-question-179/",
         "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. There are some tables that contain personally identifiable information (PII).\n\nOnly the compliance team may access the PII. The other information in the tables must be available to the data science team. You want to minimize cost and the time it takes to assign appropriate access to the tables. What should you do?",
         "question-zh": "公司有 GCP 專案用 BigQuery 做數據倉儲，有些表含個資，僅合規團隊能看，其他資料要給 data science team。怎麼做最省時省錢？",
         "options": {
@@ -4180,7 +4180,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#180",
-        "link": "https://www.examtopics.com/discussions/google/view/56413-exam-professional-cloud-architect-topic-1-question-180/",
+        "link": "https://www.examtopics.com/discussions/google/view/68693-exam-professional-cloud-architect-topic-1-question-180/",
         "question": "Your operations team currently stores 10 TB of data in an object storage service from a third-party provider. They want to move this data to a Cloud Storage bucket as quickly as possible, following Google-recommended practices. They want to minimize the cost of this data migration. Which approach should they use?",
         "question-zh": "運維團隊有 10TB 資料在第三方物件儲存，要盡快搬到 Cloud Storage 並省錢，怎麼做最符合 Google 建議？",
         "options": {
@@ -4203,7 +4203,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#181",
-        "link": "https://www.examtopics.com/discussions/google/view/56414-exam-professional-cloud-architect-topic-1-question-181/",
+        "link": "https://www.examtopics.com/discussions/google/view/80034-exam-professional-cloud-architect-topic-1-question-181/",
         "question": "You have a Compute Engine managed instance group that adds and removes Compute Engine instances from the group in response to the load on your application. The instances have a shutdown script that removes REDIS database entries associated with the instance. You see that many database entries have not been removed, and you suspect that the shutdown script is the problem. You need to ensure that the commands in the shutdown script are run reliably every time an instance is shut down. You create a Cloud Function to remove the database entries. What should you do next?",
         "question-zh": "你有 Compute Engine 受管群組，依負載增減 VM，VM 關機時執行腳本刪除 REDIS 資料，但常有資料沒刪掉，懷疑腳本問題。你已建 Cloud Function 處理刪除，下一步怎麼做？",
         "options": {
@@ -4226,7 +4226,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#182",
-        "link": "https://www.examtopics.com/discussions/google/view/56415-exam-professional-cloud-architect-topic-1-question-182/",
+        "link": "https://www.examtopics.com/discussions/google/view/80035-exam-professional-cloud-architect-topic-1-question-182/",
         "question": "You are managing several projects on Google Cloud and need to interact on a daily basis with BigQuery, Bigtable, and Kubernetes Engine using the gcloud CL tool. You are travelling a lot and work on different workstations during the week. You want to avoid having to manage the gcloud CLI manually. What should you do?",
         "question-zh": "你管理多個 GCP 專案，每天用 gcloud CLI 操作 BigQuery、Bigtable、Kubernetes Engine，常換電腦。怎麼避免每台都要裝 gcloud CLI？",
         "options": {
