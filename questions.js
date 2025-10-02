@@ -6284,7 +6284,7 @@ const questions = [
             "The customer has exclusive control over who may view these images.\n" +
             "Customers should be able to upload images with minimal latency and also be shown their images quickly on the main application page when they log in.\n" +
             "Which configuration should Dress4Win use?",
-        "question-zh": "作為新應用程式體驗的一部分，Dress4Win 允許客戶上傳他們自己的圖像。\n客戶對誰可以檢視這些圖像擁有專屬控制權。\n客戶應該能夠以最小的延遲上傳圖像，並在登入時在主應用程式頁面上快速顯示其圖像。\nDress4Win 應該使用哪種配置？"
+        "question-zh": "作為新應用程式體驗的一部分，Dress4Win 允許客戶上傳他們自己的圖像。\n客戶對誰可以檢視這些圖像擁有專屬控制權。\n客戶應該能夠以最小的延遲上傳圖像，並在登入時在主應用程式頁面上快速顯示其圖像。\nDress4Win 應該使用哪種配置？",
         "options": {
             "A": "Store image files in a Google Cloud Storage bucket. Use Google Cloud Datastore to maintain metadata that maps each customer's ID and their image files.",
             "B": "Store image files in a Google Cloud Storage bucket. Add custom metadata to the uploaded images in Cloud Storage that contains the customer's unique ID.",
@@ -6374,7 +6374,7 @@ const questions = [
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/6803-exam-professional-cloud-architect-topic-12-question-1/",
         "question": "For this question, refer to the Dress4Win case study. Dress4Win is expected to grow to 10 times its size in 1 year with a corresponding growth in data and traffic that mirrors the existing patterns of usage. The CIO has set the target of migrating production infrastructure to the cloud within the next 6 months. How will you configure the solution to scale for this growth without making major application changes and still maximize the ROI?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。預期 Dress4Win 在 1 年內成長至 10 倍規模，相應的資料和流量成長反映了現有的使用模式。CIO 設定了在未來 6 個月內將生產基礎設施遷移到雲端的目標。您將如何配置解決方案以擴展這種成長，而不需要進行重大應用程式更改，並仍然最大化 ROI？",
         "options": {
             "A": "Migrate the web application layer to App Engine, and MySQL to Cloud Datastore, and NAS to Cloud Storage. Deploy RabbitMQ, and deploy Hadoop servers using Deployment Manager.",
             "B": "Migrate RabbitMQ to Cloud Pub/Sub, Hadoop to BigQuery, and NAS to Compute Engine with Persistent Disk storage. Deploy Tomcat, and deploy Nginx using Deployment Manager.",
@@ -6382,10 +6382,10 @@ const questions = [
             "D": "Implement managed instance groups for the Tomcat and Nginx. Migrate MySQL to Cloud SQL, RabbitMQ to Cloud Pub/Sub, Hadoop to Cloud Dataproc, and NAS to Cloud Storage."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "將 Web 應用程式層遷移到 App Engine，將 MySQL 遷移到 Cloud Datastore，將 NAS 遷移到 Cloud Storage。部署 RabbitMQ，並使用 Deployment Manager 部署 Hadoop 伺服器",
+            "B": "將 RabbitMQ 遷移到 Cloud Pub/Sub，將 Hadoop 遷移到 BigQuery，將 NAS 遷移到具有永久磁碟儲存的 Compute Engine。部署 Tomcat，並使用 Deployment Manager 部署 Nginx",
+            "C": "為 Tomcat 和 Nginx 實現受管實例組。將 MySQL 遷移到 Cloud SQL，將 RabbitMQ 遷移到 Cloud Pub/Sub，將 Hadoop 遷移到 Cloud Dataproc，將 NAS 遷移到具有永久磁碟儲存的 Compute Engine",
+            "D": "為 Tomcat 和 Nginx 實現受管實例組。將 MySQL 遷移到 Cloud SQL，將 RabbitMQ 遷移到 Cloud Pub/Sub，將 Hadoop 遷移到 Cloud Dataproc，將 NAS 遷移到 Cloud Storage"
         },
         "images": [],
         "answers": ["D"]
@@ -6395,7 +6395,7 @@ const questions = [
         "no": "#2",
         "link": "https://www.examtopics.com/discussions/google/view/7265-exam-professional-cloud-architect-topic-12-question-2/",
         "question": "For this question, refer to the Dress4Win case study. Considering the given business requirements, how would you automate the deployment of web and transactional data layers?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。考慮到給定的業務需求，您將如何自動化 Web 和交易數據層的部署？",
         "options": {
             "A": "Deploy Nginx and Tomcat using Cloud Deployment Manager to Compute Engine. Deploy a Cloud SQL server to replace MySQL. Deploy Jenkins using Cloud Deployment Manager.",
             "B": "Deploy Nginx and Tomcat using Cloud Launcher. Deploy a MySQL server using Cloud Launcher. Deploy Jenkins to Compute Engine using Cloud Deployment Manager scripts.",
@@ -6403,10 +6403,10 @@ const questions = [
             "D": "Migrate Nginx and Tomcat to App Engine. Deploy a MySQL server using Cloud Launcher. Deploy Jenkins to Compute Engine using Cloud Launcher."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "使用 Cloud Deployment Manager 將 Nginx 和 Tomcat 部署到 Compute Engine。部署 Cloud SQL 伺服器以取代 MySQL。使用 Cloud Deployment Manager 部署 Jenkins",
+            "B": "使用 Cloud Launcher 部署 Nginx 和 Tomcat。使用 Cloud Launcher 部署 MySQL 伺服器。使用 Cloud Deployment Manager 腳本將 Jenkins 部署到 Compute Engine",
+            "C": "將 Nginx 和 Tomcat 遷移到 App Engine。部署 Cloud Datastore 伺服器以高可用性配置取代 MySQL 伺服器。使用 Cloud Launcher 將 Jenkins 部署到 Compute Engine",
+            "D": "將 Nginx 和 Tomcat 遷移到 App Engine。使用 Cloud Launcher 部署 MySQL 伺服器。使用 Cloud Launcher 將 Jenkins 部署到 Compute Engine"
         },
         "images": [],
         "answers": ["A"]
@@ -6416,7 +6416,7 @@ const questions = [
         "no": "#3",
         "link": "https://www.examtopics.com/discussions/google/view/7266-exam-professional-cloud-architect-topic-12-question-3/",
         "question": "For this question, refer to the Dress4Win case study. Which of the compute services should be migrated as-is and would still be an optimized architecture for performance in the cloud?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。哪些運算服務應該按現狀遷移，並仍然是雲端中性能優化的架構？",
         "options": {
             "A": "Web applications deployed using App Engine standard environment",
             "B": "RabbitMQ deployed using an unmanaged instance group",
@@ -6424,10 +6424,10 @@ const questions = [
             "D": "Jenkins, monitoring, bastion hosts, security scanners services deployed on custom machine types"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "使用 App Engine 標準環境部署的 Web 應用程式",
+            "B": "使用非受管實例組部署的 RabbitMQ",
+            "C": "使用 Cloud Dataproc 區域高可用性模式部署的 Hadoop/Spark",
+            "D": "在自訂機器類型上部署的 Jenkins、監控、堡壘主機、安全掃描器服務"
         },
         "images": [],
         "answers": ["C"]
@@ -6438,7 +6438,7 @@ const questions = [
         "link": "https://www.examtopics.com/discussions/google/view/6805-exam-professional-cloud-architect-topic-12-question-4/",
         "question": "For this question, refer to the Dress4Win case study. To be legally compliant during an audit, Dress4Win must be able to give insights in all administrative actions that modify the configuration or metadata of resources on Google Cloud.\n" +
             "What should you do?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。為了在審計期間符合法律要求，Dress4Win 必須能夠提供所有修改 Google Cloud 資源配置或中繼資料的管理操作的見解。\n您應該怎麼做？",
         "options": {
             "A": "Use Stackdriver Trace to create a Trace list analysis.",
             "B": "Use Stackdriver Monitoring to create a dashboard on the project's activity.",
@@ -6446,10 +6446,10 @@ const questions = [
             "D": "Use the Activity page in the GCP Console and Stackdriver Logging to provide the required insight."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "使用 Stackdriver Trace 建立追蹤清單分析",
+            "B": "使用 Stackdriver Monitoring 在專案活動上建立儀表板",
+            "C": "在所有專案中啟用 Cloud Identity-Aware Proxy，並將管理員組添加為成員",
+            "D": "使用 GCP Console 中的活動頁面和 Stackdriver Logging 提供所需的見解"
         },
         "images": [],
         "answers": ["D"]
@@ -6460,7 +6460,7 @@ const questions = [
         "link": "https://www.examtopics.com/discussions/google/view/8252-exam-professional-cloud-architect-topic-12-question-5/",
         "question": "For this question, refer to the Dress4Win case study. You are responsible for the security of data stored in Cloud Storage for your company, Dress4Win. You have already created a set of Google Groups and assigned the appropriate users to those groups. You should use Google best practices and implement the simplest design to meet the requirements.\n" +
             "Considering Dress4Win's business and technical requirements, what should you do?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。您負責公司 Dress4Win 儲存在 Cloud Storage 中的資料安全。您已經建立了一組 Google Groups 並將適當的用戶分配給這些組。您應該使用 Google 最佳實踐並實施最簡單的設計以滿足需求。\n考慮到 Dress4Win 的業務和技術需求，您應該怎麼做？",
         "options": {
             "A": "Assign custom IAM roles to the Google Groups you created in order to enforce security requirements. Encrypt data with a customer-supplied encryption key when storing files in Cloud Storage.",
             "B": "Assign custom IAM roles to the Google Groups you created in order to enforce security requirements. Enable default storage encryption before storing files in Cloud Storage.",
@@ -6468,10 +6468,10 @@ const questions = [
             "D": "Assign predefined IAM roles to the Google Groups you created in order to enforce security requirements. Ensure that the default Cloud KMS key is set before storing files in Cloud Storage."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "將自訂 IAM 角色分配給您建立的 Google Groups，以強制執行安全需求。在 Cloud Storage 中儲存檔案時使用客戶提供的加密金鑰加密資料",
+            "B": "將自訂 IAM 角色分配給您建立的 Google Groups，以強制執行安全需求。在 Cloud Storage 中儲存檔案之前啟用預設儲存加密",
+            "C": "將預定義的 IAM 角色分配給您建立的 Google Groups，以強制執行安全需求。在 Cloud Storage 中儲存檔案時使用 Google 的預設靜態加密",
+            "D": "將預定義的 IAM 角色分配給您建立的 Google Groups，以強制執行安全需求。在 Cloud Storage 中儲存檔案之前確保設定了預設的 Cloud KMS 金鑰"
         },
         "images": [],
         "answers": ["C"]
@@ -6482,7 +6482,7 @@ const questions = [
         "link": "https://www.examtopics.com/discussions/google/view/6807-exam-professional-cloud-architect-topic-12-question-6/",
         "question": "For this question, refer to the Dress4Win case study. You want to ensure that your on-premises architecture meets business requirements before you migrate your solution.\n" +
             "What change in the on-premises architecture should you make?",
-        "question-zh": "",
+        "question-zh": "為了回答這個問題，請參考 Dress4Win 案例研究。您希望確保在遷移解決方案之前，本地架構滿足業務需求。\n您應該在本地架構中進行哪些更改？",
         "options": {
             "A": "Replace RabbitMQ with Google Pub/Sub.",
             "B": "Downgrade MySQL to v5.7, which is supported by Cloud SQL for MySQL.",
@@ -6490,10 +6490,10 @@ const questions = [
             "D": "Containerize the micro-services and host them in Google Kubernetes Engine."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "將 RabbitMQ 替換為 Google Pub/Sub",
+            "B": "將 MySQL 降級到 v5.7，這是 Cloud SQL for MySQL 支援的版本",
+            "C": "調整運算資源大小以符合預定義的 Compute Engine 機器類型",
+            "D": "將微服務容器化並將它們託管在 Google Kubernetes Engine 中"
         },
         "images": [],
         "answers": ["D"]
