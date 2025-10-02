@@ -263,10 +263,29 @@
 
         /* ==================== Question List ==================== */
         .question-list {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .topic-section {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .topic-header {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            padding: var(--spacing-md);
+            background-color: var(--color-white);
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topic-questions {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
         }
 
         .question-item {
@@ -739,6 +758,16 @@
         }
         
         /**
+         * Get formatted question No only (for list view where topic is already in section header)
+         * @param {Object} question - Question object
+         * @returns {string} Formatted HTML string with only the No badge
+         */
+        function getFormattedQuestionNo(question) {
+            const no = question.no || '';
+            return `<span class="question-id-no">No ${no}</span>`;
+        }
+        
+        /**
          * Debounce function to limit function calls
          * @param {Function} func - Function to debounce
          * @param {number} wait - Wait time in milliseconds
@@ -920,6 +949,23 @@
         // ==================== Question List Functions ====================
         
         /**
+         * Group questions by topic
+         * @param {Array} questionsList - Array of questions to group
+         * @returns {Object} Object with topics as keys and arrays of questions as values
+         */
+        function groupQuestionsByTopic(questionsList) {
+            const grouped = {};
+            questionsList.forEach(question => {
+                const topic = question.topic || 'Unknown';
+                if (!grouped[topic]) {
+                    grouped[topic] = [];
+                }
+                grouped[topic].push(question);
+            });
+            return grouped;
+        }
+
+        /**
          * Render the question list
          */
         function renderQuestionList() {
@@ -941,24 +987,55 @@
                 return;
             }
             
-            filteredQuestions.forEach((question, filteredIndex) => {
-                // Find original index in questions array
-                const originalIndex = questions.indexOf(question);
+            // Group questions by topic
+            const groupedQuestions = groupQuestionsByTopic(filteredQuestions);
+            
+            // Sort topics (numeric sort for topics like #1, #2, etc.)
+            const sortedTopics = Object.keys(groupedQuestions).sort((a, b) => {
+                // Extract numbers from topic strings (e.g., "#1" -> 1)
+                const numA = parseInt(a.replace(/[^0-9]/g, '')) || 0;
+                const numB = parseInt(b.replace(/[^0-9]/g, '')) || 0;
+                return numA - numB;
+            });
+            
+            // Render each topic section
+            sortedTopics.forEach(topic => {
+                const topicSection = document.createElement('div');
+                topicSection.className = 'topic-section';
                 
-                const card = document.createElement('div');
-                card.className = 'card question-item';
-                card.onclick = () => showQuestion(originalIndex);
+                // Create topic header
+                const topicHeader = document.createElement('div');
+                topicHeader.className = 'topic-header';
+                topicHeader.textContent = `Topic ${topic}`;
+                topicSection.appendChild(topicHeader);
+                
+                // Create container for questions in this topic
+                const topicQuestionsContainer = document.createElement('div');
+                topicQuestionsContainer.className = 'topic-questions';
+                
+                // Render questions for this topic
+                groupedQuestions[topic].forEach(question => {
+                    // Find original index in questions array
+                    const originalIndex = questions.indexOf(question);
+                    
+                    const card = document.createElement('div');
+                    card.className = 'card question-item';
+                    card.onclick = () => showQuestion(originalIndex);
 
-                const questionPreview = getQuestionText(question).substring(0, 150) + '...';
+                    const questionPreview = getQuestionText(question).substring(0, 150) + '...';
 
-                card.innerHTML = `
-                    <div class="card__body">
-                        <div class="question-item__id">${getFormattedQuestionId(question)}</div>
-                        <div class="question-item__preview">${questionPreview}</div>
-                    </div>
-                `;
+                    card.innerHTML = `
+                        <div class="card__body">
+                            <div class="question-item__id">${getFormattedQuestionNo(question)}</div>
+                            <div class="question-item__preview">${questionPreview}</div>
+                        </div>
+                    `;
 
-                elements.questionList.appendChild(card);
+                    topicQuestionsContainer.appendChild(card);
+                });
+                
+                topicSection.appendChild(topicQuestionsContainer);
+                elements.questionList.appendChild(topicSection);
             });
         }
 
