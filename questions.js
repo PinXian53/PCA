@@ -3247,6 +3247,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#140",
+        "link": "https://www.examtopics.com/discussions/google/view/60396-exam-professional-cloud-architect-topic-1-question-140/",
         "question": "Your company has a Kubernetes application that pulls messages from Pub/Sub and stores them in Filestore. Because the application is simple, it was deployed as a single pod. The infrastructure team has analyzed Pub/Sub metrics and discovered that the application cannot process the messages in real time. Most of them wait for minutes before being processed. You need to scale the elaboration process that is I/O-intensive. What should you do?",
         "question-zh": "公司有個 Kubernetes 應用從 Pub/Sub 拉訊息存 Filestore，僅單一 pod，發現無法即時處理訊息，多數延遲數分鐘。需擴展 I/O 密集處理。應怎麼做？",
         "options": {
@@ -3269,6 +3270,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#141",
+        "link": "https://www.examtopics.com/discussions/google/view/60698-exam-professional-cloud-architect-topic-1-question-141/",
         "question": "Your company is developing a web-based application. You need to make sure that production deployments are linked to source code commits and are fully auditable. What should you do?",
         "question-zh": "公司開發 Web 應用，需確保生產部署可追溯到原始碼 commit 並可稽核。應怎麼做？",
         "options": {
