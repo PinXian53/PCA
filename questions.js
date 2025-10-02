@@ -6123,13 +6123,13 @@ const questions = [
         "topic": "#11",
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/6660-exam-professional-cloud-architect-topic-11-question-1/",
-        "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\\nWhat can they do?",
+        "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\\nWhat can they do?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Grant the operations engineer access to use Google Cloud Shell.",
+            "B": "Configure a VPN connection to GCP to allow SSH access to the cloud VMs.",
+            "C": "Develop a new access request process that grants temporary SSH access to cloud VMs when an operations engineer needs to perform a task.",
+            "D": "Have the development team build an API service that allows the operations team to execute specific remote procedure calls to accomplish their tasks."
         },
         "options-zh": {
             "A": "",
@@ -6138,19 +6138,19 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["A"]
     },
     {
         "topic": "#11",
         "no": "#2",
         "link": "https://www.examtopics.com/discussions/google/view/14731-exam-professional-cloud-architect-topic-11-question-2/",
-        "question": "",
+        "question": "At Dress4Win, an operations engineer wants to create a tow-cost solution to remotely archive copies of database backup files.\nThe database files are compressed tar files stored in their current data center.\nHow should he proceed?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Create a cron script using gsutil to copy the files to a Coldline Storage bucket.",
+            "B": "Create a cron script using gsutil to copy the files to a Regional Storage bucket.",
+            "C": "Create a Cloud Storage Transfer Service Job to copy the files to a Coldline Storage bucket.",
+            "D": "Create a Cloud Storage Transfer Service job to copy the files to a Regional Storage bucket."
         },
         "options-zh": {
             "A": "",
@@ -6159,19 +6159,20 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["C"]
     },
     {
         "topic": "#11",
         "no": "#3",
         "link": "https://www.examtopics.com/discussions/google/view/7261-exam-professional-cloud-architect-topic-11-question-3/",
-        "question": "",
+        "question": "Dress4Win has asked you to recommend machine types they should deploy their application servers to.\n" +
+            "How should you proceed?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Perform a mapping of the on-premises physical hardware cores and RAM to the nearest machine types in the cloud.",
+            "B": "Recommend that Dress4Win deploy application servers to machine types that offer the highest RAM to CPU ratio available.",
+            "C": "Recommend that Dress4Win deploy into production with the smallest instances available, monitor them over time, and scale the machine type up until the desired performance is reached.",
+            "D": "Identify the number of virtual cores and RAM associated with the application server virtual machines align them to a custom machine type in the cloud, monitor performance, and scale the machine types up until the desired performance is reached."
         },
         "options-zh": {
             "A": "",
@@ -6180,19 +6181,24 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["D"]
     },
     {
         "topic": "#11",
         "no": "#4",
         "link": "https://www.examtopics.com/discussions/google/view/6617-exam-professional-cloud-architect-topic-11-question-4/",
-        "question": "",
+        "question": "As part of Dress4Win's plans to migrate to the cloud, they want to be able to set up a managed logging and monitoring system so they can handle spikes in their traffic load.\n" +
+            "They want to ensure that:\n" +
+            "* The infrastructure can be notified when it needs to scale up and down to handle the ebb and flow of usage throughout the day\n" +
+            "* Their administrators are notified automatically when their application reports errors.\n" +
+            "* They can filter their aggregated logs down in order to debug one piece of the application across many hosts\n" +
+            "Which Google StackDriver features should they use?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Logging, Alerts, Insights, Debug",
+            "B": "Monitoring, Trace, Debug, Logging",
+            "C": "Monitoring, Logging, Alerts, Error Reporting",
+            "D": "Monitoring, Logging, Debug, Error Report"
         },
         "options-zh": {
             "A": "",
@@ -6222,19 +6228,21 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["C"]
     },
     {
         "topic": "#11",
         "no": "#6",
         "link": "https://www.examtopics.com/discussions/google/view/9198-exam-professional-cloud-architect-topic-11-question-6/",
-        "question": "",
+        "question": "Dress4Win has asked you for advice on how to migrate their on-premises MySQL deployment to the cloud.\n" +
+            "They want to minimize downtime and performance impact to their on-premises solution during the migration.\n" +
+            "Which approach should you recommend?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Create a dump of the on-premises MySQL master server, and then shut it down, upload it to the cloud environment, and load into a new MySQL cluster.",
+            "B": "Setup a MySQL replica server/slave in the cloud environment, and configure it for asynchronous replication from the MySQL master server on-premises until cutover.",
+            "C": "Create a new MySQL cluster in the cloud, configure applications to begin writing to both on premises and cloud MySQL masters, and destroy the original cluster at cutover.",
+            "D": "Create a dump of the MySQL replica server into the cloud environment, load it into: Google Cloud Datastore, and configure applications to read/write to Cloud Datastore at cutover."
         },
         "options-zh": {
             "A": "",
@@ -6243,19 +6251,20 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["B"]
     },
     {
         "topic": "#11",
         "no": "#7",
         "link": "https://www.examtopics.com/discussions/google/view/7263-exam-professional-cloud-architect-topic-11-question-7/",
-        "question": "",
+        "question": "Dress4Win has configured a new uptime check with Google Stackdriver for several of their legacy services. The Stackdriver dashboard is not reporting the services as healthy.\n" +
+            "What should they do?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Install the Stackdriver agent on all of the legacy web servers.",
+            "B": "In the Cloud Platform Console download the list of the uptime servers' IP addresses and create an inbound firewall rule",
+            "C": "Configure their load balancer to pass through the User-Agent HTTP header when the value matches GoogleStackdriverMonitoring-UptimeChecks (https:// cloud.google.com/monitoring)",
+            "D": "Configure their legacy web servers to allow requests that contain user-Agent HTTP header when the value matches GoogleStackdriverMonitoring- UptimeChecks (https://cloud.google.com/monitoring)"
         },
         "options-zh": {
             "A": "",
@@ -6264,19 +6273,22 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["B"]
     },
     {
         "topic": "#11",
         "no": "#8",
         "link": "https://www.examtopics.com/discussions/google/view/8251-exam-professional-cloud-architect-topic-11-question-8/",
-        "question": "",
+        "question": "As part of their new application experience, Dress4Wm allows customers to upload images of themselves.\n" +
+            "The customer has exclusive control over who may view these images.\n" +
+            "Customers should be able to upload images with minimal latency and also be shown their images quickly on the main application page when they log in.\n" +
+            "Which configuration should Dress4Win use?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Store image files in a Google Cloud Storage bucket. Use Google Cloud Datastore to maintain metadata that maps each customer's ID and their image files.",
+            "B": "Store image files in a Google Cloud Storage bucket. Add custom metadata to the uploaded images in Cloud Storage that contains the customer's unique ID.",
+            "C": "Use a distributed file system to store customers' images. As storage needs increase, add more persistent disks and/or nodes. Assign each customer a unique ID, which sets each file's owner attribute, ensuring privacy of images.",
+            "D": "Use a distributed file system to store customers' images. As storage needs increase, add more persistent disks and/or nodes. Use a Google Cloud SQL database to maintain metadata that maps each customer's ID to their image files."
         },
         "options-zh": {
             "A": "",
@@ -6285,19 +6297,21 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["A"]
     },
     {
         "topic": "#11",
         "no": "#9",
         "link": "https://www.examtopics.com/discussions/google/view/14735-exam-professional-cloud-architect-topic-11-question-9/",
-        "question": "",
+        "question": "Dress4Win has end-to-end tests covering 100% of their endpoints.\n" +
+            "They want to ensure that the move to the cloud does not introduce any new bugs.\n" +
+            "Which additional testing methods should the developers employ to prevent an outage?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "They should enable Google Stackdriver Debugger on the application code to show errors in the code.",
+            "B": "They should add additional unit tests and production scale load tests on their cloud staging environment.",
+            "C": "They should run the end-to-end tests in the cloud staging environment to determine if the code is working as intended.",
+            "D": "They should add canary tests so developers can measure how much of an impact the new release causes to latency."
         },
         "options-zh": {
             "A": "",
@@ -6306,19 +6320,21 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["B"]
     },
     {
         "topic": "#11",
         "no": "#10",
         "link": "https://www.examtopics.com/discussions/google/view/9199-exam-professional-cloud-architect-topic-11-question-10/",
-        "question": "",
+        "question": "You want to ensure Dress4Win's sales and tax records remain available for infrequent viewing by auditors for at least 10 years.\n" +
+            "Cost optimization is your top priority.\n" +
+            "Which cloud services should you choose?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Google Cloud Storage Coldline to store the data, and gsutil to access the data.",
+            "B": "Google Cloud Storage Nearline to store the data, and gsutil to access the data.",
+            "C": "Google Bigtabte with US or EU as location to store the data, and gcloud to access the data.",
+            "D": "BigQuery to store the data, and a web server cluster in a managed instance group to access the data. Google Cloud SQL mirrored across two distinct regions to store the data, and a Redis cluster in a managed instance group to access the data."
         },
         "options-zh": {
             "A": "",
@@ -6327,19 +6343,21 @@ const questions = [
             "D": ""
         },
         "images": [],
-        "answers": []
+        "answers": ["A"]
     },
     {
         "topic": "#11",
         "no": "#11",
         "link": "https://www.examtopics.com/discussions/google/view/6802-exam-professional-cloud-architect-topic-11-question-11/",
-        "question": "",
+        "question": "The current Dress4Win system architecture has high latency to some customers because it is located in one data center.\n" +
+            "As of a future evaluation and optimizing for performance in the cloud, Dresss4Win wants to distribute its system architecture to multiple locations when Google cloud platform.\n" +
+            "Which approach should they use?",
         "question-zh": "",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Use regional managed instance groups and a global load balancer to increase performance because the regional managed instance group can grow instances in each region separately based on traffic.",
+            "B": "Use a global load balancer with a set of virtual machines that forward the requests to a closer group of virtual machines managed by your operations team.",
+            "C": "Use regional managed instance groups and a global load balancer to increase reliability by providing automatic failover between zones in different regions.",
+            "D": "Use a global load balancer with a set of virtual machines that forward the requests to a closer group of virtual machines as part of a separate managed instance groups."
         },
         "options-zh": {
             "A": "",
