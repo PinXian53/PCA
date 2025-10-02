@@ -4246,6 +4246,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#183",
+        "link": "https://www.examtopics.com/discussions/google/view/80075-exam-professional-cloud-architect-topic-1-question-183/",
         "question": "Your company recently acquired a company that has infrastructure in Google Cloud. Each company has its own Google Cloud organization. Each company is using a Shared Virtual Private Cloud (VPC) to provide network connectivity for its applications. Some of the subnets used by both companies overlap. In order for both businesses to integrate, the applications need to have private network connectivity. These applications are not on overlapping subnets. You want to provide connectivity with minimal re-engineering. What should you do?",
         "question-zh": "公司併購另一家也用 GCP 的公司，雙方都有 Shared VPC，有些子網重疊但應用沒重疊，要讓應用能私網互通且改動最少，怎麼做？",
         "options": {
@@ -4268,6 +4269,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#184",
+        "link": "https://www.examtopics.com/discussions/google/view/79697-exam-professional-cloud-architect-topic-1-question-184/",
         "question": "You are managing several internal applications that are deployed on Compute Engine. Business users inform you that an application has become very slow over the past few days. You want to find the underlying cause in order to solve the problem. What should you do first?",
         "question-zh": "你管理多個 Compute Engine 內部應用，最近有一個變很慢，商業用戶反映。你要先怎麼查原因？",
         "options": {
@@ -4290,6 +4292,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#185",
+        "link": "https://www.examtopics.com/discussions/google/view/79702-exam-professional-cloud-architect-topic-1-question-185/",
         "question": "Your company has an application running as a Deployment in a Google Kubernetes Engine (GKE) cluster. When releasing new versions of the application via a rolling deployment, the team has been causing outages. The root cause of the outages is misconfigurations with parameters that are only used in production. You want to put preventive measures for this in the platform to prevent outages. What should you do?",
         "question-zh": "公司有 GKE 應用，每次 rolling 部署新版常出包，都是 production 參數設錯。要怎麼預防？",
         "options": {
@@ -4312,6 +4315,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#186",
+        "link": "https://www.examtopics.com/discussions/google/view/79736-exam-professional-cloud-architect-topic-1-question-186/",
         "question": "Your company uses Google Kubernetes Engine (GKE) as a platform for all workloads. Your company has a single large GKE cluster that contains batch, stateful, and stateless workloads. The GKE cluster is configured with a single node pool with 200 nodes. Your company needs to reduce the cost of this cluster but does not want to compromise availability. What should you do?",
         "question-zh": "公司所有工作負載都跑 GKE，單一大叢集 200 節點，含 batch/stateful/stateless。要降成本又不影響可用性，怎麼做？",
         "options": {
@@ -4334,6 +4338,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#187",
+        "link": "https://www.examtopics.com/discussions/google/view/80112-exam-professional-cloud-architect-topic-1-question-187/",
         "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing on a pay-per-use basis. You want to monitor queries in real time to discover the most costly queries and which users spend the most. What should you do?",
         "question-zh": "公司用 BigQuery 做數據倉儲，按用量計費。要即時監控最貴查詢與花最多的用戶，怎麼做？",
         "options": {
@@ -4356,6 +4361,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#188",
+        "link": "https://www.examtopics.com/discussions/google/view/80000-exam-professional-cloud-architect-topic-1-question-188/",
         "question": "Your company and one of its partners each have a Google Cloud project in separate organizations. Your company's project (prj-a) runs in Virtual Private Cloud(vpc-a). The partner's project (prj-b) runs in vpc-b. There are two instances running on vpc-a and one instance running on vpc-b. Subnets defined in both VPCs are not overlapping. You need to ensure that all instances communicate with each other via internal IPs, minimizing latency and maximizing throughput. What should you do?",
         "question-zh": "你公司和合作夥伴各有 GCP 專案，分別在 vpc-a/vpc-b，子網不重疊，要讓所有 VM 內部 IP 互通且低延遲高吞吐，怎麼做？",
         "options": {
@@ -4378,6 +4384,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#189",
+        "link": "https://www.examtopics.com/discussions/google/view/80304-exam-professional-cloud-architect-topic-1-question-189/",
         "question": "You want to store critical business information in Cloud Storage buckets. The information is regularly changed, but previous versions need to be referenced on a regular basis. You want to ensure that there is a record of all changes to any information in these buckets. You want to ensure that accidental edits or deletions can be easily rolled back. Which feature should you enable?",
         "question-zh": "你要把重要商業資訊存 Cloud Storage，資料常變但要能查舊版，也要能輕鬆還原誤刪誤改，該開啟哪個功能？",
         "options": {
@@ -4400,6 +4407,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#190",
+        "link": "https://www.examtopics.com/discussions/google/view/80040-exam-professional-cloud-architect-topic-1-question-190/",
         "question": "You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows:\n\n✑ Metric identifier: agent.googleapis.com/memory/percent_used\n\n✑ Filter: metric.label.state = 'used'\n\n✑ Target utilization level: 80\n\n✑ Target type: GAUGE\n\nYou observe that the application does not scale under high load. You want to resolve this. What should you do?",
         "question-zh": "你有 Compute Engine 應用，想在記憶體用量超過 80% 時自動擴展，已裝 Monitoring agent 並設好 autoscale，但高負載時沒擴展，要怎麼解決？",
         "options": {
@@ -4422,6 +4430,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#191",
+        "link": "https://www.examtopics.com/discussions/google/view/80419-exam-professional-cloud-architect-topic-1-question-191/",
         "question": "You are deploying an application to Google Cloud. The application is part of a system. The application in Google Cloud must communicate over a private network with applications in a non-Google Cloud environment. The expected average throughput is 200 kbps. The business requires:\n\n✑ as close to 100% system availability as possible\n\n✑ cost optimization\n\nYou need to design the connectivity between the locations to meet the business requirements. What should you provision?",
         "question-zh": "你要在 GCP 部署應用，需與非 GCP 應用私網通訊，平均 200kbps，要求接近 100% 可用性且要省錢，該怎麼設計連線？",
         "options": {
@@ -4444,6 +4453,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#192",
+        "link": "https://www.examtopics.com/discussions/google/view/121240-exam-professional-cloud-architect-topic-1-question-192/",
         "question": "Your company has an application running on App Engine that allows users to upload music files and share them with other people. You want to allow users to upload files directly into Cloud Storage from their browser session. The payload should not be passed through the backend. What should you do?",
         "question-zh": "公司有 App Engine 應用讓用戶上傳音樂並分享，要讓用戶直接從瀏覽器上傳到 Cloud Storage，不經後端，怎麼做？",
         "options": {
@@ -4466,6 +4476,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#193",
+        "link": "https://www.examtopics.com/discussions/google/view/121322-exam-professional-cloud-architect-topic-1-question-193/",
         "question": "You are configuring the cloud network architecture for a newly created project in Google Cloud that will host applications in Compute Engine. Compute Engine virtual machine instances will be created in two different subnets (sub-a and sub-b) within a single region:\n\n- Instances in sub-a will have public IP addresses.\n- Instances in sub-b will have only private IP addresses.\n\nTo download updated packages, instances must connect to a public repository outside the boundaries of Google Cloud. You need to allow sub-b to access the external repository. What should you do?",
         "question-zh": "你在 GCP 新專案設網路架構，Compute Engine VM 分 sub-a（有公網 IP）和 sub-b（僅私網 IP），sub-b 要能下載外部套件，怎麼做？",
         "options": {
@@ -4488,6 +4499,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#194",
+        "link": "https://www.examtopics.com/discussions/google/view/121314-exam-professional-cloud-architect-topic-1-question-194/",
         "question": "Your company is planning to migrate their Windows Server 2022 from their on-premises data center to Google Cloud. You need to bring the licenses that are currently in use in on-premises virtual machines into the target cloud environment. What should you do?",
         "question-zh": "公司要把 Windows Server 2022 從本地搬到 GCP，要把現有授權帶進雲端，怎麼做？",
         "options": {
@@ -4510,6 +4522,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#195",
+        "link": "https://www.examtopics.com/discussions/google/view/121313-exam-professional-cloud-architect-topic-1-question-195/",
         "question": "You are deploying an application to Google Cloud. The application is part of a system. The application in Google Cloud must communicate over a private network with applications in a non-Google Cloud environment. The expected average throughput is 200 kbps. The business requires:\n\n- 99.99% system availability\n- cost optimization\n\nYou need to design the connectivity between the locations to meet the business requirements. What should you provision?",
         "question-zh": "你要在 GCP 部署應用，需與非 GCP 應用私網通訊，平均 200kbps，要求 99.99% 可用性且要省錢，該怎麼設計連線？",
         "options": {
@@ -4532,6 +4545,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#196",
+        "link": "https://www.examtopics.com/discussions/google/view/121324-exam-professional-cloud-architect-topic-1-question-196/",
         "question": "Your company wants to migrate their 10-TB on-premises database export into Cloud Storage. You want to minimize the time it takes to complete this activity and the overall cost. The bandwidth between the on-premises environment and Google Cloud is 1 Gbps. You want to follow Google-recommended practices. What should you do?",
         "question-zh": "公司要把 10TB 本地資料庫匯出搬到 Cloud Storage，要省時省錢，頻寬 1Gbps，怎麼做最符合 Google 建議？",
         "options": {
@@ -4554,6 +4568,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#197",
+        "link": "https://www.examtopics.com/discussions/google/view/138677-exam-professional-cloud-architect-topic-1-question-197/",
         "question": "You are working at a financial institution that stores mortgage loan approval documents on Cloud Storage. Any change to these approval documents must be uploaded as a separate approval file. You need to ensure that these documents cannot be deleted or overwritten for the next 5 years. What should you do?",
         "question-zh": "你在金融機構，房貸核准文件存 Cloud Storage，任何異動都要另存新檔，且 5 年內不能刪改，怎麼做？",
         "options": {
@@ -4576,6 +4591,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#198",
+        "link": "https://www.examtopics.com/discussions/google/view/138677-exam-professional-cloud-architect-topic-1-question-198/",
         "question": "Your company has decided to make a major revision of their API in order to create better experiences for their developers. They need to keep the old version of the API available and deployable, while allowing new customers and testers to try out the new API. They want to keep the same SSL and DNS records in place to serve both APIs.\n\nWhat should they do?",
         "question-zh": "公司要大改 API，舊版要能繼續用，新客戶與測試者可試新版，SSL/DNS 不變，怎麼做？",
         "options": {
@@ -4598,6 +4614,7 @@ const questions = [
     {
         "topic": "#1",
         "no": "#199",
+        "link": "https://www.examtopics.com/discussions/google/view/138677-exam-professional-cloud-architect-topic-1-question-199/",
         "question": "You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows:",
         "question-zh": "你有 Compute Engine 應用，想在記憶體用量超過 80% 時自動擴展，已裝 Monitoring agent 並設好 autoscale。怎麼修正？",
         "options": {
@@ -4622,6 +4639,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/65937-exam-professional-cloud-architect-topic-3-question-1/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Your team is in charge of creating a payment card data vault for card numbers used to bill tens of thousands of viewers, merchandise consumers, and season ticket holders. You need to implement a custom card tokenization service that meets the following requirements:\n\n- It must provide low latency at minimal cost.\n- It must be able to identify duplicate credit cards and must not store plaintext card numbers.\n- It should support annual key rotation.\n\nWhich storage approach should you adopt for your tokenization service?",
         "question-zh": "（HRL 案例）你負責建立信用卡資料庫，需低延遲低成本、能判重、不能存明碼卡號、支援年輪換金鑰。該用哪種儲存方案？",
         "options": {
@@ -4644,6 +4662,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#2-1",
+        "link": "https://www.examtopics.com/discussions/google/view/68709-exam-professional-cloud-architect-topic-3-question-2/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. Recently HRL started a new regional racing league in Cape Town, South Africa. In an effort to give customers in Cape Town a better user experience, HRL has partnered with the Content Delivery Network provider, Fastly. HRL needs to allow traffic coming from all of the Fastly IP address ranges into their Virtual Private Cloud network (VPC network). You are a member of the HRL security team and you need to configure the update that will allow only the Fastly IP address ranges through the External HTTP(S) load balancer. Which command should you use?",
         "question-zh": "（HRL 案例）HRL 在開普敦新賽區，合作 CDN Fastly，要讓 Fastly IP 通過 VPC 的 HTTP(S) 負載平衡器，該用哪個指令？",
         "options": {
@@ -4671,6 +4690,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#2-2",
+        "link": "https://www.examtopics.com/discussions/google/view/68709-exam-professional-cloud-architect-topic-3-question-2/",
         "question": "As someone pointed out answers are reworked.\nInstead of asking for the command, the choices were given in wordings - something like the below. (Not the exact words)",
         "question-zh": "（HRL 案例）有題目改成用敘述選項而非指令，內容大致如下。",
         "options": {
@@ -4693,6 +4713,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/56890-exam-professional-cloud-architect-topic-3-question-3/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called Airwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?",
         "question-zh": "（HRL 案例）HRL 開發團隊每週二 3am UTC 發新版預測應用，資安團隊有 Cloud Function Airwolf 要每週自動測新版，怎麼設？",
         "options": {
@@ -4715,6 +4736,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/56322-exam-professional-cloud-architect-topic-3-question-4/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL wants better prediction accuracy from their ML prediction models. They want you to use Google's AI Platform so HRL can understand and interpret the predictions. What should you do?",
         "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。HRL 希望提升機器學習預測模型的準確度，並希望你使用 Google 的 AI Platform 來協助 HRL 理解與解釋預測結果。你該怎麼做？",
         "options": {
@@ -4737,6 +4759,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/56326-exam-professional-cloud-architect-topic-3-question-5/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL is looking for a cost-effective approach for storing their race data such as telemetry. They want to keep all historical records, train models using only the previous season's data, and plan for data growth in terms of volume and information collected. You need to propose a data solution. Considering HRL business requirements and the goals expressed by CEO S. Hawke, what should you do?",
         "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。HRL 希望以具成本效益的方式儲存賽事資料（如遙測數據），並保留所有歷史紀錄，只用前一賽季資料訓練模型，且需規劃資料量與資訊成長。根據 HRL 的業務需求與 CEO S. Hawke 的目標，請提出資料解決方案。你該怎麼做？",
         "options": {
@@ -4759,6 +4782,7 @@ const questions = [
     {
         "topic": "#3",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/56328-exam-professional-cloud-architect-topic-3-question-6/",
         "question": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of Compute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?",
         "question-zh": "本題請參考直升機賽事聯盟（HRL）案例。最近財務稽核發現雲端基礎設施有大量 Compute Engine 實例用於影片編碼與轉檔。你懷疑這些 VM 是工作完成後未刪除的殭屍機器。你需要快速取得閒置 VM 實例清單。你該怎麼做？",
         "options": {
@@ -4781,6 +4805,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/60388-exam-professional-cloud-architect-topic-4-question-1/",
         "question": "For this question, refer to the EHR Healthcare case study. You are responsible for ensuring that EHR's use of Google Cloud will pass an upcoming privacy compliance audit. What should you do? (Choose two.)",
         "question-zh": "本題請參考 EHR Healthcare 案例。你負責確保 EHR 使用 Google Cloud 能通過即將到來的隱私合規稽核。你該怎麼做？（選兩項）",
         "options": {
@@ -4806,6 +4831,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/60423-exam-professional-cloud-architect-topic-4-question-2/",
         "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for securely deploying workloads to Google Cloud. You also need to ensure that only verified containers are deployed using Google Cloud services. What should you do? (Choose two.)",
         "question-zh": "本題請參考 EHR Healthcare 案例。你需要定義安全部署工作負載到 Google Cloud 的技術架構，並確保僅有經驗證的容器能被部署。你該怎麼做？（選兩項）",
         "options": {
@@ -4829,6 +4855,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/60403-exam-professional-cloud-architect-topic-4-question-3/",
         "question": "You need to upgrade the EHR connection to comply with their requirements. The new connection design must support business-critical needs and meet the same network and security policy requirements. What should you do?",
         "question-zh": "你需要升級 EHR 的連線以符合其需求。新設計必須支援關鍵業務並符合相同的網路與安全政策。你該怎麼做？",
         "options": {
@@ -4851,6 +4878,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/60435-exam-professional-cloud-architect-topic-4-question-4/",
         "question": "For this question, refer to the EHR Healthcare case study. You need to define the technical architecture for hybrid connectivity between EHR's on-premises systems and Google Cloud. You want to follow Google's recommended practices for production-level applications. Considering the EHR Healthcare business and technical requirements, what should you do?",
         "question-zh": "本題請參考 EHR Healthcare 案例。你需要設計 EHR 內部系統與 Google Cloud 的混合連線架構，並遵循 Google 的生產環境建議。根據 EHR 的業務與技術需求，你該怎麼做？",
         "options": {
@@ -4873,6 +4901,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/60405-exam-professional-cloud-architect-topic-4-question-5/",
         "question": "For this question, refer to the EHR Healthcare case study. You are a developer on the EHR customer portal team. Your team recently migrated the customer portal application to Google Cloud. The load has increased on the application servers, and now the application is logging many timeout errors. You recently incorporated Pub/Sub into the application architecture, and the application is not logging any Pub/Sub publishing errors. You want to improve publishing latency.\n\nWhat should you do?",
         "question-zh": "本題請參考 EHR Healthcare 案例。你是 EHR 客戶入口網站團隊的開發人員。團隊最近將入口網站遷移到 Google Cloud，伺服器負載增加，應用程式出現許多逾時錯誤。你已將 Pub/Sub 納入架構，且未記錄任何發佈錯誤。你想改善發佈延遲，該怎麼做？",
         "options": {
@@ -4895,6 +4924,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/60407-exam-professional-cloud-architect-topic-4-question-6/",
         "question": "For this question, refer to the EHR Healthcare case study. In the past, configuration errors put public IP addresses on backend servers that should not have been accessible from the Internet. You need to ensure that no one can put external IP addresses on backend Compute Engine instances and that external IP addresses can only be configured on frontend Compute Engine instances. What should you do?",
         "question-zh": "本題請參考 EHR Healthcare 案例。過去設定錯誤導致後端伺服器被配置了公網 IP，應不可從網際網路存取。你需確保僅前端 Compute Engine 實例可設外部 IP，後端不可。你該怎麼做？",
         "options": {
@@ -4917,6 +4947,7 @@ const questions = [
     {
         "topic": "#4",
         "no": "#7",
+        "link": "https://www.examtopics.com/discussions/google/view/60409-exam-professional-cloud-architect-topic-4-question-7/",
         "question": "For this question, refer to the EHR Healthcare case study. You are responsible for designing the Google Cloud network architecture for Google Kubernetes Engine. You want to follow Google best practices. Considering the EHR Healthcare business and technical requirements, what should you do to reduce the attack surface?",
         "question-zh": "本題請參考 EHR Healthcare 案例。你負責設計 Google Kubernetes Engine 的雲端網路架構，並希望遵循 Google 最佳實踐。根據 EHR 的業務與技術需求，如何降低攻擊面？",
         "options": {
@@ -4939,6 +4970,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/10722-exam-professional-cloud-architect-topic-5-question-1/",
         "question": "Mountkirk Games wants you to design their new testing strategy. How should the test coverage differ from their existing backends on the other platforms?",
         "question-zh": "Mountkirk Games 希望你設計新的測試策略。測試覆蓋率應如何與現有平台的後端不同？",
         "options": {
@@ -4961,6 +4993,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/9190-exam-professional-cloud-architect-topic-5-question-2/",
         "question": "Mountkirk Games has deployed their new backend on Google Cloud Platform (GCP). You want to create a through testing process for new versions of the backend before they are released to the public. You want the testing environment to scale in an economical way. How should you design the process?",
         "question-zh": "Mountkirk Games 已將新後端部署於 Google Cloud Platform（GCP）。你希望為新版本建立完整測試流程，並讓測試環境具經濟規模。該如何設計？",
         "options": {
@@ -4983,6 +5016,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/6549-exam-professional-cloud-architect-topic-5-question-3/",
         "question": "Mountkirk Games wants to set up a continuous delivery pipeline. Their architecture includes many small services that they want to be able to update and roll back quickly. Mountkirk Games has the following requirements:\n\n✑ Services are deployed redundantly across multiple regions in the US and Europe\n\n✑ Only frontend services are exposed on the public internet\n\n✑ They can provide a single frontend IP for their fleet of services\n\n✑ Deployment artifacts are immutable\n\nWhich set of products should they use?",
         "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變他們應該用哪些產品？",
         "options": {
@@ -5005,6 +5039,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/9253-exam-professional-cloud-architect-topic-5-question-4/",
         "question": "Mountkirk Games' gaming servers are not automatically scaling properly. Last month, they rolled out a new feature, which suddenly became very popular. A record number of users are trying to use the service, but many of them are getting 503 errors and very slow response times. What should they investigate first?",
         "question-zh": "Mountkirk Games 的遊戲伺服器未能自動擴展。上月推出新功能後爆紅，創下用戶新高，但許多用戶遇到 503 錯誤與回應緩慢。應先調查什麼？",
         "options": {
@@ -5027,6 +5062,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/9191-exam-professional-cloud-architect-topic-5-question-5/",
         "question": "Mountkirk Games needs to create a repeatable and configurable mechanism for deploying isolated application environments. Developers and testers can access each other's environments and resources, but they cannot access staging or production resources. The staging environment needs access to some services from production.\n\nWhat should you do to isolate development environments from staging and production?",
         "question-zh": "Mountkirk Games 需要建立可重複且可設定的機制來部署隔離的應用環境。開發與測試人員可互相存取彼此環境，但不能存取預備或正式資源。預備環境需能存取部分正式服務。你該如何隔離開發、預備與正式環境？",
         "options": {
@@ -5049,6 +5085,7 @@ const questions = [
     {
         "topic": "#5",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/11831-exam-professional-cloud-architect-topic-5-question-6/",
         "question": "Mountkirk Games wants to set up a real-time analytics platform for their new game. The new platform must meet their technical requirements.\n\nWhich combination of Google technologies will meet all of their requirements?",
         "question-zh": "Mountkirk Games 想為新遊戲建立即時分析平台，需符合技術需求。下列哪組 Google 技術能滿足所有需求？",
         "options": {
@@ -5073,6 +5110,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/11888-exam-professional-cloud-architect-topic-6-question-1/",
         "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants to migrate from their current analytics and statistics reporting model to one that meets their technical requirements on Google Cloud Platform.\n\nWhich two steps should be part of their migration plan? (Choose two.)",
         "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望將現有分析與統計報表模型遷移到符合 Google Cloud Platform 技術需求的新模型。\n\n下列哪兩個步驟應納入遷移計畫？（選兩項）",
         "options": {
@@ -5098,6 +5136,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/8500-exam-professional-cloud-architect-topic-6-question-2/",
         "question": "For this question, refer to the Mountkirk Games case study. You need to analyze and define the technical architecture for the compute workloads for your company, Mountkirk Games. Considering the Mountkirk Games business and technical requirements, what should you do?",
         "question-zh": "本題請參考 Mountkirk Games 案例。你需要分析並定義 Mountkirk Games 的運算工作負載技術架構。根據業務與技術需求，你該怎麼做？",
         "options": {
@@ -5120,6 +5159,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/8501-exam-professional-cloud-architect-topic-6-question-3/",
         "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants to design their solution for the future in order to take advantage of cloud and technology improvements as they become available. Which two steps should they take? (Choose two.)",
         "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望設計能因應未來雲端與技術進步的解決方案。下列哪兩個步驟應採取？（選兩項）",
         "options": {
@@ -5145,6 +5185,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/12204-exam-professional-cloud-architect-topic-6-question-4/",
         "question": "For this question, refer to the Mountkirk Games case study. Mountkirk Games wants you to design a way to test the analytics platform's resilience to changes in mobile network latency. What should you do?",
         "question-zh": "本題請參考 Mountkirk Games 案例。Mountkirk Games 希望你設計方法測試分析平台對行動網路延遲變化的韌性。你該怎麼做？",
         "options": {
@@ -5167,6 +5208,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/7236-exam-professional-cloud-architect-topic-6-question-5/",
         "question": "For this question, refer to the Mountkirk Games case study. You need to analyze and define the technical architecture for the database workloads for your company, Mountkirk Games. Considering the business and technical requirements, what should you do?",
         "question-zh": "本題請參考 Mountkirk Games 案例。你需要分析並定義 Mountkirk Games 的資料庫工作負載技術架構。根據業務與技術需求，你該怎麼做？",
         "options": {
@@ -5189,6 +5231,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/7237-exam-professional-cloud-architect-topic-6-question-6/",
         "question": "For this question, refer to the Mountkirk Games case study. Which managed storage option meets Mountkirk's technical requirement for storing game activity in a time series database service?",
         "question-zh": "本題請參考 Mountkirk Games 案例。下列哪個託管儲存方案符合 Mountkirk 的遊戲活動時間序列資料庫需求？",
         "options": {
@@ -5211,6 +5254,7 @@ const questions = [
     {
         "topic": "#6",
         "no": "#7",
+        "link": "https://www.examtopics.com/discussions/google/view/7238-exam-professional-cloud-architect-topic-6-question-7/",
         "question": "For this question, refer to the Mountkirk Games case study. You are in charge of the new Game Backend Platform architecture. The game communicates with the backend over a REST API.\n\nYou want to follow Google-recommended practices. How should you design the backend?",
         "question-zh": "本題請參考 Mountkirk Games 案例。你負責新遊戲後端平台架構，遊戲透過 REST API 與後端溝通。你想遵循 Google 建議做法，該如何設計？",
         "options": {
@@ -5233,6 +5277,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/56977-exam-professional-cloud-architect-topic-7-question-1/",
         "question": "You need to optimize batch file transfers into Cloud Storage for Mountkirk Games' new Google Cloud solution. The batch files contain game statistics that need to be staged in Cloud Storage and be processed by an extract transform load (ETL) tool. What should you do?",
         "question-zh": "你需要為 Mountkirk Games 的新 Google Cloud 解決方案最佳化批次檔案傳輸。這些批次檔案包含遊戲統計資料，需先暫存於 Cloud Storage，再由 ETL 工具處理。你該怎麼做？",
         "options": {
@@ -5255,6 +5300,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/56978-exam-professional-cloud-architect-topic-7-question-2/",
         "question": "You are implementing Firestore for Mountkirk Games. Mountkirk Games wants to give a new game programmatic access to a legacy game's Firestore database.\n\nAccess should be as restricted as possible. What should you do?",
         "question-zh": "你正在為 Mountkirk Games 實作 Firestore。Mountkirk Games 希望讓新遊戲以程式方式存取舊遊戲的 Firestore 資料庫，且權限應盡量限制。你該怎麼做？",
         "options": {
@@ -5277,6 +5323,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/56732-exam-professional-cloud-architect-topic-7-question-3/",
         "question": "Mountkirk Games wants to limit the physical location of resources to their operating Google Cloud regions. What should you do?",
         "question-zh": "Mountkirk Games 希望限制資源僅部署於其營運的 Google Cloud 區域。你該怎麼做？",
         "options": {
@@ -5299,6 +5346,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/56734-exam-professional-cloud-architect-topic-7-question-4/",
         "question": "You need to implement a network ingress for a new game that meets the defined business and technical requirements. Mountkirk Games wants each regional game instance to be located in multiple Google Cloud regions. What should you do?",
         "question-zh": "你需要為新遊戲實作網路入口，滿足業務與技術需求。Mountkirk Games 希望每個地區遊戲實例都部署於多個 Google Cloud 區域。你該怎麼做？",
         "options": {
@@ -5321,6 +5369,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/56735-exam-professional-cloud-architect-topic-7-question-5/",
         "question": "Your development teams release new versions of games running on Google Kubernetes Engine (GKE) daily. You want to create service level indicators (SLIs) to evaluate the quality of the new versions from the user's perspective. What should you do?",
         "question-zh": "你的開發團隊每天都會在 Google Kubernetes Engine（GKE）上發佈新遊戲版本。你想建立服務層級指標（SLI），從用戶角度評估新版本品質。你該怎麼做？",
         "options": {
@@ -5343,6 +5392,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/56645-exam-professional-cloud-architect-topic-7-question-6/",
         "question": "Mountkirk Games wants you to secure the connectivity from the new gaming application platform to Google Cloud. You want to streamline the process and follow Google-recommended practices. What should you do?",
         "question-zh": "Mountkirk Games 希望你保護新遊戲應用平台與 Google Cloud 的連線。你想簡化流程並遵循 Google 建議做法。你該怎麼做？",
         "options": {
@@ -5365,6 +5415,7 @@ const questions = [
     {
         "topic": "#7",
         "no": "#7",
+        "link": "https://www.examtopics.com/discussions/google/view/56798-exam-professional-cloud-architect-topic-7-question-7/",
         "question": "Your development team has created a mobile game app. You want to test the new mobile app on Android and iOS devices with a variety of configurations. You need to ensure that testing is efficient and cost-effective. What should you do?",
         "question-zh": "你的開發團隊已開發出一款手機遊戲 App。你想在多種配置的 Android 與 iOS 裝置上測試新 App，需確保測試高效且具成本效益。你該怎麼做？",
         "options": {
@@ -5387,6 +5438,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/11084-exam-professional-cloud-architect-topic-8-question-1/",
         "question": "TerramEarth's CTO wants to use the raw data from connected vehicles to help identify approximately when a vehicle in the field will have a catastrophic failure.\n\nYou want to allow analysts to centrally query the vehicle data.\n\nWhich architecture should you recommend?",
         "question-zh": "TerramEarth 的 CTO 希望利用連網車輛的原始資料，協助預測車輛在現場發生重大故障的大致時間。你希望分析師能集中查詢車輛資料。你會建議哪種架構？",
         "options": {
@@ -5414,6 +5466,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/11085-exam-professional-cloud-architect-topic-8-question-2/",
         "question": "The TerramEarth development team wants to create an API to meet the company's business requirements. You want the development team to focus their development effort on business value versus creating a custom framework.\n\nWhich method should they use?",
         "question-zh": "TerramEarth 開發團隊希望建立 API 以滿足公司業務需求。你希望團隊專注於業務價值而非自訂框架。應該採用哪種方法？",
         "options": {
@@ -5438,6 +5491,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/9449-exam-professional-cloud-architect-topic-8-question-3/",
         "question": "Your development team has created a structured API to retrieve vehicle data. They want to allow third parties to develop tools for dealerships that use this vehicle event data. You want to support delegated authorization against this data.\n\nWhat should you do?",
         "question-zh": "你的開發團隊已建立結構化 API 以取得車輛資料，並希望第三方能為經銷商開發工具。你想支援委託授權，該怎麼做？",
         "options": {
@@ -5460,6 +5514,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/6657-exam-professional-cloud-architect-topic-8-question-4/",
         "question": "TerramEarth plans to connect all 20 million vehicles in the field to the cloud. This increases the volume to 20 million 600 byte records a second for 40 TB an hour.\n\nHow should you design the data ingestion?",
         "question-zh": "TerramEarth 計畫將 2,000 萬輛車連上雲端，每秒產生 2,000 萬筆 600 位元組紀錄，每小時 40TB。你該如何設計資料匯入？",
         "options": {
@@ -5482,6 +5537,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/8687-exam-professional-cloud-architect-topic-8-question-5/",
         "question": "You analyzed TerramEarth's business requirement to reduce downtime, and found that they can achieve a majority of time saving by reducing customer's wait time for parts. You decided to focus on reduction of the 3 weeks aggregate reporting time.\n\nWhich modifications to the company's processes should you recommend?",
         "question-zh": "你分析 TerramEarth 的業務需求，發現減少客戶等候零件時間可大幅縮短停機時數，因此決定著重於縮短 3 週的彙總報告時間。你會建議公司流程做哪些調整？",
         "options": {
@@ -5504,6 +5560,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/12205-exam-professional-cloud-architect-topic-8-question-6/",
         "question": "Which of TerramEarth's legacy enterprise processes will experience significant change as a result of increased Google Cloud Platform adoption?",
         "question-zh": "隨著 TerramEarth 擴大採用 Google Cloud Platform，下列哪項傳統企業流程將有重大改變？",
         "options": {
@@ -5526,6 +5583,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#7",
+        "link": "https://www.examtopics.com/discussions/google/view/6485-exam-professional-cloud-architect-topic-8-question-7/",
         "question": "To speed up data retrieval, more vehicles will be upgraded to cellular connections and be able to transmit data to the ETL process. The current FTP process is error-prone and restarts the data transfer from the start of the file when connections fail, which happens often. You want to improve the reliability of the solution and minimize data transfer time on the cellular connections.\n\nWhat should you do?",
         "question-zh": "為加快資料擷取，更多車輛將升級為行動連線並能傳送資料至 ETL 流程。現有 FTP 流程易出錯且連線失敗時會重傳整個檔案。你想提升解決方案可靠性並減少行動連線的資料傳輸時間，該怎麼做？",
         "options": {
@@ -5548,6 +5606,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#8",
+        "link": "https://www.examtopics.com/discussions/google/view/8248-exam-professional-cloud-architect-topic-8-question-8/",
         "question": "TerramEarth's 20 million vehicles are scattered around the world. Based on the vehicle's location, its telemetry data is stored in a Google Cloud Storage (GCS) regional bucket (US, Europe, or Asia). The CTO has asked you to run a report on the raw telemetry data to determine why vehicles are breaking down after 100 K miles. You want to run this job on all the data.\n\nWhat is the most cost-effective way to run this job?",
         "question-zh": "TerramEarth 的 2,000 萬輛車分布全球，根據位置將遙測資料存於 GCS 區域 bucket（美、歐、亞）。CTO 要你分析原始資料找出車輛 10 萬英里後故障原因。你想對所有資料執行分析，最省錢的方法是？",
         "options": {
@@ -5570,6 +5629,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#9",
+        "link": "https://www.examtopics.com/discussions/google/view/8249-exam-professional-cloud-architect-topic-8-question-9/",
         "question": "TerramEarth has equipped all connected trucks with servers and sensors to collect telemetry data. Next year they want to use the data to train machine learning models. They want to store this data in the cloud while reducing costs.\n\nWhat should they do?",
         "question-zh": "TerramEarth 為所有連網卡車安裝伺服器與感測器收集遙測資料，明年要用這些資料訓練機器學習模型。希望雲端儲存並降低成本，該怎麼做？",
         "options": {
@@ -5592,6 +5652,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#10",
+        "link": "https://www.examtopics.com/discussions/google/view/12751-exam-professional-cloud-architect-topic-8-question-10/",
         "question": "Your agricultural division is experimenting with fully autonomous vehicles. You want your architecture to promote strong security during vehicle operation.\n\nWhich two architectures should you consider? (Choose two.)",
         "question-zh": "你的農業部門正在測試全自動車輛。你希望架構能在車輛運作時強化安全，下列哪兩種架構應考慮？（選兩項）",
         "options": {
@@ -5619,6 +5680,7 @@ const questions = [
     {
         "topic": "#8",
         "no": "#11",
+        "link": "https://www.examtopics.com/discussions/google/view/8250-exam-professional-cloud-architect-topic-8-question-11/",
         "question": "Operational parameters such as oil pressure are adjustable on each of TerramEarth's vehicles to increase their efficiency, depending on their environmental conditions. Your primary goal is to increase the operating efficiency of all 20 million cellular and unconnected vehicles in the field.\n\nHow can you accomplish this goal?",
         "question-zh": "TerramEarth 每輛車的運作參數（如油壓）可依環境調整以提升效率。你的首要目標是提升全球 2,000 萬輛連網與未連網車輛的運作效率。你該怎麼做？",
         "options": {
@@ -5641,6 +5703,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/6489-exam-professional-cloud-architect-topic-9-question-1/",
         "question": "For this question, refer to the TerramEarth case study. To be compliant with European GDPR regulation, TerramEarth is required to delete data generated from its European customers after a period of 36 months when it contains personal data. In the new architecture, this data will be stored in both Cloud Storage and BigQuery. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。為符合法國 GDPR，含個資的歐洲客戶資料需於 36 個月後刪除。新架構下資料存於 Cloud Storage 與 BigQuery，該怎麼做？",
         "options": {
@@ -5663,6 +5726,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/57128-exam-professional-cloud-architect-topic-9-question-2/",
         "question": "For this question, refer to the TerramEarth case study. TerramEarth has decided to store data files in Cloud Storage. You need to configure Cloud Storage lifecycle rule to store 1 year of data and minimize file storage cost.\n\nWhich two actions should you take?",
         "question-zh": "本題請參考 TerramEarth 案例。公司決定將資料檔案存於 Cloud Storage。你需設定生命週期規則，保存一年並降低儲存成本。應採取哪兩項措施？",
         "options": {
@@ -5685,6 +5749,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/7260-exam-professional-cloud-architect-topic-9-question-3/",
         "question": "For this question, refer to the TerramEarth case study. You need to implement a reliable, scalable GCP solution for the data warehouse for your company, TerramEarth.\n\nConsidering the TerramEarth business and technical requirements, what should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。你需為公司建置可靠且可擴展的 GCP 數據倉儲解決方案。根據業務與技術需求，該怎麼做？",
         "options": {
@@ -5707,6 +5772,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/13467-exam-professional-cloud-architect-topic-9-question-4/",
         "question": "For this question, refer to the TerramEarth case study. A new architecture that writes all incoming data to BigQuery has been introduced. You notice that the data is dirty, and want to ensure data quality on an automated daily basis while managing cost.\n\nWhat should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。新架構將所有資料寫入 BigQuery，但你發現資料品質不佳，想自動化每日清理並控管成本，該怎麼做？",
         "options": {
@@ -5729,6 +5795,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/14729-exam-professional-cloud-architect-topic-9-question-5/",
         "question": "For this question, refer to the TerramEarth case study. Considering the technical requirements, how should you reduce the unplanned vehicle downtime in GCP?",
         "question-zh": "本題請參考 TerramEarth 案例。根據技術需求，如何在 GCP 上減少車輛非預期停機？",
         "options": {
@@ -5751,6 +5818,7 @@ const questions = [
     {
         "topic": "#9",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/6785-exam-professional-cloud-architect-topic-9-question-6/",
         "question": "For this question, refer to the TerramEarth case study. You are asked to design a new architecture for the ingestion of the data of the 200,000 vehicles that are connected to a cellular network. You want to follow Google-recommended practices.\n\nConsidering the technical requirements, which components should you use for the ingestion of the data?",
         "question-zh": "本題請參考 TerramEarth 案例。你需設計新架構以匯入 20 萬輛連網車輛資料，並遵循 Google 建議做法。根據技術需求，應用哪些元件？",
         "options": {
@@ -5773,6 +5841,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#1",
+        "link": "https://www.examtopics.com/discussions/google/view/60524-exam-professional-cloud-architect-topic-10-question-1/",
         "question": "For this question, refer to the TerramEarth case study. You start to build a new application that uses a few Cloud Functions for the backend. One use case requires a Cloud Function func_display to invoke another Cloud Function func_query. You want func_query only to accept invocations from func_display. You also want to follow Google's recommended best practices. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。你開始建置新應用，後端用多個 Cloud Functions。有一個情境需 func_display 呼叫 func_query，且只允許 func_display 呼叫 func_query，並遵循 Google 最佳實踐。你該怎麼做？",
         "options": {
@@ -5795,6 +5864,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#2",
+        "link": "https://www.examtopics.com/discussions/google/view/60525-exam-professional-cloud-architect-topic-10-question-2/",
         "question": "For this question, refer to the TerramEarth case study. You have broken down a legacy monolithic application into a few containerized RESTful microservices.\n\nYou want to run those microservices on Cloud Run. You also want to make sure the services are highly available with low latency to your customers. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。你已將傳統單體應用拆分為多個容器化 RESTful 微服務，想在 Cloud Run 執行並確保高可用與低延遲。你該怎麼做？",
         "options": {
@@ -5817,6 +5887,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#3",
+        "link": "https://www.examtopics.com/discussions/google/view/60557-exam-professional-cloud-architect-topic-10-question-3/",
         "question": "For this question, refer to the TerramEarth case study. You are migrating a Linux-based application from your private data center to Google Cloud. The TerramEarth security team sent you several recent Linux vulnerabilities published by Common Vulnerabilities and Exposures (CVE). You need assistance in understanding how these vulnerabilities could impact your migration. What should you do? (Choose two.)",
         "question-zh": "本題請參考 TerramEarth 案例。你正將 Linux 應用從私有資料中心遷移到 Google Cloud，安全團隊提供多個 CVE 漏洞。你需了解這些漏洞對遷移的影響，該怎麼做？（選兩項）",
         "options": {
@@ -5842,6 +5913,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#4",
+        "link": "https://www.examtopics.com/discussions/google/view/60562-exam-professional-cloud-architect-topic-10-question-4/",
         "question": "For this question, refer to the TerramEarth case study. TerramEarth has a legacy web application that you cannot migrate to cloud. However, you still want to build a cloud-native way to monitor the application. If the application goes down, you want the URL to point to a \"Site is unavailable\" page as soon as possible. You also want your Ops team to receive a notification for the issue. You need to build a reliable solution for minimum cost. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。公司有無法遷移上雲的傳統網頁應用，但你想用雲端原生方式監控。若應用掛掉，URL 要能盡快導向「網站暫時無法使用」頁，並通知運維團隊。你需建低成本可靠方案，該怎麼做？",
         "options": {
@@ -5864,6 +5936,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#5",
+        "link": "https://www.examtopics.com/discussions/google/view/60563-exam-professional-cloud-architect-topic-10-question-5/",
         "question": "For this question, refer to the TerramEarth case study. You are building a microservice-based application for TerramEarth. The application is based on Docker containers. You want to follow Google-recommended practices to build the application continuously and store the build artifacts. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。你正為公司建置微服務應用，採用 Docker 容器。你想遵循 Google 建議持續建置並儲存產物，該怎麼做？",
         "options": {
@@ -5886,6 +5959,7 @@ const questions = [
     {
         "topic": "#10",
         "no": "#6",
+        "link": "https://www.examtopics.com/discussions/google/view/60483-exam-professional-cloud-architect-topic-10-question-6/",
         "question": "For this question, refer to the TerramEarth case study. TerramEarth has about 1 petabyte (PB) of vehicle testing data in a private data center. You want to move the data to Cloud Storage for your machine learning team. Currently, a 1-Gbps interconnect link is available for you. The machine learning team wants to start using the data in a month. What should you do?",
         "question-zh": "本題請參考 TerramEarth 案例。公司有約 1PB 車輛測試資料在私有資料中心，需一個月內搬到 Cloud Storage 給機器學習團隊用，目前有 1Gbps 連線。你該怎麼做？",
         "options": {
