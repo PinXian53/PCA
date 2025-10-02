@@ -1466,7 +1466,9 @@
                 // Create topic header text
                 const topicHeaderText = document.createElement('span');
                 topicHeaderText.className = 'topic-header-text';
-                topicHeaderText.textContent = `Topic ${topic}`;
+                const topicData = findTopicData(topic);
+                const topicName = topicData ? topicData.name : '';
+                topicHeaderText.textContent = topicName ? `Topic ${topic} ${topicName}` : `Topic ${topic}`;
                 topicHeader.appendChild(topicHeaderText);
                 
                 // Create info icon button
