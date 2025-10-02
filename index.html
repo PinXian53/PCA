@@ -261,6 +261,114 @@
             color: var(--color-gray-600);
         }
 
+        /* ==================== Topic Navigation ==================== */
+        .topic-navigation {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: visible;
+        }
+
+        .topic-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .topic-nav-title {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--color-gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .topic-nav-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: transparent;
+            border: none;
+            color: var(--color-gray-600);
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topic-nav-toggle:hover {
+            color: var(--color-primary);
+            transform: scale(1.1);
+        }
+
+        .topic-nav-content {
+            margin-top: var(--spacing-sm);
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .topic-navigation.collapsed .topic-nav-content {
+            display: none;
+        }
+
+        .topic-navigation.collapsed .topic-nav-toggle::before {
+            content: '▼';
+        }
+
+        .topic-navigation:not(.collapsed) .topic-nav-toggle::before {
+            content: '▲';
+        }
+
+        .topic-nav-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .topic-nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background-color: var(--color-gray-50);
+            color: var(--color-gray-900);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-height: 36px;
+        }
+
+        .topic-nav-link:hover {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary);
+            color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-nav-link.active {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .topic-navigation.hidden {
+            display: none;
+        }
+
         /* ==================== Question List ==================== */
         .question-list {
             margin-bottom: var(--spacing-xl);
@@ -271,7 +379,7 @@
         }
 
         .topic-header {
-            font-size: var(--font-size-2xl);
+            font-size: var(--font-size-lg);
             font-weight: 700;
             color: var(--color-primary);
             padding: var(--spacing-md);
@@ -659,6 +767,18 @@
             <div class="search-container">
                 <input type="text" id="searchInput" class="search-input" placeholder="搜尋題目 (ID、問題、選項)...">
             </div>
+            <!-- Topic Navigation -->
+            <div id="topicNavigation" class="topic-navigation collapsed hidden">
+                <div class="topic-nav-header" id="topicNavHeader">
+                    <div class="topic-nav-title">快速跳轉</div>
+                    <button class="topic-nav-toggle" id="topicNavToggle" aria-label="展開/收合快速跳轉"></button>
+                </div>
+                <div class="topic-nav-content">
+                    <div id="topicNavLinks" class="topic-nav-links">
+                        <!-- Topic links will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
             <div id="questionList" class="question-list">
                 <div class="loading">載入中...</div>
             </div>
@@ -719,6 +839,8 @@
             questionListView: document.getElementById('questionListView'),
             questionList: document.getElementById('questionList'),
             searchInput: document.getElementById('searchInput'),
+            topicNavigation: document.getElementById('topicNavigation'),
+            topicNavLinks: document.getElementById('topicNavLinks'),
             examView: document.getElementById('examView'),
             questionId: document.getElementById('questionId'),
             questionLinkBtn: document.getElementById('questionLinkBtn'),
@@ -966,6 +1088,68 @@
         }
 
         /**
+         * Render topic navigation links
+         * @param {Array} sortedTopics - Array of sorted topic strings
+         */
+        function renderTopicNavigation(sortedTopics) {
+            if (!sortedTopics || sortedTopics.length === 0) {
+                elements.topicNavigation.classList.add('hidden');
+                return;
+            }
+
+            elements.topicNavLinks.innerHTML = '';
+            
+            sortedTopics.forEach(topic => {
+                const link = document.createElement('a');
+                link.className = 'topic-nav-link';
+                link.textContent = `Topic ${topic}`;
+                link.dataset.topic = topic;
+                link.href = '#';
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    scrollToTopic(topic);
+                });
+                
+                elements.topicNavLinks.appendChild(link);
+            });
+
+            // Show navigation
+            elements.topicNavigation.classList.remove('hidden');
+        }
+
+        /**
+         * Scroll to a specific topic section
+         * @param {string} topic - Topic identifier to scroll to
+         */
+        function scrollToTopic(topic) {
+            const topicSections = elements.questionList.querySelectorAll('.topic-section');
+            
+            for (const section of topicSections) {
+                const header = section.querySelector('.topic-header');
+                if (header && header.textContent === `Topic ${topic}`) {
+                    // Calculate offset to account for sticky navigation
+                    const navHeight = elements.topicNavigation.offsetHeight;
+                    const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+                    const scrollTo = sectionTop - navHeight - 20; // 20px extra padding
+                    
+                    window.scrollTo({
+                        top: scrollTo,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Highlight the section briefly
+                    header.style.transition = 'background-color 0.5s ease';
+                    header.style.backgroundColor = 'var(--color-primary-light)';
+                    setTimeout(() => {
+                        header.style.backgroundColor = '';
+                    }, 1000);
+                    
+                    break;
+                }
+            }
+        }
+
+        /**
          * Render the question list
          */
         function renderQuestionList() {
@@ -984,6 +1168,7 @@
             // Show message if no results found
             if (filteredQuestions.length === 0) {
                 elements.questionList.innerHTML = '<div class="loading">找不到符合條件的題目。</div>';
+                elements.topicNavigation.classList.add('hidden');
                 return;
             }
             
@@ -998,10 +1183,14 @@
                 return numA - numB;
             });
             
+            // Render topic navigation
+            renderTopicNavigation(sortedTopics);
+            
             // Render each topic section
             sortedTopics.forEach(topic => {
                 const topicSection = document.createElement('div');
                 topicSection.className = 'topic-section';
+                topicSection.id = `topic-section-${topic}`;
                 
                 // Create topic header
                 const topicHeader = document.createElement('div');
@@ -1347,6 +1536,25 @@
         }, 300);
         
         elements.searchInput.addEventListener('input', handleSearch);
+
+        // Topic navigation toggle
+        const topicNavToggle = document.getElementById('topicNavToggle');
+        const topicNavHeader = document.getElementById('topicNavHeader');
+        
+        if (topicNavToggle && topicNavHeader) {
+            // Toggle on button click
+            topicNavToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                elements.topicNavigation.classList.toggle('collapsed');
+            });
+            
+            // Toggle on header click (but not when clicking the button)
+            topicNavHeader.addEventListener('click', (e) => {
+                if (e.target !== topicNavToggle) {
+                    elements.topicNavigation.classList.toggle('collapsed');
+                }
+            });
+        }
 
         // Handle browser back/forward navigation
         window.addEventListener('popstate', (event) => {
