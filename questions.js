@@ -6124,7 +6124,7 @@ const questions = [
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/6660-exam-professional-cloud-architect-topic-11-question-1/",
         "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\\nWhat can they do?",
-        "question-zh": "",
+        "question-zh": "Dress4Win 安全團隊已禁用對 Google Cloud Platform (GCP) 上生產虛擬機器 (VM) 的外部 SSH 存取。\n營運團隊需要遠端管理 VM、建置和推送 Docker 容器，以及管理 Google Cloud Storage 物件。\n他們可以做什麼？",
         "options": {
             "A": "Grant the operations engineer access to use Google Cloud Shell.",
             "B": "Configure a VPN connection to GCP to allow SSH access to the cloud VMs.",
@@ -6132,10 +6132,10 @@ const questions = [
             "D": "Have the development team build an API service that allows the operations team to execute specific remote procedure calls to accomplish their tasks."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "授予營運工程師使用 Google Cloud Shell 的權限",
+            "B": "配置 VPN 連接到 GCP，以允許 SSH 存取雲端 VM",
+            "C": "開發新的存取請求流程，當營運工程師需要執行任務時授予臨時 SSH 存取權限",
+            "D": "讓開發團隊建置 API 服務，允許營運團隊執行特定的遠端程序呼叫來完成任務"
         },
         "images": [],
         "answers": ["A"]
@@ -6145,7 +6145,7 @@ const questions = [
         "no": "#2",
         "link": "https://www.examtopics.com/discussions/google/view/14731-exam-professional-cloud-architect-topic-11-question-2/",
         "question": "At Dress4Win, an operations engineer wants to create a tow-cost solution to remotely archive copies of database backup files.\nThe database files are compressed tar files stored in their current data center.\nHow should he proceed?",
-        "question-zh": "",
+        "question-zh": "在 Dress4Win，一位營運工程師想要建立一個低成本的解決方案來遠端存檔資料庫備份檔案的副本。\n這些資料庫檔案是儲存在他們目前資料中心的壓縮 tar 檔案。\n他應該如何進行？",
         "options": {
             "A": "Create a cron script using gsutil to copy the files to a Coldline Storage bucket.",
             "B": "Create a cron script using gsutil to copy the files to a Regional Storage bucket.",
@@ -6153,10 +6153,10 @@ const questions = [
             "D": "Create a Cloud Storage Transfer Service job to copy the files to a Regional Storage bucket."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "使用 gsutil 建立 cron 腳本將檔案複製到 Coldline Storage 儲存桶",
+            "B": "使用 gsutil 建立 cron 腳本將檔案複製到 Regional Storage 儲存桶",
+            "C": "建立 Cloud Storage Transfer Service 作業將檔案複製到 Coldline Storage 儲存桶",
+            "D": "建立 Cloud Storage Transfer Service 作業將檔案複製到 Regional Storage 儲存桶"
         },
         "images": [],
         "answers": ["C"]
@@ -6167,7 +6167,7 @@ const questions = [
         "link": "https://www.examtopics.com/discussions/google/view/7261-exam-professional-cloud-architect-topic-11-question-3/",
         "question": "Dress4Win has asked you to recommend machine types they should deploy their application servers to.\n" +
             "How should you proceed?",
-        "question-zh": "",
+        "question-zh": "Dress4Win 要求您推薦他們應該將應用程式伺服器部署在哪些機器類型上。\n您應該如何進行？",
         "options": {
             "A": "Perform a mapping of the on-premises physical hardware cores and RAM to the nearest machine types in the cloud.",
             "B": "Recommend that Dress4Win deploy application servers to machine types that offer the highest RAM to CPU ratio available.",
@@ -6175,10 +6175,10 @@ const questions = [
             "D": "Identify the number of virtual cores and RAM associated with the application server virtual machines align them to a custom machine type in the cloud, monitor performance, and scale the machine types up until the desired performance is reached."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "將本地物理硬體核心和 RAM 對應到雲端最接近的機器類型",
+            "B": "建議 Dress4Win 部署應用程式伺服器到提供最高 RAM 與 CPU 比率的機器類型",
+            "C": "建議 Dress4Win 使用最小的可用實例部署到生產環境，隨時間監控，並將機器類型擴展直到達到期望的效能",
+            "D": "識別應用程式伺服器虛擬機器的虛擬核心數和 RAM，將它們對應到雲端的自訂機器類型，監控效能，並擴展機器類型直到達到期望的效能"
         },
         "images": [],
         "answers": ["D"]
@@ -6193,7 +6193,7 @@ const questions = [
             "* Their administrators are notified automatically when their application reports errors.\n" +
             "* They can filter their aggregated logs down in order to debug one piece of the application across many hosts\n" +
             "Which Google StackDriver features should they use?",
-        "question-zh": "",
+        "question-zh": "作為 Dress4Win 遷移到雲端計劃的一部分，他們希望能夠設置受管的日誌和監控系統，以便能夠處理流量負載的峰值。\n他們希望確保：\n* 基礎設施可以在需要擴展和縮減以處理一天中使用量的潮汐時接收通知\n* 當應用程式報告錯誤時，管理員會自動收到通知\n* 他們可以過濾聚合日誌，以便在多個主機上調試應用程式的一個部分\n他們應該使用哪些 Google StackDriver 功能？",
         "options": {
             "A": "Logging, Alerts, Insights, Debug",
             "B": "Monitoring, Trace, Debug, Logging",
@@ -6201,34 +6201,35 @@ const questions = [
             "D": "Monitoring, Logging, Debug, Error Report"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Logging, Alerts, Insights, Debug",
+            "B": "Monitoring, Trace, Debug, Logging",
+            "C": "Monitoring, Logging, Alerts, Error Reporting",
+            "D": "Monitoring, Logging, Debug, Error Report"
         },
         "images": [],
-        "answers": []
+        "answers": ["C"]
     },
     {
         "topic": "#11",
         "no": "#5",
         "link": "https://www.examtopics.com/discussions/google/view/6968-exam-professional-cloud-architect-topic-11-question-5/",
-        "question": "",
-        "question-zh": "",
+        "question": "Dress4Win would like to become familiar with deploying applications to the cloud by successfully deploying some applications quickly, as is. They have asked for your recommendation.\n" +
+            "What should you advise?",
+        "question-zh": "Dress4Win 希望透過快速成功部署一些應用程式來熟悉將應用程式部署到雲端，按現狀部署。他們要求您的建議。\n您應該建議什麼？",
         "options": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Identify self-contained applications with external dependencies as a first move to the cloud.",
+            "B": "Identify enterprise applications with internal dependencies and recommend these as a first move to the cloud.",
+            "C": "Suggest moving their in-house databases to the cloud and continue serving requests to on-premise applications.",
+            "D": "Recommend moving their message queuing servers to the cloud and continue handling requests to on-premise applications."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "識別具有外部相依性的自包含應用程式作為雲端遷移的第一步",
+            "B": "識別具有內部相依性的企業應用程式，並建議這些作為雲端遷移的第一步",
+            "C": "建議將他們的內部資料庫遷移到雲端，並繼續為本地應用程式提供請求服務",
+            "D": "建議將他們的訊息佇列伺服器遷移到雲端，並繼續處理本地應用程式的請求"
         },
         "images": [],
-        "answers": ["C"]
+        "answers": ["A"]
     },
     {
         "topic": "#11",
@@ -6237,7 +6238,7 @@ const questions = [
         "question": "Dress4Win has asked you for advice on how to migrate their on-premises MySQL deployment to the cloud.\n" +
             "They want to minimize downtime and performance impact to their on-premises solution during the migration.\n" +
             "Which approach should you recommend?",
-        "question-zh": "",
+        "question-zh": "Dress4Win 請求您就如何將他們的本地 MySQL 部署遷移到雲端提供建議。\n他們希望在遷移過程中將本地解決方案的停機時間和效能影響最小化。\n您建議採用哪種方法？",
         "options": {
             "A": "Create a dump of the on-premises MySQL master server, and then shut it down, upload it to the cloud environment, and load into a new MySQL cluster.",
             "B": "Setup a MySQL replica server/slave in the cloud environment, and configure it for asynchronous replication from the MySQL master server on-premises until cutover.",
@@ -6245,10 +6246,10 @@ const questions = [
             "D": "Create a dump of the MySQL replica server into the cloud environment, load it into: Google Cloud Datastore, and configure applications to read/write to Cloud Datastore at cutover."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "建立本地 MySQL 主伺服器的傾印，然後關閉它，上傳到雲端環境，並載入新的 MySQL 叢集",
+            "B": "在雲端環境中設置 MySQL 副本伺服器/從伺服器，並配置從本地 MySQL 主伺服器進行非同步複製，直到切換為止",
+            "C": "在雲端建立新的 MySQL 叢集，配置應用程式同時寫入本地和雲端 MySQL 主伺服器，並在切換時銷毀原始叢集",
+            "D": "將 MySQL 副本伺服器僾印到雲端環境，載入到 Google Cloud Datastore，並在切換時配置應用程式讀取/寫入 Cloud Datastore"
         },
         "images": [],
         "answers": ["B"]
@@ -6259,7 +6260,7 @@ const questions = [
         "link": "https://www.examtopics.com/discussions/google/view/7263-exam-professional-cloud-architect-topic-11-question-7/",
         "question": "Dress4Win has configured a new uptime check with Google Stackdriver for several of their legacy services. The Stackdriver dashboard is not reporting the services as healthy.\n" +
             "What should they do?",
-        "question-zh": "",
+        "question-zh": "Dress4Win 為幾個假統服務配置了新的 Google Stackdriver 運行時間檢查。Stackdriver 儀表板沒有報告這些服務為健康狀態。\n他們應該怎麼做？",
         "options": {
             "A": "Install the Stackdriver agent on all of the legacy web servers.",
             "B": "In the Cloud Platform Console download the list of the uptime servers' IP addresses and create an inbound firewall rule",
@@ -6267,10 +6268,10 @@ const questions = [
             "D": "Configure their legacy web servers to allow requests that contain user-Agent HTTP header when the value matches GoogleStackdriverMonitoring- UptimeChecks (https://cloud.google.com/monitoring)"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "在所有的假統 Web 伺服器上安裝 Stackdriver 代理程式",
+            "B": "在 Cloud Platform Console 中下載運行時間伺服器的 IP 位址清單並建立入站防火牆規則",
+            "C": "配置負載平衡器以傳遞 User-Agent HTTP 標頭，當值符合 GoogleStackdriverMonitoring-UptimeChecks 時",
+            "D": "配置假統 Web 伺服器以允許包含 User-Agent HTTP 標頭的請求，當值符合 GoogleStackdriverMonitoring-UptimeChecks 時"
         },
         "images": [],
         "answers": ["B"]
@@ -6283,7 +6284,7 @@ const questions = [
             "The customer has exclusive control over who may view these images.\n" +
             "Customers should be able to upload images with minimal latency and also be shown their images quickly on the main application page when they log in.\n" +
             "Which configuration should Dress4Win use?",
-        "question-zh": "",
+        "question-zh": "作為新應用程式體驗的一部分，Dress4Win 允許客戶上傳他們自己的圖像。\n客戶對誰可以檢視這些圖像擁有專屬控制權。\n客戶應該能夠以最小的延遲上傳圖像，並在登入時在主應用程式頁面上快速顯示其圖像。\nDress4Win 應該使用哪種配置？"
         "options": {
             "A": "Store image files in a Google Cloud Storage bucket. Use Google Cloud Datastore to maintain metadata that maps each customer's ID and their image files.",
             "B": "Store image files in a Google Cloud Storage bucket. Add custom metadata to the uploaded images in Cloud Storage that contains the customer's unique ID.",
@@ -6291,10 +6292,10 @@ const questions = [
             "D": "Use a distributed file system to store customers' images. As storage needs increase, add more persistent disks and/or nodes. Use a Google Cloud SQL database to maintain metadata that maps each customer's ID to their image files."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "將圖像檔案儲存在 Google Cloud Storage 儲存桶中。使用 Google Cloud Datastore 維護將每個客戶的 ID 和其圖像檔案映射的中繼資料",
+            "B": "將圖像檔案儲存在 Google Cloud Storage 儲存桶中。在 Cloud Storage 中將自訂中繼資料添加到上傳的圖像，其中包含客戶的唯一 ID",
+            "C": "使用分散式檔案系統儲存客戶的圖像。隨著儲存需求增加，添加更多永久磁碟和/或節點。為每個客戶分配唯一 ID，設置每個檔案的擁有者屬性，確保圖像的隱私性",
+            "D": "使用分散式檔案系統儲存客戶的圖像。隨著儲存需求增加，添加更多永久磁碟和/或節點。使用 Google Cloud SQL 資料庫維護將每個客戶的 ID 映射到其圖像檔案的中繼資料"
         },
         "images": [],
         "answers": ["A"]
@@ -6306,7 +6307,7 @@ const questions = [
         "question": "Dress4Win has end-to-end tests covering 100% of their endpoints.\n" +
             "They want to ensure that the move to the cloud does not introduce any new bugs.\n" +
             "Which additional testing methods should the developers employ to prevent an outage?",
-        "question-zh": "",
+        "question-zh": "Dress4Win 的端到端測試涵蓋了 100% 的端點。\n他們希望確保遷移到雲端不會引入任何新的錯誤。\n開發人員應該採用哪些額外的測試方法來防止中斷？",
         "options": {
             "A": "They should enable Google Stackdriver Debugger on the application code to show errors in the code.",
             "B": "They should add additional unit tests and production scale load tests on their cloud staging environment.",
@@ -6314,10 +6315,10 @@ const questions = [
             "D": "They should add canary tests so developers can measure how much of an impact the new release causes to latency."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "他們應該在應用程式程式碼上啟用 Google Stackdriver Debugger 以顯示程式碼中的錯誤",
+            "B": "他們應該添加額外的單元測試和在雲端暫存環境上進行生產規模的負載測試",
+            "C": "他們應該在雲端暫存環境中執行端到端測試，以確定程式碼是否按預期工作",
+            "D": "他們應該添加金絲雀測試，以便開發人員可以測量新發布對延遲造成的影響"
         },
         "images": [],
         "answers": ["B"]
@@ -6329,7 +6330,7 @@ const questions = [
         "question": "You want to ensure Dress4Win's sales and tax records remain available for infrequent viewing by auditors for at least 10 years.\n" +
             "Cost optimization is your top priority.\n" +
             "Which cloud services should you choose?",
-        "question-zh": "",
+        "question-zh": "您希望確保 Dress4Win 的銷售和稅務記錄在至少 10 年內可供稽核員不常查看。\n成本優化是您的首要優先事項。\n您應該選擇哪些雲端服務？",
         "options": {
             "A": "Google Cloud Storage Coldline to store the data, and gsutil to access the data.",
             "B": "Google Cloud Storage Nearline to store the data, and gsutil to access the data.",
@@ -6337,10 +6338,10 @@ const questions = [
             "D": "BigQuery to store the data, and a web server cluster in a managed instance group to access the data. Google Cloud SQL mirrored across two distinct regions to store the data, and a Redis cluster in a managed instance group to access the data."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Google Cloud Storage Coldline 儲存資料，並使用 gsutil 存取資料",
+            "B": "Google Cloud Storage Nearline 儲存資料，並使用 gsutil 存取資料",
+            "C": "Google Bigtable 以 US 或 EU 作為位置儲存資料，並使用 gcloud 存取資料",
+            "D": "BigQuery 儲存資料，並使用受管實例組中的 Web 伺服器叢集存取資料。跨兩個不同區域鏡像的 Google Cloud SQL 儲存資料，並使用受管實例組中的 Redis 叢集存取資料"
         },
         "images": [],
         "answers": ["A"]
@@ -6352,7 +6353,7 @@ const questions = [
         "question": "The current Dress4Win system architecture has high latency to some customers because it is located in one data center.\n" +
             "As of a future evaluation and optimizing for performance in the cloud, Dresss4Win wants to distribute its system architecture to multiple locations when Google cloud platform.\n" +
             "Which approach should they use?",
-        "question-zh": "",
+        "question-zh": "目前的 Dress4Win 系統架構對某些客戶具有高延遲，因為它位於一個資料中心。\n基於未來的評估和在雲端中的性能優化，Dress4Win 希望在 Google Cloud Platform 上將其系統架構分佈到多個位置。\n他們應該使用哪種方法？",
         "options": {
             "A": "Use regional managed instance groups and a global load balancer to increase performance because the regional managed instance group can grow instances in each region separately based on traffic.",
             "B": "Use a global load balancer with a set of virtual machines that forward the requests to a closer group of virtual machines managed by your operations team.",
@@ -6360,10 +6361,10 @@ const questions = [
             "D": "Use a global load balancer with a set of virtual machines that forward the requests to a closer group of virtual machines as part of a separate managed instance groups."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "使用區域受管實例組和全球負載平衡器以提高性能，因為區域受管實例組可以根據流量在每個區域分別增長實例",
+            "B": "使用全球負載平衡器和一組虛擬機器，將請求轉發給由營運團隊管理的更近的虛擬機器組",
+            "C": "使用區域受管實例組和全球負載平衡器以提高可靠性，透過在不同區域的區域之間提供自動失效轉移",
+            "D": "使用全球負載平衡器和一組虛擬機器，將請求轉發給作為單獨受管實例組一部分的更近的虛擬機器組"
         },
         "images": [],
         "answers": ["A"]
