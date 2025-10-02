@@ -281,11 +281,24 @@
         }
 
         .question-id-topic {
-            color: var(--color-info);
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--color-info);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            margin-right: var(--spacing-xs);
         }
 
         .question-id-no {
-            color: var(--color-primary-dark);
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
         }
 
         .question-item__preview {
@@ -679,7 +692,7 @@
         function getFormattedQuestionId(question) {
             const topic = question.topic || '';
             const no = question.no || '';
-            return `<span class="question-id-topic">Topic ${topic}</span> <span class="question-id-no">No ${no}</span>`;
+            return `<span class="question-id-topic">Topic ${topic}</span><span class="question-id-no">No ${no}</span>`;
         }
         
         /**
@@ -894,15 +907,11 @@
                 card.onclick = () => showQuestion(originalIndex);
 
                 const questionPreview = getQuestionText(question).substring(0, 150) + '...';
-                const isMultiple = isMultipleChoice(question);
-                const badgeClass = isMultiple ? 'badge--multiple' : 'badge--single';
-                const badgeText = isMultiple ? '多選題' : '單選題';
 
                 card.innerHTML = `
                     <div class="card__body">
                         <div class="question-item__id">${getFormattedQuestionId(question)}</div>
                         <div class="question-item__preview">${questionPreview}</div>
-                        <span class="question-item__badge ${badgeClass}">${badgeText}</span>
                     </div>
                 `;
 
