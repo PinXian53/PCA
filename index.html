@@ -578,24 +578,43 @@
         }
 
         .question-id-topic {
-            display: inline-block;
-            padding: 4px 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
             background-color: var(--color-info);
             color: var(--color-white);
             border-radius: var(--radius-md);
             font-size: var(--font-size-sm);
             font-weight: 600;
-            margin-right: var(--spacing-xs);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: var(--spacing-sm);
+            min-height: 32px;
+            border-color: var(--color-info);
+        }
+
+        .question-id-topic:hover {
+            background-color: #138496;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .question-id-topic.hidden {
+            display: none;
         }
 
         .question-id-no {
-            display: inline-block;
-            padding: 4px 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
             background-color: var(--color-primary);
             color: var(--color-white);
             border-radius: var(--radius-md);
             font-size: var(--font-size-sm);
             font-weight: 600;
+            min-height: 32px;
         }
 
         .question-item__preview {
@@ -676,15 +695,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 6px 12px;
+            padding: 8px 12px;
             background-color: var(--color-info);
             color: var(--color-white);
             border-radius: var(--radius-md);
-            font-size: var(--font-size-xs);
-            font-weight: 700;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             margin-right: var(--spacing-sm);
+            min-height: 32px;
         }
 
         .question-link-btn:hover {
@@ -1071,7 +1091,7 @@
         function getFormattedQuestionId(question) {
             const topic = question.topic || '';
             const no = question.no || '';
-            return `<span class="question-id-topic">Topic ${topic}</span><span class="question-id-no">No ${no}</span>`;
+            return `<a href="#" class="question-id-topic" data-topic="${topic}" aria-label="查看 Topic ${topic} 資訊">Topic ${topic}</a><span class="question-id-no">No ${no}</span>`;
         }
         
         /**
@@ -1583,6 +1603,20 @@
             
             // Update UI
             elements.questionId.innerHTML = getFormattedQuestionId(question);
+            
+            // Add event listener for topic badge click
+            const topicButton = elements.questionId.querySelector('.question-id-topic');
+            if (topicButton) {
+                topicButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const topicId = topicButton.dataset.topic;
+                    if (topicId) {
+                        openTopicInfoModal(topicId);
+                    }
+                });
+            }
+            
             elements.questionContent.textContent = getQuestionText(question);
             
             // Update question type badge
@@ -1922,6 +1956,20 @@
                     
                     // Update UI
                     elements.questionId.innerHTML = getFormattedQuestionId(question);
+                    
+                    // Add event listener for topic badge click
+                    const topicButton = elements.questionId.querySelector('.question-id-topic');
+                    if (topicButton) {
+                        topicButton.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const topicId = topicButton.dataset.topic;
+                            if (topicId) {
+                                openTopicInfoModal(topicId);
+                            }
+                        });
+                    }
+                    
                     elements.questionContent.textContent = getQuestionText(question);
                     
                     // Update question type badge
