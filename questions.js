@@ -4641,7 +4641,7 @@ const questions = [
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/10396-exam-professional-cloud-architect-topic-2-question-1/",
         "question": "The JencoMart security team requires that all Google Cloud Platform infrastructure is deployed using a least privilege model with separation of duties for administration between production and development resources.\nWhat Google domain and project structure should you recommend?",
-        "question-zh": "",
+        "question-zh": "JencoMart 安全團隊要求所有 Google Cloud Platform 基礎設施都使用最小權限模型部署，並在生產和開發資源的管理之間實現職責分離。\n您建議採用什麼樣的 Google 網域和專案結構？",
         "options": {
             "A": "Create two G Suite accounts to manage users: one for development/test/staging and one for production. Each account should contain one project for every application",
             "B": "Create two G Suite accounts to manage users: one with a single project for all development applications and one with a single project for all production applications",
@@ -4649,10 +4649,10 @@ const questions = [
             "D": "Create a single G Suite account to manage users with one project for the development/test/staging environment and one project for the production environment"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "創建兩個 G Suite 帳戶來管理用戶：一個用於開發/測試/暫存，一個用於生產。每個帳戶都應該為每個應用程式包含一個專案",
+            "B": "創建兩個 G Suite 帳戶來管理用戶：一個包含所有開發應用程式的單一專案，一個包含所有生產應用程式的單一專案",
+            "C": "創建一個 G Suite 帳戶來管理用戶，每個應用程式的每個階段都有自己的專案",
+            "D": "創建一個 G Suite 帳戶來管理用戶，一個專案用於開發/測試/暫存環境，一個專案用於生產環境"
         },
         "images": [],
         "answers": [
@@ -4664,7 +4664,7 @@ const questions = [
         "no": "#2",
         "link": "https://www.examtopics.com/discussions/google/view/11917-exam-professional-cloud-architect-topic-2-question-2/",
         "question": "A few days after JencoMart migrates the user credentials database to Google Cloud Platform and shuts down the old server, the new database server stops responding to SSH connections. It is still serving database requests to the application servers correctly.\nWhat three steps should you take to diagnose the problem? (Choose three.)",
-        "question-zh": "",
+        "question-zh": "在 JencoMart 將用戶憑證資料庫遷移到 Google Cloud Platform 並關閉舊伺服器幾天後，新資料庫伺服器停止回應 SSH 連接。但它仍然正常為應用程式伺服器提供資料庫請求服務。\n您應該採取哪三個步驟來診斷問題？（選擇三項。）",
         "options": {
             "A": "Delete the virtual machine (VM) and disks and create a new one",
             "B": "Delete the instance, attach the disk to a new VM, and investigate",
@@ -4674,12 +4674,12 @@ const questions = [
             "F": "Print the Serial Console output for the instance for troubleshooting, activate the interactive console, and investigate"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": "",
-            "E": "",
-            "F": ""
+            "A": "刪除虛擬機器（VM）和磁碟並創建一個新的",
+            "B": "刪除實例，將磁碟連接到新的 VM，並進行調查",
+            "C": "對磁碟進行快照並連接到新機器進行調查",
+            "D": "檢查機器連接的網路的入站防火牆規則",
+            "E": "將機器連接到另一個具有非常簡單防火牆規則的網路並進行調查",
+            "F": "輸出實例的串列控制台輸出進行故障排除，啟動互動式控制台並進行調查"
         },
         "images": [],
         "answers": [
@@ -4691,7 +4691,7 @@ const questions = [
         "no": "#3",
         "link": "https://www.examtopics.com/discussions/google/view/12793-exam-professional-cloud-architect-topic-2-question-3/",
         "question": "JencoMart has decided to migrate user profile storage to Google Cloud Datastore and the application servers to Google Compute Engine (GCE). During the migration, the existing infrastructure will need access to Datastore to upload the data.\nWhat service account key-management strategy should you recommend?",
-        "question-zh": "",
+        "question-zh": "JencoMart 已決定將用戶個人檔案儲存遷移到 Google Cloud Datastore，將應用程式伺服器遷移到 Google Compute Engine（GCE）。在遷移過程中，現有基礎設施需要存取 Datastore 來上傳資料。\n您建議採用什麼樣的服務帳戶金鑰管理策略？",
         "options": {
             "A": "Provision service account keys for the on-premises infrastructure and for the GCE virtual machines (VMs)",
             "B": "Authenticate the on-premises infrastructure with a user account and provision service account keys for the VMs",
@@ -4699,10 +4699,10 @@ const questions = [
             "D": "Deploy a custom authentication service on GCE/Google Kubernetes Engine (GKE) for the on-premises infrastructure and use GCP managed keys for the VMs"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "為本地基礎設施和 GCE 虛擬機器（VM）提供服務帳戶金鑰",
+            "B": "使用用戶帳戶驗證本地基礎設施，並為 VM 提供服務帳戶金鑰",
+            "C": "為本地基礎設施提供服務帳戶金鑰，為 VM 使用 Google Cloud Platform（GCP）管理的金鑰",
+            "D": "在 GCE/Google Kubernetes Engine（GKE）上部署自訂驗證服務供本地基礎設施使用，並為 VM 使用 GCP 管理的金鑰"
         },
         "images": [],
         "answers": ["C"]
@@ -4712,7 +4712,7 @@ const questions = [
         "no": "#4",
         "link": "https://www.examtopics.com/discussions/google/view/14318-exam-professional-cloud-architect-topic-2-question-4/",
         "question": "JencoMart has built a version of their application on Google Cloud Platform that serves traffic to Asia. You want to measure success against their business and technical goals.\nWhich metrics should you track?",
-        "question-zh": "",
+        "question-zh": "JencoMart 在 Google Cloud Platform 上建立了一個為亞洲提供流量服務的應用程式版本。您想要根據他們的商業和技術目標來衡量成功。\n您應該追蹤哪些指標？",
         "options": {
             "A": "Error rates for requests from Asia",
             "B": "Latency difference between US and Asia",
@@ -4721,11 +4721,11 @@ const questions = [
             "E": "The number of character sets present in the database"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": "",
-            "E": ""
+            "A": "來自亞洲請求的錯誤率",
+            "B": "美國和亞洲之間的延遲差異",
+            "C": "來自亞洲的總訪問量、錯誤率和延遲",
+            "D": "來自亞洲用戶的總訪問量和平均延遲",
+            "E": "資料庫中存在的字元集數量"
         },
         "images": [],
         "answers": ["C"]
@@ -4735,7 +4735,7 @@ const questions = [
         "no": "#5",
         "link": "https://www.examtopics.com/discussions/google/view/6708-exam-professional-cloud-architect-topic-2-question-5/",
         "question": "The migration of JencoMart's application to Google Cloud Platform (GCP) is progressing too slowly. The infrastructure is shown in the diagram. You want to maximize throughput.\nWhat are three potential bottlenecks? (Choose three.)",
-        "question-zh": "",
+        "question-zh": "JencoMart 應用程式遷移到 Google Cloud Platform（GCP）的進度太慢。基礎設施如圖所示。您想要最大化吞吐量。\n有哪三個潛在瓶頸？（選擇三項。）",
         "options": {
             "A": "A single VPN tunnel, which limits throughput",
             "B": "A tier of Google Cloud Storage that is not suited for this task",
@@ -4745,10 +4745,12 @@ const questions = [
             "F": "Complicated internet connectivity between the on-premises infrastructure and GCP"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "單一 VPN 隧道，限制了吞吐量",
+            "B": "不適合此任務的 Google Cloud Storage 層級",
+            "C": "不適合長距離操作的複製命令",
+            "D": "GCP 中的虛擬機器（VM）比本地機器少",
+            "E": "VM 外部的獨立儲存層，不適合此任務",
+            "F": "本地基礎設施和 GCP 之間複雜的網路連接"
         },
         "images": ["images/T2N5.png"],
         "answers": ["A", "C", "F"]
@@ -4758,7 +4760,7 @@ const questions = [
         "no": "#6",
         "link": "https://www.examtopics.com/discussions/google/view/8497-exam-professional-cloud-architect-topic-2-question-6/",
         "question": "JencoMart wants to move their User Profiles database to Google Cloud Platform.\nWhich Google Database should they use?",
-        "question-zh": "",
+        "question-zh": "JencoMart 想要將他們的用戶個人檔案資料庫遷移到 Google Cloud Platform。\n他們應該使用哪個 Google 資料庫？",
         "options": {
             "A": "Cloud Spanner",
             "B": "Google BigQuery",
@@ -4766,10 +4768,10 @@ const questions = [
             "D": "Google Cloud Datastore"
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "Cloud Spanner",
+            "B": "Google BigQuery",
+            "C": "Google Cloud SQL",
+            "D": "Google Cloud Datastore"
         },
         "images": [],
         "answers": ["D"]
@@ -6121,7 +6123,7 @@ const questions = [
         "topic": "#11",
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/6660-exam-professional-cloud-architect-topic-11-question-1/",
-        "question": "",
+        "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\\nWhat can they do?",
         "question-zh": "",
         "options": {
             "A": "",
