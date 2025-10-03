@@ -885,7 +885,18 @@ F. Cloud Deployment Manager only supports automation of Google Cloud resources �
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+| 要求                | 說明                    | 可能技術                                      |
+| ----------------- | --------------------- | ----------------------------------------- |
+| 1. 基於開源技術         | 要可移植、避免鎖定 GCP         | Kubernetes (GKE)、Jenkins、Helm             |
+| 2. 動態擴縮計算容量       | 自動依需求增加/減少計算資源        | GKE 自動擴縮（Cluster/Pod autoscaling）         |
+| 3. 支援持續交付 (CI/CD) | 能自動 build/deploy      | Jenkins 或 Cloud Build                     |
+| 4. 運行多個隔離的應用副本    | 避免互相干擾、隔離環境           | Kubernetes Namespace / 多個 Deployment      |
+| 5. 使用動態模板部署應用     | 可以包裝應用並以模板方式部署        | Helm charts（Kubernetes package manager）   |
+| 6. 根據 URL 導向流量    | 支援 path-based routing | Kubernetes Ingress / Cloud Load Balancing |
+
+`
     },
     {
         "topic": "#1",
