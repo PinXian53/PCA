@@ -189,10 +189,10 @@ const questions = [
             "D": "Blobstore"
         },
         "options-zh": {
-            "A": "平面文件",
+            "A": "Flat file",
             "B": "NoSQL",
-            "C": "關係型",
-            "D": "Blob 存儲"
+            "C": "Relational",
+            "D": "Blobstore"
         },
         "images": [],
         "answers": [
