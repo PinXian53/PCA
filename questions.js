@@ -1079,13 +1079,13 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "question": "You created a pipeline that can deploy your source code changes to your infrastructure in instance groups for self-healing. One of the changes negatively消極地 affects your key performance indicator指標. You are not sure how to fix it, and investigation調查 could take up to a week.\n\nWhat should you do?",
         "question-zh": "您建立了一個管道，用於將原始碼變更部署到實例組中的基礎架構中，以實現自我修復。其中一項變更對您的關鍵績效指標 (KPI) 產生了負面影響。您不確定如何修復該問題，調查可能需要長達一周的時間。\n\n您應該怎麼做？",
         "options": {
-            "A": "Log in to a server, and iterate on the fox locally",
+            "A": "Log in to a server, and iterate on the fix locally",
             "B": "Revert the source code change, and rerun the deployment pipeline",
             "C": "Log into the servers with the bad code change, and swap in the previous code",
             "D": "Change the instance group template to the previous one, and delete all instances"
         },
         "options-zh": {
-            "A": "登入伺服器，在本地迭代 fox",
+            "A": "登入伺服器，在本地迭代修復",
             "B": "恢復原始碼更改，並重新運行部署管道",
             "C": "使用錯誤代碼變更登入伺服器，並交換先前的代碼",
             "D": "將實例群組模板變更為先前的模板，並刪除所有實例"
