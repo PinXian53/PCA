@@ -533,7 +533,8 @@ const questions = [
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `Bigtable 設計用來存 **時序資料 (time-series)、IoT、監控、即時分析，高吞吐、低延遲，能支撐數百萬筆/秒的寫入**`
     },
     {
         "topic": "#1",
