@@ -1564,6 +1564,12 @@
 
             // Show modal
             elements.topicInfoModal.classList.add('show');
+            
+            // Reset scroll position to top
+            const modalContent = elements.topicInfoModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.scrollTop = 0;
+            }
         }
 
         /**
@@ -1590,6 +1596,12 @@
 
             // Show modal
             elements.noteModal.classList.add('show');
+            
+            // Reset scroll position to top
+            const modalContent = elements.noteModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.scrollTop = 0;
+            }
         }
 
         /**
