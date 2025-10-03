@@ -416,7 +416,32 @@ const questions = [
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `**Cloud Storage Lifecycle Management** 是 Google Cloud 提供的一套 **自動化規則**，用來管理儲存在 Cloud Storage 的物件生命週期。
+
+- 透過設定規則，系統會根據條件 **自動執行動作**，例如：
+    - 自動刪除過期檔案
+    - 自動將檔案移動到更便宜的儲存類別 (Nearline / Coldline / Archive)
+    - 自動封存特定類型或時間的資料
+- 目的：**降低儲存成本**、**簡化維護**。
+- 規則設定 **只支援 JSON 格式** ，例如：**刪除超過 90 天的檔案**
+    
+    \`\`\`json
+    {
+      "rule": [
+        {
+          "action": { "type": "Delete" },
+          "condition": { "age": 90 }
+        }
+      ]
+    }
+    \`\`\`
+    
+    - 套用方式：
+        
+        \`\`\`bash
+        gsutil lifecycle set lifecycle.json gs://YOUR_BUCKET_NAME
+        \`\`\``
     },
     {
         "topic": "#1",
