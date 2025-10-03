@@ -1175,7 +1175,8 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `要防止訊息被偽造，必須使用 數位簽章（即使用私鑰簽名，公鑰驗證）。這樣即使有人攔截訊息或想冒充，也無法生成有效簽章。`
     },
     {
         "topic": "#1",
