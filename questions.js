@@ -126,7 +126,7 @@ const questions = [
         "topic": "#1",
         "no": "#6",
         "link": "https://www.examtopics.com/discussions/google/view/54383-exam-professional-cloud-architect-topic-1-question-6/",
-        "question": "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA Test processes accomplished an 80% reduction.\n\nWhich additional two approaches can you take to further reduce the rollbacks? (Choose two.)",
+        "question": "You need to reduce the number of unplanned rollbacks of erroneous production deployments in your company's web hosting platform. Improvement to the QA/Test processes accomplished an 80% reduction.\n\nWhich additional two approaches can you take to further reduce the rollbacks? (Choose two.)",
         "question-zh": "您需要減少公司網頁託管平台中錯誤生產部署的未計劃回滾次數。改進質量保證/測試流程已經實現了 80% 的減少。\n\n您還可以採取哪兩種方法進一步減少回滾？（請選擇兩項。）",
         "options": {
             "A": "Introduce a green-blue deployment model",
@@ -137,7 +137,7 @@ const questions = [
         },
         "options-zh": {
             "A": "引入綠藍部署模型",
-            "B": "將質量保證環境替換為金絲雀版本發布（canary releases）",
+            "B": "用金絲雀版本取代 QA 環境",
             "C": "將單體平台分解為微服務",
             "D": "減少平台對關係型資料庫系統的依賴",
             "E": "用 NoSQL 資料庫替換平台的關係型資料庫系統"
