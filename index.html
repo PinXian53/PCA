@@ -6,6 +6,8 @@
     <title>PCA 考試練習網站</title>
     <script src="questions.js"></script>
     <script src="topics.js"></script>
+    <!-- Markdown rendering library -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js"></script>
     <style>
         /* ==================== CSS Reset & Base ==================== */
         * {
@@ -524,7 +526,154 @@
         .modal-section-content {
             color: var(--color-gray-900);
             line-height: 1.6;
-            white-space: pre-wrap;
+        }
+        
+        /* ==================== Markdown Styling ==================== */
+        .modal-section-content h1,
+        .modal-section-content h2,
+        .modal-section-content h3,
+        .modal-section-content h4,
+        .modal-section-content h5,
+        .modal-section-content h6 {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--color-gray-900);
+        }
+        
+        .modal-section-content h1 {
+            font-size: var(--font-size-2xl);
+            border-bottom: 2px solid var(--color-gray-200);
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .modal-section-content h2 {
+            font-size: var(--font-size-xl);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .modal-section-content h3 {
+            font-size: var(--font-size-lg);
+        }
+        
+        .modal-section-content h4,
+        .modal-section-content h5,
+        .modal-section-content h6 {
+            font-size: var(--font-size-base);
+        }
+        
+        .modal-section-content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+        }
+        
+        .modal-section-content ul,
+        .modal-section-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-xl);
+        }
+        
+        .modal-section-content li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .modal-section-content li > ul,
+        .modal-section-content li > ol {
+            margin-top: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .modal-section-content code {
+            background-color: var(--color-gray-100);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--color-error);
+        }
+        
+        .modal-section-content pre {
+            background-color: var(--color-gray-900);
+            color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .modal-section-content pre code {
+            background-color: transparent;
+            padding: 0;
+            color: var(--color-white);
+            font-size: var(--font-size-sm);
+        }
+        
+        .modal-section-content blockquote {
+            border-left: 4px solid var(--color-primary);
+            padding-left: var(--spacing-md);
+            margin-left: 0;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-gray-600);
+            font-style: italic;
+        }
+        
+        .modal-section-content a {
+            color: var(--color-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-section-content a:hover {
+            color: var(--color-primary-dark);
+            border-bottom-color: var(--color-primary-dark);
+        }
+        
+        .modal-section-content hr {
+            border: none;
+            border-top: 2px solid var(--color-gray-200);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .modal-section-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .modal-section-content table th,
+        .modal-section-content table td {
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-gray-200);
+            text-align: left;
+        }
+        
+        .modal-section-content table th {
+            background-color: var(--color-gray-50);
+            font-weight: 600;
+        }
+        
+        .modal-section-content table tr:nth-child(even) {
+            background-color: var(--color-gray-50);
+        }
+        
+        .modal-section-content strong {
+            font-weight: 700;
+            color: var(--color-gray-900);
+        }
+        
+        .modal-section-content em {
+            font-style: italic;
+        }
+        
+        .modal-section-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
         }
 
         .modal-links-list {
@@ -1087,6 +1236,17 @@
         let selectedOptions = new Set();
         let isAnswerSubmitted = false;
         let searchTerm = '';
+        
+        // Initialize Markdown renderer
+        let md = null;
+        if (typeof markdownit !== 'undefined') {
+            md = markdownit({
+                html: false,        // Disable HTML tags in source for security
+                linkify: true,      // Auto-convert URLs to links
+                typographer: true,  // Enable smart quotes and other typographic replacements
+                breaks: true        // Convert \n to <br>
+            });
+        }
 
         // ==================== DOM Elements ====================
         const elements = {
@@ -1121,6 +1281,25 @@
         };
 
         // ==================== Utility Functions ====================
+        
+        /**
+         * Render Markdown text to HTML
+         * @param {string} text - Markdown text to render
+         * @returns {string} Rendered HTML string
+         */
+        function renderMarkdown(text) {
+            if (!text) {
+                return '';
+            }
+            
+            // If markdown-it is available, use it to render
+            if (md) {
+                return md.render(text);
+            }
+            
+            // Fallback: return text with line breaks converted to <br>
+            return text.replace(/\n/g, '<br>');
+        }
         
         /**
          * Get question ID from topic and no
@@ -1362,9 +1541,9 @@
             // Set modal title
             elements.modalTopicTitle.textContent = `Topic ${topicId} ${topicData.name || 'N/A'}`;
 
-            // Set topic description
+            // Set topic description (render Markdown)
             if (topicData.description && topicData.description.trim() !== '') {
-                elements.modalTopicDescriptionContent.textContent = topicData.description;
+                elements.modalTopicDescriptionContent.innerHTML = renderMarkdown(topicData.description);
                 document.getElementById('modalTopicDescription').style.display = 'block';
             } else {
                 document.getElementById('modalTopicDescription').style.display = 'none';
@@ -1406,8 +1585,8 @@
                 return;
             }
 
-            // Set note content
-            elements.modalNoteContent.textContent = noteContent;
+            // Set note content (render Markdown)
+            elements.modalNoteContent.innerHTML = renderMarkdown(noteContent);
 
             // Show modal
             elements.noteModal.classList.add('show');
