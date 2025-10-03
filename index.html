@@ -717,6 +717,34 @@
             display: none;
         }
 
+        .question-note-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            background-color: var(--color-warning);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            margin-right: var(--spacing-sm);
+            min-height: 32px;
+        }
+
+        .question-note-btn:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .question-note-btn.hidden {
+            display: none;
+        }
+
         .question-content {
             font-size: var(--font-size-sm);
             line-height: 1.6;
@@ -981,6 +1009,7 @@
                     <div class="question-header">
                         <span id="questionId" class="question-id"></span>
                         <div>
+                            <button id="questionNoteBtn" class="question-note-btn">📝 筆記</button>
                             <a id="questionLinkBtn" class="question-link-btn" href="#" target="_blank" rel="noopener noreferrer">🔗 連結</a>
                         </div>
                     </div>
@@ -1035,6 +1064,21 @@
         </div>
     </div>
 
+    <!-- Note Modal -->
+    <div id="noteModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalNoteTitle" class="modal-title">筆記</h3>
+                <button id="modalNoteCloseBtn" class="modal-close-btn" aria-label="關閉">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-content" id="modalNoteContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ==================== Global Variables ====================
         // Note: questions array is loaded from questions.js
@@ -1053,6 +1097,7 @@
             topicNavLinks: document.getElementById('topicNavLinks'),
             examView: document.getElementById('examView'),
             questionId: document.getElementById('questionId'),
+            questionNoteBtn: document.getElementById('questionNoteBtn'),
             questionLinkBtn: document.getElementById('questionLinkBtn'),
             questionTypeBadge: document.getElementById('questionTypeBadge'),
             questionContent: document.getElementById('questionContent'),
@@ -1069,7 +1114,10 @@
             modalCloseBtn: document.getElementById('modalCloseBtn'),
             modalTopicTitle: document.getElementById('modalTopicTitle'),
             modalTopicDescriptionContent: document.getElementById('modalTopicDescriptionContent'),
-            modalTopicLinksList: document.getElementById('modalTopicLinksList')
+            modalTopicLinksList: document.getElementById('modalTopicLinksList'),
+            noteModal: document.getElementById('noteModal'),
+            modalNoteCloseBtn: document.getElementById('modalNoteCloseBtn'),
+            modalNoteContent: document.getElementById('modalNoteContent')
         };
 
         // ==================== Utility Functions ====================
@@ -1344,6 +1392,32 @@
          */
         function closeTopicInfoModal() {
             elements.topicInfoModal.classList.remove('show');
+        }
+
+        // ==================== Note Modal Functions ====================
+        
+        /**
+         * Open note modal
+         * @param {string} noteContent - Note content to display
+         */
+        function openNoteModal(noteContent) {
+            if (!noteContent || noteContent.trim() === '') {
+                console.warn('No note content provided');
+                return;
+            }
+
+            // Set note content
+            elements.modalNoteContent.textContent = noteContent;
+
+            // Show modal
+            elements.noteModal.classList.add('show');
+        }
+
+        /**
+         * Close note modal
+         */
+        function closeNoteModal() {
+            elements.noteModal.classList.remove('show');
         }
 
         // ==================== Question List Functions ====================
@@ -1623,6 +1697,21 @@
             const isMultiple = isMultipleChoice(question);
             elements.questionTypeBadge.textContent = isMultiple ? '多選題' : '單選題';
             elements.questionTypeBadge.className = 'question-type-badge ' + (isMultiple ? 'badge--multiple' : 'badge--single');
+            
+            // Update note button
+            if (question.note && question.note.trim() !== '') {
+                elements.questionNoteBtn.classList.remove('hidden');
+                // Remove any existing event listeners by cloning the button
+                const newNoteBtn = elements.questionNoteBtn.cloneNode(true);
+                elements.questionNoteBtn.parentNode.replaceChild(newNoteBtn, elements.questionNoteBtn);
+                elements.questionNoteBtn = newNoteBtn;
+                // Add new event listener
+                elements.questionNoteBtn.addEventListener('click', () => {
+                    openNoteModal(question.note);
+                });
+            } else {
+                elements.questionNoteBtn.classList.add('hidden');
+            }
             
             // Update link button
             if (question.link && question.link.trim() !== '') {
@@ -1933,10 +2022,25 @@
             }
         });
         
-        // Close modal with Escape key
+        // Note modal event listeners
+        elements.modalNoteCloseBtn.addEventListener('click', closeNoteModal);
+        
+        // Close note modal when clicking overlay (outside the modal content)
+        elements.noteModal.addEventListener('click', (e) => {
+            if (e.target === elements.noteModal) {
+                closeNoteModal();
+            }
+        });
+        
+        // Close modals with Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && elements.topicInfoModal.classList.contains('show')) {
-                closeTopicInfoModal();
+            if (e.key === 'Escape') {
+                if (elements.topicInfoModal.classList.contains('show')) {
+                    closeTopicInfoModal();
+                }
+                if (elements.noteModal.classList.contains('show')) {
+                    closeNoteModal();
+                }
             }
         });
 
@@ -1976,6 +2080,21 @@
                     const isMultiple = isMultipleChoice(question);
                     elements.questionTypeBadge.textContent = isMultiple ? '多選題' : '單選題';
                     elements.questionTypeBadge.className = 'question-type-badge ' + (isMultiple ? 'badge--multiple' : 'badge--single');
+                    
+                    // Update note button
+                    if (question.note && question.note.trim() !== '') {
+                        elements.questionNoteBtn.classList.remove('hidden');
+                        // Remove any existing event listeners by cloning the button
+                        const newNoteBtn = elements.questionNoteBtn.cloneNode(true);
+                        elements.questionNoteBtn.parentNode.replaceChild(newNoteBtn, elements.questionNoteBtn);
+                        elements.questionNoteBtn = newNoteBtn;
+                        // Add new event listener
+                        elements.questionNoteBtn.addEventListener('click', () => {
+                            openNoteModal(question.note);
+                        });
+                    } else {
+                        elements.questionNoteBtn.classList.add('hidden');
+                    }
                     
                     // Update link button
                     if (question.link && question.link.trim() !== '') {
