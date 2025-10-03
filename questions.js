@@ -352,7 +352,7 @@ const questions = [
         "no": "#15",
         "link": "https://www.examtopics.com/discussions/google/view/7147-exam-professional-cloud-architect-topic-1-question-15/",
         "question": "Your application needs to process credit card transactions. You want the smallest scope of Payment Card Industry (PCI) compliance without compromising the ability to analyze transactional data and trends relating to which payment methods are used.\n\nHow should you design your architecture?",
-        "question-zh": "您的應用程式需要處理信用卡交易。您希望在不影響分析交易資料和與所使用付款方式相關的趨勢能力的前提下，將支付卡產業（PCI）合規範圍縮至最小。\n\n您應該如何設計架構？",
+        "question-zh": "您的應用程式需要處理信用卡交易。您希望盡可能滿足信用卡產業 (PCI) 合規性要求，同時又不影響分析交易資料和支付方式趨勢的能力。\n\n您應該如何設計架構？",
         "options": {
             "A": "Create a tokenizer service and store only tokenized data",
             "B": "Create separate projects that only process credit card data",
@@ -361,7 +361,7 @@ const questions = [
             "E": "Enable Logging export to Google BigQuery and use ACLs and views to scope the data shared with the auditor"
         },
         "options-zh": {
-            "A": "建立代幣化服務，僅儲存代幣化資料",
+            "A": "建立標記器服務並僅儲存標記化數據",
             "B": "建立僅處理信用卡資料的單獨專案",
             "C": "建立單獨的子網路並隔離處理信用卡資料的元件",
             "D": "透過標記所有處理 PCI 資料的虛擬機器（VM）來簡化稽核發現階段",
