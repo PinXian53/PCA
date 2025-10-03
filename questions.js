@@ -499,7 +499,18 @@ const questions = [
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note":`
+### 題目重點
+- MySQL on Debian Linux
+- GCE VM 規格：n1-standard-8（8 vCPU，30GB RAM）
+- 使用 80GB SSD persistent disk
+- 問題：效能不足，要怎麼改善
+
+### 解析
+- 「匯入與標準化作業（import/normalize）」→ 這類型操作通常是 磁碟 I/O-bound，而不是 memory-bound。增加記憶體不一定解決瓶頸。
+- 在 GCP Persistent Disk (PD-SSD)，磁碟 IOPS 與吞吐量是跟磁碟大小成正比的，所以選 C
+`
     },
     {
         "topic": "#1",
