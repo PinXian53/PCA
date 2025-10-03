@@ -954,7 +954,38 @@ F. Cloud Deployment Manager only supports automation of Google Cloud resources �
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題是在考 GCP 網路分層與防火牆設計，關鍵是控制不同 tier 的 流量路徑。
+
+### 題目重點
+- 要求：
+    - 流量：Web → API → Database
+    - 禁止：Web -X-> Database（Web 不能直接存取 DB）
+- 每 tier 可獨立擴縮 → 無法靠單一 VM 控制
+
+### 選項分析
+A. Add each tier to a different subnetwork ❌
+- GCP 子網路之間預設允許互通，仍需額外 firewall 規則控制流量
+
+B. Set up software based firewalls on individual VMs ❌
+- 可以使用 VM 內部防火牆（iptables 等）限制流量，不適合 GCP 自動擴縮環境
+
+C. Add tags to each tier and set up routes to allow the desired traffic flow ❌
+- Routes 無法控制 哪個 IP 可以存取哪個 IP/port，不適合用來限制 Web ↛ DB
+
+D. Add tags to each tier and set up firewall rules to allow the desired traffic flow ✅
+- GCP 官方推薦做法：
+    1. 為每個 tier 的 VM 設定 network tags（如 web, api, db）
+    2. 建立 VPC firewall rules：
+        - 允許 Web tier → API tier（指定 source tag = web, target tag = api）
+        - 允許 API tier → DB tier
+        - 禁止 Web tier → DB tier（不建立規則或拒絕）
+- 優點：
+    - 可以自動適應 autoscaling VM
+    - 易於管理，維護成本低
+    - 精細控制流量（IP + port + tag
+`
     },
     {
         "topic": "#1",
