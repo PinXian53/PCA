@@ -802,7 +802,7 @@ D. A Google Compute Engine instance with a VPN server installed connected to the
         "options-zh": {
             "A": "在原始碼中",
             "B": "在環境變數中",
-            "C": "在機密管理系統中",
+            "C": "在機密管理系統中 (secret management system)",
             "D": "在透過 ACL 限制存取的配置檔案中"
         },
         "images": [],
