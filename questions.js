@@ -919,7 +919,19 @@ F. Cloud Deployment Manager only supports automation of Google Cloud resources �
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+這題是在考 **如何在 Google Compute Engine (GCE) 的 Preemptible VM 被搶占 (preempted) 前執行關閉腳本**。
+
+### 題目重點
+- 使用的是 Preemptible VM → Google 可能會隨時搶占，VM 會在 30 秒通知內被關閉。
+- 目標：在被搶占前正常關閉應用程式。
+
+### GCP 官方推薦方式：
+- Preemptible VM 被搶占時，系統會發出 SIGTERM 信號
+- 如果 VM metadata 中有 shutdown-script，Compute Engine 會自動執行這個腳本
+- 可以用這個腳本來「安全關閉應用程式、釋放資源」
+`
     },
     {
         "topic": "#1",
