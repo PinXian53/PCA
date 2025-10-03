@@ -1139,7 +1139,20 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         ],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題是在考 Google App Engine 部署 Java 應用時遇到的 JAR 簽章驗證錯誤
+
+### 觀察
+1. SHA1 digest error
+    - 表示 JAR 文件中的 class 檔與 manifest 中的 SHA1 簽章不匹配
+    - 常見原因：
+        - JAR 在打包後被修改過（class 被重新編譯或改動）
+        - 簽章（digital signature）不存在或不正確
+2. 涉及 ManifestEntryVerifier / JarVerifier
+    - App Engine 會驗證 JAR 的安全性
+    - 如果簽章不匹配，就會拋出 SecurityException
+`
     },
     {
         "topic": "#1",
