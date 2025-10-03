@@ -1224,7 +1224,11 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+**Cloud Data Loss Prevention (DLP)** API 是 Google Cloud 提供的一個服務，
+主要用來幫助企業檢測、分類、保護敏感資料，避免資料洩漏。
+支援 **敏感資料識別、資料分類與標註、資料去識別化...**`
     },
     {
         "topic": "#1",
