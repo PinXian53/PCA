@@ -557,7 +557,25 @@ const questions = [
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+- 現有 LAMP stack 部署於 us-central1，跨 兩個 zone。
+    - LAMP 是一種傳統 Web 應用架構的縮寫(Linux+Apache+MySQL+PHP)
+- 除資料庫外，其餘層都是 autoscaled managed instance groups。
+- 目前僅少量測試用戶，SLA 99.99% 已滿足。
+- 下個季度將開放給 全部用戶，包括未認證用戶 → 流量大幅增加。
+- 目標：開發韌性測試策略，確保在新高流量下仍達 SLA。
+
+### 核心概念
+- Resiliency testing / Chaos engineering：在控制的環境中 模擬高負載，並引入 故障/資源失效，確保系統能自動擴展並保持可用性。
+- Autoscaling 驗證：必須測試所有層的 autoscale 觸發邏輯。
+- 跨 zone 容錯：確保在 zone 故障下系統仍可用。
+
+### 專有名詞
+- synthetic load: 是人工產生的模擬使用者流量，用來測試系統效能或韌性(例如使用壓測軟體)。不是來自真實用戶，而是模擬大量請求，可控制流量大小、頻率、請求模式。
+- Chaos: 是在生產或測試環境中，故意引入故障，測試系統韌性和容錯能力
+`
     },
     {
         "topic": "#1",
