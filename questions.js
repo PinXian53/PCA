@@ -1251,7 +1251,13 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+這題在考 Cloud Shell 的檔案持久化與執行路徑管理
+
+\`~\` 代表 home 目錄，\`~/bin\` 是 Cloud Shell 官方建議放自訂可執行檔的位置
+home 目錄掛載到永久儲存 → 跨會話持久化
+        `
     },
     {
         "topic": "#1",
