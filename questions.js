@@ -1014,7 +1014,37 @@ D. Add tags to each tier and set up firewall rules to allow the desired traffic 
             "A",
             "C",
             "E"
-        ]
+        ],
+        "note": `
+這題在考 GCE 上 Linux VM 發生 kernel module 失敗後的故障排查方法。重點是收集足夠資訊給開發團隊分析。
+
+### 題目重點
+- 新 Linux kernel module 安裝在 batch server 上
+- 兩天後 50% batch server 無法執行 nightly batch
+- 目標：收集失敗細節給開發團隊
+
+### 選項分析
+A. Use Stackdriver Logging to search for the module log entries ✅
+- Stackdriver Logging（現在叫 Cloud Logging）可以收集 VM 日誌
+- 可直接查看失敗訊息與錯誤碼
+
+B. Read the debug GCE Activity log using the API or Cloud Console ❌
+- GCE Activity log 記錄的是 管理事件（start, stop, create, delete, metadata change）
+
+C. Use gcloud or Cloud Console to connect to the serial console and observe the logs ✅
+- Serial console 可以看到 VM boot 過程和 kernel log（dmesg）
+- 適合低層級 kernel 故障排查
+
+D. Identify whether a live migration event of the failed server occurred, using the activity log ❌
+- Live migration 事件與 nightly batch failure 無直接關係
+
+E. Adjust the Google Stackdriver timeline to match the failure time, and observe the batch server metrics ✅
+- 觀察 metrics 可以幫助確認：CPU、Memory、IO 是否異常，是否與 module load 時間點吻合
+- 適合做背景資料收集，提供開發團隊分析
+
+F. Export a debug VM into an image, and run the image on a local server where kernel log messages will be displayed on the native screen ❌
+- 非常繁瑣，且 GCP 的 serial console/Cloud Logging 已經能提供 log，非最佳實務
+`
     },
     {
         "topic": "#1",
