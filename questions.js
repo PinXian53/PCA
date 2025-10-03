@@ -197,7 +197,15 @@ const questions = [
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `問題分析：
+1. VM 每分鐘被重新啟動，通常是因為 負載平衡器健康檢查失敗。
+  - 在 GCP 中，如果後端 VM 在健康檢查失敗，managed instance group 會 自動重建 VM。
+2. VM 沒有 public IP：
+  - 這意味著外部流量或 curl 從 public 網路直接訪問 VM 不能正常，除非是內部訪問。
+  - 但是 GCP HTTP(S) Load Balancer 的健康檢查是從 Google 的公共健康檢查器 IP 範圍發送的，因此需要 允許這些 IP 存取 VM。
+3. 已經確認 curl 可以從其他地方正確取得 HTTP 回應 → 應用程式本身沒問題。
+  - 問題不是 VM 本身，而是 負載平衡器的健康檢查無法到達 VM。`
     },
     {
         "topic": "#1",
