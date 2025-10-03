@@ -836,7 +836,33 @@ D. A Google Compute Engine instance with a VPN server installed connected to the
         "answers": [
             "B",
             "C"
-        ]
+        ],
+        "note": `
+### Deployment Manager API 簡介
+- 功能：提供程式化方式管理 GCP 資源（VM、網路、儲存等）。
+- 用途：讓你能用 宣告式模板 (YAML / Python /...) 定義資源，然後透過 API 或 CLI 部署、更新或刪除這些資源。
+
+### 選項分析
+A. Cloud Deployment Manager uses Python ❌
+- 這只是 **技術細節（語言依賴）**，不是商業風險。
+
+B. Cloud Deployment Manager APIs could be deprecated in the future ✅
+- **商業風險**：未來 API 可能被淘汰，會影響現有部署腳本與自動化流程。
+- 公司可能需額外投入更新或遷移成本。
+
+C. Cloud Deployment Manager is unfamiliar to the company's engineers ✅
+- **商業風險**：團隊不熟悉工具 → 培訓成本、學習曲線、導入速度慢。
+- 這會影響項目時程與維護效率。
+
+D. Cloud Deployment Manager requires a Google APIs service account to run ❌
+- 這只是 **運行需求**，不是商業風險。
+
+E. Cloud Deployment Manager can be used to permanently delete cloud resources ❌
+- 這屬於 **操作風險 / 安全風險**，而非商業層面的風險。
+
+F. Cloud Deployment Manager only supports automation of Google Cloud resources ❌
+- 這是 **限制範圍**，對「將自訂資料中心工具遷移到 GCP」其實不是額外的商業風險。
+`
     },
     {
         "topic": "#1",
