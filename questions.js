@@ -784,7 +784,8 @@ D. A Google Compute Engine instance with a VPN server installed connected to the
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": "ACL 指的是 Access Control List，是一種安全機制，用來定義誰可以對特定資源做什麼操作"
     },
     {
         "topic": "#1",
