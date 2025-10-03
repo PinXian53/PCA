@@ -720,7 +720,48 @@ const questions = [
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+這題是在考 GCP 與本地資料中心 PostgreSQL 複寫的網路方案
+        
+### 題目重點
+- 目標：建立備份副本（replica）在 GCP 上。
+- 資料庫大小：4TB，且 更新頻繁 → 複寫流量大。
+- 需求：使用 私有 IP 地址 進行通訊 → 不希望透過公網。
+
+### 選項分析
+
+A. Google Cloud Dedicated Interconnect ✅
+
+- 特點：
+    - 提供 專線連接（從資料中心直接連到 GCP VPC）。
+    - 高頻寬、低延遲、可靠性高 → 適合 大資料量 + 高頻更新 的資料庫複寫。
+    - 可以使用 私有 RFC 1918 IP（Private VLAN）直接連線 GCP VPC。
+- 適用情境：4TB PostgreSQL + 大量更新 + 私有地址空間 → 最佳選擇
+
+B. Google Cloud VPN connected to the data center network
+
+- 特點：
+    - 可以透過加密的 IPSec 隧道連接資料中心。
+    - 適合中小型資料流量，或不需要持續高頻更新。
+- 限制：
+    - VPN 頻寬有限（通常單隧道 1-3 Gbps，雖然可以用 HA VPN 做多隧道，但仍低於 Dedicated Interconnect 的 10/100 Gbps）。
+    - 對於 4TB + 大量更新可能 效能不足。
+- 可作為備用方案，但不是最佳。
+
+C. A NAT and TLS translation gateway installed on-premises
+
+- 這選項用於 私有 → 公網安全連線，或跨網路安全暴露。
+- 類似 proxy / TLS termination，不是為了高效能、大資料量私有複寫設計。
+- ❌ 不適合題目需求。
+
+D. A Google Compute Engine instance with a VPN server installed connected to the data center network
+
+- 雖然理論上可搭建 自建 VPN，但：
+    - 需要自行管理、維護 VM、隧道、升級
+    - 單點效能受 VM 限制，不可靠
+- ❌ 不建議在生產環境做大資料複寫。
+`
     },
     {
         "topic": "#1",
