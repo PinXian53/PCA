@@ -1418,7 +1418,16 @@ D. Jenkins 監控 tag，分別部署 staging / production
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 背景知識
+PCI DSS（Payment Card Industry Data Security Standard） 是一套針對處理信用卡資料的安全規範。
+Google Cloud 本身已獲得 PCI DSS Level 1 認證，但這 不代表所有應用自動符合（例如某些 Beta/Preview 服務不包括在內）。
+
+GCP 的責任模型是「共同責任模型 (Shared Responsibility Model)」：
+- Google：負責雲端基礎設施的安全與合規（例如實體安全、網路隔離、服務認證）。
+- 客戶：負責在雲端上正確設定、加密、控制存取權限等。
+`
     },
     {
         "topic": "#1",
