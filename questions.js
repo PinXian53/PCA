@@ -2552,7 +2552,7 @@ GKE 自動伸縮有兩個層級：
         "no": "#81",
         "link": "https://www.examtopics.com/discussions/google/view/6896-exam-professional-cloud-architect-topic-1-question-81/",
         "question": "Your company operates nationally and plans to use GCP for multiple batch workloads, including some that are not time-critical. You also need to use GCP services that are HIPAA-certified and manage service costs.\n\nHow should you design to meet Google best practices?",
-        "question-zh": "",
+        "question-zh": "您的公司全國營運，並計畫在 GCP 運行多個批次工作負載，其中部分不是時間敏感的。您也需使用 HIPAA 認證的 GCP 服務並管理服務成本。\n\n依 Google 最佳實踐該如何設計？",
         "options": {
             "A": "Provision preemptible VMs to reduce cost. Discontinue use of all GCP services and APIs that are not HIPAA-compliant.",
             "B": "Provision preemptible VMs to reduce cost. Disable and then discontinue use of all GCP services and APIs that are not HIPAA-compliant.",
@@ -2560,15 +2560,19 @@ GKE 自動伸縮有兩個層級：
             "D": "Provision standard VMs to the same region to reduce cost. Disable and then discontinue use of all GCP services and APIs that are not HIPAA-compliant."
         },
         "options-zh": {
-            "A": "",
-            "B": "",
-            "C": "",
-            "D": ""
+            "A": "建置可搶佔式 VM 降低成本。停用所有不符合 HIPAA 的 GCP 服務和 API。",
+            "B": "建置可搶佔式 VM 降低成本。停用再停止使用所有不符合 HIPAA 的 GCP 服務和 API。",
+            "C": "在同一區域建置標準 VM 降低成本。停用所有不符合 HIPAA 的 GCP 服務和 API。",
+            "D": "在同一區域建置標準 VM 降低成本。停用再停止使用所有不符合 HIPAA 的 GCP 服務和 API。"
         },
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+- "not time-critical"：表示某些工作負載對時間的要求不高，適合使用 Preemptible VMs。
+- 先「禁用」再「停止使用」可以讓團隊觀察不使用某些服務後的影響，從而評估替代方案的可行性
+`
     },
     {
         "topic": "#1",
@@ -2590,7 +2594,7 @@ GKE 自動伸縮有兩個層級：
         },
         "images": [],
         "answers": [
-            "B"
+            "A"
         ]
     },
     {
@@ -2636,8 +2640,17 @@ GKE 自動伸縮有兩個層級：
         },
         "images": [],
         "answers": [
-            "B"
-        ]
+            "D"
+        ], 
+		"note": `
+| 選項                    | 分析                                   | 評價    |
+| --------------------- | ------------------------------------ | ----- |
+| A Data Studio         | ❌ Data Studio 只是視覺化工具，沒有直接審計能力       | 不符合要求 |
+| B BigQuery JOBS table | ❌ JOBS table 只列出近期 jobs，沒有完整歷史與使用者追蹤 | 不可靠   |
+| C bq 命令列              | ❌ 需要大量手動操作，效率低且無法自動化統計               | 不實用   |
+| D Cloud Audit Logging | ✅ 直接提供每個使用者的 query 操作歷史，適合審計         | 正確    |
+
+`
     },
     {
         "topic": "#1",
@@ -2660,7 +2673,23 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "C"
-        ]
+        ], 
+		"note": `
+### IDS
+IDS 全名是 Intrusion Detection System（入侵偵測系統），是一種網路安全設備或軟體，用來 偵測網路或系統中的可疑活動或惡意行為。
+
+### Packet Mirroring
+Packet Mirroring（封包鏡像）是 Google Cloud Platform（GCP）提供的一項網路功能，用於 複製 VPC 中 VM 的網路封包流量，並將這些封包傳送到指定的虛擬設備（例如 IDS、分析或監控工具）進行檢測或分析。
+
+### 為什麼不選其他選項
+| 選項                                         | 分析                                                             | 評價    |
+| ------------------------------------------ | -------------------------------------------------------------- | ----- |
+| A Firewall Logs                            | ❌ 只記錄 metadata，不包含 payload                                     | 不符合要求 |
+| B VPC Flow Logs                            | ❌ 只提供流量統計 metadata，不含 payload                                  | 不符合要求 |
+| C Packet Mirroring (TCP/UDP)               | ✅ 可複製 egress payload 到 IDS                                     | 正確    |
+| D Packet Mirroring (HTTP(S) load balancer) | ❌ HTTP(S) load balancer 只適用於 HTTP/HTTPS，不能捕捉全部 TCP/UDP payload | 不適合   |
+
+`
     },
     {
         "topic": "#1",
@@ -2683,7 +2712,19 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### BigQuery IAM 基本概念
+1. BigQuery IAM role
+    - jobUser → 可以在專案中執行查詢 (run queries)，但不擁有資料存取權限
+    - dataViewer / dataEditor / dataOwner → 資料層級權限 (dataset / table)
+2. 資料分享方式
+    - Dataset level → 最推薦的做法，避免給每張 table 單獨授權
+    - Table level → 適用於特殊情況（非常多 tables 或跨 dataset）
+3. 原則
+    - JobUser 角色負責查詢權限
+    - Dataset/view access 控制資料可見性
+`
     },
     {
         "topic": "#1",
@@ -2775,7 +2816,17 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### 優雅關閉 (Graceful shutdown)
+- 應用程式收到信號後：
+    - 停止從 Pub/Sub 拉取訊息
+    - 處理現有訊息
+    - 正確關閉資料庫連線
+- 優點：
+    - 避免資料遺失或寫入中斷
+    - 無需輪詢檔案或依賴其他外部訊息
+`
     },
     {
         "topic": "#1",
@@ -2798,7 +2849,16 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+| 選項 | 分析                                                                       |
+| -- | ------------------------------------------------------------------------ |
+| A  | Instance Group Updater 適用於 Compute Engine 或 GKE，不適用 App Engine，無法拆分流量。 ❌ |
+| B  | App Engine 原生支持多版本部署與流量拆分，可安全測試新版本並逐步切換。 ✅                               |
+| C  | 建立新 VPC + HTTP LB 過於複雜且不必要，App Engine 已內建流量拆分。 ❌                         |
+| D  | 流量拆分只能在同一 App Engine 應用的多版本之間，跨應用無法拆分流量。 ❌                               |
+
+`
     },
     {
         "topic": "#1",
@@ -2844,7 +2904,16 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+| 選項 | 分析                                                                             |
+| -- | ------------------------------------------------------------------------------ |
+| A  | **Canary deployment** → 只將部分流量導向新版本，無法測試 **全量生產流量**。 ❌                         |
+| B  | **Blue/green deployment** → 新版本與舊版本並行，但流量一次切換，不用於測量兩者在生產流量下的性能差異。 ❌            |
+| C  | **Rolling updates** → 逐步替換舊版本，主要目的是降低風險，無法同時收集新舊版本性能數據。 ❌                      |
+| D  | **A/B testing with traffic mirroring** → 將全量流量複製到新版本進行測試，**收集完整生產負載下的性能指標**。 ✅ |
+
+`
     },
     {
         "topic": "#1",
@@ -2867,7 +2936,15 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+| 選項 | 分析        |
+| -- | --------- |
+| A  | ✅ Horizontal Pod Autoscaler (HPA) → 自動調整 Pod 數量以應對負載。Cluster Autoscaler → 根據 Pod 數量自動調整節點數量。Ingress → 提供 HTTPS 負載平衡，支援 TLS 終止 |
+| B | ❌ Service of type LoadBalancer 也可負載平衡，但 Ingress 支援 HTTPS 與路由規則更適合網頁應用 |
+| C | ❌ 只調整 Compute Engine instance group，無法自動調整 Pod 數量，也沒有 Kubernetes 原生 HPA |
+| D | ❌ 同 C，只靠 VM 層自動擴縮，無法針對容器化應用進行自動調整 |
+`
     },
     {
         "topic": "#1",
@@ -2890,7 +2967,15 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+| 選項 | 分析                                                             |
+| -- | -------------------------------------------------------------- |
+| A  | ❌ “Cross-region load balancer”是模糊說法，沒有明確指定 HTTPS/TLS，無法確保端到端加密 |
+| B  | ✅ HTTPS Load Balancer → 全球分散式負載平衡，支援 TLS/SSL 終止。URL Maps → 可依 URL path 導向不同的後端服務。提供 端到端加密（in-transit）與高可靠性 |
+| C | ❌ SSL Proxy Load Balancer 只支援 TCP/SSL，無法依 URL path 路由 |
+| D | ❌ SSL Proxy 也無法根據 URL path 做路由，只能基於端口與 IP 負載平衡 |
+`
     },
     {
         "topic": "#1",
@@ -2913,7 +2998,13 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+5xx → 伺服器錯誤
+429 → 請求過多（rate limiting）
+
+最佳做法：重試 (retry) + truncated exponential backoff
+`
     },
     {
         "topic": "#1",
@@ -2936,7 +3027,13 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+- Deployment Manager → Google 官方建議的基礎架構即代碼(IaC)工具，可自動化資源部署
+- Stackdriver (Cloud Monitoring & Logging) → 可即時監控與分析災難測試的行為和結果
+- gcloud 腳本可以自動化部署，但 Deployment Manager 更適合管理複雜架構
+- Activity Logs 適合審計，但不適合即時監控與調試災難測試
+`
     },
     {
         "topic": "#1",
@@ -2959,7 +3056,12 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這三個地區必須有多區域儲存桶。
+
+參考：https://cloud.google.com/storage/docs/locations#location-mr
+`
     },
     {
         "topic": "#1",
@@ -3005,7 +3107,20 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### Memcache 對 App Engine Standard 的好處
+- 減少對 Cloud SQL 的直接查詢
+- 降低延遲與成本
+
+### Dedicated vs Shared Memcache
+- Dedicated 
+    - 記憶體不與其他應用共享
+	- 穩定容量、效能好
+- Shared
+    - 記憶體是多個應用程式共享的
+	- 可能被其他應用影響
+`
     },
     {
         "topic": "#1",
@@ -3028,7 +3143,11 @@ GKE 自動伸縮有兩個層級：
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+- 官方最佳實務建議使用 App Engine Cron 進行可靠排程，GKE Cron 主要用於容器內部排程
+- Cloud Pub/Sub → 提供可靠訊息傳遞，支援重試、解耦應用
+`
     },
     {
         "topic": "#1",
