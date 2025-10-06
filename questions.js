@@ -1519,7 +1519,24 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 解釋：
+當你用 Cloud VPN 將 on-premises（本地端） 網路與 Google Cloud VPC 連接時，
+雙方會形成一個 混合網路 (hybrid network)。
+在這種情況下，IP 網段（CIDR range）不能重疊 (overlap)。
+
+### 解法
+在 Google Cloud 中設定：
+- 使用一個 不重疊的 CIDR range（例如 10.10.0.0/16）
+- On-premises 繼續用原本的（例如 10.0.0.0/16）
+- 然後透過 Cloud VPN / Cloud Interconnect 建立安全連線
+
+### 補充：Secondary Range
+Secondary range 是給 GKE Pod / Service IP 用的。
+它也要確保 不與任何現有網段重疊。
+若重疊，一樣會導致 Pod 網路衝突或路由錯誤
+`
     },
     {
         "topic": "#1",
@@ -1542,7 +1559,13 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+建立 Cloud Datastore 索引
+1. 建立索引 YAML 檔
+2. 使用 gcloud CLI 進行部署
+    - \`gcloud datastore create-indexes index.yaml\`
+`
     },
     {
         "topic": "#1",
@@ -1565,7 +1588,19 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+		"note": `
+### 為什麼選擇 Instance Groups + 多區域
+
+Instance Groups (Managed/Unmanaged)：
+- 可水平擴展
+- 可與 HTTP(S) Load Balancer 整合
+- 可設定健康檢查 (Health Check) → 健康檢查失敗時自動切換流量
+
+多區域部署：
+- 若一個區域失效，另一個區域的 Instance Group 可承接流量
+- 符合災難復原需求
+`
     },
     {
         "topic": "#1",
@@ -1588,7 +1623,26 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+### 解釋
+題目關鍵：
+- App Engine 應用程式
+- 需要連接 on-premises 資料庫
+- 安全要求：資料庫不能被公網存取
+
+### 為什麼選擇 App Engine Flexible + Cloud VPN
+App Engine 環境差異：
+| 特性     | Standard                                                             | Flexible                               |
+| ------ | -------------------------------------------------------------------- | -------------------------------------- |
+| VPC 連接 | 無法直接使用 VPC connector 連接 on-premises（有 Serverless VPC Connector，但限制多） | 可以直接加入 VPC，支援 Cloud VPN / Interconnect |
+| 彈性     | 自動擴展，限制語言/執行環境                                                       | 可使用自訂容器，完整 Linux 環境                    |
+| 適合場景   | 輕量型應用、無需 VPC 連接                                                      | 需要 VPC、VPN、私有網路連線                      |
+
+Cloud VPN：
+- Cloud VPN 可建立 安全 IPsec 隧道，將 GCP 與 on-premises 私有網路互連。
+- 不需要透過公網 IP，符合「資料庫不可公開」的安全要求。
+`
     },
     {
         "topic": "#1",
@@ -1611,7 +1665,29 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### 解釋
+題目關鍵：
+- Compute Engine VM 位於 高度安全環境
+- 禁止公網存取
+- 尚未有 VPN，無法連接 on-premises
+- 需要安裝特定軟體
+
+### 核心概念：Private Google Access
+- Private Google Access 允許 只有內部 IP 的 VM 連線到 Google 服務（例如 Cloud Storage、Cloud APIs）
+- 無需公網 IP，也不需 NAT
+- 適合安全限制環境，VM 可以透過 內部網路存取 Cloud Storage
+
+### 為什麼選擇 Cloud Storage + Private Google Access
+- Cloud Storage：提供安全、可靠、私有的檔案存放與下載
+- 步驟：
+    1. 將安裝檔案上傳至 Cloud Storage bucket
+    2. 將 VM 配置在 Private Google Access subnet
+    3. VM 只分配 內部 IP（沒有公網 IP）
+    4. 使用 gsutil 從 Cloud Storage 下載檔案
+- 無需 VPN、無需暴露公網，完全符合安全需求
+`
     },
     {
         "topic": "#1",
@@ -1634,7 +1710,16 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### Transfer Appliance
+要將大量資料遷移到 Google Cloud，建議使用 Transfer Appliance。 
+Transfer Appliance 是一種實體儲存設備，可用於快速且安全地將大量資料傳輸到 Google Cloud。
+將資料移轉到 Transfer Appliance 後，您可以使用 Transfer Appliance Rehydrator 解密資料並將其載入到 Cloud Storage。
+
+如果網路頻寬為 100 Mbps，上傳 300 TB 的資料大約需要 9 個月。不過，使用 Transfer Appliance 之後，您可以在 25 天內收到設備並擷取 300 TB 的資料。您可以在 25 天內存取 Cloud Storage 中的資料，完全不會耗用任何輸出網路頻寬。
+https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
+`
     },
     {
         "topic": "#1",
