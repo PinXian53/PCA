@@ -2551,6 +2551,29 @@ GKE 自動伸縮有兩個層級：
         "topic": "#1",
         "no": "#81",
         "link": "https://www.examtopics.com/discussions/google/view/6896-exam-professional-cloud-architect-topic-1-question-81/",
+        "question": "Your company operates nationally and plans to use GCP for multiple batch workloads, including some that are not time-critical. You also need to use GCP services that are HIPAA-certified and manage service costs.\n\nHow should you design to meet Google best practices?",
+        "question-zh": "",
+        "options": {
+            "A": "Provision preemptible VMs to reduce cost. Discontinue use of all GCP services and APIs that are not HIPAA-compliant.",
+            "B": "Provision preemptible VMs to reduce cost. Disable and then discontinue use of all GCP services and APIs that are not HIPAA-compliant.",
+            "C": "Provision standard VMs in the same region to reduce cost. Discontinue use of all GCP services and APIs that are not HIPAA-compliant.",
+            "D": "Provision standard VMs to the same region to reduce cost. Disable and then discontinue use of all GCP services and APIs that are not HIPAA-compliant."
+        },
+        "options-zh": {
+            "A": "",
+            "B": "",
+            "C": "",
+            "D": ""
+        },
+        "images": [],
+        "answers": [
+            "B"
+        ]
+    },
+    {
+        "topic": "#1",
+        "no": "#81-2",
+        "link": "https://www.examtopics.com/discussions/google/view/6896-exam-professional-cloud-architect-topic-1-question-81/",
         "question": "Your company's security team tends to use managed services when possible. You need to build a dashboard to show the number of deny hits that occur against configured firewall rules without increasing operational overhead. What should you do?",
         "question-zh": "貴公司安全團隊傾向盡量使用受管服務。您需建立儀表板顯示防火牆規則遭拒次數，且不增加營運負擔。該怎麼做？",
         "options": {
