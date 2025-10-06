@@ -1422,7 +1422,10 @@ D. Jenkins 監控 tag，分別部署 staging / production
         "note": `
 ### 背景知識
 PCI DSS（Payment Card Industry Data Security Standard） 是一套針對處理信用卡資料的安全規範。
-Google Cloud 本身已獲得 PCI DSS Level 1 認證，但這 不代表所有應用自動符合（例如某些 Beta/Preview 服務不包括在內）。
+Google Cloud 本身已獲得 PCI DSS Level 1 認證
+- 例如: App Engine、Compute Engine、GKE、Cloud Storage、BigQuery 等多個服務都在 PCI DSS 認證範圍內
+
+但這不代表所有應用自動符合（例如某些 Beta/Preview 服務不包括在內）。
 
 GCP 的責任模型是「共同責任模型 (Shared Responsibility Model)」：
 - Google：負責雲端基礎設施的安全與合規（例如實體安全、網路隔離、服務認證）。
@@ -1450,7 +1453,20 @@ GCP 的責任模型是「共同責任模型 (Shared Responsibility Model)」：
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+Google 官方建議：
+> 「Use Cloud Dataprep to visually explore, clean, and prepare data before analysis or machine learning.」
+        
+| 面向           | **Cloud Dataprep**              | **Cloud Datalab**                 |
+| ------------ | ------------------------------- | --------------------------------- |
+| 🔧 **主要用途**  | 資料清理、格式轉換、異常偵測、ETL              | 互動式資料分析、統計、機器學習                   |
+| 🧰 **操作方式**  | 可視化介面（拖拉式 UI）                   | 程式化 Notebook（Python / SQL / R）    |
+| 📊 **自動化能力** | 自動偵測資料型態、建議清理步驟                 | 無自動建議，需手動撰寫程式                     |
+| 🧮 **整合服務**  | Cloud Storage、BigQuery、Dataflow | BigQuery、TensorFlow、AI Platform   |
+| 🚀 **典型用途**  | 清理原始資料 → 輸出乾淨資料給分析或模型使用         | 探索資料 → 寫模型 → 訓練與視覺化               |
+| 🔒 **維運與管理** | 完全託管、無需維運                       | 需管理 Notebook Instance（類似 Jupyter） |
+`
     },
     {
         "topic": "#1",
@@ -1473,7 +1489,14 @@ GCP 的責任模型是「共同責任模型 (Shared Responsibility Model)」：
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自動套用到下層（child）
+
+子節點的有效政策 = 上層繼承的政策 \`∪\` 子節點自己設定的政策
+
+- \`∪\`: union 聯集
+`
     },
     {
         "topic": "#1",
