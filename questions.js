@@ -1742,7 +1742,22 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### Kubernetes Deployment
+Kubernetes Deployment 預設使用 rolling update strategy
+因此，更新 Deployment 的容器映像即可自動觸發滾動更新
+
+### kubectl set image 的使用
+- 指令範例：
+    - \`kubectl set image deployment/echo-deployment echo-container=<new-image>\`
+- Kubernetes 會：
+    1. 更新 Deployment 規格
+    2. 自動逐步替換 Pod
+    3. 無需刪除 Deployment 或 Service
+- 符合最小停機時間要求
+
+`
     },
     {
         "topic": "#1",
@@ -1765,7 +1780,21 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "C"
-        ]
+        ], 
+		"note": `
+### 題目重點
+- BigQuery 資料分散在多個專案
+- 所有查詢費用需計到單一計費專案
+- 使用者可查詢資料，但不可修改資料
+
+### BigQuery 角色概念	
+| 角色                            | 作用                                  |
+| ----------------------------- | ----------------------------------- |
+| **roles/bigquery.jobUser**    | 允許使用者在專案中建立查詢 **作業 (jobs)**，費用計入此專案 |
+| **roles/bigquery.dataViewer** | 只讀資料集，能查詢資料但不能修改                    |
+| **roles/bigquery.user**       | 可以建立 Dataset、Table 等，不符合「只查詢」需求     |
+| **roles/bigquery.dataEditor** | 可編輯資料，會違反題目要求                       |
+`
     },
     {
         "topic": "#1",
@@ -1811,7 +1840,23 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+### GDPR 的核心概念
+
+GDPR（General Data Protection Regulation）規定：
+1. 資料保護責任（Data Protection by Design and by Default）
+    - 系統必須設計上就確保資料隱私和安全
+2. 資料可控性
+    - 使用者有權查詢、修改、刪除個人資料
+3. 數據最小化與安全
+    - 只收集必要資料
+    - 加密、存取控制、審計
+4. 責任與可追溯性
+    - 資料處理必須可證明合規
+
+> 簡單說：GDPR 要求你自己設計系統架構來符合規範，不是只依賴雲平台功能。
+`
     },
     {
         "topic": "#1",
@@ -1834,7 +1879,17 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+### Cloud SQL HA
+- 支援 MySQL/PostgreSQL/SQL Server 的 Cloud SQL 版本
+- 僅跨 zone，無法跨 region
+
+### SQL Server Always On Availability Groups + different zones
+- 官方推薦高可用性方案
+- 將節點分置不同 zones
+- 使用 Windows Failover Clustering + Always On Availability Groups，可在單一 zone 故障時自動 failover
+`
     },
     {
         "topic": "#1",
@@ -1857,7 +1912,17 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### Deployment Manager
+Deployment Manager 用於 GCP 資源，不適合直接部署 Kubernetes Deployment
+
+### gcloud
+gcloud CLI 創建集群是官方推薦方式
+
+### kubectl
+kubectl 無法創建 GKE 集群，只能管理已有的 Kubernetes 集群資源
+`
     },
     {
         "topic": "#1",
@@ -1903,7 +1968,16 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+| 特性         | **Cloud Functions**                         | **Cloud Run**                             |
+| ---------- | ------------------------------------------- | ----------------------------------------- |
+| **定位**     | Event-driven functions（事件驅動函數）              | Container-based serverless service（容器化服務） |
+| **部署單位**   | 單個函數（Function）                              | 容器（Container）                             |
+| **觸發方式**   | 事件觸發：HTTP 請求、Pub/Sub、Cloud Storage 等        | HTTP 請求（直接）、也可搭配 Pub/Sub via push）        |
+| **語言支援**   | 受限語言 runtime（Node.js、Python、Go、Java、.NET 等） | 支援任何能打包成容器的語言或框架                          |
+| **自動縮放**   | ✅ 自動 scale，閒置可 scale to zero                | ✅ 自動 scale，閒置可 scale to zero              |
+`
     },
     {
         "topic": "#1",
@@ -1926,7 +2000,25 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### Datastore 的操作方式
+1. 單筆 get
+    - 每次操作只取一個 entity
+    - 會產生多個 RPC 請求 → 成本高、延遲大
+2. 批次 get（batch get）
+    - 可以一次傳入多個 Key
+    - Datastore 一次返回多個 entity
+    - 減少 RPC 呼叫數量 → 降低延遲和成本
+3. Query vs Key-based get
+    - Query 會掃描索引 → 開銷較大
+    - Key-based get 直接定位 entity → 最高效
+
+### 最佳實務：
+1. 已知 entities 的 Key → 建立 Key 物件
+2. 使用 批次 get 取得多個 entity
+3. 避免使用多次單筆 get 或 query	
+`
     },
     {
         "topic": "#1",
@@ -1949,7 +2041,23 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "C"
-        ]
+        ], 
+		"note": `
+### 題目重點：
+- 從 on-premises 上傳檔案到 Cloud Storage
+- 使用 客戶提供的加密金鑰 (CSEK, Customer-Supplied Encryption Key)
+- 目標：檔案在 Cloud Storage 上加密
+
+### Cloud Storage 的加密方式
+1. Google-managed encryption (CMEK)
+    - Cloud Storage 自動加密，不需提供金鑰
+2. Customer-managed encryption keys (CMEK)
+    - 使用 Cloud KMS 管理金鑰
+3. Customer-supplied encryption keys (CSEK)
+    - 使用者自訂金鑰
+    - 每次操作必須提供金鑰 (ex. 每次上傳)
+    - gsutil 使用 --encryption-key flag 來指定
+`
     },
     {
         "topic": "#1",
@@ -1972,7 +2080,22 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### 題目重點
+- 多 GB 級別的實時 KPI
+- 運行在 GCP 上的遊戲伺服器
+- 低延遲監控
+- 需要可視化（Dashboard）
+
+| 選項                                           | 分析                                                                | 評價  |
+| -------------------------------------------- | ----------------------------------------------------------------- | --- |
+| A Bigtable + Data Studio                     | ❌ Bigtable 適合大規模資料存儲，但**低延遲可視化需要額外工具**，Data Studio 不是實時 Dashboard | 不理想 |
+| **B Stackdriver custom metrics + Dashboard** | ✅ 支援實時自訂指標，內建可視化與告警                                               | 正確  |
+| C BigQuery batch load + Data Studio          | ❌ 每 10 分鐘批次 → 不符合 **低延遲** 實時需求                                    | 不適合 |
+| D Cloud Datastore + Datalab                  | ❌ Datastore 不適合高頻實時寫入，多 GB KPI 會造成延遲與成本高；Datalab 不是即時 Dashboard   | 不適合 |
+
+`
     },
     {
         "topic": "#1",
@@ -1981,10 +2104,10 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "question": "You have a Python web application with many dependencies that requires 0.1 CPU cores and 128 MB of memory to operate in production. You want to monitor and maximize machine utilization. You also want to reliably deploy new versions of the application. Which set of steps should you take?",
         "question-zh": "您有一個 Python 網頁應用程式，依賴套件多，生產環境需 0.1 CPU 核心與 128 MB 記憶體。您希望監控並最大化機器利用率，也要能可靠部署新版。應採取哪些步驟？",
         "options": {
-            "A": "Perform the following: 1. Create a managed instance group with f1-micro type machines. 2. Use a startup script to clone the repository, check out the production branch, install the dependencies, and start the Python app. 3. Restart the instances to automatically deploy new production releases.",
-            "B": "Perform the following: 1. Create a managed instance group with n1-standard-1 type machines. 2. Build a Compute Engine image from the production branch that contains all of the dependencies and automatically starts the Python app. 3. Rebuild the Compute Engine image, and update the instance template to deploy new production releases.",
-            "C": "Perform the following: 1. Create a Google Kubernetes Engine (GKE) cluster with n1-standard-1 type machines. 2. Build a Docker image from the production branch with all of the dependencies, and tag it with the version number. 3. Create a Kubernetes Deployment with the imagePullPolicy set to 'IfNotPresent' in the staging namespace, and then promote it to the production namespace after testing.",
-            "D": "Perform the following: 1. Create a GKE cluster with n1-standard-4 type machines. 2. Build a Docker image from the master branch with all of the dependencies, and tag it with 'latest'. 3. Create a Kubernetes Deployment in the default namespace with the imagePullPolicy set to 'Always'. Restart the pods to automatically deploy new production releases."
+            "A": "Perform the following: \n1. Create a managed instance group with f1-micro type machines. \n2. Use a startup script to clone the repository, check out the production branch, install the dependencies, and start the Python app. \n3. Restart the instances to automatically deploy new production releases.",
+            "B": "Perform the following: \n1. Create a managed instance group with n1-standard-1 type machines. \n2. Build a Compute Engine image from the production branch that contains all of the dependencies and automatically starts the Python app. \n3. Rebuild the Compute Engine image, and update the instance template to deploy new production releases.",
+            "C": "Perform the following: \n1. Create a Google Kubernetes Engine (GKE) cluster with n1-standard-1 type machines. \n2. Build a Docker image from the production branch with all of the dependencies, and tag it with the version number. \n3. Create a Kubernetes Deployment with the imagePullPolicy set to 'IfNotPresent' in the staging namespace, and then promote it to the production namespace after testing.",
+            "D": "Perform the following: \n1. Create a GKE cluster with n1-standard-4 type machines. \n2. Build a Docker image from the master branch with all of the dependencies, and tag it with 'latest'. \n3. Create a Kubernetes Deployment in the default namespace with the imagePullPolicy set to 'Always'. Restart the pods to automatically deploy new production releases."
         },
         "options-zh": {
             "A": "執行下列步驟：1. 建立 f1-micro 型受管實例群組。2. 用啟動腳本 clone repository、切 production branch、安裝依賴並啟動 Python app。3. 重新啟動實例自動部署新版。",
@@ -1995,7 +2118,27 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "C"
-        ]
+        ], 
+		"note": `
+### 題目重點
+- Python web 應用程式，多依賴
+- 資源需求非常低（0.1 CPU, 128 MB RAM）
+- 目標：
+    - 監控並最大化機器利用率
+    - 可靠部署新版本
+
+### 為什麼選 Kubernetes（GKE）而不是 VM
+因為應用程式資源需求非常低，在 Kubernetes 上可以把多個 Pod 放在同一節點，達到更高機器利用率。
+
+### 選項分析
+| 選項                                        | 分析                      | 評價                       |
+| ----------------------------------------- | ----------------------- | ------------------------ |
+| A | ❌ 資源利用率低、依賴管理麻煩、手動重啟不可靠 | 不適合                      |     |
+| B | ❌ 需要為每次更新重建映像 → 部署麻煩；粒度粗 | 不適合 |
+| C | ✅ Pod 細粒度 → 高利用率 ✅ Docker 封裝依賴 ✅ Deployment 支援 rolling update → 可靠部署 | 正確 |
+| D | ❌ 使用 \`latest\` → 無法安全回滾   | 不適合 |
+
+`
     },
     {
         "topic": "#1",
@@ -2018,7 +2161,21 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### Google Cloud Directory Sync (GCDS) + SAML SSO
+
+1. GCDS：
+    - 同步 on-prem AD 使用者帳號 到 Google Workspace / Cloud Identity
+    - 保持帳號一致性
+2. SAML SSO：
+    - 使用 現有 AD 作為身份提供者
+    - 用戶使用現有 AD 密碼登入 GCP
+3. 優點：
+    - 無需在 GCP 建立 AD
+    - 可保留現有身份管理流程
+    - 支援自動帳號同步
+`
     },
     {
         "topic": "#1",
@@ -2064,7 +2221,10 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+Cloud SQL HA 只能跨 zone，不能跨 region
+`
     },
     {
         "topic": "#1",
@@ -2087,7 +2247,13 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "C"
-        ]
+        ], 
+		"note": `
+正確流程：	
+1. 建 custom image
+2. 建 instance template
+3. 建 autoscaled managed instance group
+`
     },
     {
         "topic": "#1",
@@ -2110,7 +2276,13 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### Network tags
+- 可以附加在 VM 實例上
+- Firewall 規則可以基於 tag 進行 允許/拒絕流量
+- 適用於 autoscaling 的 VM → 新增實例自動繼承標籤，規則自動套用
+`
     },
     {
         "topic": "#1",
@@ -2133,7 +2305,14 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+1. Cloud SQL 支援 自動增加磁碟容量，官方建議在大型應用中啟用
+2. Stackdriver alert → 當 CPU 使用率超過 75%
+    - 觸發 instance type 升級或 horizontal scaling (read replicas)
+3. Stackdriver alert → 當 lag > 60 秒
+    - Sharding → 減少單個 master 寫入壓力，或者 增加 read replicas 分散讀取負載
+`
     },
     {
         "topic": "#1",
@@ -2225,7 +2404,27 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "D"
-        ]
+        ], 
+		"note": `
+### Cloud VPN 架構要點
+
+1. 每個區域需要自己的 VPN Gateway
+    - Cloud VPN Gateway 是 區域性資源
+    - VM 在該區域的流量會走當地的 VPN Gateway
+    - 跨區域的 VPN 需要在每個區域建立 tunnel → 避免單點失效
+2. 每個區域至少一個 tunnel
+    - 建議 HA VPN 或至少一個 active tunnel
+    - 確保 on-premises 到每個區域的可靠通訊
+
+### 為什麼不選其他選項
+| 選項                               | 分析                                                  | 評價  |
+| -------------------------------- | --------------------------------------------------- | --- |
+| A VPC Network Peering            | ❌ Peering 只用於 **GCP VPC 間的內部連接**，不能跨 on-premises 網路 | 不適合 |
+| B IAM + VPC Sharing              | ❌ VPC Sharing 只是資源共用，**無法建立 VPN**                   | 不適合 |
+| C Global Cloud VPN Gateway       | ❌ Cloud VPN Gateway **不是全球性**，是 **區域性資源**           | 不適合 |
+| **D 每區域部署 VPN Gateway + tunnel** | ✅ 每個區域都有 tunnel → 高可用性 + on-premises 覆蓋             | 正確  |
+
+`
     },
     {
         "topic": "#1",
@@ -2248,7 +2447,24 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### 為什麼選時間分割表 (time-partitioned tables)
+Time-partitioned table：
+- 將資料按時間（通常是日期）分區存放
+- 可以為 每個分區設定過期時間 (partition expiration)
+- 過期分區會自動刪除 → 自動化管理，無需額外腳本
+- 減少儲存成本，最佳化查詢性能
+
+### 為什麼不選其他選項
+| 選項                                             | 分析                                       | 評價  |
+| ---------------------------------------------- | ---------------------------------------- | --- |
+| A Table-level expiration                       | ❌ Table 過期是針對整個 table，**不適合保留最近 45 天資料** | 不適合 |
+| **B Partitioned table + partition expiration** | ✅ 自動管理資料過期，降低成本，官方推薦                     | 正確  |
+| C 預設行為                                         | ❌ BigQuery 不會自動刪除過期資料                    | 不適合 |
+| D 自訂 bq script                                 | ❌ 需要維護腳本 → 不符合 Google 最佳實務               | 不適合 |
+
+`
     },
     {
         "topic": "#1",
@@ -2271,7 +2487,20 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "A"
-        ]
+        ], 
+		"note": `
+### GKE 自動伸縮概念
+
+GKE 自動伸縮有兩個層級：
+1. Horizontal Pod Autoscaler (HPA)
+    - 監控 Pod CPU / memory 使用率
+    - 根據負載自動增加或減少 Pod 數量
+2. Cluster Autoscaler
+    - 當 Pod 數量增加，節點不夠用時，自動 增加節點
+    - 當 Pod 減少且節點空閒時，自動 刪除節點
+
+> 兩者搭配使用，才能達到 根據 CPU 負載自動調整節點數量 的效果。
+`
     },
     {
         "topic": "#1",
@@ -2294,7 +2523,29 @@ https://cloud.google.com/transfer-appliance/docs/4.0/overview?hl=zh-tw
         "images": [],
         "answers": [
             "B"
-        ]
+        ], 
+		"note": `
+### 為什麼選 Dedicated Interconnect + Cloud VPN
+1. Dedicated Interconnect：
+    - 提供 專線級、高吞吐量、低延遲 的連線
+    - 適合大量資料復原或同步到 GCP
+    - 直接支援 DR 需求
+2. Cloud VPN：
+    - 基於公網的 IPSec VPN
+    - 當 Interconnect 失效 時作為備援連線
+    - 保證資料安全、冗餘連線
+3. 官方建議：
+    - 對於 DR，Google 建議 Interconnect 主用 + VPN 備援
+    - 符合「安全 + 冗餘」要求
+
+### 為什麼不選其他選項
+| 選項                                    | 分析                                                | 評價  |
+| ------------------------------------- | ------------------------------------------------- | --- |
+| A Interconnect + direct peering   | ❌ Direct Peering 不是冗餘備援方案，它僅供互聯網服務提供者間互通，無法作為安全備援 | 不適合 |
+| **B Interconnect + Cloud VPN**        | ✅ 官方推薦的 DR 連線架構                                   | 正確  |
+| C Transfer Appliance + direct peering | ❌ Transfer Appliance 是離線資料傳輸，無法提供持續連線或冗餘          | 不適合 |
+| D Transfer Appliance + Cloud VPN      | ❌ 同上，Transfer Appliance 適合單次資料傳輸，不適合持續 DR         | 不適合 |
+`
     },
     {
         "topic": "#1",
