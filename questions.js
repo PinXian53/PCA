@@ -1378,7 +1378,24 @@ D. Jenkins 監控 tag，分別部署 staging / production
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+- 狀況：
+    - 已設定 健康檢查（Health Check）。
+    - 自動調整（Autoscaling）已停用。
+    - 想讓同事（Linux 專家）能登入 VM 進行除錯
+    
+### 原因分析
+在 Managed Instance Group (MIG) 中，如果 VM 健康檢查失敗，MIG 會認為該 VM 不健康，並自動重建該實例（即使沒有啟用 autoscaling）
+- 健康檢查失敗 → MIG 重新建立 VM → 實例短時間內重啟
+- 導致工程師無法連線，因為 VM 一直被刪除重建
+
+### 解決思路
+要讓工程師能登入調查：
+- 必須先阻止 VM 被不斷重啟 → 停止健康檢查。
+- 允許他 SSH 登入 VM → 加入他的 SSH 公鑰。
+`
     },
     {
         "topic": "#1",
