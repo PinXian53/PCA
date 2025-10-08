@@ -3170,7 +3170,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題考察大量資料從地端傳輸到 GCP 的最佳實務，重點在於選擇適合的傳輸方式。
+
+### 題目重點
+- 歷史資料：900 TB (.csv 檔案)
+- 每日新增：10 TB 資料
+- 現有頻寬：100 MB 網路連線
+- 需求：地端應用 + GCP 資料分析
+
+### 知識點
+- **Transfer Appliance**：適合 TB 等級一次性大量資料傳輸
+- **Dedicated Interconnect/Direct Peering**：提供穩定高效的持續資料傳輸
+- **Cloud VPN**：成本較低但效能有限，不適合大量資料傳輸
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 僅用 gsutil -m | ❌ 100MB 頻寬無法有效處理 900TB + 每日 10TB |
+| **B Transfer Appliance + Dedicated Interconnect** | ✅ 最佳解法：大量資料用實體設備，日常用專線 |
+| C Transfer Appliance + VPN + gsutil | ❌ VPN 效能不足處理每日 10TB |
+| D Transfer Appliance + VPN | ❌ 同上，VPN 不適合大量傳輸 |
+`
     },
     {
         "topic": "#1",
@@ -3193,7 +3215,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題考察如何確保資料串流的 FIFO 順序與 exactly-once delivery，重點是選擇正確的訊息處理架構。
+
+### 題目重點
+- 全球規模前端對接舊有 API
+- 需要嚴格時序 (chronological order)
+- 不能重複資料 (no repeat data)
+- 要求 FIFO + exactly-once delivery
+
+### 知識點
+- **Cloud Pub/Sub**：提供 at-least-once delivery，但無法保證順序
+- **Cloud Dataflow**：可處理重複資料並保證順序，支援 exactly-once processing
+- 單純 Pub/Sub 無法滿足 FIFO 與 exactly-once 需求
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 僅用 Cloud Pub/Sub | ❌ 無法保證 FIFO 順序與 exactly-once delivery |
+| **B Cloud Pub/Sub + Cloud Dataflow** | ✅ Dataflow 可處理去重與順序保證 |
+| C Cloud Pub/Sub + Stackdriver | ❌ Stackdriver 是監控工具，無法處理資料順序 |
+| D Cloud Pub/Sub + Cloud SQL | ❌ 資料庫無法處理串流資料的順序問題 |
+`
     },
     {
         "topic": "#1",
@@ -3216,7 +3260,28 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+這題考察 VMware 環境 lift & shift 遷移到 GCE 的最佳實務，重點在於使用官方工具與標準流程。
+
+### 題目重點
+- 地端 VMware RHEL 6.5+ VM
+- Lift & shift 遷移至 Compute Engine
+- 需遵循 Google 建議做法
+
+### 知識點
+- **Migrate for Compute Engine**：Google 官方遷移工具，支援 VMware 環境
+- **Assessment + Planning**：遷移前必須先盤點與規劃
+- **RunBook**：標準化遷移程序，確保一致性與可重複性
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 直接個別遷移 | ❌ 缺少評估階段，未遵循最佳實務 |
+| B 手動建立映像檔 | ❌ 非官方建議，容易出錯且複雜 |
+| **C Assessment + Migrate for CE + RunBook** | ✅ 完整遵循 Google 官方遷移最佳實務 |
+| D 使用第三方工具 | ❌ 非 Google 建議做法 |
+`
     },
     {
         "topic": "#1",
@@ -3239,7 +3304,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察無法水平擴展且需檔案系統獨佔控制的應用架構設計，重點在於避免並發存取導致資料損毀。
+
+### 題目重點
+- TCP 流量，檔案系統存取
+- 不支援水平擴展
+- 需完全控制檔案系統（防並發損毀）
+- 可接受故障停機，但需 24/7 可用
+
+### 知識點
+- **Active-Standby 架構**：適合無法並發的應用
+- **Regional Persistent Disk**：跨區共享，適合 failover
+- **Network Load Balancer**：支援 TCP，適合此情境
+- **Unmanaged Instance Group**：手動控制實例，適合主備架構
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A/B Managed Instance Group | ❌ 受管群組會自動擴展，造成並發存取 |
+| C Active-Standby + HTTP LB | ❌ HTTP LB 不適合 TCP 應用 |
+| **D Active-Standby + Network LB** | ✅ TCP 支援 + 避免並發 + 跨區容錯 |
+`
     },
     {
         "topic": "#1",
@@ -3262,7 +3349,30 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察地端與 GCP 間高頻寬低延遲連線需求，重點是選擇適合的網路連線方案。
+
+### 題目重點
+- GCE 與地端服務通訊
+- 需高頻寬 (high throughput)
+- 使用內部 IP
+- 最小化延遲
+
+### 知識點
+- **Dedicated Interconnect**：專線連接，提供最高頻寬與最低延遲
+- **Direct Peering**：適合 Google 服務，不適合 GCE 內部 IP
+- **Cloud VPN**：透過公網，頻寬與延遲有限
+- **OpenVPN**：第三方解決方案，非 Google 官方建議
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A OpenVPN | ❌ 非官方解決方案，效能不佳 |
+| B Direct Peering | ❌ 適用於 Google 服務，不支援 GCE 內部 IP |
+| C Cloud VPN | ❌ 透過公網，頻寬延遲不符需求 |
+| **D Dedicated Interconnect** | ✅ 專線連接，最高頻寬最低延遲，支援內部 IP |
+`
     },
     {
         "topic": "#1",
@@ -3285,7 +3395,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+這題考察 Cloud Run 的流量分割部署策略，重點是利用內建功能實現 Canary deployment。
+
+### 題目重點
+- Cloud Run for Anthos 應用
+- 新版本部署策略
+- 用部分生產流量驗證
+- Canary deployment 需求
+
+### 知識點
+- **Cloud Run Revisions**：每次部署產生新修訂版本
+- **Traffic Splitting**：Cloud Run 內建流量分割功能
+- **Canary Deployment**：逐步推出新版本的部署策略
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Revision + Traffic Percentage** | ✅ Cloud Run 內建功能，簡單有效的 Canary deployment |
+| B 新服務 + Load Balancer | ❌ 過度複雜，非最佳實務 |
+| C Cloud Build + TRAFFIC_PERCENTAGE | ❌ 複雜化了簡單需求 |
+| D Traffic Director | ❌ 不適用於 Cloud Run，過度設計 |
+`
     },
     {
         "topic": "#1",
