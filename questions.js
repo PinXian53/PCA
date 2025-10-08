@@ -9188,7 +9188,29 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         ],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 連網車輛預測性維護，利用原始資料預測重大故障，分析師需集中查詢車輛資料。
+
+### 知識點
+- **Predictive Maintenance Architecture**：預測性維護架構
+- **IoT Data Analytics Pipeline**：IoT 資料分析管道
+- **Real-time Data Streaming**：即時資料串流
+- **Connected Vehicle Telemetry**：連網車輛遙測
+
+### 選項分析
+根據 TerramEarth 案例需求分析：
+
+| 需求 | 架構考量 |
+|------|---------|
+| 即時資料收集 | Pub/Sub 用於資料串流 |
+| 大規模資料存儲 | BigQuery 用於分析倉庫 |
+| 機器學習預測 | Cloud ML 用於故障預測 |
+| 分析師查詢 | BigQuery 提供 SQL 介面 |
+
+**選擇圖片 1** - 完整的車輛遙測資料架構，支援即時串流、大數據分析與機器學習預測。
+`
     },
     {
         "topic": "#8",
@@ -9213,7 +9235,26 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 開發團隊建立 API，專注業務價值而非自訂框架，符合公司業務需求。
+
+### 知識點
+- **Serverless API Development**：無伺服器 API 開發
+- **Google Cloud Endpoints**：Google 雲端端點
+- **API Management Best Practices**：API 管理最佳實務
+- **Business-Focused Development**：業務導向開發
+
+### 選項分析
+| 選項 | 平台 | 框架 | 對象 | 分析 |
+|------|------|------|------|------|
+| **A** | **App Engine** | **Cloud Endpoints** | **B2B** | ✅ 無伺服器 + 原生 API 管理 |
+| B | App Engine | JAX-RS Jersey | 對外 | ❌ 自訂框架，增加複雜度 |
+| C | App Engine | Swagger | 對外 | ❌ 第三方框架 |
+| D | Container Engine | Django | 對外 | ❌ 需管理容器基礎設施 |
+| E | Container Engine | Tomcat+Swagger | B2B | ❌ 複雜架構，非專注業務 |
+`
     },
     {
         "topic": "#8",
@@ -9236,7 +9277,25 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 車輛資料 API，支援第三方開發經銷商工具，需委託授權機制。
+
+### 知識點
+- **OAuth 2.0 Delegated Authorization**：OAuth 2.0 委託授權
+- **Third-Party API Integration**：第三方 API 整合
+- **Secure API Access Control**：安全 API 存取控制
+- **Automotive Data Ecosystem**：汽車資料生態系統
+
+### 選項分析
+| 選項 | 授權方式 | 分析 |
+|------|----------|------|
+| **A OAuth 存取控制** | ✅ 標準委託授權協議 | 支援第三方代表經銷商存取 |
+| B SAML 2.0 SSO | ❌ 企業內部單一登入 | 非 API 委託授權標準 |
+| C IP 位址限制 | ❌ 靜態安全控制 | 無法支援動態委託授權 |
+| D 次要憑證 | ❌ 憑證管理複雜 | 非標準委託授權方式 |
+`
     },
     {
         "topic": "#8",
@@ -9259,7 +9318,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 大規模車輛資料匯入設計，2,000 萬車輛每秒 2,000 萬筆紀錄，每小時 40TB 資料量。
+
+### 知識點
+- **High-Volume Data Ingestion**：大量資料匯入
+- **Real-time Streaming Architecture**：即時串流架構
+- **Pub/Sub Scalability**：Pub/Sub 擴展性
+- **IoT Data Pipeline Design**：IoT 資料管道設計
+
+### 選項分析
+| 選項 | 方式 | 分析 |
+|------|------|------|
+| A 直接寫入 GCS | ❌ 非即時串流，缺乏緩衝機制 |
+| **B 直接寫入 Pub/Sub** | ✅ 專為大規模即時串流設計 |
+| C 直接串流到 BigQuery | ❌ BigQuery 非即時匯入端點 |
+| D 繼續用 FTP | ❌ 批次處理，無法處理即時大量資料 |
+
+**Pub/Sub 優勢**：全域分散、自動擴展、at-least-once 保證、支援每秒數億訊息。
+`
     },
     {
         "topic": "#8",
@@ -9282,7 +9361,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 減少停機時間，專注縮短 3 週彙總報告時間，改善零件供應流程。
+
+### 知識點
+- **Real-time Analytics Pipeline**：即時分析管道
+- **Predictive Maintenance Optimization**：預測性維護優化
+- **Data Processing Acceleration**：資料處理加速
+- **Supply Chain Efficiency**：供應鏈效率
+
+### 選項分析
+| 選項 | 傳輸 | 格式 | 分析 | 其他 | 評估 |
+|------|------|------|------|------|------|
+| A | FTP→SFTP | CSV→二進位 | 機器學習 | - | ❌ 仍為批次傳輸 |
+| **B** | **FTP→串流** | **CSV→二進位** | **機器學習** | - | ✅ 即時串流最大化報告速度 |
+| C | FTP→串流 | - | 機器學習 | 提升連線率 | ❌ 連線率非關鍵瓶頸 |
+| D | FTP→SFTP | - | 機器學習 | 增加庫存 | ❌ 批次傳輸無法達到即時分析 |
+
+**關鍵改進**：串流傳輸實現即時資料處理，大幅縮短報告時間。
+`
     },
     {
         "topic": "#8",
@@ -9305,7 +9404,28 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 擴大採用 Google Cloud Platform，對傳統企業流程造成的重大改變。
+
+### 知識點
+- **Cloud Migration Impact**：雲端遷移影響
+- **Enterprise Process Transformation**：企業流程轉型
+- **Financial Model Changes**：財務模式變化
+- **Operational Paradigm Shift**：營運典範轉移
+
+### 選項分析
+| 流程類別 | 雲端前 | 雲端後 | 變化程度 |
+|----------|---------|---------|----------|
+| **容量規劃** | 硬體採購預測 | 按需彈性擴展 | 🔴 重大改變 |
+| **TCO 計算** | 硬體+維護成本 | 服務使用計費 | 🔴 重大改變 |
+| **營運/資本支出** | 資本支出為主 | 營運支出為主 | 🔴 重大改變 |
+| LAN 變更 | 內部網路管理 | 雲端網路服務 | 🟡 中度變化 |
+| 資料中心擴建 | 實體硬體擴展 | 雲端服務擴展 | 🟡 減少需求 |
+
+**選項 B** 包含三個核心財務與容量管理流程的根本性轉變。
+`
     },
     {
         "topic": "#8",
@@ -9328,7 +9448,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 車輛行動連線資料傳輸，替代易出錯的 FTP，提升可靠性並減少傳輸時間。
+
+### 知識點
+- **Reliable File Transfer**：可靠檔案傳輸
+- **HTTP(S) vs FTP Protocol**：HTTP(S) 與 FTP 協議比較
+- **Multi-Regional Storage Strategy**：多區域儲存策略
+- **Mobile Network Optimization**：行動網路優化
+
+### 選項分析
+| 選項 | 傳輸方式 | 儲存 | 優劣分析 |
+|------|----------|------|----------|
+| A | FTP 叢集 | Multi-Regional | ❌ 仍用易錯的 FTP 協議 |
+| B | 多區 FTP | Multi-Regional | ❌ FTP 協議問題未解決 |
+| **C** | **Google API (HTTP(S))** | **Multi-Regional** | ✅ 可靠協議 + 斷點續傳 |
+| D | Google API | Regional | ❌ ETL 需跨區處理複雜 |
+
+**關鍵優勢**：Google API 支援斷點續傳，Multi-Regional 提供全球最佳存取性能。
+`
     },
     {
         "topic": "#8",
@@ -9351,7 +9491,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 全球分散遙測資料分析，車輛 10 萬英里故障原因調查，成本效益優化。
+
+### 知識點
+- **Global Data Analytics Optimization**：全球資料分析優化
+- **Data Preprocessing Strategy**：資料預處理策略
+- **Network Transfer Cost Management**：網路傳輸成本管理
+- **Distributed Computing Economics**：分散式運算經濟學
+
+### 選項分析
+| 選項 | 策略 | 網路成本 | 運算效率 | 總成本 |
+|------|------|----------|----------|--------|
+| A | 集中一個 zone | 🔴 極高跨區傳輸 | 🟡 中等 | 🔴 高 |
+| B | 集中一個 region | 🔴 高跨區傳輸 | 🟡 中等 | 🔴 高 |
+| C | 分散預處理→多區 | 🟡 中等傳輸 | 🟢 高效 | 🟡 中等 |
+| **D** | **分散預處理→單區** | 🟢 最低傳輸 | 🟢 高效 | ✅ 最低 |
+
+**成本優化關鍵**：就地預處理減少資料量，單區最終處理降低網路成本。
+`
     },
     {
         "topic": "#8",
@@ -9374,7 +9534,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 卡車遙測資料儲存，明年用於機器學習訓練，雲端儲存成本優化。
+
+### 知識點
+- **Long-term Data Storage Strategy**：長期資料儲存策略
+- **Machine Learning Data Preparation**：機器學習資料準備
+- **Cloud Storage Cost Optimization**：雲端儲存成本優化
+- **IoT Data Lifecycle Management**：IoT 資料生命週期管理
+
+### 選項分析
+| 選項 | 處理方式 | 儲存類別 | 成本評估 | 適用性 |
+|------|----------|----------|----------|--------|
+| A | 車載壓縮 | Nearline (30天) | 🟡 中等成本 | ❌ 非長期儲存 |
+| B | 串流處理 | BigQuery | 🔴 高成本 | ❌ 非原始資料儲存 |
+| C | 串流處理 | Bigtable | 🔴 高成本 | ❌ 即時資料庫非歷史儲存 |
+| **D** | **車載壓縮** | **Coldline (90天)** | ✅ 最低成本 | ✅ 適合 ML 訓練資料 |
+
+**最佳策略**：車載壓縮減少傳輸成本，Coldline 提供最經濟的長期儲存。
+`
     },
     {
         "topic": "#8",
@@ -9402,7 +9582,29 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "answers": [
             "A",
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 全自動車輛安全架構設計，車輛運作期間的強化安全防護。
+
+### 知識點
+- **Autonomous Vehicle Security**：自動車輛安全
+- **Zero Trust Architecture**：零信任架構
+- **Trusted Platform Module (TPM)**：可信平台模組
+- **Secure Boot Process**：安全開機流程
+
+### 選項分析
+| 選項 | 安全機制 | 有效性 | 分析 |
+|------|----------|--------|------|
+| **A 零信任微服務** | 內部通訊驗證 | ✅ 高 | 防止內部攻擊擴散 |
+| B IPv6 需求 | 位址空間保護 | ❌ 低 | IPv6 本身非安全機制 |
+| **C TPM + 安全開機** | 韌體完整性驗證 | ✅ 高 | 防範根層級入侵 |
+| D 函數式語言 | 程式隔離 | ❌ 低 | 語言特性非安全架構 |
+| E 連線備援 | 可用性保護 | ❌ 中 | 可用性非安全性 |
+| F 法拉第籠 | 物理電磁隔離 | ❌ 低 | 過度工程，不實用 |
+
+**最佳組合 A+C**：軟體零信任 + 硬體信任根基，提供端到端安全保護。
+`
     },
     {
         "topic": "#8",
@@ -9425,7 +9627,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 2,000 萬輛車（含未連網車輛）運作效率優化，環境適應性參數調整。
+
+### 知識點
+- **Edge Computing for Offline Vehicles**：離線車輛邊緣運算
+- **Distributed Machine Learning Inference**：分散式機器學習推論
+- **Operational Parameter Optimization**：運作參數優化
+- **Hybrid Connected/Disconnected Architecture**：混合連網/離線架構
+
+### 選項分析
+| 選項 | 方法 | 部署位置 | 支援離線車輛 | 分析 |
+|------|------|----------|-------------|------|
+| A | 規則演算法 | 本地 | ✅ 支援 | ❌ 靜態規則，適應性差 |
+| **B** | **機器學習** | **本地** | ✅ **支援** | ✅ **智能且支援離線** |
+| C | 串流處理 | 雲端 | ❌ 需連網 | ❌ 未連網車輛無法使用 |
+| D | 機器學習 | 雲端 | ❌ 需連網 | ❌ 未連網車輛無法使用 |
+
+**關鍵考量**：未連網車輛需要本地運行的智能優化，只有本地部署的機器學習模型能滿足所有車輛。
+`
     },
     {
         "topic": "#9",
@@ -9448,7 +9670,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth GDPR 合規，歐洲客戶個資 36 個月後自動刪除，資料存於 Cloud Storage 與 BigQuery。
+
+### 知識點
+- **GDPR Data Retention Compliance**：GDPR 資料保留合規
+- **Automated Data Lifecycle Management**：自動化資料生命週期管理
+- **BigQuery Time-Partitioned Tables**：BigQuery 時間分區表
+- **Cloud Storage Lifecycle Rules**：Cloud Storage 生命週期規則
+
+### 選項分析
+| 選項 | BigQuery 設計 | Cloud Storage 動作 | 分析 |
+|------|----------------|-------------------|------|
+| A | 一般表 + 保留期 | DELETE | ❌ 一般表無細粒度控制 |
+| B | 一般表 + 保留期 | SetStorageClass NONE | ❌ NONE 非有效儲存類別 |
+| **C** | **分區表 + 分區過期** | **DELETE** | ✅ **精確時間控制 + 真實刪除** |
+| D | 分區表 + 分區過期 | SetStorageClass NONE | ❌ NONE 非有效儲存類別 |
+
+**關鍵優勢**：時間分區表提供按日精確的資料過期控制，完全符合 GDPR 要求。
+`
     },
     {
         "topic": "#9",
@@ -9471,7 +9713,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth Cloud Storage 生命週期規則配置，一年資料保存並降低儲存成本。
+
+### 知識點
+- **Cloud Storage Lifecycle Management**：Cloud Storage 生命週期管理
+- **Storage Class Cost Optimization**：儲存類別成本優化
+- **Data Retention Policy**：資料保留政策
+- **Automated Storage Tiering**：自動儲存分層
+
+### 選項分析
+| 選項 | 30天動作 | 90+天動作 | 365天動作 | 成本效益 | 邏輯性 |
+|------|----------|-----------|-----------|----------|--------|
+| **A** | **轉 Coldline** | - | **刪除** | ✅ **最優** | ✅ **合理** |
+| B | 轉 Coldline | 轉 Nearline | - | ❌ 成本上升 | ❌ 邏輯錯誤 |
+| C | - | 轉 Nearline→Coldline | - | 🟡 中等 | ❌ 時間衝突 |
+| D | 轉 Coldline | - | Nearline刪除 | ❌ 混亂邏輯 | ❌ 邏輯錯誤 |
+
+**最佳策略**：Standard→Coldline（30天）→DELETE（365天），最大化成本節省。
+`
     },
     {
         "topic": "#9",
@@ -9494,7 +9756,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 可靠且可擴展的 GCP 數據倉儲解決方案，滿足業務與技術需求。
+
+### 知識點
+- **Serverless Data Warehouse**：無伺服器數據倉儲
+- **BigQuery Scalability**：BigQuery 擴展性
+- **Table Partitioning Strategy**：分區表策略
+- **Managed vs Self-Managed Infrastructure**：託管與自管基礎設施
+
+### 選項分析
+| 選項 | 平台 | 技術特性 | 可靠性 | 擴展性 | 維護負擔 |
+|------|------|----------|--------|--------|----------|
+| **A** | **BigQuery** | **分區表** | ✅ **高** | ✅ **自動** | ✅ **零維護** |
+| B | Compute Engine | 96核心 | 🟡 中等 | ❌ 手動 | 🔴 高維護 |
+| C | BigQuery | 聯邦資料源 | 🟡 中等 | 🟡 中等 | 🟡 中等複雜度 |
+| D | Compute Engine | 混合配置 | 🟡 中等 | 🟡 手動 | 🔴 高維護 |
+
+**BigQuery + 分區表**：完全託管、無限擴展、高效查詢、零維護成本。
+`
     },
     {
         "topic": "#9",
@@ -9517,7 +9799,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth BigQuery 資料品質自動化清理，每日定期處理並控制成本。
+
+### 知識點
+- **Data Quality Management**：資料品質管理
+- **Automated Data Cleaning**：自動化資料清理
+- **Cost-Effective Data Processing**：成本效益資料處理
+- **Serverless Data Preparation**：無伺服器資料準備
+
+### 選項分析
+| 選項 | 技術方案 | 自動化程度 | 成本效益 | 維護複雜度 |
+|------|----------|------------|----------|------------|
+| A | Dataflow 串流 | 🟡 即時處理 | 🔴 高成本 | 🟡 中等 |
+| B | Function + CE | 🟡 排程觸發 | 🔴 基礎設施成本 | 🔴 複雜架構 |
+| C | SQL view + 排程 | 🟡 每日執行 | 🟢 低成本 | 🟡 需自建排程 |
+| **D** | **Cloud Dataprep** | ✅ **內建排程** | ✅ **按需付費** | ✅ **低維護** |
+
+**Cloud Dataprep 優勢**：無伺服器、視覺化清理規則、內建排程、成本效益高。
+`
     },
     {
         "topic": "#9",
@@ -9540,7 +9842,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 在 GCP 上減少車輛非預期停機，即時資料分析與預測性維護。
+
+### 知識點
+- **Predictive Maintenance Platform**：預測性維護平台
+- **Real-time Data Analytics**：即時資料分析
+- **IoT Data Streaming Pipeline**：IoT 資料串流管道
+- **Unplanned Downtime Prevention**：非預期停機預防
+
+### 選項分析
+| 選項 | 資料庫 | 匯入方式 | 分析工具 | 即時性 | 預測能力 |
+|------|--------|----------|----------|--------|----------|
+| **A** | **BigQuery** | **Pub/Sub+Dataflow** | **Data Studio** | ✅ **即時** | ✅ **高** |
+| B | BigQuery | 批次 gzip 上傳 | Data Studio | ❌ 延遲 | 🟡 中等 |
+| C | Hive+BigQuery | 混合批次流程 | Data Studio | ❌ 延遲 | 🟡 中等 |
+| D | Hive | 串流到 Hive | Pig 腳本 | 🟡 中等 | ❌ 基礎分析 |
+
+**最佳方案**：即時串流架構實現快速故障預測，Data Studio 提供視覺化預警。
+`
     },
     {
         "topic": "#9",
@@ -9563,7 +9885,27 @@ Mountkirk Games 手機遊戲 App 測試，多種 Android/iOS 裝置配置，高�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建議做法。
+
+### 知識點
+- **IoT Device Management**：IoT 裝置管理
+- **Secure Device Authentication**：安全裝置認證
+- **Scalable IoT Data Ingestion**：可擴展 IoT 資料匯入
+- **Google Cloud IoT Best Practices**：Google 雲端 IoT 最佳實務
+
+### 選項分析
+| 選項 | 平台 | 認證方式 | IoT 適用性 | Google 建議 |
+|------|------|----------|------------|-------------|
+| A | GKE | SSL | 🟡 通用方案 | ❌ 非 IoT 專用 |
+| **B** | **Cloud IoT Core** | **公私鑰** | ✅ **IoT 專用** | ✅ **官方建議** |
+| C | Compute Engine | 專案 SSH | ❌ 不適合 IoT | ❌ 安全性不足 |
+| D | Compute Engine | 專屬 SSH | ❌ 不適合 IoT | ❌ 管理複雜 |
+
+**Cloud IoT Core 優勢**：專為 IoT 設計、內建裝置管理、端到端加密、自動擴展。
+`
     },
     {
         "topic": "#10",
