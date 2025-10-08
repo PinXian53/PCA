@@ -7515,7 +7515,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+JencoMart 需要最小權限模型和職責分離的 Google 網域與專案結構建議。
+
+### 知識點
+- **Least Privilege Model**：最小權限原則
+- **Separation of Duties**：職責分離
+- **Google Workspace Organization**：Google 工作區組織架構
+- **Project Structure Best Practices**：專案結構最佳實務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 雙帳戶每應用一專案 | ❌ 管理複雜且帳戶分離過度 |
+| B 雙帳戶單一專案 | ❌ 單專案無法細分權限 |
+| **C 單帳戶應用階段分專案** | ✅ 平衡安全與管理便利性 |
+| D 單帳戶環境分專案 | ❌ 跨應用權限邊界不清 |
+`
     },
     {
         "topic": "#2",
@@ -7542,7 +7560,27 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "C", "D", "F"
-        ]
+        ],
+        "note": `
+### 題目重點
+資料庫 VM 無法 SSH 但仍正常服務應用，需要診斷網路連接問題的三個步驟。
+
+### 知識點
+- **SSH Connectivity Troubleshooting**：SSH 連接故障排查
+- **Firewall Rules Investigation**：防火牆規則檢查
+- **Serial Console Access**：串列控制台存取
+- **Disk Snapshot Analysis**：磁碟快照分析
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 刪除 VM 和磁碟 | ❌ 破壞性操作遺失資料 |
+| B 刪除實例掛磁碟 | ❌ 不必要的破壞性操作 |
+| **C 磁碟快照調查** | ✅ 安全的離線分析方法 |
+| **D 檢查防火牆規則** | ✅ SSH 連接常見問題 |
+| E 更換網路調查 | ❌ 影響生產服務 |
+| **F Serial Console 調查** | ✅ 繞過 SSH 的診斷方法 |
+`
     },
     {
         "topic": "#2",
@@ -7563,7 +7601,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
             "D": "在 GCE/Google Kubernetes Engine（GKE）上部署自訂驗證服務供本地基礎設施使用，並為 VM 使用 GCP 管理的金鑰"
         },
         "images": [],
-        "answers": ["C"]
+        "answers": ["C"],
+        "note": `
+### 題目重點
+遷移期間本地基礎設施需存取 Datastore，需要安全的服務帳戶金鑰管理策略。
+
+### 知識點
+- **Service Account Key Management**：服務帳戶金鑰管理
+- **GCP Managed Keys**：GCP 管理金鑰
+- **Hybrid Authentication Strategy**：混合驗證策略
+- **Migration Security Best Practices**：遷移安全最佳實務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 本地和 VM 都用金鑰 | ❌ VM 不需手動金鑰管理 |
+| B 本地用戶帳戶 VM 金鑰 | ❌ 用戶帳戶不適合自動化 |
+| **C 本地金鑰 VM 用 GCP 管理** | ✅ 混合策略最佳平衡 |
+| D 自訂驗證服務 | ❌ 過度複雜不必要 |
+`
     },
     {
         "topic": "#2",
@@ -7586,7 +7642,26 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
             "E": "資料庫中存在的字元集數量"
         },
         "images": [],
-        "answers": ["C"]
+        "answers": ["C"],
+        "note": `
+### 題目重點
+亞洲應用服務成功指標，需要根據商業和技術目標選擇完整的監控指標。
+
+### 知識點
+- **Regional Performance Metrics**：區域效能指標
+- **Business Success Measurement**：商業成功指標
+- **Application Monitoring Strategy**：應用監控策略
+- **User Experience Tracking**：用戶體驗追蹤
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 僅錯誤率 | ❌ 指標不完整 |
+| B 美亞延遲差異 | ❌ 非核心成功指標 |
+| **C 總訪問+錯誤率+延遲** | ✅ 完整的核心指標組合 |
+| D 總訪問+平均延遲 | ❌ 缺少錯誤率指標 |
+| E 資料庫字元集 | ❌ 與成功衡量無關 |
+`
     },
     {
         "topic": "#2",
@@ -7611,7 +7686,27 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
             "F": "本地基礎設施和 GCP 之間複雜的網路連接"
         },
         "images": ["images/T2N5.png"],
-        "answers": ["A", "C", "F"]
+        "answers": ["A", "C", "F"],
+        "note": `
+### 題目重點
+GCP 遷移進度太慢，需識別最大化吞吐量的三個潛在瓶頸。
+
+### 知識點
+- **VPN Tunnel Limitations**：VPN 隧道限制
+- **Data Transfer Optimization**：資料傳輸最佳化
+- **Network Connectivity Bottlenecks**：網路連接瓶頸
+- **Migration Performance Tuning**：遷移效能調優
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 單一 VPN 隧道限制** | ✅ 頻寬瓶頸常見問題 |
+| B Storage 層級不當 | ❌ 通常不是主要瓶頸 |
+| **C 長距離複製指令** | ✅ 網路延遲影響傳輸 |
+| D GCP VM 數量較少 | ❌ 可透過擴展解決 |
+| E 外部儲存層 | ❌ 非主要瓶頸 |
+| **F 複雜網路連接** | ✅ 連接複雜度影響效能 |
+`
     },
     {
         "topic": "#2",
@@ -7632,7 +7727,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
             "D": "Google Cloud Datastore"
         },
         "images": [],
-        "answers": ["D"]
+        "answers": ["D"],
+        "note": `
+### 題目重點
+JencoMart 用戶個人檔案資料庫遷移到 GCP，需要選擇適當的 Google 資料庫服務。
+
+### 知識點
+- **User Profile Storage Requirements**：用戶檔案儲存需求
+- **NoSQL vs SQL Database Selection**：NoSQL 與 SQL 資料庫選擇
+- **Google Database Services Comparison**：Google 資料庫服務比較
+- **Scalable User Data Storage**：可擴展用戶資料儲存
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Cloud Spanner | ❌ 全球一致性需求過高 |
+| B BigQuery | ❌ 分析型資料庫非交易型 |
+| C Cloud SQL | ❌ 關聯式資料庫擴展限制 |
+| **D Cloud Datastore** | ✅ NoSQL 適合用戶檔案儲存 |
+`
     },
     {
         "topic": "#3",
@@ -7655,7 +7768,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 信用卡代幣化服務，需低延遲低成本、去重、不存明文、支援金鑰輪換的儲存方案。
+
+### 知識點
+- **Deterministic Encryption**：決定性加密
+- **Card Tokenization Service**：卡號代幣化服務
+- **Duplicate Detection with Encryption**：加密環境下的去重
+- **PCI DSS Compliance**：PCI DSS 合規要求
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Secret Manager 存卡資料 | ❌ 非用於大量資料儲存 |
+| **B Firestore 決定性加密** | ✅ 去重+不存明文+可擴展 |
+| C Memorystore 分片 | ❌ 記憶體儲存成本高 |
+| D Cloud SQL 欄位加密 | ❌ 擴展性限制 |
+`
     },
     {
         "topic": "#3",
@@ -7683,7 +7814,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         ],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 與 Fastly CDN 合作，需讓 Fastly IP 範圍通過 HTTP(S) 負載平衡器，圖片顯示 gcloud 指令選項。
+
+### 知識點
+- **Cloud Armor Security Policies**：雲端盔甲安全政策
+- **External HTTP(S) Load Balancer Security**：外部 HTTP(S) 負載平衡器安全
+- **CDN Integration with GCP**：CDN 與 GCP 整合
+- **IP Address Range Management**：IP 位址範圍管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 圖 1 | ❌ 指令格式或參數錯誤 |
+| B 圖 2 | ❌ 指令格式或參數錯誤 |
+| C 圖 3 | ❌ 指令格式或參數錯誤 |
+| **D 圖 4** | ✅ 正確的 Cloud Armor 配置指令 |
+`
     },
     {
         "topic": "#3",
@@ -7706,7 +7855,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+題目改版，用敘述選項而非指令，讓 Fastly IP 通過負載平衡器的安全政策設定。
+
+### 知識點
+- **Cloud Armor vs Firewall Rules**：雲端盔甲與防火牆規則差異
+- **Application-level Security**：應用層級安全
+- **Load Balancer Security Integration**：負載平衡器安全整合
+- **CDN Whitelist Management**：CDN 白名單管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Cloud Armor IP 範圍政策** | ✅ HTTP(S) LB 應用層安全 |
+| B Cloud Armor IP 清單政策 | ❌ 範圍比清單更適合 |
+| C 防火牆規則 IP 清單 | ❌ 網路層非應用層 |
+| D 防火牆規則 IP 範圍 | ❌ 網路層非應用層 |
+`
     },
     {
         "topic": "#3",
@@ -7729,7 +7896,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 每週二 3am UTC 發版，資安團隊要自動觸發滲透測試 Cloud Function Airwolf。
+
+### 知識點
+- **Event-Driven Architecture**：事件驅動架構
+- **Pub/Sub Messaging**：發布/訂閱訊息
+- **CI/CD Pipeline Integration**：CI/CD 管道整合
+- **Automated Security Testing**：自動化安全測試
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Cloud Tasks + Storage | ❌ 複雜且非事件驅動 |
+| B Logging sink + Storage | ❌ 間接且可能遺漏 |
+| **C 部署通知 Pub/Sub** | ✅ 直接事件驅動最可靠 |
+| D IAM + Confidential Computing | ❌ 與觸發機制無關 |
+`
     },
     {
         "topic": "#3",
@@ -7752,7 +7937,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 要提升 ML 預測模型準確度，並使用 AI Platform 理解與解釋預測結果。
+
+### 知識點
+- **Explainable AI (XAI)**：可解釋人工智慧
+- **Model Interpretability**：模型可解釋性
+- **AI Platform Services**：AI 平台服務
+- **ML Model Understanding**：機器學習模型理解
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Explainable AI** | ✅ 專門用於解釋預測結果 |
+| B Vision AI | ❌ 電腦視覺非預測解釋 |
+| C Operations suite | ❌ 營運監控非模型解釋 |
+| D Jupyter Notebooks | ❌ 開發環境非解釋服務 |
+`
     },
     {
         "topic": "#3",
@@ -7775,7 +7978,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 賽事資料（遙測）需成本效益儲存，保留歷史記錄，僅用前季資料訓練，規劃資料成長。
+
+### 知識點
+- **BigQuery for Analytics**：BigQuery 分析用途
+- **Data Partitioning Strategy**：資料分割策略
+- **Cost-effective Storage**：成本效益儲存
+- **Historical Data Management**：歷史資料管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Firestore 文件型 | ❌ 非大型分析資料最佳選擇 |
+| B Cloud Spanner 分割 | ❌ 交易型非分析型需求 |
+| **C BigQuery 分季分割** | ✅ 分析型且成本效益佳 |
+| D Cloud SQL 分實例 | ❌ 管理複雜且成本高 |
+`
     },
     {
         "topic": "#3",
@@ -7798,7 +8019,25 @@ API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭屍機器，需快速找出閒置 VM。
+
+### 知識點
+- **Google Cloud Recommender**：Google 雲端建議器
+- **Resource Optimization**：資源最佳化
+- **Idle Resource Detection**：閒置資源偵測
+- **Cost Management**：成本管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 登入收集統計資料 | ❌ 手動且耗時不實用 |
+| B gcloud list idle 標籤 | ❌ 標籤需手動設定 |
+| **C gcloud recommender** | ✅ 自動分析閒置資源 |
+| D Console 健康檢查 | ❌ 僅限受管群組 |
+`
     },
     {
         "topic": "#4",
