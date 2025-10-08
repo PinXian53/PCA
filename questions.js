@@ -8063,7 +8063,26 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "answers": [
             "A",
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR Healthcare 隱私合規稽核，需要選擇兩項措施確保 GCP 使用合規。
+
+### 知識點
+- **Healthcare Compliance**：醫療健康合規
+- **Business Associate Agreement (BAA)**：商業夥伴協議
+- **HIPAA Compliance**：HIPAA 合規要求
+- **Google Cloud Compliance**：Google 雲端合規產品
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 核對合規產品** | ✅ 確保使用 HIPAA 合規服務 |
+| **B 簽署 BAA 協議** | ✅ HIPAA 必要法律要求 |
+| C Firebase Authentication | ❌ 非合規核心要求 |
+| D Prometheus 安全監控 | ❌ 監控非合規核心要求 |
+| E GKE 私有叢集 | ❌ 安全但非合規核心要求 |
+`
     },
     {
         "topic": "#4",
@@ -8087,7 +8106,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "answers": [
             "A",
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR 安全部署架構，僅允許經驗證的容器部署，需選擇兩項技術措施。
+
+### 知識點
+- **Binary Authorization**：二進位授權
+- **Container Image Signing**：容器映像簽署
+- **Vulnerability Scanning**：漏洞掃描
+- **CI/CD Security Pipeline**：CI/CD 安全管道
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Binary Authorization + 簽署** | ✅ 強制驗證容器完整性 |
+| B Jenkins + Kritis 簽署 | ❌ Binary Authorization 更直接 |
+| C 信任服務帳戶限制 | ❌ 權限控制非驗證機制 |
+| **D 漏洞掃描確認** | ✅ 部署前安全性驗證 |
+`
     },
     {
         "topic": "#4",
@@ -8110,7 +8147,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR 連線升級，支援關鍵業務並符合網路安全政策需求。
+
+### 知識點
+- **Dedicated Interconnect**：專用互連
+- **High Availability Connectivity**：高可用性連線
+- **Enterprise Network Requirements**：企業網路需求
+- **Bandwidth Scaling**：頻寬擴展
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 新增 Dedicated Interconnect** | ✅ 提供冗餘與高可用性 |
+| B 升級至 100G 頻寬 | ❌ 單點故障風險仍存在 |
+| C 新增三條 Cloud VPN | ❌ VPN 不適合關鍵業務 |
+| D 新增 Carrier Peering | ❌ 無私網連接保證 |
+`
     },
     {
         "topic": "#4",
@@ -8133,7 +8188,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR 混合連線架構，遵循 Google 生產環境建議，提供高可用性企業級連線。
+
+### 知識點
+- **Multi-Metro Redundancy**：多城市冗餘
+- **Dedicated Interconnect Best Practices**：專用互連最佳實務
+- **Enterprise High Availability**：企業高可用性
+- **Geographic Disaster Recovery**：地理災難恢復
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 同城市雙 Partner Interconnect | ❌ 地理單點故障風險 |
+| B 雙 VPN 連線 | ❌ 不符企業級需求 |
+| C Direct Peering 雙地點 | ❌ 無 SLA 保證 |
+| **D 雙城市各雙 Dedicated** | ✅ 最高冗餘與可用性 |
+`
     },
     {
         "topic": "#4",
@@ -8156,7 +8229,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR 客戶入口網站 Pub/Sub 延遲問題，應用有逾時錯誤但無發佈錯誤，需改善發佈延遲。
+
+### 知識點
+- **Pub/Sub Message Batching**：Pub/Sub 訊息批次處理
+- **Publishing Latency Optimization**：發佈延遲最佳化
+- **Real-time Message Processing**：即時訊息處理
+- **Application Performance Tuning**：應用效能調優
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 提高重試值 | ❌ 不解決延遲根因 |
+| B 改為推送模式 | ❌ 訂閱者模式非發佈延遲 |
+| **C 關閉訊息批次處理** | ✅ 減少批次等待時間 |
+| D 建立備用佇列 | ❌ 不解決延遲問題 |
+`
     },
     {
         "topic": "#4",
@@ -8179,7 +8270,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR 防止後端伺服器意外配置公網 IP，確保僅前端可配外部 IP。
+
+### 知識點
+- **Organization Policy Constraints**：組織政策約束
+- **External IP Address Control**：外部 IP 位址控制
+- **Network Security Governance**：網路安全治理
+- **Compute Engine Access Control**：Compute Engine 存取控制
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 組織政策約束外部 IP** | ✅ 系統性防護機制 |
+| B 撤銷 networkAdmin 角色 | ❌ 過度限制影響運作 |
+| C 組織 IAM 政策 | ❌ 範圍過大不精確 |
+| D 自訂 IAM 角色 | ❌ 無法防止後端配置 |
+`
     },
     {
         "topic": "#4",
@@ -8202,7 +8311,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+EHR GKE 網路架構設計，遵循 Google 最佳實務降低攻擊面。
+
+### 知識點
+- **GKE Private Clusters**：GKE 私有叢集
+- **Master Authorized Networks**：Master 授權網路
+- **Attack Surface Reduction**：攻擊面縮減
+- **Kubernetes Security Best Practices**：Kubernetes 安全最佳實務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 私有叢集+私有端點+授權網路** | ✅ 最大化安全性降低攻擊面 |
+| B 公開叢集+防火牆+路由 | ❌ 攻擊面仍然較大 |
+| C 私有叢集+公開端點+授權網路 | ❌ 公開端點有安全風險 |
+| D 公開叢集+授權網路+防火牆 | ❌ 公開叢集攻擊面大 |
+`
     },
     {
         "topic": "#5",
@@ -8225,7 +8352,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 新測試策略，測試覆蓋率應如何超越現有平台後端方法。
+
+### 知識點
+- **Cloud-Native Testing Strategy**：雲原生測試策略
+- **Scalable Testing Approach**：可擴展測試方法
+- **Testing Coverage Evolution**：測試覆蓋率演進
+- **Modern Testing Practices**：現代測試實務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 測試規模應遠超以往** | ✅ 雲端提供更大擴展能力 |
+| B 僅需端到端測試 | ❌ 單元測試仍然重要 |
+| C 產品上線後才測試 | ❌ 違反測試最佳實務 |
+| D 直接測試 GCP 基礎設施 | ❌ 應測試應用非基礎設施 |
+`
     },
     {
         "topic": "#5",
@@ -8248,7 +8393,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 新後端完整測試流程，測試環境需具經濟擴展性。
+
+### 知識點
+- **Scalable Testing Environment**：可擴展測試環境
+- **Production Load Simulation**：生產負載模擬
+- **Cost-Effective Testing**：成本效益測試
+- **Cloud-Native Testing Infrastructure**：雲原生測試基礎設施
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A GCP 可擴展環境模擬負載** | ✅ 彈性擴展且經濟效益 |
+| B 用現有基礎設施測試 | ❌ 可能不適合 GCP 後端 |
+| C 內建壓力測試各元件 | ❌ 複雜且資源浪費 |
+| D 靜態環境不同負載級別 | ❌ 缺乏彈性且成本高 |
+`
     },
     {
         "topic": "#5",
@@ -8271,7 +8434,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 持續交付流程，多小服務跨美歐部署，需快速更新回滾，單一前端 IP。
+
+### 知識點
+- **Microservices Deployment**：微服務部署
+- **Container Orchestration**：容器編排
+- **Multi-Region Deployment**：多區域部署
+- **Immutable Infrastructure**：不可變基礎設施
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Storage + Dataflow + CE | ❌ 非容器化微服務方案 |
+| B Storage + App Engine + NLB | ❌ App Engine 非容器原生 |
+| **C Registry + GKE + HTTP(S) LB** | ✅ 完整容器化微服務方案 |
+| D Functions + Pub/Sub + DM | ❌ 無狀態函數非微服務 |
+`
     },
     {
         "topic": "#5",
@@ -8294,7 +8475,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 遊戲伺服器自動擴展問題，新功能爆紅後 503 錯誤，需優先調查。
+
+### 知識點
+- **Auto Scaling Troubleshooting**：自動擴展故障排查
+- **GCP Quota Management**：GCP 配額管理
+- **Service Availability Issues**：服務可用性問題
+- **Performance Bottleneck Analysis**：效能瓶頸分析
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 確認資料庫在線 | ❌ 503 錯誤通常非資料庫問題 |
+| **B 確認專案配額** | ✅ 自動擴展失敗常見原因 |
+| C 確認新功能效能 | ❌ 程式碼問題不會阻止擴展 |
+| D 確認壓力測試 | ❌ 測試不會持續產生負載 |
+`
     },
     {
         "topic": "#5",
@@ -8317,7 +8516,25 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 環境隔離需求：開發測試互通、無法存取預備正式、預備可存取部分正式服務。
+
+### 知識點
+- **Environment Isolation Strategy**：環境隔離策略
+- **GCP Project Boundaries**：GCP 專案邊界
+- **Access Control Between Environments**：環境間存取控制
+- **Staging Production Integration**：預備與正式環境整合
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 開發測試+預備正式專案 | ❌ 預備正式混用不安全 |
+| B 網路層級隔離 | ❌ 無法提供足夠權限邊界 |
+| C 子網路隔離 | ❌ 同專案無法完全隔離 |
+| **D 三個獨立專案** | ✅ 最佳權限與資源隔離 |
+`
     },
     {
         "topic": "#5",
@@ -8342,7 +8559,26 @@ HRL 財務稽核發現大量 VM 做影片編碼轉檔，懷疑是未刪除的殭
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+Mountkirk Games 新遊戲即時分析平台，需符合技術需求的 Google 技術組合。
+
+### 知識點
+- **Real-time Analytics Architecture**：即時分析架構
+- **Stream Processing Pipeline**：串流處理管道
+- **Data Ingestion and Processing**：資料擷取與處理
+- **Analytics Data Storage**：分析資料儲存
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A GKE + Pub/Sub + Cloud SQL | ❌ 缺乏大數據分析能力 |
+| **B Dataflow + Storage + Pub/Sub + BigQuery** | ✅ 完整即時分析管道 |
+| C SQL + Storage + Pub/Sub + Dataflow | ❌ Cloud SQL 非大數據方案 |
+| D Dataproc + Pub/Sub + SQL + Dataflow | ❌ 重複處理且SQL不適合 |
+| E Pub/Sub + CE + Storage + Dataproc | ❌ 缺乏分析資料庫 |
+`
     },
     {
         "topic": "#6",
