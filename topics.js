@@ -8,27 +8,57 @@ const topics = [
     {
         "id": ["#2"],
         "name": "JencoMart",
-        "description": `
-### 1. 案例背景 / 業務情景
+        "description": `### Company overview
 
-從整理的第三方資料來看，JencoMart 的重點在於其用戶資料庫與應用系統遷移的過程與安全性控制：
+JencoMart is a major e-commerce retailer operating primarily in the Asia region. They provide an online marketplace platform for various products and services.
 
-JencoMart 計畫把 User Profiles (用戶個人資料) 移到 Google Cloud Datastore（或等價 NoSQL 資料庫），應用伺服器 (Application servers) 則要遷移至 Google Compute Engine (GCE) 
-在遷移過程中，舊有系統仍必須能訪問新的資料庫 (on-premises 與雲端共存) ，要確保最小權限 (least privilege)、分離職責 (separation of duties)，在 IAM 和金鑰管理上要謹慎設計 
+JencoMart 是一家主要在亞洲地區營運的大型電子商務零售商，他們提供各種產品和服務的線上市場平台。
 
-### 2. 核心議題 / 考慮事項
+### Solution concept
 
-- 金鑰管理 / 認證方式：如何讓 on-premise 系統與雲端 VM 安全地訪問 Datastore，而不暴露過度權限或長期金鑰？ 
-- 監控與成功指標 (Metrics / KPI)：在亞洲地區提供服務，需要監控延遲、錯誤率、使用者訪問量等指標來衡量系統效能 
-- 漸進遷移與混合運作：在遷移期可能要同時維持 on-premise 與雲端系統共存，需考慮網路連線、安全邊界、流量導向等策略
-- 資料一致性 / 延遲考量：對於用戶資料與資料存取可能要考慮一致性、延遲、讀寫頻率等因素
+JencoMart wants to migrate their user profile database to Google Cloud Datastore and migrate their application servers to Google Compute Engine to improve scalability and reduce operational overhead.
 
-### 3. 題目 / 練習題線索
+JencoMart 希望將他們的用戶個人資料資料庫遷移到 Google Cloud Datastore，並將應用伺服器遷移到 Google Compute Engine，以提高可擴展性並減少營運開銷。
 
-從練習題 / 題庫中可見：
-題目會要求選擇在雲端資料庫 (Datastore / Cloud SQL / Spanner) 的適當選項。 
-在監控時，要選擇對應於亞洲用戶的「總訪問量 + 平均延遲」等指標 
-在金鑰管理／ IAM 設計上，題目可能要求使用最小權限原則，為 on-premise 和 VM 提供適當認證方式`,
+### Existing technical environment
+
+JencoMart currently operates on-premises infrastructure with traditional database systems for storing user profiles. Their application servers are hosted in physical data centers, which limits their ability to scale during peak traffic periods common in e-commerce.
+
+JencoMart 目前使用本地基礎設施，採用傳統資料庫系統儲存用戶個人資料。他們的應用伺服器託管在實體資料中心，這限制了他們在電子商務常見的流量高峰期間的擴展能力。
+
+### Business requirements
+
+- Migrate user profiles to a scalable NoSQL database solution.
+- Maintain high availability for customer-facing applications.
+- Ensure secure access to data during the hybrid migration period.
+- Monitor system performance and user metrics in the Asia region.
+- Implement proper access control and security measures.
+
+- 將用戶個人資料遷移至可擴展的 NoSQL 資料庫解決方案。
+- 為面向客戶的應用程式維持高可用性。
+- 在混合遷移期間確保資料的安全存取。
+- 監控亞洲地區的系統效能和用戶指標。
+- 實施適當的存取控制和安全措施。
+
+### Technical requirements
+
+- Enable gradual migration with on-premises systems accessing cloud databases.
+- Implement least privilege access and separation of duties.
+- Secure key management and authentication between on-premises and cloud systems.
+- Monitor latency, error rates, and user access metrics.
+- Ensure data consistency and optimize for read/write patterns.
+
+- 支援漸進式遷移，讓本地系統能夠存取雲端資料庫。
+- 實施最小權限存取和職責分離。
+- 在本地和雲端系統之間建立安全的金鑰管理和認證。
+- 監控延遲、錯誤率和用戶存取指標。
+- 確保資料一致性並針對讀寫模式進行優化。
+
+### Executive statement
+
+We need to modernize our infrastructure to handle our growing customer base in Asia while maintaining the security and reliability our customers expect. The migration should allow us to scale efficiently during peak shopping periods while keeping costs under control during quieter times.
+
+我們需要現代化基礎設施以處理亞洲不斷增長的客戶群，同時維持客戶期望的安全性和可靠性。這次遷移應該讓我們在購物高峰期高效擴展，同時在流量較少時控制成本。`,
         "links": []
     },
     {
@@ -339,32 +369,69 @@ remaining legacy systems to the cloud
     {
         "id": ["#11", "#12"],
         "name": "Dress4Win",
-        "description": `
-### 1. 公司背景 / 業務模式
+        "description": `### Company overview
 
-Dress4Win 是一家以網路與行動 App 為主的平台，讓使用者整理／管理個人衣櫥，同時建立社交網絡，與設計者與零售商互動。 
-收益來源：廣告、電商、推薦（referral）、Freemium 模式（部分功能免費、部分付費） 
-最初運行在創辦人的車庫伺服器，後來擴張到數百台伺服器與設備，在 colocated 資料中心運作。 
-隨著成長，現有基礎設施已無法滿足需求，需全面遷移至雲端。 
+Dress4Win is a web-based company that helps their users organize and manage their personal wardrobe using a website and mobile application. The company also cultivates an active social network that connects their users with designers and retailers. They monetize their services through advertising, e-commerce, referrals, and a freemium app model.
 
-### 2. 技術／架構挑戰與需求
+Dress4Win 是一家基於網路的公司，透過網站和行動應用程式幫助用戶整理和管理個人衣櫥。該公司還培育一個活躍的社交網絡，連接用戶與設計師和零售商。他們透過廣告、電子商務、推薦和免費增值應用模式獲利。
 
-以下是第三方整理的重點需求／挑戰：
-| **類別**             | **挑戰 / 要求**                      |
-| ------------------ | -------------------------------- |
-| **效能與可伸縮性**        | 在高流量時段（如週末、早晨）流量高；用量低谷期間則有大量閒置資源 |
-| **快速資源配置 / 自動化**   | 希望能快速佈署新資源，以支援快速創新               |
-| **成本優化**           | 在流量低谷期減少資源用量，降低閒置成本              |
-| **分區部署 / 全球分佈**    | 若用戶分布於不同地理區域，需考慮多區域佈署與負載平衡設計     |
-| **備份 / 災難復原 / 歸檔** | 需具備低成本的備份與異地歸檔策略                 |
+### Solution concept
 
-### 3. 設計方向與建議（第三方分析）
+The company is growing rapidly and has decided to move fully to the cloud. They are currently running servers in a colocation facility and want to migrate to Google Cloud to take advantage of managed services, improved scalability, and cost optimization.
 
-以下是一些常見在該案例中被提及的架構建議：
-- 選用 Managed Instance Groups + Global Load Balancer 來做跨區域的流量導向與故障切換 
-- 使用 區域自動擴縮 (autoscaling) 來因應流量高峰與閒置期，減少成本
-- 備份資料庫與日誌至冷存儲或歸檔儲存，做離線或冷備份 
-- 在現有資料中心與雲端之間建立 VPN 或專線互連，以確保資料傳輸的安全與穩定性`,
+該公司正在快速成長，並決定完全遷移到雲端。他們目前在託管設施中運行伺服器，希望遷移到 Google Cloud 以利用託管服務、改善的可擴展性和成本優化。
+
+### Existing technical environment
+
+The application started in the founder's garage and has grown to hundreds of servers and appliances in a colocation facility. The current infrastructure includes:
+- Web servers and application servers running on physical hardware
+- MySQL databases for user data and content
+- Image and media storage on local storage systems
+- Manual deployment processes and limited automation
+
+應用程式最初在創辦人的車庫中開始，現已成長為託管設施中數百台伺服器和設備。目前的基礎設施包括：
+- 在實體硬體上運行的網頁伺服器和應用伺服器
+- 用於用戶資料和內容的 MySQL 資料庫
+- 在本地儲存系統上的圖像和媒體儲存
+- 手動部署流程和有限的自動化
+
+### Business requirements
+
+- Implement cloud services to support rapid development and deployment.
+- Support multiple environments (development, staging, production).
+- Leverage managed services to reduce operational overhead.
+- Maintain high availability during peak traffic periods (weekends, mornings).
+- Optimize costs by scaling resources based on demand.
+- Improve disaster recovery and backup capabilities.
+
+- 實施雲端服務以支援快速開發和部署。
+- 支援多個環境（開發、測試、生產）。
+- 利用託管服務減少營運開銷。
+- 在流量高峰期（週末、早晨）維持高可用性。
+- 根據需求擴展資源以優化成本。
+- 改善災難復原和備份能力。
+
+### Technical requirements
+
+- Migrate to a microservices architecture using containers.
+- Implement auto-scaling to handle variable traffic patterns.
+- Use managed databases and storage services.
+- Establish proper CI/CD pipelines for automated deployment.
+- Implement multi-region deployment for global availability.
+- Set up monitoring, logging, and alerting systems.
+
+- 遷移到使用容器的微服務架構。
+- 實施自動擴展以處理可變的流量模式。
+- 使用託管資料庫和儲存服務。
+- 建立適當的 CI/CD 管道以進行自動部署。
+- 實施多區域部署以實現全球可用性。
+- 設定監控、日誌和警報系統。
+
+### Executive statement
+
+Our success has outgrown our current infrastructure. We need a cloud platform that can scale with our business, reduce our operational complexity, and enable our development teams to innovate faster. We want to focus on our core business rather than managing infrastructure, while ensuring we can handle our growing user base effectively.
+
+我們的成功已經超出了當前基礎設施的能力。我們需要一個能夠與業務一同擴展的雲端平台，減少營運複雜性，並讓開發團隊更快速創新。我們希望專注於核心業務而非管理基礎設施，同時確保能夠有效處理不斷增長的用戶群。`,
         "links": ["https://medium.com/%40bincysjames/dress4win-sample-case-study-explained-9247979ee742"]
     }
 ]
