@@ -3298,8 +3298,8 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "options-zh": {
             "A": "用多區受管實例群組 + Cloud Filestore + HTTP 負載平衡器。",
             "B": "用多區受管實例群組 + Cloud Filestore + 網路負載平衡器。",
-            "C": "用非受管群組，跨區主備 VM + 區域性永久磁碟 + HTTP 負載平衡器。",
-            "D": "用非受管群組，跨區主備 VM + 區域性永久磁碟 + 網路負載平衡器。"
+            "C": "用非受管群組，跨區主備 VM + regional persistent disk + HTTP 負載平衡器。",
+            "D": "用非受管群組，跨區主備 VM + regional persistent disk + 網路負載平衡器。"
         },
         "images": [],
         "answers": [
@@ -3883,9 +3883,9 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         },
         "options-zh": {
             "A": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區復原。",
-            "B": "用實例範本 + 區域性永久磁碟，區域故障時於同區其他區啟動並掛載磁碟。",
+            "B": "用實例範本 + regional persistent disk，區域故障時於同區其他區啟動並掛載磁碟。",
             "C": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區其他區復原。",
-            "D": "用實例範本 + 區域性永久磁碟，區域故障時於其他區域啟動並掛載磁碟。"
+            "D": "用實例範本 + regional persistent disk，區域故障時於其他區域啟動並掛載磁碟。"
         },
         "images": [],
         "answers": [
@@ -4156,7 +4156,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         },
         "options-zh": {
             "A": "每個執行個體用一顆永久磁碟。",
-            "B": "每個執行個體用一顆區域性永久磁碟。",
+            "B": "每個執行個體用一顆 regional persistent disk。",
             "C": "建立 Cloud Filestore 並掛載於所有執行個體。",
             "D": "用 gcsfuse 掛載 Cloud Storage bucket。"
         },
@@ -5245,7 +5245,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "options-zh": {
             "A": "1. 第一台掛 SSD 永久磁碟，每小時快照，故障時用快照重建。",
             "B": "1. 建 Cloud Storage bucket，gcs-fuse 掛載，故障時另一台也掛載。",
-            "C": "1. 第一台掛區域性 SSD 永久磁碟，故障時強制掛到另一台。",
+            "C": "1. 第一台掛 regional SSD persistent disk，故障時強制掛到另一台。",
             "D": "1. 第一台掛 local SSD，每小時 rsync 到第二台的永久磁碟，故障時用第二台。"
         },
         "images": [],
