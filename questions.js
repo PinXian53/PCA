@@ -5835,7 +5835,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         },
         "images": [],
         "answers": [
-            "C"
+            "D"
         ],
         "note": `
 這題考察高頻率大檔案儲存策略，重點是最小化資料遺失的 Cloud Storage 最佳實踐。
@@ -5848,16 +5848,19 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
 
 ### 知識點
 - **Cloud Storage Performance**：儲存效能最佳化
-- **Sequential Naming**：循序命名避免熱點
-- **Metadata Management**：中繼資料管理
+- **GCS Hotspotting**：Hotspotting 是指在短時間內，太多寫入或讀取請求都集中到同一個 GCS 分區（storage shard）或命名前綴（prefix），導致該區域負載過高。
+    - 解決方法：使用「隨機前綴 (Random Prefix)
+- **Metadata Management**
+    - GCS 的 metadata header 上傳分成兩步，(1) 上傳物件 → (2) 設定 metadata，若第 (2) 步失敗，該物件仍存在但缺乏資訊。
+    - 若改成直接把 metadata 寫進檔案內容，會一次寫入，資料與描述同步保存，不會產生「半成功」狀態
 
 ### 選項分析
 | 選項 | 分析 |
 |------|------|
 | A 時間戳命名+多 bucket | ❌ 複雜度高，命名模式可能熱點 |
 | B 批次處理+歸檔 | ❌ 增加資料遺失風險 |
-| **C 循序命名+單 bucket** | ✅ 簡單可靠，避免熱點 |
-| D 隨機前綴 | ❌ 隨機性不如循序模式穩定 |
+| C 循序命名+單 bucket | ❌ 若同一伺服器多執行緒上傳，仍可能命名衝突 |
+| **D 隨機前綴** | ✅ random prefix 防止重名，將 metadata 寫入檔案內容（而非 header），確保完整資料封裝，不依賴上傳後續 API。|
 `
     },
     {
