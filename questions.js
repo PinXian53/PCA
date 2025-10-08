@@ -4008,8 +4008,8 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "topic": "#1",
         "no": "#120",
         "link": "https://www.examtopics.com/discussions/google/view/56416-exam-professional-cloud-architect-topic-1-question-120/",
-        "question": "Your company has a project in Google Cloud with three Virtual Private Clouds (VPCs). There is a Compute Engine instance on each VPC. Network subnets do not overlap and must remain separated. The network configuration is shown below.",
-        "question-zh": "公司在 GCP 有三個 VPC，各有一台 Compute Engine，子網不重疊且需隔離。如下圖所示。",
+        "question": "Your company has a project in Google Cloud with three Virtual Private Clouds (VPCs). There is a Compute Engine instance on each VPC. Network subnets do not overlap and must remain separated. The network configuration is shown below.\n\nInstance #1 is an exception and must communicate directly with both Instance #2 and Instance #3 via internal IPs. How should you accomplish this?",
+        "question-zh": "公司在 GCP 有三個 VPC，各有一台 Compute Engine，子網不重疊且需隔離。如下圖所示。\n\nInstance #1 是個例外，必須透過內部 IP，直接與 Instance #2 和 Instance #3 通訊。你應該如何達成這個需求？",
         "options": {
             "A": "Create a cloud router to advertise subnet #2 and subnet #3 to subnet #1.",
             "B": "Add two additional NICs to Instance #1 with the following configuration: ג€¢ NIC1 ג—‹ VPC: VPC #2 ג—‹ SUBNETWORK: subnet #2 ג€¢ NIC2 ג—‹ VPC: VPC #3 ג—‹ SUBNETWORK: subnet #3 Update firewall rules to enable traffic between instances.",
