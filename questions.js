@@ -6482,7 +6482,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+需要處理包含 PII 的外部夥伴資料，但要求處理後不能存任何個資，需適當的資料清洗方案。
+
+### 知識點
+- **Cloud Data Loss Prevention (DLP) API**：個資偵測與移除
+- **Dataflow Pipeline**：資料處理管道
+- **PII Data Handling**：個資處理最佳實務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Dataflow + DLP API** | ✅ 自動偵測移除個資最佳方案 |
+| B 分存非個資和個資 | ❌ 個資仍被存儲違反需求 |
+| C Bucket Lock + DLP | ❌ 複雜且個資仍暫存 |
+| D BigQuery 匯入略過 | ❌ 手動略過不可靠 |
+`
     },
     {
         "topic": "#1",
@@ -6505,7 +6522,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+需要自動收集 Org 下 production 資料夾內所有專案日誌（含新建專案），不含其他專案日誌。
+
+### 知識點
+- **Aggregated Export**：彙總日誌匯出
+- **Log Sink Hierarchy**：日誌 sink 層級
+- **Folder-level Logging**：資料夾層級日誌管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Production 資料夾彙總匯出** | ✅ 自動含子專案且範圍正確 |
+| B Org 層級彙總匯出 | ❌ 範圍過大含非 production |
+| C 各專案個別匯出 | ❌ 新專案需手動設定 |
+| D 存 BigQuery 給權限 | ❌ 未集中且複雜管理 |
+`
     },
     {
         "topic": "#1",
@@ -6528,7 +6562,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+每天 1TB 日誌需保存兩年，30 天內需可查詢，之後僅供稽核，要最省錢合規的儲存方案。
+
+### 知識點
+- **Cloud Logging Agent**：日誌收集代理
+- **Storage Lifecycle Management**：儲存生命週期管理
+- **Coldline Storage**：冷儲存省錢方案
+- **Bucket Lock**：合規保存機制
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Logging agent + 生命週期 + Lock** | ✅ 完整合規省錢方案 |
+| B Cron job 上傳 + 生命週期 | ❌ 重複上傳且無 lock |
+| C BigQuery 30 天過期 | ❌ 不符兩年保存需求 |
+| D Cron job BigQuery 過期 | ❌ 不符保存需求 |
+`
     },
     {
         "topic": "#1",
@@ -6551,7 +6603,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+公司設 Cloud Identity 和 GCP Org，資安要防外部網域 IAM 用戶取得權限的自動化方案。
+
+### 知識點
+- **Organization Policy**：組織政策控制
+- **Domain Restriction Policy**：網域限制政策
+- **Identity and Access Management**：身分與存取管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Org policy 限網域身分** | ✅ 原生安全控制機制 |
+| B 禁止建 service account | ❌ 過度限制影響運作 |
+| C Cloud Function 定期清理 | ❌ 反應式非預防性 |
+| D 技術用戶 + bash 清理 | ❌ 複雜易出錯方案 |
+`
     },
     {
         "topic": "#1",
@@ -6597,7 +6666,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+BigQuery 表含個資只能合規團隊看，其他資料要給資料科學團隊，需最省時省錢的權限分離方案。
+
+### 知識點
+- **BigQuery Authorized Views**：授權檢視機制
+- **Dataset-level Access Control**：資料集層級權限控制
+- **Data Science Team Access**：資料科學團隊存取管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 原資料集建 view + 專案權限 | ❌ 權限過大可能看到個資 |
+| B 原資料集 materialized view | ❌ 額外儲存成本 |
+| **C 新資料集 + view + 授權** | ✅ 完整隔離且成本最低 |
+| D 新資料集 + materialized view | ❌ 額外儲存成本 |
+`
     },
     {
         "topic": "#1",
@@ -6620,7 +6706,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+10TB 第三方物件儲存要快速且省錢搬到 Cloud Storage，需符合 Google 建議的最佳方案。
+
+### 知識點
+- **Storage Transfer Service**：雲端儲存轉移服務
+- **Third-party Cloud Migration**：第三方雲端遷移
+- **Data Transfer Optimization**：資料傳輸最佳化
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A gsutil mv 指令 | ❌ 手動且效率不佳 |
+| **B Storage Transfer Service** | ✅ 專為此設計的最佳方案 |
+| C Transfer Appliance | ❌ 適用更大資料量 |
+| D 下載後上傳 | ❌ 雙向頻寬消耗 |
+`
     },
     {
         "topic": "#1",
@@ -6643,7 +6746,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+VM 關機腳本刪除 REDIS 資料常失敗，已建 Cloud Function，需確保可靠執行刪除操作。
+
+### 知識點
+- **Managed Instance Group Lifecycle**：受管群組生命週期
+- **Cloud Monitoring Sink**：雲端監控匯接
+- **Instance Shutdown Reliability**：VM 關機可靠性
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 腳本等待再觸發 Function | ❌ 關機時間限制仍可能失敗 |
+| B 腳本重跑機制 | ❌ 關機過程無法保證執行 |
+| **C Monitoring sink 觸發** | ✅ 事件驅動最可靠方案 |
+| D 腳本發 Pub/Sub 訊息 | ❌ 關機過程無法保證完成 |
+`
     },
     {
         "topic": "#1",
@@ -6666,7 +6786,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+常出差且使用不同工作站，每天用 gcloud CLI 操作多 GCP 服務，要避免每台都裝 gcloud 的解決方案。
+
+### 知識點
+- **Google Cloud Shell**：雲端命令列殼層
+- **gcloud CLI Portability**：gcloud 可攜性
+- **Multi-workstation Management**：多工作站管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 使用 Cloud Shell** | ✅ 免安裝且隨處可用 |
+| B Compute Engine + SSH | ❌ 額外成本且依賴網路 |
+| C 每台都裝並自動更新 | ❌ 仍需管理多台機器 |
+| D 套件管理工具安裝 | ❌ 仍需每台都安裝 |
+`
     },
     {
         "topic": "#1",
@@ -6689,7 +6826,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+兩公司併購各有 Shared VPC，子網有重疊但應用沒重疊，要私網互通且改動最少的方案。
+
+### 知識點
+- **VPC Peering vs VPN**：網路對等連接與VPN選擇
+- **Shared VPC Cross-org**：跨組織共享VPC
+- **Network Connectivity Options**：網路連接選項
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A VPC peering 連接 | ❌ 子網重疊會衝突 |
+| B 遷移重新部署 | ❌ 大規模重新部署工程量大 |
+| **C Cloud VPN 互連** | ✅ 可解決子網衝突問題 |
+| D SSH port forwarding | ❌ 不實用且不安全 |
+`
     },
     {
         "topic": "#1",
@@ -6712,7 +6866,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+應用變慢，需要先診斷根本原因再解決，要選擇最適當的首要步驟。
+
+### 知識點
+- **Performance Troubleshooting**：效能問題排查
+- **Cloud Monitoring & Logging**：雲端監控與日誌分析
+- **Root Cause Analysis**：根因分析方法
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A 查日誌與指標** | ✅ 診斷問題的正確第一步 |
+| B 直接換大機型 | ❌ 未診斷就盲目升級 |
+| C 還原資料庫 | ❌ 可能破壞現有資料 |
+| D 加負載平衡 | ❌ 未確認是否容量問題 |
+`
     },
     {
         "topic": "#1",
@@ -6735,7 +6906,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+GKE rolling 部署常因 production 參數設錯造成故障，需要平台層面的預防機制。
+
+### 知識點
+- **Kubernetes Probes**：Kubernetes 探針機制
+- **Rolling Deployment Safety**：滾動部署安全性
+- **Production Configuration Validation**：生產配置驗證
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Pod 探針配置** | ✅ 自動驗證服務健康狀態 |
+| B 受管群組健康檢查 | ❌ 這是 GKE 非 Compute Engine |
+| C 排程任務檢查 | ❌ 被動監控非預防機制 |
+| D Uptime alert | ❌ 事後通知非預防機制 |
+`
     },
     {
         "topic": "#1",
@@ -6758,7 +6946,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+GKE 叢集 200 節點跑 batch/stateful/stateless 工作負載，要降成本但不影響可用性。
+
+### 知識點
+- **GKE Cost Optimization**：GKE成本最佳化
+- **Horizontal Pod Autoscaler (HPA)**：Pod 水平自動擴展
+- **Node Autoscaling**：節點自動擴展
+- **Workload Resource Management**：工作負載資源管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 分離 batch 叢集 | ❌ 總節點數不變無節省 |
+| B 設資源限制 | ❌ 僅限制非最佳化使用 |
+| **C HPA + 節點自動擴展** | ✅ 動態調整真正節省成本 |
+| D 改用 preemptible VM | ❌ 影響可用性違反需求 |
+`
     },
     {
         "topic": "#1",
@@ -6781,7 +6987,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+BigQuery 按用量計費，要即時監控最貴查詢與花最多錢的用戶，需要有效的監控方案。
+
+### 知識點
+- **BigQuery Audit Logs**：BigQuery 稽核日誌
+- **Cloud Logging Sink**：雲端日誌匯接
+- **Query Cost Monitoring**：查詢成本監控
+- **Real-time Analytics**：即時分析
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 資料集加 label 查報表 | ❌ 無法詳細追蹤查詢成本 |
+| **B 日誌匯出 BigQuery 分析** | ✅ 完整查詢資訊即時分析 |
+| C 匯出 Storage + Dataflow | ❌ 複雜且非即時 |
+| D 帳單匯出查詢 | ❌ 延遲且缺少詳細資訊 |
+`
     },
     {
         "topic": "#1",
@@ -6804,7 +7028,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+兩專案不同組織，vpc-a 兩台 VM，vpc-b 一台 VM，子網不重疊，要內部 IP 互通低延遲高吞吐。
+
+### 知識點
+- **VPC Peering**：VPC 對等連接
+- **Cross-Organization Networking**：跨組織網路
+- **Private IP Communication**：私有 IP 通訊
+- **Network Performance Optimization**：網路效能最佳化
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A VPC peering 設定** | ✅ 原生高效能直接連接 |
+| B Cloud VPN 連接 | ❌ 額外延遲與頻寬限制 |
+| C IAP TCP 轉發 | ❌ 非真正內部 IP 通訊 |
+| D 自建 OpenVPN | ❌ 複雜且效能不佳 |
+`
     },
     {
         "topic": "#1",
@@ -6827,7 +7069,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+重要商業資訊需要版本控制，能查舊版並輕鬆回復誤刪誤改，需要適當的 Cloud Storage 功能。
+
+### 知識點
+- **Object Versioning**：物件版本控制
+- **Data Protection Strategies**：資料保護策略
+- **Version History Management**：版本歷史管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Bucket Lock | ❌ 防刪除但不提供版本功能 |
+| **B Object Versioning** | ✅ 完美符合版本與回復需求 |
+| C 物件變更通知 | ❌ 僅通知不保存版本 |
+| D 生命週期管理 | ❌ 資料歸檔非版本控制 |
+`
     },
     {
         "topic": "#1",
@@ -6850,7 +7109,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+記憶體使用率 80% 自動擴展，設定正確但不作用，需要修正監控指標配置。
+
+### 知識點
+- **Cloud Monitoring Memory Metrics**：雲端監控記憶體指標
+- **Autoscaling Configuration**：自動擴展配置
+- **Memory State Labels**：記憶體狀態標籤
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 改 DELTA_PER_MINUTE | ❌ 記憶體用量應用 GAUGE |
+| B 改用 bytes_used | ❌ 百分比更適合擴展決策 |
+| **C 包含所有記憶體狀態** | ✅ 完整記憶體使用率計算 |
+| D 用 free 記憶體反向 | ❌ 邏輯複雜易錯 |
+`
     },
     {
         "topic": "#1",
@@ -6873,7 +7149,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+200kbps 私網通訊需求，要求接近 100% 可用性且成本最佳化的 VPN 連接方案。
+
+### 知識點
+- **HA Cloud VPN**：高可用性雲端 VPN
+- **Network Redundancy**：網路冗餘設計
+- **Cost vs Availability Trade-off**：成本與可用性權衡
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A HA VPN + 雙通道** | ✅ 高可用性且成本合理 |
+| B 雙 Classic VPN 複雜 | ❌ 過度設計成本高 |
+| C 雙 HA VPN 過度設計 | ❌ 不必要的高成本 |
+| D 單一 VPN | ❌ 無冗餘違反可用性需求 |
+`
     },
     {
         "topic": "#1",
@@ -6896,7 +7189,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+App Engine 音樂上傳應用，要讓用戶直接從瀏覽器上傳到 Cloud Storage 而不經後端。
+
+### 知識點
+- **Cloud Storage Signed URL**：雲端儲存簽名網址
+- **CORS Configuration**：跨來源資源共用設定
+- **Direct Client Upload**：客戶端直接上傳
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A CORS + Signed URL** | ✅ 完整安全的直接上傳方案 |
+| B CORS + 用戶 WRITER | ❌ 直接給權限有安全風險 |
+| C Signed URL + 預設憑證 | ❌ 缺少 CORS 無法跨域 |
+| D 用戶權限 + 預設憑證 | ❌ 安全性差且非直接上傳 |
+`
     },
     {
         "topic": "#1",
@@ -6919,7 +7229,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+sub-b 僅有私網 IP 需要連外部網路下載套件，需要提供安全的外網存取方案。
+
+### 知識點
+- **Cloud NAT**：雲端網路位址轉譯
+- **Private Google Access**：私有 Google 存取
+- **Subnet-level Network Configuration**：子網層級網路配置
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Private Google Access | ❌ 僅限 Google API 非一般外網 |
+| **B Cloud NAT 配置** | ✅ 私網 VM 存取外網標準方案 |
+| C Bastion host | ❌ 需要透過 SSH 不適合下載 |
+| D IAP TCP 轉發 | ❌ 不適用於一般網路存取 |
+`
     },
     {
         "topic": "#1",
@@ -6942,7 +7269,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+Windows Server 2022 從本地遷移到 GCP，需要保留現有授權的 BYOL (Bring Your Own License) 方案。
+
+### 知識點
+- **Sole-tenant Nodes**：專屬租用節點
+- **BYOL (Bring Your Own License)**：自帶授權
+- **Windows Server Migration**：Windows Server 遷移
+- **Custom Image Import**：自訂映像匯入
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 標準映像匯入 | ❌ 無法保證授權轉移 |
+| B 標準 VM 選 Windows | ❌ 會產生新的授權費用 |
+| C 標準 VM + 資料碟 | ❌ 無法使用現有授權 |
+| **D 專屬租用 + 匯入映像** | ✅ BYOL 必須專屬硬體 |
+`
     },
     {
         "topic": "#1",
@@ -6965,7 +7310,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+200kbps 私網通訊，99.99% 可用性且成本最佳化，與前面 #191 題類似但可用性要求更高。
+
+### 知識點
+- **99.99% Availability SLA**：99.99% 可用性服務等級協議
+- **HA Cloud VPN**：高可用性雲端 VPN
+- **VPN Redundancy Design**：VPN 冗餘設計
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A HA VPN + 雙通道** | ✅ 滿足 99.99% 且成本合理 |
+| B Classic VPN + 雙通道 | ❌ Classic VPN 可用性較低 |
+| C 雙 HA VPN 過度設計 | ❌ 超過需求且成本高 |
+| D Classic VPN 單通道 | ❌ 無冗餘無法達 99.99% |
+`
     },
     {
         "topic": "#1",
@@ -6988,7 +7350,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+10TB 資料庫匯出到 Cloud Storage，1Gbps 頻寬，要省時省錢且符合 Google 建議。
+
+### 知識點
+- **Data Transfer Methods**：資料傳輸方法比較
+- **gcloud storage cp**：gcloud 儲存複製指令
+- **Transfer Appliance Threshold**：轉移設備使用門檻
+- **Network Bandwidth Utilization**：網路頻寬使用效率
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Dataflow 直接讀寫 | ❌ 額外處理成本與複雜性 |
+| B Transfer Appliance | ❌ 適用更大數據量 >20TB |
+| C 商業 ETL 工具 | ❌ 額外授權成本 |
+| **D gcloud storage cp** | ✅ 簡單直接且網路充足 |
+`
     },
     {
         "topic": "#1",
@@ -7011,7 +7391,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+金融機構房貸文件 5 年內不能刪改，任何變更需另存新檔，需要強制性資料保護機制。
+
+### 知識點
+- **Retention Policy**：保存政策
+- **Bucket Lock**：儲存桶鎖定
+- **Regulatory Compliance**：法規合規
+- **Immutable Storage**：不可變儲存
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Bucket 保存政策 + Lock** | ✅ 強制性不可變儲存 |
+| B Org 層級約束 | ❌ 政策可能被修改 |
+| C 客戶管理金鑰 | ❌ 加密非防刪改 |
+| D 專案層級約束 | ❌ 政策可能被修改 |
+`
     },
     {
         "topic": "#1",
@@ -7034,7 +7432,25 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+### 題目重點
+API 大改版，舊版要繼續用，新版供測試，SSL/DNS 記錄不變，需要流量分流方案。
+
+### 知識點
+- **API Versioning Strategy**：API 版本策略
+- **Load Balancer Backend Pools**：負載平衡後端池
+- **Traffic Routing**：流量路由
+- **Backward Compatibility**：向後相容性
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 新版設新負載平衡器 | ❌ 需要不同 DNS/SSL |
+| B 舊客戶改用新端點 | ❌ 違反保持 DNS 需求 |
+| C 舊 API 轉發 | ❌ 修改舊版增加風險 |
+| **D 後端池分路徑** | ✅ 同 DNS/SSL 不同路由 |
+`
     },
     {
         "topic": "#1",
@@ -7059,7 +7475,24 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         ],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+記憶體自動擴展設定，從圖片可見當前設定有問題，需要修正監控指標配置。
+
+### 知識點
+- **Memory Metric Configuration**：記憶體指標配置
+- **Cloud Monitoring Agent Metrics**：監控代理指標
+- **Autoscaling Policy Debugging**：自動擴展政策除錯
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 改 DELTA_PER_MINUTE | ❌ 記憶體使用率適用 GAUGE |
+| B 改用 bytes_used | ❌ 百分比指標更適合擴展 |
+| **C 簡化 filter 為 'used'** | ✅ 移除複雜濾器避免錯誤 |
+| D 用 free 記憶體反向 | ❌ 邏輯複雜易產生混淆 |
+`
     },
     {
         "topic": "#2",
