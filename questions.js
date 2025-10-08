@@ -4935,7 +4935,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察 Kubernetes 自動擴展策略，重點是基於訊息佇列指標的 HPA 設定。
+
+### 題目重點
+- Kubernetes 單一 pod 效能瓶頸
+- Pub/Sub 訊息積壓問題
+- I/O 密集型應用擴展
+- 即時處理需求
+
+### 知識點
+- **HPA (Horizontal Pod Autoscaler)**：水平 pod 自動擴展
+- **Custom Metrics**：自訂指標監控
+- **Pub/Sub Metrics**：訊息佇列監控指標
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A CPU 基礎 HPA | ❌ I/O 密集非 CPU 密集 |
+| B Push 延遲指標 | ❌ 非拉取模式適用指標 |
+| C Cluster 自動擴展 | ❌ 節點擴展非 pod 擴展 |
+| **D 未投遞訊息數** | ✅ 直接反映處理積壓狀況 |
+`
     },
     {
         "topic": "#1",
@@ -4959,7 +4981,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+這題考察軟體部署可追溯性，重點是建立程式碼與部署版本的直接關聯。
+
+### 題目重點
+- 生產部署可追溯性
+- 原始碼 commit 關聯
+- 完整稽核需求
+- 容器化部署管理
+
+### 知識點
+- **Container Tagging**：容器標籤管理策略
+- **Git Hash**：程式碼版本唯一識別碼
+- **Immutable Deployments**：不可變部署原則
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 日期時間標記 | ❌ 無法直接關聯程式碼版本 |
+| B Commit 註解連結 | ❌ 手動維護，容易出錯 |
+| **C Container tag = commit hash** | ✅ 自動化精確追溯 |
+| D Latest 標記 | ❌ 無版本區別，不可追溯 |
+`
     },
     {
         "topic": "#1",
@@ -4982,7 +5026,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題考察無伺服器應用架構選擇，重點是最小化運維負擔的平台選擇。
+
+### 題目重點
+- Go 1.12 HTTP(S) API
+- 極不穩定流量模式
+- 高峰期可靠性要求
+- 最小運維負擔
+
+### 知識點
+- **App Engine Standard**：完全託管無伺服器
+- **Auto Scaling**：自動流量調整
+- **Zero Server Management**：零伺服器管理
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A GKE 容器部署 | ❌ 需要叢集管理 |
+| **B App Engine 標準** | ✅ 最低運維，自動擴展 |
+| C MIG Compute Engine | ❌ 需要基礎設施管理 |
+| D App Engine 彈性 | ❌ 運維負擔較標準版高 |
+`
     },
     {
         "topic": "#1",
@@ -5005,7 +5071,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察 Data Lake 架構設計，重點是原始資料保存與彈性處理需求。
+
+### 題目重點
+- 多來源非結構化資料
+- 資料結構隨時變動
+- 原樣儲存重處理需求
+- 推薦引擎資料管線
+
+### 知識點
+- **Data Lake Pattern**：原始資料保存模式
+- **Schema Evolution**：架構演化支援
+- **Raw Data Preservation**：原始資料完整性
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 處理後存 BigQuery | ❌ 失去原始資料 |
+| B 直接存 BigQuery | ❌ 結構化限制 |
+| C 處理後存 Storage | ❌ 失去原始資料 |
+| **D 原樣存 Storage** | ✅ 保留完整原始資料 |
+`
     },
     {
         "topic": "#1",
@@ -5028,7 +5116,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題考察組織 IAM 架構設計，重點是最佳實踐的權限階層管理。
+
+### 題目重點
+- 多部門專案管理
+- 部門內統一權限
+- 最少維護負擔
+- 最佳權限可見性
+
+### 知識點
+- **Folder-based Organization**：資料夾層級組織
+- **Google Groups**：群組權限管理
+- **IAM Hierarchy**：權限繼承機制
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 直接專案權限 | ❌ 維護負擔重 |
+| **B 群組+資料夾權限** | ✅ Google 建議最佳實踐 |
+| C 個人+資料夾權限 | ❌ 人員變動維護複雜 |
+| D 群組+專案權限 | ❌ 缺乏資料夾層級管理 |
+`
     },
     {
         "topic": "#1",
@@ -5051,7 +5161,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+這題考察 Kubernetes 部署安全控制，重點是自動化的部署流程驗證機制。
+
+### 題目重點
+- 多環境 GKE 叢集管理
+- 防止生產直接部署
+- 團隊自主權保留
+- 快速簡單的實作方案
+
+### 知識點
+- **Binary Authorization**：容器映像授權驗證
+- **Attestations**：部署證明機制  
+- **CI/CD Pipeline**：持續整合部署
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Lifecycle Hook | ❌ 複雜度高，缺乏環境驗證 |
+| B 公司政策 | ❌ 人工流程，無技術保障 |
+| **C Binary Authorization** | ✅ Google 原生解決方案 |
+| D Admissions Controller | ❌ 需自行開發實作 |
+`
     },
     {
         "topic": "#1",
@@ -5074,7 +5206,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察大量資料遷移策略，重點是在有限頻寬下的最佳化傳輸方案。
+
+### 題目重點
+- 10TB 資料庫匯出遷移
+- 1Gbps 頻寬限制
+- 最小化時間、成本、DB 負載
+- Google 建議最佳實踐
+
+### 知識點
+- **gsutil -m**：多執行緒並行傳輸
+- **Data Compression**：減少傳輸量
+- **Transfer Optimization**：網路最佳化
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A Dataflow 直接讀取 | ❌ 增加 DB 負載，效率較低 |
+| B Transfer Appliance | ❌ 10TB 量級無必要 |
+| C 商業 ETL 工具 | ❌ 增加成本與複雜度 |
+| **D 壓縮+多執行緒** | ✅ 最佳化網路利用率 |
+`
     },
     {
         "topic": "#1",
@@ -5097,7 +5251,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+這題考察高可用性儲存架構，重點是跨區域災難復原的即時資料可用性。
+
+### 題目重點
+- Active-Passive 雙區部署
+- 永久磁碟資料保護
+- 單一區域故障復原
+- 最大化效能與可用性
+
+### 知識點
+- **Regional Persistent Disk**：跨區域同步複製
+- **Force-attach**：強制掛載機制
+- **Zone Failover**：區域容錯切換
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 每小時快照 | ❌ 最多遺失1小時資料 |
+| B Cloud Storage+FUSE | ❌ 效能不佳，延遲較高 |
+| **C 區域性永久磁碟** | ✅ 自動複製，即時切換 |
+| D Local SSD+rsync | ❌ 複雜且仍有資料遺失風險 |
+`
     },
     {
         "topic": "#1",
@@ -5120,7 +5296,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察敏感資料加密金鑰管理，重點是外部金鑰生成與 BigQuery 整合。
+
+### 題目重點
+- 敏感資料 BigQuery 儲存
+- 金鑰外部生成要求
+- 合規性加密需求
+- 資料倉儲安全設計
+
+### 知識點
+- **Customer-Supplied Keys (CSEK)**：客戶自帶金鑰
+- **Key Import**：外部金鑰匯入 KMS
+- **BigQuery Encryption**：資料集加密選項
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A KMS 產生金鑰 | ❌ 違反外部生成要求 |
+| B KMS 產生+CMEK | ❌ 金鑰非外部生成 |
+| C 匯入+Storage 中轉 | ❌ 不必要的複雜架構 |
+| **D 匯入+BigQuery CSEK** | ✅ 滿足外部金鑰要求 |
+`
     },
     {
         "topic": "#1",
@@ -5143,7 +5341,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+這題考察 Cloud Storage 加密金鑰管理，重點是金鑰輪替與 Google 建議最佳實踐。
+
+### 題目重點
+- Cloud Storage 敏感資料
+- 法規金鑰輪替要求
+- Dataproc 資料處理
+- Google 安全建議
+
+### 知識點
+- **Cloud KMS**：託管金鑰管理服務
+- **Customer-Managed Keys (CMEK)**：客戶管理金鑰
+- **Key Rotation**：自動金鑰輪替
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A KMS encrypt 方法 | ❌ 應用層加密，複雜度高 |
+| **B Bucket 設 KMS 金鑰** | ✅ 透明加密，支援輪替 |
+| C GPG 金鑰對 | ❌ 手動管理，無自動輪替 |
+| D AES-256 CSEK | ❌ 客戶管理，輪替複雜 |
+`
     },
     {
         "topic": "#1",
@@ -5166,7 +5386,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+這題考察私有 GKE 叢集網路架構，重點是無公網 IP 下的外部網路存取方案。
+
+### 題目重點
+- GKE 叢集私有網路
+- 禁止公網 IP 政策
+- 第三方服務網路存取
+- 安全網路架構設計
+
+### 知識點
+- **Private GKE Cluster**：私有節點叢集
+- **Cloud NAT**：網路地址轉譯服務
+- **Private Google Access**：私有 Google 服務存取
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| **A Private cluster + NAT** | ✅ 安全且支援外部網路存取 |
+| B Private cluster + PGA | ❌ PGA 僅限 Google 服務 |
+| C Route-based + PGA | ❌ 非私有叢集，有公網 IP |
+| D 自建 NAT Proxy | ❌ 複雜且不符最佳實踐 |
+`
     },
     {
         "topic": "#1",
@@ -5189,7 +5431,29 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "images": [],
         "answers": [
             "D"
-        ]
+        ],
+        "note": `
+這題考察 App Engine Standard 的 VPC 網路連線，重點是無伺服器服務的私有網路存取。
+
+### 題目重點
+- App Engine Standard 應用
+- 連線地端資料庫需求
+- 既有 VPN 隧道連線
+- VPC 私有網路整合
+
+### 知識點
+- **Serverless VPC Access**：無伺服器 VPC 連接器
+- **App Engine Networking**：應用引擎網路設定
+- **VPC Connector**：VPC 連接器服務
+
+### 選項分析
+| 選項 | 分析 |
+|------|------|
+| A 地端 Private Google Access | ❌ 僅適用地端存取 Google 服務 |
+| B Private Google Access | ❌ 無法讓 App Engine 存取 VPC |
+| C Private Services Access | ❌ 適用於 Google 管理服務 |
+| **D Serverless VPC Access** | ✅ 讓 App Engine 存取 VPC 資源 |
+`
     },
     {
         "topic": "#1",
