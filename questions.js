@@ -2110,10 +2110,10 @@ kubectl 無法創建 GKE 集群，只能管理已有的 Kubernetes 集群資源
             "D": "Perform the following: \n1. Create a GKE cluster with n1-standard-4 type machines. \n2. Build a Docker image from the master branch with all of the dependencies, and tag it with 'latest'. \n3. Create a Kubernetes Deployment in the default namespace with the imagePullPolicy set to 'Always'. Restart the pods to automatically deploy new production releases."
         },
         "options-zh": {
-            "A": "執行下列步驟：1. 建立 f1-micro 型受管實例群組。2. 用啟動腳本 clone repository、切 production branch、安裝依賴並啟動 Python app。3. 重新啟動實例自動部署新版。",
-            "B": "執行下列步驟：1. 建立 n1-standard-1 型受管實例群組。2. 用 production branch 建立含所有依賴的 Compute Engine 映像檔並自動啟動 Python app。3. 重建映像檔並更新實例模板以部署新版。",
-            "C": "執行下列步驟：1. 建立 n1-standard-1 型 GKE 叢集。2. 用 production branch 建立含所有依賴的 Docker 映像檔並加上版本號。3. 在 staging namespace 建立 imagePullPolicy 設為 'IfNotPresent' 的 Deployment，測試後升級到 production namespace。",
-            "D": "執行下列步驟：1. 建立 n1-standard-4 型 GKE 叢集。2. 用 master branch 建立含所有依賴的 Docker 映像檔並標記為 'latest'。3. 在 default namespace 建立 imagePullPolicy 設為 'Always' 的 Deployment，重啟 pod 自動部署新版。"
+            "A": "執行下列步驟：1. 建立 f1-micro 型受管實例群組。\n2. 用啟動腳本 clone repository、切 production branch、安裝依賴並啟動 Python app。\n3. 重新啟動實例自動部署新版。",
+            "B": "執行下列步驟：1. 建立 n1-standard-1 型受管實例群組。\n2. 用 production branch 建立含所有依賴的 Compute Engine 映像檔並自動啟動 Python app。\n3. 重建映像檔並更新實例模板以部署新版。",
+            "C": "執行下列步驟：1. 建立 n1-standard-1 型 GKE 叢集。\n2. 用 production branch 建立含所有依賴的 Docker 映像檔並加上版本號。\n3. 在 staging namespace 建立 imagePullPolicy 設為 'IfNotPresent' 的 Deployment，測試後升級到 production namespace。",
+            "D": "執行下列步驟：1. 建立 n1-standard-4 型 GKE 叢集。\n2. 用 master branch 建立含所有依賴的 Docker 映像檔並標記為 'latest'。\n3. 在 default namespace 建立 imagePullPolicy 設為 'Always' 的 Deployment，重啟 pod 自動部署新版。"
         },
         "images": [],
         "answers": [
@@ -2291,16 +2291,16 @@ Cloud SQL HA 只能跨 zone，不能跨 region
         "question": "You are using Cloud SQL as the database backend for a large CRM deployment. You want to scale as usage increases and ensure that you don't run out of storage, maintain 75% CPU usage cores, and keep replication lag below 60 seconds. What are the correct steps to meet your requirements?",
         "question-zh": "您將 Cloud SQL 作為大型 CRM 部署的資料庫後端。您希望隨著使用量增加而擴展，確保儲存空間不會用盡，CPU 使用率維持 75%，且複寫延遲低於 60 秒。正確步驟為何？",
         "options": {
-            "A": "1. Enable automatic storage increase for the instance. 2. Create a Stackdriver alert when CPU usage exceeds 75%, and change the instance type to reduce CPU usage. 3. Create a Stackdriver alert for replication lag, and shard the database to reduce replication time.",
-            "B": "1. Enable automatic storage increase for the instance. 2. Change the instance type to a 32-core machine type to keep CPU usage below 75%. 3. Create a Stackdriver alert for replication lag, and deploy memcache to reduce load on the master.",
-            "C": "1. Create a Stackdriver alert when storage exceeds 75%, and increase the available storage on the instance to create more space. 2. Deploy memcached to reduce CPU load. 3. Change the instance type to a 32-core machine type to reduce replication lag.",
-            "D": "1. Create a Stackdriver alert when storage exceeds 75%, and increase the available storage on the instance to create more space. 2. Deploy memcached to reduce CPU load. 3. Create a Stackdriver alert for replication lag, and change the instance type to a 32-core machine type to reduce replication lag."
+            "A": "1. Enable automatic storage increase for the instance. \n2. Create a Stackdriver alert when CPU usage exceeds 75%, and change the instance type to reduce CPU usage. \n3. Create a Stackdriver alert for replication lag, and shard the database to reduce replication time.",
+            "B": "1. Enable automatic storage increase for the instance. \n2. Change the instance type to a 32-core machine type to keep CPU usage below 75%. \n3. Create a Stackdriver alert for replication lag, and deploy memcache to reduce load on the master.",
+            "C": "1. Create a Stackdriver alert when storage exceeds 75%, and increase the available storage on the instance to create more space. \n2. Deploy memcached to reduce CPU load. \n3. Change the instance type to a 32-core machine type to reduce replication lag.",
+            "D": "1. Create a Stackdriver alert when storage exceeds 75%, and increase the available storage on the instance to create more space. \n2. Deploy memcached to reduce CPU load. \n3. Create a Stackdriver alert for replication lag, and change the instance type to a 32-core machine type to reduce replication lag."
         },
         "options-zh": {
-            "A": "1. 啟用自動擴充儲存空間。2. 設定 Stackdriver 警示，CPU 超過 75% 時更換實例型別。3. 設定複寫延遲警示並分片資料庫。",
-            "B": "1. 啟用自動擴充儲存空間。2. 更換為 32 核心機型以維持 CPU 低於 75%。3. 設定複寫延遲警示並部署 memcache。",
-            "C": "1. 儲存空間超過 75% 時發警示並擴充空間。2. 部署 memcached 降低 CPU 負載。3. 更換為 32 核心機型以降低複寫延遲。",
-            "D": "1. 儲存空間超過 75% 時發警示並擴充空間。2. 部署 memcached 降低 CPU 負載。3. 設定複寫延遲警示並更換為 32 核心機型。"
+            "A": "1. 啟用自動擴充儲存空間。\n2. 設定 Stackdriver 警示，CPU 超過 75% 時更換實例型別。\n3. 設定複寫延遲警示並分片資料庫。",
+            "B": "1. 啟用自動擴充儲存空間。\n2. 更換為 32 核心機型以維持 CPU 低於 75%。\n3. 設定複寫延遲警示並部署 memcache。",
+            "C": "1. 儲存空間超過 75% 時發警示並擴充空間。\n2. 部署 memcached 降低 CPU 負載。\n3. 更換為 32 核心機型以降低複寫延遲。",
+            "D": "1. 儲存空間超過 75% 時發警示並擴充空間。\n2. 部署 memcached 降低 CPU 負載。\n3. 設定複寫延遲警示並更換為 32 核心機型。"
         },
         "images": [],
         "answers": [
@@ -3246,16 +3246,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company is planning to perform a lift and shift migration of their Linux RHEL 6.5+ virtual machines. The virtual machines are running in an on-premises VMware environment. You want to migrate them to Compute Engine following Google-recommended practices. What should you do?",
         "question-zh": "您的公司計畫將 Linux RHEL 6.5+ VM 由地端 VMware 環境 lift & shift 遷移到 Compute Engine，需依 Google 建議做法。應怎麼做？",
         "options": {
-            "A": "1. Define a migration plan based on the list of the applications and their dependencies. 2. Migrate all virtual machines into Compute Engine individually with Migrate for Compute Engine.",
-            "B": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Create images of all disks. Import disks on Compute Engine. 3. Create standard virtual machines where the boot disks are the ones you have imported.",
-            "C": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Define a migration plan, prepare a Migrate for Compute Engine migration RunBook, and execute the migration.",
-            "D": "1. Perform an assessment of virtual machines running in the current VMware environment. 2. Install a third-party agent on all selected virtual machines. 3. Migrate all virtual machines into Compute Engine."
+            "A": "1. Define a migration plan based on the list of the applications and their dependencies. \n2. Migrate all virtual machines into Compute Engine individually with Migrate for Compute Engine.",
+            "B": "1. Perform an assessment of virtual machines running in the current VMware environment. \n2. Create images of all disks. Import disks on Compute Engine. \n3. Create standard virtual machines where the boot disks are the ones you have imported.",
+            "C": "1. Perform an assessment of virtual machines running in the current VMware environment. \n2. Define a migration plan, prepare a Migrate for Compute Engine migration RunBook, and execute the migration.",
+            "D": "1. Perform an assessment of virtual machines running in the current VMware environment. \n2. Install a third-party agent on all selected virtual machines. \n3. Migrate all virtual machines into Compute Engine."
         },
         "options-zh": {
-            "A": "1. 根據應用及相依清單訂定遷移計畫。2. 用 Migrate for Compute Engine 個別遷移所有 VM。",
-            "B": "1. 盤點現有 VMware VM。2. 建立所有磁碟映像並匯入 Compute Engine。3. 用匯入的磁碟建立標準 VM。",
-            "C": "1. 盤點現有 VMware VM。2. 訂定遷移計畫，準備 Migrate for Compute Engine RunBook 並執行。",
-            "D": "1. 盤點現有 VMware VM。2. 安裝第三方代理程式。3. 遷移所有 VM 至 Compute Engine。"
+            "A": "1. 根據應用及相依清單訂定遷移計畫。\n2. 用 Migrate for Compute Engine 個別遷移所有 VM。",
+            "B": "1. 盤點現有 VMware VM。\n2. 建立所有磁碟映像並匯入 Compute Engine。\n3. 用匯入的磁碟建立標準 VM。",
+            "C": "1. 盤點現有 VMware VM。\n2. 訂定遷移計畫，準備 Migrate for Compute Engine RunBook 並執行。",
+            "D": "1. 盤點現有 VMware VM。\n2. 安裝第三方代理程式。\n3. 遷移所有 VM 至 Compute Engine。"
         },
         "images": [],
         "answers": [
@@ -3654,16 +3654,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "You are moving an application that uses MySQL from on-premises to Google Cloud. The application will run on Compute Engine and will use Cloud SQL. You want to cut over to the Compute Engine deployment of the application with minimal downtime and no data loss to your customers. You want to migrate the application with minimal modification. You also need to determine the cutover strategy. What should you do?",
         "question-zh": "您要將使用 MySQL 的應用從地端遷移到 Google Cloud，應用將跑在 Compute Engine 並用 Cloud SQL。希望切換時停機最短且無資料遺失，且應用程式改動最少。應如何規劃切換？",
         "options": {
-            "A": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. 2. Stop the on-premises application. 3. Create a mysqldump of the on-premises MySQL server. 4. Upload the dump to a Cloud Storage bucket. 5. Import the dump into Cloud SQL. 6. Modify the source code of the application to write queries to both databases and read from its local database. 7. Start the Compute Engine application. 8. Stop the on-premises application.",
-            "B": "1. Set up Cloud SQL proxy and MySQL proxy. 2. Create a mysqldump of the on-premises MySQL server. 3. Upload the dump to a Cloud Storage bucket. 4. Import the dump into Cloud SQL. 5. Stop the on-premises application. 6. Start the Compute Engine application.",
-            "C": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. 2. Stop the on-premises application. 3. Start the Compute Engine application, configured to read and write to the on-premises MySQL server. 4. Create the replication configuration in Cloud SQL. 5. Configure the source database server to accept connections from the Cloud SQL replica. 6. Finalize the Cloud SQL replica configuration. 7. When replication has been completed, stop the Compute Engine application. 8. Promote the Cloud SQL replica to a standalone instance. 9. Restart the Compute Engine application, configured to read and write to the Cloud SQL standalone instance.",
-            "D": "1. Stop the on-premises application. 2. Create a mysqldump of the on-premises MySQL server. 3. Upload the dump to a Cloud Storage bucket. 4. Import the dump into Cloud SQL. 5. Start the application on Compute Engine."
+            "A": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. \n2. Stop the on-premises application. 3\n. Create a mysqldump of the on-premises MySQL server. 4. Upload the dump to a Cloud Storage bucket. \n5. Import the dump into Cloud SQL. \n6. Modify the source code of the application to write queries to both databases and read from its local database. \n7. Start the Compute Engine application. \n8. Stop the on-premises application.",
+            "B": "1. Set up Cloud SQL proxy and MySQL proxy. \n2. Create a mysqldump of the on-premises MySQL server. \n3. Upload the dump to a Cloud Storage bucket. \n4. Import the dump into Cloud SQL. \n5. Stop the on-premises application. \n6. Start the Compute Engine application.",
+            "C": "1. Set up Cloud VPN to provide private network connectivity between the Compute Engine application and the on-premises MySQL server. \n2. Stop the on-premises application. \n3. Start the Compute Engine application, configured to read and write to the on-premises MySQL server. \n4. Create the replication configuration in Cloud SQL. \n5. Configure the source database server to accept connections from the Cloud SQL replica. \n6. Finalize the Cloud SQL replica configuration. \n7. When replication has been completed, stop the Compute Engine application. \n8. Promote the Cloud SQL replica to a standalone instance. \n9. Restart the Compute Engine application, configured to read and write to the Cloud SQL standalone instance.",
+            "D": "1. Stop the on-premises application. \n2. Create a mysqldump of the on-premises MySQL server. \n3. Upload the dump to a Cloud Storage bucket. \n4. Import the dump into Cloud SQL. \n5. Start the application on Compute Engine."
         },
         "options-zh": {
-            "A": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。2. 停地端應用。3. mysqldump 匯出地端 MySQL。4. 上傳 Cloud Storage。5. 匯入 Cloud SQL。6. 應用程式同時寫兩邊、讀本地。7. 啟動 Compute Engine 應用。8. 停地端應用。",
-            "B": "1. 設 Cloud SQL proxy 與 MySQL proxy。2. mysqldump 匯出地端 MySQL。3. 上傳 Cloud Storage。4. 匯入 Cloud SQL。5. 停地端應用。6. 啟動 Compute Engine 應用。",
-            "C": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。2. 停地端應用。3. 啟動 Compute Engine 應用，連地端 MySQL。4. 設 Cloud SQL 複寫。5. 設地端資料庫允許 Cloud SQL 連線。6. 完成 Cloud SQL 複寫設定。7. 複寫完成後停 Compute Engine 應用。8. 將 Cloud SQL 複本升級為獨立實例。9. 重啟 Compute Engine 應用，改連 Cloud SQL。",
-            "D": "1. 停地端應用。2. mysqldump 匯出地端 MySQL。3. 上傳 Cloud Storage。4. 匯入 Cloud SQL。5. 啟動 Compute Engine 應用。"
+            "A": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。\n2. 停地端應用。\n3. mysqldump 匯出地端 MySQL。\n4. 上傳 Cloud Storage。\n5. 匯入 Cloud SQL。\n6. 應用程式同時寫兩邊、讀本地。\n7. 啟動 Compute Engine 應用。\n8. 停地端應用。",
+            "B": "1. 設 Cloud SQL proxy 與 MySQL proxy。\n2. mysqldump 匯出地端 MySQL。\n3. 上傳 Cloud Storage。\n4. 匯入 Cloud SQL。\n5. 停地端應用。\n6. 啟動 Compute Engine 應用。",
+            "C": "1. 設 Cloud VPN 讓 Compute Engine 應用與地端 MySQL 私網連線。\n2. 停地端應用。\n3. 啟動 Compute Engine 應用，連地端 MySQL。\n4. 設 Cloud SQL 複寫。\n5. 設地端資料庫允許 Cloud SQL 連線。\n6. 完成 Cloud SQL 複寫設定。\n7. 複寫完成後停 Compute Engine 應用。\n8. 將 Cloud SQL 複本升級為獨立實例。\n9. 重啟 Compute Engine 應用，改連 Cloud SQL。",
+            "D": "1. 停地端應用。\n2. mysqldump 匯出地端 MySQL。\n3. 上傳 Cloud Storage。\n4. 匯入 Cloud SQL。\n5. 啟動 Compute Engine 應用。"
         },
         "images": [],
         "answers": [
@@ -3787,16 +3787,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has sensitive data in Cloud Storage buckets. Data analysts have Identity Access Management (IAM) permissions to read the buckets. You want to prevent data analysts from retrieving the data in the buckets from outside the office network. What should you do?",
         "question-zh": "公司 Cloud Storage bucket 有敏感資料，資料分析師有 IAM 讀取權限。要防止分析師在辦公室外存取。應怎麼做？",
         "options": {
-            "A": "1. Create a VPC Service Controls perimeter that includes the projects with the buckets. 2. Create an access level with the CIDR of the office network.",
-            "B": "1. Create a firewall rule for all instances in the Virtual Private Cloud (VPC) network for source range. 2. Use the Classless Inter-domain Routing (CIDR) of the office network.",
-            "C": "1. Create a Cloud Function to remove IAM permissions from the buckets, and another Cloud Function to add IAM permissions to the buckets. 2. Schedule the Cloud Functions with Cloud Scheduler to add permissions at the start of business and remove permissions at the end of business.",
-            "D": "1. Create a Cloud VPN to the office network. 2. Configure Private Google Access for on-premises hosts."
+            "A": "1. Create a VPC Service Controls perimeter that includes the projects with the buckets. \n2. Create an access level with the CIDR of the office network.",
+            "B": "1. Create a firewall rule for all instances in the Virtual Private Cloud (VPC) network for source range. \n2. Use the Classless Inter-domain Routing (CIDR) of the office network.",
+            "C": "1. Create a Cloud Function to remove IAM permissions from the buckets, and another Cloud Function to add IAM permissions to the buckets. \n2. Schedule the Cloud Functions with Cloud Scheduler to add permissions at the start of business and remove permissions at the end of business.",
+            "D": "1. Create a Cloud VPN to the office network. \n2. Configure Private Google Access for on-premises hosts."
         },
         "options-zh": {
-            "A": "1. 建立 VPC Service Controls 周界納入 bucket 專案。2. 建立僅允許辦公室 CIDR 的存取層級。",
+            "A": "1. 建立 VPC Service Controls 周界納入 bucket 專案。\n2. 建立僅允許辦公室 CIDR 的存取層級。",
             "B": "1. 為所有 VPC 實例設防火牆規則，來源設辦公室 CIDR。",
             "C": "1. 用 Cloud Function 移除/新增 bucket IAM 權限，並用 Cloud Scheduler 在上下班時切換。",
-            "D": "1. 建 Cloud VPN 連辦公室網路。2. 為地端主機設 Private Google Access。"
+            "D": "1. 建 Cloud VPN 連辦公室網路。\n2. 為地端主機設 Private Google Access。"
         },
         "images": [],
         "answers": [
@@ -4104,16 +4104,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "You have an application that runs in Google Kubernetes Engine (GKE). Over the last 2 weeks, customers have reported that a specific part of the application returns errors very frequently. You currently have no logging or monitoring solution enabled on your GKE cluster. You want to diagnose the problem, but you have not been able to replicate the issue. You want to cause minimal disruption to the application. What should you do?",
         "question-zh": "您的應用跑在 GKE，近兩週有部分功能常出錯，且目前未啟用監控或日誌。您無法重現問題，且希望排查時對應用影響最小。應怎麼做？",
         "options": {
-            "A": "1. Update your GKE cluster to use Cloud Operations for GKE. 2. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
-            "B": "1. Create a new GKE cluster with Cloud Operations for GKE enabled. 2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. 3. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
-            "C": "1. Update your GKE cluster to use Cloud Operations for GKE, and deploy Prometheus. 2. Set an alert to trigger whenever the application returns an error.",
-            "D": "1. Create a new GKE cluster with Cloud Operations for GKE enabled, and deploy Prometheus. 2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. 3. Set an alert to trigger whenever the application returns an error."
+            "A": "1. Update your GKE cluster to use Cloud Operations for GKE. \n2. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
+            "B": "1. Create a new GKE cluster with Cloud Operations for GKE enabled. 2\n. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. \n3. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
+            "C": "1. Update your GKE cluster to use Cloud Operations for GKE, and deploy Prometheus. \n2. Set an alert to trigger whenever the application returns an error.",
+            "D": "1. Create a new GKE cluster with Cloud Operations for GKE enabled, and deploy Prometheus. \n2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. \n3. Set an alert to trigger whenever the application returns an error."
         },
         "options-zh": {
-            "A": "1. 將 GKE 叢集升級啟用 Cloud Operations。2. 用 GKE 監控儀表板查詢異常 Pod 日誌。",
-            "B": "1. 新建啟用 Cloud Operations 的 GKE 叢集。2. 遷移異常 Pod 並導流。3. 用 GKE 監控儀表板查日誌。",
-            "C": "1. GKE 叢集啟用 Cloud Operations 並部署 Prometheus。2. 設定錯誤警示。",
-            "D": "1. 新建啟用 Cloud Operations 並部署 Prometheus 的 GKE 叢集。2. 遷移異常 Pod 並導流。3. 設定錯誤警示。"
+            "A": "1. 將 GKE 叢集升級啟用 Cloud Operations。\n2. 用 GKE 監控儀表板查詢異常 Pod 日誌。",
+            "B": "1. 新建啟用 Cloud Operations 的 GKE 叢集。\n2. 遷移異常 Pod 並導流。\n3. 用 GKE 監控儀表板查日誌。",
+            "C": "1. GKE 叢集啟用 Cloud Operations 並部署 Prometheus。\n2. 設定錯誤警示。",
+            "D": "1. 新建啟用 Cloud Operations 並部署 Prometheus 的 GKE 叢集。\n2. 遷移異常 Pod 並導流。\n3. 設定錯誤警示。"
         },
         "images": [],
         "answers": [
@@ -4466,16 +4466,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has a networking team and a development team. The development team runs applications on Compute Engine instances that contain sensitive data. The development team requires administrative permissions for Compute Engine. Your company requires all network resources to be managed by the networking team. The development team does not want the networking team to have access to the sensitive data on the instances. What should you do?",
         "question-zh": "公司有網路與開發團隊，開發團隊的 Compute Engine 執行機密資料，需管理權限但不想讓網路團隊存取資料。公司要求所有網路資源由網路團隊管理。應怎麼做？",
         "options": {
-            "A": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. 2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. 3. Use Cloud VPN to join the two VPCs.",
+            "A": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. \n2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. \n3. Use Cloud VPN to join the two VPCs.",
             "B": "1. Create a project with a standalone Virtual Private Cloud (VPC), assign the Network Admin role to the networking team, and assign the Compute Admin role to the development team.",
-            "C": "1. Create a project with a Shared VPC and assign the Network Admin role to the networking team. 2. Create a second project without a VPC, configure it as a Shared VPC service project, and assign the Compute Admin role to the development team.",
-            "D": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. 2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. 3. Use VPC Peering to join the two VPCs."
+            "C": "1. Create a project with a Shared VPC and assign the Network Admin role to the networking team. \n2. Create a second project without a VPC, configure it as a Shared VPC service project, and assign the Compute Admin role to the development team.",
+            "D": "1. Create a project with a standalone VPC and assign the Network Admin role to the networking team. \n2. Create a second project with a standalone VPC and assign the Compute Admin role to the development team. \n3. Use VPC Peering to join the two VPCs."
         },
         "options-zh": {
-            "A": "1. 建獨立 VPC 專案給網路團隊 Network Admin。2. 再建獨立 VPC 專案給開發團隊 Compute Admin。3. 用 Cloud VPN 連兩 VPC。",
+            "A": "1. 建獨立 VPC 專案給網路團隊 Network Admin。\n2. 再建獨立 VPC 專案給開發團隊 Compute Admin。\n3. 用 Cloud VPN 連兩 VPC。",
             "B": "1. 建獨立 VPC 專案，網路團隊 Network Admin，開發團隊 Compute Admin。",
-            "C": "1. 建 Shared VPC 專案給網路團隊 Network Admin。2. 再建無 VPC 專案設為 Shared VPC 服務專案給開發團隊 Compute Admin。",
-            "D": "1. 建獨立 VPC 專案給網路團隊 Network Admin。2. 再建獨立 VPC 專案給開發團隊 Compute Admin。3. 用 VPC Peering 連兩 VPC。"
+            "C": "1. 建 Shared VPC 專案給網路團隊 Network Admin。\n2. 再建無 VPC 專案設為 Shared VPC 服務專案給開發團隊 Compute Admin。",
+            "D": "1. 建獨立 VPC 專案給網路團隊 Network Admin。\n2. 再建獨立 VPC 專案給開發團隊 Compute Admin。\n3. 用 VPC Peering 連兩 VPC。"
         },
         "images": [],
         "answers": [
@@ -5237,10 +5237,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has an enterprise application running on Compute Engine that requires high availability and high performance. The application has been deployed on two instances in two zones in the same region in active-passive mode. The application writes data to a persistent disk. In the case of a single zone outage, that data should be immediately made available to the other instance in the other zone. You want to maximize performance while minimizing downtime and data loss.\n\nWhat should you do?",
         "question-zh": "公司有企業應用跑在 Compute Engine，需高可用高效能，兩區 VM active-passive，資料寫入永久磁碟。若單一區故障，資料要能立即給另一區 VM 用。要效能高又降停機與資料遺失。怎麼做？",
         "options": {
-            "A": "1. Attach a persistent SSD disk to the first instance. 2. Create a snapshot every hour. 3. In case of a zone outage, recreate a persistent SSD disk in the second instance where data is coming from the created snapshot.",
-            "B": "1. Create a Cloud Storage bucket. 2. Mount the bucket into the first instance with gcs-fuse. 3. In case of a zone outage, mount the Cloud Storage bucket to the second instance with gcs-fuse.",
-            "C": "1. Attach a regional SSD persistent disk to the first instance. 2. In case of a zone outage, force-attach the disk to the other instance.",
-            "D": "1. Attach a local SSD to the first instance disk. 2. Execute an rsync command every hour where the target is a persistent SSD disk attached to the second instance. 3. In case of a zone outage, use the second instance."
+            "A": "1. Attach a persistent SSD disk to the first instance. \n2. Create a snapshot every hour. \n3. In case of a zone outage, recreate a persistent SSD disk in the second instance where data is coming from the created snapshot.",
+            "B": "1. Create a Cloud Storage bucket. \n2. Mount the bucket into the first instance with gcs-fuse. \n3. In case of a zone outage, mount the Cloud Storage bucket to the second instance with gcs-fuse.",
+            "C": "1. Attach a regional SSD persistent disk to the first instance. \n2. In case of a zone outage, force-attach the disk to the other instance.",
+            "D": "1. Attach a local SSD to the first instance disk. \n2. Execute an rsync command every hour where the target is a persistent SSD disk attached to the second instance. \n3. In case of a zone outage, use the second instance."
         },
         "options-zh": {
             "A": "1. 第一台掛 SSD 永久磁碟，每小時快照，故障時用快照重建。",
@@ -5462,16 +5462,16 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company is planning to upload several important files to Cloud Storage. After the upload is completed, they want to verify that the uploaded content is identical to what they have on-premises. You want to minimize the cost and effort of performing this check. What should you do?",
         "question-zh": "公司要上傳多個重要檔案到 Cloud Storage，完成後要驗證雲端與地端內容一致，且要省成本省力。怎麼做？",
         "options": {
-            "A": "1. Use Linux shasum to compute a digest of files you want to upload. 2. Use gsutil -m to upload all the files to Cloud Storage. 3. Use gsutil cp to download the uploaded files. 4. Use Linux shasum to compute a digest of the downloaded files. 5. Compare the hashes.",
-            "B": "1. Use gsutil -m to upload the files to Cloud Storage. 2. Develop a custom Java application that computes CRC32C hashes. 3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. 4. Compare the hashes.",
-            "C": "1. Use gsutil -m to upload all the files to Cloud Storage. 2. Use gsutil cp to download the uploaded files. 3. Use Linux diff to compare the content of the files.",
-            "D": "1. Use gsutil -m to upload the files to Cloud Storage. 2. Use gsutil hash -c FILE_NAME to generate CRC32C hashes of all on-premises files. 3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. 4. Compare the hashes."
+            "A": "1. Use Linux shasum to compute a digest of files you want to upload. \n2. Use gsutil -m to upload all the files to Cloud Storage. \n3. Use gsutil cp to download the uploaded files. \n4. Use Linux shasum to compute a digest of the downloaded files. \n5. Compare the hashes.",
+            "B": "1. Use gsutil -m to upload the files to Cloud Storage. \n2. Develop a custom Java application that computes CRC32C hashes. \n3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. \n4. Compare the hashes.",
+            "C": "1. Use gsutil -m to upload all the files to Cloud Storage. \n2. Use gsutil cp to download the uploaded files. \n3. Use Linux diff to compare the content of the files.",
+            "D": "1. Use gsutil -m to upload the files to Cloud Storage. \n2. Use gsutil hash -c FILE_NAME to generate CRC32C hashes of all on-premises files. \n3. Use gsutil ls -L gs://[YOUR_BUCKET_NAME] to collect CRC32C hashes of the uploaded files. \n4. Compare the hashes."
         },
         "options-zh": {
-            "A": "1. 用 shasum 算地端檔案雜湊。2. gsutil -m 上傳。3. gsutil cp 下載。4. shasum 算下載檔案雜湊。5. 比對。",
-            "B": "1. gsutil -m 上傳。2. 自製 Java 算 CRC32C。3. gsutil ls -L 取雲端 CRC32C。4. 比對。",
-            "C": "1. gsutil -m 上傳。2. gsutil cp 下載。3. diff 比對內容。",
-            "D": "1. gsutil -m 上傳。2. gsutil hash -c 算地端 CRC32C。3. gsutil ls -L 取雲端 CRC32C。4. 比對。"
+            "A": "1. 用 shasum 算地端檔案雜湊。\n2. gsutil -m 上傳。\n3. gsutil cp 下載。\n4. shasum 算下載檔案雜湊。\n5. 比對。",
+            "B": "1. gsutil -m 上傳。\n2. 自製 Java 算 CRC32C。\n3. gsutil ls -L 取雲端 CRC32C。\n4. 比對。",
+            "C": "1. gsutil -m 上傳。\n2. gsutil cp 下載。\n3. diff 比對內容。",
+            "D": "1. gsutil -m 上傳。\n2. gsutil hash -c 算地端 CRC32C。\n3. gsutil ls -L 取雲端 CRC32C。\n4. 比對。"
         },
         "images": [],
         "answers": [
@@ -5643,13 +5643,13 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question-zh": "公司 GCP 專案用 BigQuery 做數據倉儲，地端與 GCP 用 Cloud VPN 連線，資安團隊要防止內賊、惡意程式或誤分享造成資料外洩。怎麼做？",
         "options": {
             "A": "Configure Private Google Access for on-premises only.",
-            "B": "Perform the following tasks: 1. Create a service account. 2. Give the BigQuery JobUser role and Storage Reader role to the service account. 3. Remove all other IAM access from the project.",
+            "B": "Perform the following tasks: 1. Create a service account. \n2. Give the BigQuery JobUser role and Storage Reader role to the service account. \n3. Remove all other IAM access from the project.",
             "C": "Configure VPC Service Controls and configure Private Google Access.",
             "D": "Configure Private Google Access."
         },
         "options-zh": {
             "A": "只設地端 Private Google Access。",
-            "B": "1. 建 service account 並給 BigQuery JobUser 與 Storage Reader，移除其他 IAM。",
+            "B": "建 service account 並給 BigQuery JobUser 與 Storage Reader，移除其他 IAM。",
             "C": "設 VPC Service Controls 並設 Private Google Access。",
             "D": "設 Private Google Access。"
         },
@@ -6333,10 +6333,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has a Google Workspace account and Google Cloud Organization. Some developers in the company have created Google Cloud projects outside of the Google Cloud Organization.\n\nYou want to create an Organization structure that allows developers to create projects, but prevents them from modifying production projects. You want to manage policies for all projects centrally and be able to set more restrictive policies for production projects.\n\nYou want to minimize disruption to users and developers when business needs change in the future. You want to follow Google-recommended practices. Now should you design the Organization structure?",
         "question-zh": "公司有 Workspace 與 GCP Org，有些開發者在 Org 外建專案。你要設計 Org 結構，讓開發者能建專案但不能改 production，並集中管理政策，production 可更嚴格。要最小化未來變動影響並遵循 Google 建議，該怎麼設計？",
         "options": {
-            "A": "1. Create a second Google Workspace account and Organization. 2. Grant all developers the Project Creator IAM role on the new Organization. 3. Move the developer projects into the new Organization. 4. Set the policies for all projects on both Organizations. 5. Additionally, set the production policies on the original Organization.",
-            "B": "1. Create a folder under the Organization resource named ג€Production.ג€ 2. Grant all developers the Project Creator IAM role on the new Organization. 3. Move the developer projects into the new Organization. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the ג€Productionג€ folder.",
-            "C": "1. Create folders under the Organization resource named ג€Developmentג€ and ג€Production.ג€ 2. Grant all developers the Project Creator IAM role on the ג€Developmentג€ folder. 3. Move the developer projects into the ג€Developmentג€ folder. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the ג€Productionג€ folder.",
-            "D": "1. Designate the Organization for production projects only. 2. Ensure that developers do not have the Project Creator IAM role on the Organization. 3. Create development projects outside of the Organization using the developer Google Workspace accounts. 4. Set the policies for all projects on the Organization. 5. Additionally, set the production policies on the individual production projects."
+            "A": "1. Create a second Google Workspace account and Organization. \n2. Grant all developers the Project Creator IAM role on the new Organization. \n3. Move the developer projects into the new Organization. \n4. Set the policies for all projects on both Organizations. \n5. Additionally, set the production policies on the original Organization.",
+            "B": "1. Create a folder under the Organization resource named ג€Production.\n2. Grant all developers the Project Creator IAM role on the new Organization. \n3. Move the developer projects into the new Organization. \n4. Set the policies for all projects on the Organization. \n5. Additionally, set the production policies on the ג€Productionג€ folder.",
+            "C": "1. Create folders under the Organization resource named ג€Developmentג€ and ג€Production.ג€ \n2. Grant all developers the Project Creator IAM role on the ג€Developmentג€ folder. \n3. Move the developer projects into the ג€Developmentג€ folder. \n4. Set the policies for all projects on the Organization. \n5. Additionally, set the production policies on the ג€Productionג€ folder.",
+            "D": "1. Designate the Organization for production projects only. \n2. Ensure that developers do not have the Project Creator IAM role on the Organization. \n3. Create development projects outside of the Organization using the developer Google Workspace accounts. \n4. Set the policies for all projects on the Organization. \n5. Additionally, set the production policies on the individual production projects."
         },
         "options-zh": {
             "A": "1. 建第二個 Workspace 與 Org，給開發者 Project Creator 角色，移開發專案進新 Org，兩邊都設政策，production 政策設在原 Org。",
@@ -6378,10 +6378,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has an application running on Compute Engine that allows users to play their favorite music. There are a fixed number of instances. Files are stored in Cloud Storage, and data is streamed directly to users. Users are reporting that they sometimes need to attempt to play popular songs multiple times before they are successful. You need to improve the performance of the application. What should you do?",
         "question-zh": "公司有 Compute Engine 應用讓用戶聽音樂，檔案存 Cloud Storage，直接串流。用戶反映熱門歌常要重試才能播成功，要怎麼改善效能？",
         "options": {
-            "A": "1. Mount the Cloud Storage bucket using gcsfuse on all backend Compute Engine instances. 2. Serve music files directly from the backend Compute Engine instance.",
-            "B": "1. Create a Cloud Filestore NFS volume and attach it to the backend Compute Engine instances. 2. Download popular songs in Cloud Filestore. 3. Serve music files directly from the backend Compute Engine instance.",
-            "C": "1. Copy popular songs into CloudSQL as a blob. 2. Update application code to retrieve data from CloudSQL when Cloud Storage is overloaded.",
-            "D": "1. Create a managed instance group with Compute Engine instances. 2. Create a global load balancer and configure it with two backends: ג—‹ Managed instance group ג—‹ Cloud Storage bucket 3. Enable Cloud CDN on the bucket backend."
+            "A": "1. Mount the Cloud Storage bucket using gcsfuse on all backend Compute Engine instances. \n2. Serve music files directly from the backend Compute Engine instance.",
+            "B": "1. Create a Cloud Filestore NFS volume and attach it to the backend Compute Engine instances. \n2. Download popular songs in Cloud Filestore. \n3. Serve music files directly from the backend Compute Engine instance.",
+            "C": "1. Copy popular songs into CloudSQL as a blob. \n2. Update application code to retrieve data from CloudSQL when Cloud Storage is overloaded.",
+            "D": "1. Create a managed instance group with Compute Engine instances. \n2. Create a global load balancer and configure it with two backends: ג—‹ Managed instance group ג—‹ Cloud Storage bucket \n3. Enable Cloud CDN on the bucket backend."
         },
         "options-zh": {
             "A": "gcsfuse 掛載 Cloud Storage，直接從 Compute Engine 供應音樂。",
@@ -6548,10 +6548,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has an application running on multiple instances of Compute Engine. It generates 1 TB per day of logs. For compliance reasons, the logs need to be kept for at least two years. The logs need to be available for active query for 30 days. After that, they just need to be retained for audit purposes. You want to implement a storage solution that is compliant, minimizes costs, and follows Google-recommended practices. What should you do?",
         "question-zh": "公司有多台 Compute Engine 跑應用，每天產生 1TB 日誌，合規需保存兩年，30 天內要能查詢，之後僅供稽核。怎麼設計最省錢又合規？",
         "options": {
-            "A": "1. Install a Cloud Logging agent on all instances. 2. Create a sink to export logs into a regional Cloud Storage bucket. 3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month. 4. Configure a retention policy at the bucket level using bucket lock.",
-            "B": "1. Write a daily cron job, running on all instances, that uploads logs into a Cloud Storage bucket. 2. Create a sink to export logs into a regional Cloud Storage bucket. 3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month.",
-            "C": "1. Install a Cloud Logging agent on all instances. 2. Create a sink to export logs into a partitioned BigQuery table. 3. Set a time_partitioning_expiration of 30 days.",
-            "D": "1. Create a daily cron job, running on all instances, that uploads logs into a partitioned BigQuery table. 2. Set a time_partitioning_expiration of 30 days."
+            "A": "1. Install a Cloud Logging agent on all instances. \n2. Create a sink to export logs into a regional Cloud Storage bucket. \n3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month. \n4. Configure a retention policy at the bucket level using bucket lock.",
+            "B": "1. Write a daily cron job, running on all instances, that uploads logs into a Cloud Storage bucket. \n2. Create a sink to export logs into a regional Cloud Storage bucket. \n3. Create an Object Lifecycle rule to move files into a Coldline Cloud Storage bucket after one month.",
+            "C": "1. Install a Cloud Logging agent on all instances. \n2. Create a sink to export logs into a partitioned BigQuery table. \n3. Set a time_partitioning_expiration of 30 days.",
+            "D": "1. Create a daily cron job, running on all instances, that uploads logs into a partitioned BigQuery table. \n2. Set a time_partitioning_expiration of 30 days."
         },
         "options-zh": {
             "A": "所有機器裝 Cloud Logging agent，sink 匯出日誌到區域 Cloud Storage，1 個月後用生命週期規則移到 Coldline，設 bucket lock 保存。",
@@ -6652,10 +6652,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing. There are some tables that contain personally identifiable information (PII).\n\nOnly the compliance team may access the PII. The other information in the tables must be available to the data science team. You want to minimize cost and the time it takes to assign appropriate access to the tables. What should you do?",
         "question-zh": "公司有 GCP 專案用 BigQuery 做數據倉儲，有些表含個資，僅合規團隊能看，其他資料要給 data science team。怎麼做最省時省錢？",
         "options": {
-            "A": "1. From the dataset where you have the source data, create views of tables that you want to share, excluding PII. 2. Assign an appropriate project-level IAM role to the members of the data science team. 3. Assign access controls to the dataset that contains the view.",
-            "B": "1. From the dataset where you have the source data, create materialized views of tables that you want to share, excluding PII. 2. Assign an appropriate project-level IAM role to the members of the data science team. 3. Assign access controls to the dataset that contains the view.",
-            "C": "1. Create a dataset for the data science team. 2. Create views of tables that you want to share, excluding PII. 3. Assign an appropriate project-level IAM role to the members of the data science team. 4. Assign access controls to the dataset that contains the view. 5. Authorize the view to access the source dataset.",
-            "D": "1. Create a dataset for the data science team. 2. Create materialized views of tables that you want to share, excluding PII. 3. Assign an appropriate project-level IAM role to the members of the data science team. 4. Assign access controls to the dataset that contains the view. 5. Authorize the view to access the source dataset."
+            "A": "1. From the dataset where you have the source data, create views of tables that you want to share, excluding PII. \n2. Assign an appropriate project-level IAM role to the members of the data science team. \n3. Assign access controls to the dataset that contains the view.",
+            "B": "1. From the dataset where you have the source data, create materialized views of tables that you want to share, excluding PII. \n2. Assign an appropriate project-level IAM role to the members of the data science team. \n3. Assign access controls to the dataset that contains the view.",
+            "C": "1. Create a dataset for the data science team. \n2. Create views of tables that you want to share, excluding PII. \n3. Assign an appropriate project-level IAM role to the members of the data science team. \n4. Assign access controls to the dataset that contains the view. \n5. Authorize the view to access the source dataset.",
+            "D": "1. Create a dataset for the data science team. \n2. Create materialized views of tables that you want to share, excluding PII. \n3. Assign an appropriate project-level IAM role to the members of the data science team. \n4. Assign access controls to the dataset that contains the view. \n5. Authorize the view to access the source dataset."
         },
         "options-zh": {
             "A": "原始資料集建 view 排除個資，給 data science team 專案層 IAM，view 資料集設權限。",
@@ -6973,10 +6973,10 @@ GKE 叢集 200 節點跑 batch/stateful/stateless 工作負載，要降成本但
         "question": "Your company has a Google Cloud project that uses BigQuery for data warehousing on a pay-per-use basis. You want to monitor queries in real time to discover the most costly queries and which users spend the most. What should you do?",
         "question-zh": "公司用 BigQuery 做數據倉儲，按用量計費。要即時監控最貴查詢與花最多的用戶，怎麼做？",
         "options": {
-            "A": "1. In the BigQuery dataset that contains all the tables to be queried, add a label for each user that can launch a query. 2. Open the Billing page of the project. 3. Select Reports. 4. Select BigQuery as the product and filter by the user you want to check.",
-            "B": "1. Create a Cloud Logging sink to export BigQuery data access logs to BigQuery. 2. Perform a BigQuery query on the generated table to extract the information you need.",
-            "C": "1. Create a Cloud Logging sink to export BigQuery data access logs to Cloud Storage. 2. Develop a Dataflow pipeline to compute the cost of queries split by users.",
-            "D": "1. Activate billing export into BigQuery. 2. Perform a BigQuery query on the billing table to extract the information you need."
+            "A": "1. In the BigQuery dataset that contains all the tables to be queried, add a label for each user that can launch a query. \n2. Open the Billing page of the project. \n3. Select Reports. \n4. Select BigQuery as the product and filter by the user you want to check.",
+            "B": "1. Create a Cloud Logging sink to export BigQuery data access logs to BigQuery. \n2. Perform a BigQuery query on the generated table to extract the information you need.",
+            "C": "1. Create a Cloud Logging sink to export BigQuery data access logs to Cloud Storage. \n2. Develop a Dataflow pipeline to compute the cost of queries split by users.",
+            "D": "1. Activate billing export into BigQuery. \n2. Perform a BigQuery query on the billing table to extract the information you need."
         },
         "options-zh": {
             "A": "BigQuery 資料集每個用戶加 label，Billing 頁查報表。",
@@ -7017,7 +7017,7 @@ BigQuery 按用量計費，要即時監控最貴查詢與花最多錢的用戶�
             "A": "Set up a network peering between vpc-a and vpc-b.",
             "B": "Set up a VPN between vpc-a and vpc-b using Cloud VPN.",
             "C": "Configure IAP TCP forwarding on the instance in vpc-b, and then launch the following gcloud command from one of the instances in vpc-a gcloud: gcloud compute start-iap-tunnel INSTANCE_NAME_IN_VPC_8 22 \\ --local-host-port=localhost:22",
-            "D": "1. Create an additional instance in vpc-a. 2. Create an additional instance in vpc-b. 3. Install OpenVPN in newly created instances. 4. Configure a VPN tunnel between vpc-a and vpc-b with the help of OpenVPN."
+            "D": "1. Create an additional instance in vpc-a. \n Create an additional instance in vpc-b. \n3. Install OpenVPN in newly created instances. \n4. Configure a VPN tunnel between vpc-a and vpc-b with the help of OpenVPN."
         },
         "options-zh": {
             "A": "設 vpc-a/vpc-b peering。",
@@ -7175,10 +7175,10 @@ BigQuery 按用量計費，要即時監控最貴查詢與花最多錢的用戶�
         "question": "Your company has an application running on App Engine that allows users to upload music files and share them with other people. You want to allow users to upload files directly into Cloud Storage from their browser session. The payload should not be passed through the backend. What should you do?",
         "question-zh": "公司有 App Engine 應用讓用戶上傳音樂並分享，要讓用戶直接從瀏覽器上傳到 Cloud Storage，不經後端，怎麼做？",
         "options": {
-            "A": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.2. Use the Cloud Storage Signed URL feature to generate a POST URL.",
-            "B": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.2. Assign the Cloud Storage WRITER role to users who upload files.",
-            "C": "1. Use the Cloud Storage Signed URL feature to generate a POST URL.2. Use App Engine default credentials to sign requests against Cloud Storage.",
-            "D": "1. Assign the Cloud Storage WRITER role to users who upload files.2. Use App Engine default credentials to sign requests against Cloud Storage."
+            "A": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.\n2. Use the Cloud Storage Signed URL feature to generate a POST URL.",
+            "B": "1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.\n2. Assign the Cloud Storage WRITER role to users who upload files.",
+            "C": "1. Use the Cloud Storage Signed URL feature to generate a POST URL.\n2. Use App Engine default credentials to sign requests against Cloud Storage.",
+            "D": "1. Assign the Cloud Storage WRITER role to users who upload files.\n2. Use App Engine default credentials to sign requests against Cloud Storage."
         },
         "options-zh": {
             "A": "Cloud Storage 設 CORS，允許 App Engine 網域，並用 Signed URL 產生 POST。",
@@ -7255,10 +7255,10 @@ sub-b 僅有私網 IP 需要連外部網路下載套件，需要提供安全的�
         "question": "Your company is planning to migrate their Windows Server 2022 from their on-premises data center to Google Cloud. You need to bring the licenses that are currently in use in on-premises virtual machines into the target cloud environment. What should you do?",
         "question-zh": "公司要把 Windows Server 2022 從本地搬到 GCP，要把現有授權帶進雲端，怎麼做？",
         "options": {
-            "A": "1. Create an image of the on-premises virtual machines and upload into Cloud Storage.2. Import the image as a virtual disk on Compute Engine.",
-            "B": "1. Create standard instances on Compute Engine.2. Select as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.",
-            "C": "1. Create an image of the on-premises virtual machine.2. Import the image as a virtual disk on Compute Engine.3. Create a standard instance on Compute Engine, selecting as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.4. Attach a data disk that includes data that matches the created image.",
-            "D": "1. Create an image of the on-premises virtual machines.2. Import the image as a virtual disk on Compute Engine using --os=windows-2022-dc-v.3. Create a sole-tenancy instance on Compute Engine that uses the imported disk as a boot disk."
+            "A": "1. Create an image of the on-premises virtual machines and upload into Cloud Storage.\n2. Import the image as a virtual disk on Compute Engine.",
+            "B": "1. Create standard instances on Compute Engine.\n2. Select as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.",
+            "C": "1. Create an image of the on-premises virtual machine.\n2. Import the image as a virtual disk on Compute Engine.\n3. Create a standard instance on Compute Engine, selecting as the OS the same Microsoft Windows version that is currently in use in the on-premises environment.\n4. Attach a data disk that includes data that matches the created image.",
+            "D": "1. Create an image of the on-premises virtual machines.\n2. Import the image as a virtual disk on Compute Engine using --os=windows-2022-dc-v.\n3. Create a sole-tenancy instance on Compute Engine that uses the imported disk as a boot disk."
         },
         "options-zh": {
             "A": "本地 VM 製作映像檔，上傳 Cloud Storage，匯入 Compute Engine。",
