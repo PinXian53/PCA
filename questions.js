@@ -9928,7 +9928,27 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth Cloud Functions 間安全呼叫，限制 func_query 僅接受 func_display 呼叫，遵循 Google 最佳實務。
+
+### 知識點
+- **Cloud Functions Security**：Cloud Functions 安全性
+- **Service Account Authentication**：服務帳號認證
+- **Identity and Access Management**：身分與存取管理
+- **Function-to-Function Communication**：函數間通訊
+
+### 選項分析
+| 選項 | 認證機制 | 安全等級 | Google 最佳實務 | 分析 |
+|------|----------|----------|----------------|------|
+| A | 自訂 Token | 🟡 中等 | ❌ 不建議 | 自製安全機制易出錯 |
+| **B** | **IAM + ID Token** | ✅ **高** | ✅ **官方建議** | 原生 IAM 認證最安全 |
+| C | VPC + Firewall | 🟡 中等 | ❌ 過度複雜 | Cloud Functions 無需 VPC |
+| D | 複合機制 | 🟡 中等 | ❌ 架構錯誤 | Cloud Functions 非 VPC 服務 |
+
+**最佳實務**：使用 IAM 服務帳號 + Cloud Functions Invoker 角色進行原生身分認證。
+`
     },
     {
         "topic": "#10",
@@ -9951,7 +9971,27 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": [
             "B"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 微服務容器化後在 Cloud Run 部署，確保高可用性與低延遲。
+
+### 知識點
+- **Serverless Microservices Architecture**：無伺服器微服務架構
+- **Global Load Balancing for Serverless**：無伺服器全球負載平衡
+- **Multi-Region Deployment Strategy**：多區域部署策略
+- **Serverless Network Endpoint Groups**：無伺服器網路端點群組
+
+### 選項分析
+| 選項 | 部署範圍 | 負載平衡 | 端點類型 | 分析 |
+|------|----------|----------|----------|------|
+| A | 多可用區 | HTTP(S) GLB | Cloud Endpoints | ❌ 可用區部署不夠，Endpoints 非最佳 |
+| **B** | **多區域** | **HTTP(S) GLB** | **Serverless NEG** | ✅ **最佳高可用低延遲方案** |
+| C | 多區域 | DNS 路由 | Cloud DNS | ❌ 缺乏智能負載平衡 |
+| D | 多可用區 | TCP/IP GLB | - | ❌ L4 負載平衡不適合 RESTful |
+
+**最佳架構**：多區域 Cloud Run + Serverless NEG + HTTP(S) GLB 實現全球最佳性能。
+`
     },
     {
         "topic": "#10",
@@ -9977,7 +10017,28 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "answers": [
             "A",
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth Linux 應用遷移，理解 CVE 漏洞對 Google Cloud 遷移的影響分析。
+
+### 知識點
+- **CVE Vulnerability Assessment**：CVE 漏洞評估
+- **Cloud Migration Security Planning**：雲端遷移安全規劃
+- **Official Security Information Sources**：官方安全資訊來源
+- **Professional Support Channels**：專業支援管道
+
+### 選項分析
+| 選項 | 資訊來源 | 權威性 | 針對性 | 可靠度 |
+|------|----------|--------|--------|--------|
+| **A** | **Google 技術支援** | ✅ **官方** | ✅ **客製化建議** | ✅ **最高** |
+| B | 狀態儀表板 | 🟡 官方 | ❌ 服務狀態非漏洞 | 🟡 中等 |
+| **C** | **安全公告** | ✅ **官方** | ✅ **GCP 漏洞專門** | ✅ **高** |
+| D | Stack Overflow | ❌ 社群 | 🟡 通用答案 | 🟡 不確定 |
+| E | 討論區 | ❌ 社群 | 🟡 通用答案 | 🟡 不確定 |
+
+**最佳組合 A+C**：官方技術支援提供個人化建議，安全公告提供權威漏洞資訊。
+`
     },
     {
         "topic": "#10",
@@ -10000,7 +10061,27 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": [
             "C"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 傳統應用雲端原生監控，快速故障轉移與通知，低成本可靠方案。
+
+### 知識點
+- **Cloud-Native Monitoring**：雲端原生監控
+- **Uptime Check and Alerting**：正常運行時間檢查與警示
+- **Serverless Failover Architecture**：無伺服器故障轉移架構
+- **Event-Driven Response System**：事件驅動回應系統
+
+### 選項分析
+| 選項 | 監控方式 | 成本 | 可靠性 | 雲端原生 |
+|------|----------|------|--------|----------|
+| A | Cloud Run 排程 | 🟡 中等 | 🟡 中等 | 🟡 部分 |
+| B | VM + Cron | 🔴 高 | 🟡 中等 | ❌ 傳統架構 |
+| **C** | **Cloud Monitoring** | ✅ **最低** | ✅ **最高** | ✅ **完全** |
+| D | Error Reporting | ❌ 錯誤工具 | ❌ 不適用 | ❌ 非監控服務 |
+
+**完美架構**：Cloud Monitoring → Pub/Sub → Cloud Function，完全無伺服器事件驅動。
+`
     },
     {
         "topic": "#10",
@@ -10023,7 +10104,27 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 微服務 Docker 容器持續建置，遵循 Google 建議實務儲存建置產物。
+
+### 知識點
+- **Continuous Integration Best Practices**：持續整合最佳實務
+- **Container Image Management**：容器映像管理
+- **Git Commit-Based Versioning**：Git Commit 版本控制
+- **Microservices Build Pipeline**：微服務建置管道
+
+### 選項分析
+| 選項 | 觸發方式 | 標記策略 | 儲存位置 | Google 最佳實務 |
+|------|----------|----------|----------|----------------|
+| **A** | **Git 觸發器** | **Commit Hash** | **Container Registry** | ✅ **完全符合** |
+| B | Git 觸發器 | 版本號 | Cloud Storage | ❌ 儲存位置錯誤 |
+| C | 定時檢查 | 時間戳 | Container Registry | ❌ 觸發方式非最佳 |
+| D | Git 觸發器 | Latest 標籤 | Container Registry | ❌ 標記策略不佳 |
+
+**最佳實務**：Git webhook 觸發 + Commit hash 唯一標記 + 專用容器倉庫。
+`
     },
     {
         "topic": "#10",
@@ -10046,7 +10147,34 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": [
             "A"
-        ]
+        ],
+        "note": `
+### 題目重點
+TerramEarth 1PB 車輛測試資料搬遷，一個月時間限制，1Gbps 連線頻寬評估。
+
+### 知識點
+- **Large-Scale Data Migration**：大規模資料遷移
+- **Transfer Appliance vs Network Transfer**：硬體傳輸與網路傳輸
+- **Bandwidth Capacity Planning**：頻寬容量規劃
+- **Time-Sensitive Data Transfer**：時間敏感資料傳輸
+
+### 選項分析
+
+**頻寬計算**：
+- 1 PB = 8,000 Tb (bits)
+- 1 Gbps 理論最大：2.6 TB/天
+- 1 個月 (30天) 最大：78 TB
+- **實際需求遠超頻寬能力**
+
+| 選項 | 傳輸方式 | 時間估算 | 可行性 |
+|------|----------|----------|--------|
+| **A** | **Transfer Appliance** | **數天** | ✅ **唯一可行** |
+| B | Storage Transfer 服務 | >1年 | ❌ 時間不足 |
+| C | 多執行緒網路傳輸 | >1年 | ❌ 頻寬限制 |
+| D | USB 裝置 | 不適用 | ❌ 非官方服務 |
+
+**結論**：1PB 在 1Gbps 下需超過一年傳輸，僅 Transfer Appliance 可達成一個月目標。
+`
     },
     {
         "topic": "#11",
@@ -10067,7 +10195,31 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
             "D": "讓開發團隊建置 API 服務，允許營運團隊執行特定的遠端程序呼叫來完成任務"
         },
         "images": [],
-        "answers": ["A"]
+        "answers": ["A"],
+        "note": `
+### 題目重點
+Dress4Win 禁用 VM 外部 SSH，營運團隊需遠端管理 VM、Docker 容器與 Cloud Storage。
+
+### 知識點
+- **Secure Cloud Operations**：安全雲端運維
+- **Google Cloud Shell Benefits**：Google Cloud Shell 優勢  
+- **Zero Trust Network Access**：零信任網路存取
+- **Cloud-Native Management Tools**：雲端原生管理工具
+
+### 選項分析
+| 選項 | 解決方案 | 安全性 | 便利性 | 成本 |
+|------|----------|--------|--------|------|
+| **A** | **Cloud Shell** | ✅ **最高** | ✅ **最佳** | ✅ **免費** |
+| B | VPN 連接 | 🟡 中等 | 🟡 中等 | 🟡 中等 |
+| C | 臨時 SSH 權限 | 🟡 中等 | ❌ 複雜流程 | 🟡 管理成本 |
+| D | 自訂 API 服務 | 🟡 中等 | ❌ 開發複雜 | 🔴 高開發成本 |
+
+**Cloud Shell 優勢**：
+- 內建所有 GCP 工具 (gcloud, docker, kubectl)
+- 無需外部網路存取
+- 預設安全認證
+- 零設置成本
+`
     },
     {
         "topic": "#11",
@@ -10088,7 +10240,31 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
             "D": "建立 Cloud Storage Transfer Service 作業將檔案複製到 Regional Storage 儲存桶"
         },
         "images": [],
-        "answers": ["C"]
+        "answers": ["C"],
+        "note": `
+### 題目重點
+Dress4Win 營運工程師需低成本遠端存檔資料庫備份檔案，tar 壓縮檔從資料中心傳輸。
+
+### 知識點
+- **Archive Storage Cost Optimization**：歸檔儲存成本優化
+- **Storage Transfer Service vs gsutil**：儲存傳輸服務與 gsutil 比較
+- **Database Backup Archival Strategy**：資料庫備份歸檔策略
+- **Cross-Infrastructure Data Migration**：跨基礎設施資料遷移
+
+### 選項分析
+| 選項 | 工具 | 儲存類別 | 成本 | 適用場景 |
+|------|------|----------|------|----------|
+| A | gsutil + cron | Coldline | 🟡 中等 | 手動排程 |
+| B | gsutil + cron | Regional | 🔴 高 | 手動排程 |
+| **C** | **Transfer Service** | **Coldline** | ✅ **最低** | ✅ **企業級歸檔** |
+| D | Transfer Service | Regional | 🔴 高 | 非歸檔用途 |
+
+**最佳選擇**：Transfer Service + Coldline
+- 企業級可靠性與排程
+- 最低歸檔成本
+- 自動化管理
+- 適合大量備份檔案
+`
     },
     {
         "topic": "#11",
@@ -10110,7 +10286,31 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
             "D": "識別應用程式伺服器虛擬機器的虛擬核心數和 RAM，將它們對應到雲端的自訂機器類型，監控效能，並擴展機器類型直到達到期望的效能"
         },
         "images": [],
-        "answers": ["D"]
+        "answers": ["D"],
+        "note": `
+### 題目重點
+Dress4Win 應用程式伺服器機器類型推薦，雲端遷移資源配置最佳實務。
+
+### 知識點
+- **Cloud Migration Sizing Strategy**：雲端遷移規模策略
+- **Custom Machine Types**：自訂機器類型
+- **Performance-Based Optimization**：基於效能的優化
+- **Resource Right-Sizing**：資源適當調整
+
+### 選項分析
+| 選項 | 方法 | 起始點 | 優化策略 | 評估 |
+|------|------|--------|----------|------|
+| A | 直接對應 | 物理硬體 | 無優化 | ❌ 可能過度配置 |
+| B | 固定比率 | 高 RAM/CPU | 無調整 | ❌ 不符實際需求 |
+| C | 最小規格 | 最小實例 | 向上擴展 | ❌ 生產環境風險 |
+| **D** | **分析對應** | **現有 VM 規格** | **監控優化** | ✅ **最佳實務** |
+
+**最佳策略**：
+1. 分析現有虛擬機規格
+2. 建立對應的自訂機器類型
+3. 監控實際效能
+4. 根據數據調整優化
+`
     },
     {
         "topic": "#11",
@@ -10136,7 +10336,33 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
             "D": "Monitoring, Logging, Debug, Error Report"
         },
         "images": [],
-        "answers": ["C"]
+        "answers": ["C"],
+        "note": `
+### 題目重點
+Dress4Win 設置受管日誌監控系統，處理流量峰值，自動擴展通知與錯誤報告。
+
+### 知識點  
+- **Cloud Operations Suite (Stackdriver)**：雲端運維套件
+- **Auto-scaling Notifications**：自動擴展通知
+- **Centralized Logging and Monitoring**：集中式日誌監控
+- **Automated Error Alerting**：自動化錯誤警示
+
+### 需求對應
+| 需求 | 對應 Stackdriver 功能 |
+|------|----------------------|
+| 擴展/縮減通知 | **Monitoring** (指標監控) |  
+| 聚合日誌過濾 | **Logging** (集中式日誌) |
+| 自動錯誤通知 | **Alerts** (警示規則) |
+| 應用程式錯誤報告 | **Error Reporting** (錯誤聚合) |
+
+### 選項分析
+| 選項 | 功能組合 | 覆蓋需求 | 分析 |
+|------|----------|----------|------|
+| A | Logging, Alerts, Insights, Debug | 部分 | ❌ 缺 Monitoring, Insights 非核心 |
+| B | Monitoring, Trace, Debug, Logging | 部分 | ❌ 缺 Alerts, Trace 非必需 |  
+| **C** | **Monitoring, Logging, Alerts, Error Reporting** | ✅ **完整** | ✅ **完美對應所有需求** |
+| D | Monitoring, Logging, Debug, Error Report | 部分 | ❌ 缺 Alerts, Debug 非核心 |
+`
     },
     {
         "topic": "#11",
@@ -10160,26 +10386,24 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": ["A"],
         "note": `
-這題考察企業雲遷移策略，重點是如何識別最適合的遷移起點。
-
 ### 題目重點
-- 企業雲遷移策略制定
-- 複雜度評估與優先級排序
-- 風險最小化遷移路徑
-- 快速成果展示
+Dress4Win 快速熟悉雲端部署，快速成功部署現有應用程式。
 
 ### 知識點
-- **6R 遷移策略**：評估不同應用遷移方式
-- **相依性分析**：識別應用間耦合關係
-- **業務影響評估**：風險與收益權衡
+- **Cloud Migration Strategy (6R Model)**：雲端遷移策略
+- **Application Dependency Analysis**：應用程式相依性分析
+- **Risk Minimization Approach**：風險最小化方法
+- **Quick Wins Strategy**：快速成功策略
 
 ### 選項分析
-| 選項 | 分析 |
-|------|------|
-| **A 獨立運作應用** | ✅ 風險最低，快速產生成果 |
-| B 相依性應用 | ❌ 複雜度高，風險較大 |
-| C 資料庫優先 | ❌ 影響範圍過廣 |
-| D 訊息佇列優先 | ❌ 基礎設施層級風險高 |
+| 選項 | 應用類型 | 複雜度 | 成功率 | 學習價值 |
+|------|----------|--------|--------|----------|
+| **A** | **獨立應用 + 外部相依** | ✅ **低** | ✅ **高** | ✅ **最佳** |
+| B | 企業應用 + 內部相依 | 🔴 高 | 🟡 中等 | 🟡 複雜 |
+| C | 資料庫優先遷移 | 🔴 極高 | 🔴 低 | ❌ 風險過高 |
+| D | 訊息佇列優先遷移 | 🔴 高 | 🟡 中等 | ❌ 基礎設施風險 |
+
+**最佳策略**：自包含應用最容易成功，可快速累積雲端經驗。
 `
     },
     {
@@ -10205,26 +10429,28 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": ["B"],
         "note": `
-這題考察資料庫遷移策略，重點是最小化停機時間的MySQL雲端遷移。
-
 ### 題目重點
-- MySQL 本地到雲端遷移
-- 最小化停機時間要求
-- 效能影響控制
-- 漸進式遷移策略
+Dress4Win MySQL 本地到雲端遷移，最小化停機時間與效能影響。
 
 ### 知識點
-- **資料庫複製**：主從異步複製機制
-- **切換策略**：最小化業務中斷
-- **遷移模式**：Big Bang vs 漸進式
+- **Database Replication Strategy**：資料庫複製策略
+- **Master-Slave Async Replication**：主從異步複製
+- **Zero-Downtime Migration**：零停機遷移
+- **Gradual Cutover Process**：漸進式切換流程
 
 ### 選項分析
-| 選項 | 分析 |
-|------|------|
-| A Dump & Restore | ❌ 需要長時間停機 |
-| **B 異步複製** | ✅ 最小停機時間，平滑切換 |
-| C 雙寫模式 | ❌ 複雜度高，一致性風險 |
-| D Datastore 遷移 | ❌ 改變數據模型，非MySQL |
+| 選項 | 方法 | 停機時間 | 複雜度 | 風險 |
+|------|------|----------|--------|------|
+| A | Dump & Restore | 🔴 長時間 | 🟢 低 | 🔴 高業務影響 |
+| **B** | **異步複製** | ✅ **最小** | 🟡 **中等** | ✅ **最低** |
+| C | 雙寫模式 | 🟡 短 | 🔴 高 | 🔴 資料一致性風險 |
+| D | 轉 Datastore | 🔴 長 | 🔴 極高 | 🔴 架構完全改變 |
+
+**最佳流程**：
+1. 建立雲端 MySQL 從伺服器
+2. 配置主從異步複製
+3. 等待資料同步完成
+4. 快速切換應用程式連接
 `
     },
     {
@@ -10249,26 +10475,27 @@ TerramEarth 20 萬輛連網車輛資料匯入新架構設計，遵循 Google 建
         "images": [],
         "answers": ["B"],
         "note": `
-這題考察Stackdriver監控配置，重點是運行時間檢查的網路連線問題。
-
 ### 題目重點
-- Stackdriver 運行時間檢查
-- 服務健康狀態檢測失敗
-- 網路連線與防火牆設定
-- 監控系統配置
+Dress4Win Stackdriver 運行時間檢查配置問題，服務健康狀態檢測失敗。
 
 ### 知識點
-- **運行時間檢查**：Google監控探針IP範圍
-- **防火牆規則**：允許監控流量進入
-- **網路安全**：監控與安全平衡
+- **Stackdriver Uptime Monitoring**：Stackdriver 正常運行時間監控
+- **Firewall Configuration for Monitoring**：監控防火牆配置
+- **Google Monitoring IP Ranges**：Google 監控 IP 範圍
+- **Network Access Control**：網路存取控制
 
 ### 選項分析
-| 選項 | 分析 |
-|------|------|
-| A Stackdriver Agent | ❌ Agent用於指標收集非運行時間檢查 |
-| **B 防火牆規則** | ✅ 允許監控探針IP訪問 |
-| C 負載平衡器配置 | ❌ User-Agent轉發非根本解決方案 |
-| D Web服務器配置 | ❌ 服務器端配置無法解決網路問題 |
+| 選項 | 解決方案 | 分析 |
+|------|----------|------|
+| A | 安裝 Stackdriver 代理 | ❌ 代理程式用於指標收集，非網路檢查 |
+| **B** | **下載監控 IP 並設防火牆** | ✅ **解決網路連線問題** |
+| C | 負載平衡器傳遞 User-Agent | ❌ 負載平衡器非問題根源 |
+| D | Web 伺服器允許特定 User-Agent | ❌ 應用層解決方案，非網路層 |
+
+**關鍵解決方案**：
+- Stackdriver 從特定 IP 範圍發起檢查
+- 需要防火牆規則允許這些 IP 存取
+- Google 提供官方監控 IP 清單
 `
     },
     {
