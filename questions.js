@@ -5868,7 +5868,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "no": "#161",
         "link": "https://www.examtopics.com/discussions/google/view/7016-exam-professional-cloud-architect-topic-1-question-161/",
         "question": "A recent audit revealed that a new network was created in your GCP project. In this network, a GCE instance has an SSH port open to the world. You want to discover this network's origin.\n\nWhat should you do?",
-        "question-zh": "稽核發現 GCP 專案新建網路且 GCE SSH 對外開放，要查來源。怎麼做？",
+        "question-zh": "稽核發現 GCP 專案被建立了一個新網路且 GCE SSH 對外開放，要查來源。怎麼做？",
         "options": {
             "A": "Search for Create VM entry in the Stackdriver alerting console",
             "B": "Navigate to the Activity page in the Home section. Set category to Data Access and search for Create VM entry",
