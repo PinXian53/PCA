@@ -2213,10 +2213,10 @@ kubectl 無法創建 GKE 集群，只能管理已有的 Kubernetes 集群資源
             "D": "Create a failover replica instance in the same region, but in a different zone"
         },
         "options-zh": {
-            "A": "在不同區域建立讀取複本實例",
-            "B": "在不同區域建立故障切換複本實例",
-            "C": "在同一區域但不同區建立讀取複本實例",
-            "D": "在同一區域但不同區建立故障切換複本實例"
+            "A": "在不同 region 建立讀取複本實例",
+            "B": "在不同 region 建立故障切換複本實例",
+            "C": "在同一 region 但不同 zone 建立讀取複本實例",
+            "D": "在同一 region 但不同 zone 建立故障切換複本實例"
         },
         "images": [],
         "answers": [
