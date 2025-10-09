@@ -3882,10 +3882,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
             "D": "Configure the Compute Engine instances with an instance template for the application, and use a regional persistent disk for the application data. Whenever a zonal outage occurs, use the instance template to spin up the application in another region. Use the regional persistent disk for the application data."
         },
         "options-zh": {
-            "A": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區復原。",
-            "B": "用實例範本 + regional persistent disk，區域故障時於同區其他區啟動並掛載磁碟。",
-            "C": "為應用資料磁碟設快照排程，區域故障時用最新快照於同區其他區復原。",
-            "D": "用實例範本 + regional persistent disk，區域故障時於其他區域啟動並掛載磁碟。"
+            "A": "為應用資料磁碟設快照排程，區域故障時用最新快照於同 zone 復原。",
+            "B": "用實例範本 + regional persistent disk，區域故障時於同 region 其他 zone 啟動並掛載磁碟。",
+            "C": "為應用資料磁碟設快照排程，區域故障時用最新快照於同 region 其他 zone 復原。",
+            "D": "用實例範本 + regional persistent disk，區域故障時於其他 region 啟動並掛載磁碟。"
         },
         "images": [],
         "answers": [
