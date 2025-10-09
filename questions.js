@@ -5921,9 +5921,9 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
             "D": "Create a snapshot of the root disk, create an image file in Google Cloud Storage from the snapshot, and create a new virtual machine instance in the US-East region using the image file the root disk."
         },
         "options-zh": {
-            "A": "用 dd+netcat 複製 root disk 到 US-East 新 VM。",
+            "A": "用 Linux dd+netcat 指令複製 root disk 到 US-East 新 VM。",
             "B": "對 root disk 建快照，US-East 新 VM 用此快照。",
-            "C": "dd 建映像檔，US-East 新 VM 用此映像。",
+            "C": "用 Linux dd 指令建映像檔，US-East 新 VM 用此映像。",
             "D": "root disk 建快照，快照存 Cloud Storage，US-East 新 VM 用此映像。"
         },
         "images": [],
