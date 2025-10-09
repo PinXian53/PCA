@@ -9967,10 +9967,10 @@ TerramEarth Cloud Functions 間安全呼叫，限制 func_query 僅接受 func_d
             "D": "Deploy Cloud Run services to multiple availability zones. Create a TCP/IP global load balancer. Add the Cloud Run Endpoints to its backend service."
         },
         "options-zh": {
-            "A": "Cloud Run 服務部署多可用區，設 Cloud Endpoints 指向服務，建全球 HTTP(S) 負載平衡器並掛 Cloud Endpoints。",
-            "B": "Cloud Run 服務部署多區，建 serverless NEG 指向服務，將其加到全球 HTTP(S) 負載平衡器後端。",
-            "C": "Cloud Run 服務部署多區，Cloud DNS 設延遲型 DNS 名稱指向服務。",
-            "D": "Cloud Run 服務部署多可用區，建 TCP/IP 全球負載平衡器並加 Cloud Run Endpoints。"
+            "A": "Cloud Run 服務部署到 multiple availability zones，設 Cloud Endpoints 指向服務，建全球 HTTP(S) 負載平衡器並掛 Cloud Endpoints。",
+            "B": "Cloud Run 服務部署到 multiple regions，建 serverless NEG 指向服務，將其加到全球 HTTP(S) 負載平衡器後端。",
+            "C": "Cloud Run 服務部署到 multiple regions，Cloud DNS 設延遲型 DNS 名稱指向服務。",
+            "D": "Cloud Run 服務部署到 multiple availability zones，建 TCP/IP 全球負載平衡器並加 Cloud Run Endpoints。"
         },
         "images": [],
         "answers": [
@@ -10425,10 +10425,10 @@ Dress4Win 快速熟悉雲端部署，快速成功部署現有應用程式。
             "D": "Create a dump of the MySQL replica server into the cloud environment, load it into: Google Cloud Datastore, and configure applications to read/write to Cloud Datastore at cutover."
         },
         "options-zh": {
-            "A": "建立本地 MySQL 主伺服器的傾印，然後關閉它，上傳到雲端環境，並載入新的 MySQL 叢集",
-            "B": "在雲端環境中設置 MySQL 副本伺服器/從伺服器，並配置從本地 MySQL 主伺服器進行非同步複製，直到切換為止",
+            "A": "建立本地 MySQL 主伺服器的 dump，然後關閉它，上傳到雲端環境，並載入新的 MySQL 叢集",
+            "B": "在雲端環境中設置 MySQL replica server/slave，並配置從本地 MySQL 主伺服器進行非同步複製，直到切換為止",
             "C": "在雲端建立新的 MySQL 叢集，配置應用程式同時寫入本地和雲端 MySQL 主伺服器，並在切換時銷毀原始叢集",
-            "D": "將 MySQL 副本伺服器僾印到雲端環境，載入到 Google Cloud Datastore，並在切換時配置應用程式讀取/寫入 Cloud Datastore"
+            "D": "將 MySQL 副本伺服器 dump 到雲端環境，載入到 Google Cloud Datastore，並在切換時配置應用程式讀取/寫入 Cloud Datastore"
         },
         "images": [],
         "answers": ["B"],
@@ -10463,7 +10463,7 @@ Dress4Win MySQL 本地到雲端遷移，最小化停機時間與效能影響。
         "link": "https://www.examtopics.com/discussions/google/view/7263-exam-professional-cloud-architect-topic-11-question-7/",
         "question": "Dress4Win has configured a new uptime check with Google Stackdriver for several of their legacy services. The Stackdriver dashboard is not reporting the services as healthy.\n" +
             "What should they do?",
-        "question-zh": "Dress4Win 為幾個假統服務配置了新的 Google Stackdriver 運行時間檢查。Stackdriver 儀表板沒有報告這些服務為健康狀態。\n他們應該怎麼做？",
+        "question-zh": "Dress4Win 為幾個舊有服務配置了新的 Google Stackdriver uptime check。Stackdriver 儀表板沒有報告這些服務為健康狀態。\n他們應該怎麼做？",
         "options": {
             "A": "Install the Stackdriver agent on all of the legacy web servers.",
             "B": "In the Cloud Platform Console download the list of the uptime servers' IP addresses and create an inbound firewall rule",
@@ -10471,10 +10471,10 @@ Dress4Win MySQL 本地到雲端遷移，最小化停機時間與效能影響。
             "D": "Configure their legacy web servers to allow requests that contain user-Agent HTTP header when the value matches GoogleStackdriverMonitoring- UptimeChecks (https://cloud.google.com/monitoring)"
         },
         "options-zh": {
-            "A": "在所有的假統 Web 伺服器上安裝 Stackdriver 代理程式",
-            "B": "在 Cloud Platform Console 中下載運行時間伺服器的 IP 位址清單並建立入站防火牆規則",
+            "A": "在所有的舊有 Web 伺服器上安裝 Stackdriver 代理程式",
+            "B": "在 Cloud Platform Console 中下載 uptime check 伺服器的 IP 位址清單，並建立入站防火牆規則",
             "C": "配置負載平衡器以傳遞 User-Agent HTTP 標頭，當值符合 GoogleStackdriverMonitoring-UptimeChecks 時",
-            "D": "配置假統 Web 伺服器以允許包含 User-Agent HTTP 標頭的請求，當值符合 GoogleStackdriverMonitoring-UptimeChecks 時"
+            "D": "配置舊有 Web 伺服器以允許包含 User-Agent HTTP 標頭的請求，當值符合 GoogleStackdriverMonitoring-UptimeChecks 時"
         },
         "images": [],
         "answers": ["B"],
@@ -10653,10 +10653,10 @@ Dress4Win Stackdriver 運行時間檢查配置問題，服務健康狀態檢測�
             "D": "Use a global load balancer with a set of virtual machines that forward the requests to a closer group of virtual machines as part of a separate managed instance groups."
         },
         "options-zh": {
-            "A": "使用區域受管實例組和全球負載平衡器以提高性能，因為區域受管實例組可以根據流量在每個區域分別增長實例",
-            "B": "使用全球負載平衡器和一組虛擬機器，將請求轉發給由營運團隊管理的更近的虛擬機器組",
-            "C": "使用區域受管實例組和全球負載平衡器以提高可靠性，透過在不同區域的區域之間提供自動失效轉移",
-            "D": "使用全球負載平衡器和一組虛擬機器，將請求轉發給作為單獨受管實例組一部分的更近的虛擬機器組"
+            "A": "使用 regional managed instance groups 和  global load balancer 以提高性能，因為 regional managed instance group 可以根據流量在每個區域分別增長實例",
+            "B": "使用 global load balancer 和一組 virtual machine，將請求轉發給由營運團隊管理的更近的 group of virtual machines",
+            "C": "使用 regional managed instance groups 和  global load balancer 以提高可靠性，透過在不同 regions 的 zones 之間提供自動失效轉移",
+            "D": "使用 global load balancer 和一組 virtual machine，將請求轉發給作為 group of virtual machines 一部分的更近的虛擬機器組"
         },
         "images": [],
         "answers": ["A"],
@@ -10783,7 +10783,7 @@ Dress4Win Stackdriver 運行時間檢查配置問題，服務健康狀態檢測�
         },
         "options-zh": {
             "A": "使用 App Engine 標準環境部署的 Web 應用程式",
-            "B": "使用非受管實例組部署的 RabbitMQ",
+            "B": "使用 unmanaged instance group 部署的 RabbitMQ",
             "C": "使用 Cloud Dataproc 區域高可用性模式部署的 Hadoop/Spark",
             "D": "在自訂機器類型上部署的 Jenkins、監控、堡壘主機、安全掃描器服務"
         },
