@@ -2110,10 +2110,10 @@ kubectl 無法創建 GKE 集群，只能管理已有的 Kubernetes 集群資源
             "D": "Perform the following: \n1. Create a GKE cluster with n1-standard-4 type machines. \n2. Build a Docker image from the master branch with all of the dependencies, and tag it with 'latest'. \n3. Create a Kubernetes Deployment in the default namespace with the imagePullPolicy set to 'Always'. Restart the pods to automatically deploy new production releases."
         },
         "options-zh": {
-            "A": "執行下列步驟：1. 建立 f1-micro 型受管實例群組。\n2. 用啟動腳本 clone repository、切 production branch、安裝依賴並啟動 Python app。\n3. 重新啟動實例自動部署新版。",
-            "B": "執行下列步驟：1. 建立 n1-standard-1 型受管實例群組。\n2. 用 production branch 建立含所有依賴的 Compute Engine 映像檔並自動啟動 Python app。\n3. 重建映像檔並更新實例模板以部署新版。",
-            "C": "執行下列步驟：1. 建立 n1-standard-1 型 GKE 叢集。\n2. 用 production branch 建立含所有依賴的 Docker 映像檔並加上版本號。\n3. 在 staging namespace 建立 imagePullPolicy 設為 'IfNotPresent' 的 Deployment，測試後升級到 production namespace。",
-            "D": "執行下列步驟：1. 建立 n1-standard-4 型 GKE 叢集。\n2. 用 master branch 建立含所有依賴的 Docker 映像檔並標記為 'latest'。\n3. 在 default namespace 建立 imagePullPolicy 設為 'Always' 的 Deployment，重啟 pod 自動部署新版。"
+            "A": "執行下列步驟：\n1. 建立 f1-micro 型受管實例群組。\n2. 用啟動腳本 clone repository、切 production branch、安裝依賴並啟動 Python app。\n3. 重新啟動實例自動部署新版。",
+            "B": "執行下列步驟：\n1. 建立 n1-standard-1 型受管實例群組。\n2. 用 production branch 建立含所有依賴的 Compute Engine 映像檔並自動啟動 Python app。\n3. 重建映像檔並更新實例模板以部署新版。",
+            "C": "執行下列步驟：\n1. 建立 n1-standard-1 型 GKE 叢集。\n2. 用 production branch 建立含所有依賴的 Docker 映像檔並加上版本號。\n3. 在 staging namespace 建立 imagePullPolicy 設為 'IfNotPresent' 的 Deployment，測試後升級到 production namespace。",
+            "D": "執行下列步驟：\n1. 建立 n1-standard-4 型 GKE 叢集。\n2. 用 master branch 建立含所有依賴的 Docker 映像檔並標記為 'latest'。\n3. 在 default namespace 建立 imagePullPolicy 設為 'Always' 的 Deployment，重啟 pod 自動部署新版。"
         },
         "images": [],
         "answers": [
