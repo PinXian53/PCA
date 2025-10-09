@@ -8422,7 +8422,7 @@ Mountkirk Games 新後端完整測試流程，測試環境需具經濟擴展性�
         "no": "#3",
         "link": "https://www.examtopics.com/discussions/google/view/6549-exam-professional-cloud-architect-topic-5-question-3/",
         "question": "Mountkirk Games wants to set up a continuous delivery pipeline. Their architecture includes many small services that they want to be able to update and roll back quickly. Mountkirk Games has the following requirements:\n\n✑ Services are deployed redundantly across multiple regions in the US and Europe\n\n✑ Only frontend services are exposed on the public internet\n\n✑ They can provide a single frontend IP for their fleet of services\n\n✑ Deployment artifacts are immutable\n\nWhich set of products should they use?",
-        "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變他們應該用哪些產品？",
+        "question-zh": "Mountkirk Games 想建立持續交付流程。其架構包含多個小型服務，需能快速更新與回滾，並有以下需求：\n\n✑ 服務需跨美國與歐洲多區部署\n✑ 僅前端服務對外公開\n✑ 可為所有服務提供單一前端 IP\n✑ 部署產物不可變\n\n他們應該用哪些產品？",
         "options": {
             "A": "Google Cloud Storage, Google Cloud Dataflow, Google Compute Engine",
             "B": "Google Cloud Storage, Google App Engine, Google Network Load Balancer",
