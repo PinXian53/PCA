@@ -9489,8 +9489,8 @@ TerramEarth 車輛行動連線資料傳輸，替代易出錯的 FTP，提升可�
         "options-zh": {
             "A": "將所有資料集中到一個 zone，再啟動 Cloud Dataproc 叢集執行分析。",
             "B": "將所有資料集中到一個 region，再啟動 Cloud Dataproc 叢集執行分析。",
-            "C": "各區啟動叢集預處理與壓縮原始資料，再移到多區 bucket，最後用 Dataproc 叢集完成分析。",
-            "D": "各區啟動叢集預處理與壓縮原始資料，再移到區域 bucket，最後用 Cloud Dataproc 叢集完成分析。"
+            "C": "各區啟動叢集預處理與壓縮原始資料，再移到 multi-region bucket，最後用 Dataproc 叢集完成分析。",
+            "D": "各區啟動叢集預處理與壓縮原始資料，再移到 region bucket，最後用 Cloud Dataproc 叢集完成分析。"
         },
         "images": [],
         "answers": [
