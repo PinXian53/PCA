@@ -69,9 +69,9 @@ const questions = [
         },
         "images": [],
         "answers": [
+            "A",
             "C",
-            "D",
-            "E"
+            "D"
         ]
     },
     {
