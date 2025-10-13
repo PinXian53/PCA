@@ -2341,7 +2341,7 @@ Cloud SQL HA 只能跨 zone，不能跨 region
         "topic": "#1",
         "no": "#75",
         "link": "https://www.examtopics.com/discussions/google/view/6452-exam-professional-cloud-architect-topic-1-question-75/",
-        "question": "You have deployed an application to Google Kubernetes Engine (GKE), and are using the Cloud SQL proxy container to make the Cloud SQL database available to the services running on Kubernetes. You are notified that the application is reporting database connection issues. Your company policies require a post- mortem. What should you do?",
+        "question": "You have deployed an application to Google Kubernetes Engine (GKE), and are using the Cloud SQL proxy container to make the Cloud SQL database available to the services running on Kubernetes. You are notified that the application is reporting database connection issues. Your company policies require a post-mortem. What should you do?",
         "question-zh": "您已將應用程式部署到 GKE，並用 Cloud SQL proxy container 讓 Kubernetes 服務可存取 Cloud SQL。現在應用程式出現資料庫連線問題，公司政策要求撰寫事後報告。您該怎麼做？",
         "options": {
             "A": "Use gcloud sql instances restart.",
@@ -2781,7 +2781,7 @@ Packet Mirroring（封包鏡像）是 Google Cloud Platform（GCP）提供的一
         "options": {
             "A": "Customize the cache keys to omit the protocol from the key.",
             "B": "Shorten the expiration time of the cached objects.",
-            "C": "Make sure the HTTP(S) header ג€Cache-Regionג€ points to the closest region of your users.",
+            "C": "Make sure the HTTP(S) header ‘Cache-Region' points to the closest region of your users.",
             "D": "Replicate the static content in a Cloud Storage bucket. Point CloudCDN toward a load balancer on that bucket."
         },
         "options-zh": {
