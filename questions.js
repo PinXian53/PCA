@@ -544,7 +544,7 @@ const questions = [
         "question-zh": "您公司的使用者回饋入口網站由跨兩個區域複製的標準 LAMP 堆疊組成。它部署在 us-central1 區域，並在除資料庫之外的所有層級上使用自動擴展的受管理實例群組。目前，只有一小群特定客戶可以存取該入口網站。在這些條件下，入口網站達到了 99.99% 的可用性 SLA。然而，下一季度，您的公司將向所有使用者（包括未經身份驗證的使用者）開放該入口網站。您需要制定彈性測試策略，以確保系統在引入額外使用者負載後仍能維持 SLA。\n\n您應該怎麼做？",
         "options": {
             "A": "Capture existing users input, and replay captured user load until autoscale is triggered on all layers. At the same time, terminate all resources in one of the zones",
-            "B": "Create synthetic random user input, replay synthetic load until autoscale logic is triggered on at least one layer, and introduce ג€chaosג€ to the system by terminating random resources on both zones",
+            "B": "Create synthetic random user input, replay synthetic load until autoscale logic is triggered on at least one layer, and introduce ”chaos” to the system by terminating random resources on both zones",
             "C": "Expose the new system to a larger group of users, and increase group size each day until autoscale logic is triggered on all layers. At the same time, terminate random resources on both zones",
             "D": "Capture existing users input, and replay captured user load until resource utilization crosses 80%. Also, derive estimated number of users based on existing user's usage of the app, and deploy enough resources to handle 200% of expected load"
         },
