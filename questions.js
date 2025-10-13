@@ -1050,7 +1050,7 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "topic": "#1",
         "no": "#35",
         "link": "https://www.examtopics.com/discussions/google/view/54534-exam-professional-cloud-architect-topic-1-question-35/",
-        "question": "Your company wants to try out the cloud with low risk. They want to archive approximately大約 100 TB of their log data to the cloud and test the analytics features available to them there, while also retaining保留 that data as a long-term disaster recovery backup.\n\nWhich two steps should you take? (Choose two.)",
+        "question": "Your company wants to try out the cloud with low risk. They want to archive approximately 100 TB of their log data to the cloud and test the analytics features available to them there, while also retaining that data as a long-term disaster recovery backup.\n\nWhich two steps should you take? (Choose two.)",
         "question-zh": "您的公司希望以低風險嘗試雲端服務。他們希望將大約 100 TB 的日誌資料歸檔到雲端，並測試可用的分析功能，同時保留這些資料作為長期災難復原備份。\n\n您應該採取哪兩個步驟？（選兩個。）",
         "options": {
             "A": "Load logs into Google BigQuery",
@@ -1076,7 +1076,7 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "topic": "#1",
         "no": "#36",
         "link": "https://www.examtopics.com/discussions/google/view/10522-exam-professional-cloud-architect-topic-1-question-36/",
-        "question": "You created a pipeline that can deploy your source code changes to your infrastructure in instance groups for self-healing. One of the changes negatively消極地 affects your key performance indicator指標. You are not sure how to fix it, and investigation調查 could take up to a week.\n\nWhat should you do?",
+        "question": "You created a pipeline that can deploy your source code changes to your infrastructure in instance groups for self-healing. One of the changes negatively affects your key performance indicator. You are not sure how to fix it, and investigation could take up to a week.\n\nWhat should you do?",
         "question-zh": "您建立了一個管道，用於將原始碼變更部署到實例組中的基礎架構中，以實現自我修復。其中一項變更對您的關鍵績效指標 (KPI) 產生了負面影響。您不確定如何修復該問題，調查可能需要長達一周的時間。\n\n您應該怎麼做？",
         "options": {
             "A": "Log in to a server, and iterate on the fix locally",
@@ -1158,7 +1158,7 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "topic": "#1",
         "no": "#39",
         "link": "https://www.examtopics.com/discussions/google/view/6844-exam-professional-cloud-architect-topic-1-question-39/",
-        "question": "You are designing a mobile chat application. You want to ensure people cannot spoof欺騙 chat messages, by providing a message were sent by a specific user.\n\nWhat should you do?",
+        "question": "You are designing a mobile chat application. You want to ensure people cannot spoof chat messages, by providing a message were sent by a specific user.\n\nWhat should you do?",
         "question-zh": "您正在設計一個行動聊天應用程式。您希望透過提供由特定使用者發送的訊息來確保人們無法偽造聊天訊息。\n\n 您應該怎麼做？",
         "options": {
             "A": "Tag messages client side with the originating user identifier and the destination user.",
@@ -1182,7 +1182,7 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "topic": "#1",
         "no": "#40",
         "link": "https://www.examtopics.com/discussions/google/view/7211-exam-professional-cloud-architect-topic-1-question-40/",
-        "question": "As part of implementing their disaster災難 recovery plan, your company is trying to replicate their production MySQL database from their private data center to their GCP project using a Google Cloud VPN connection. They are experiencing latency issues and a small amount of packet loss that is disrupting擾亂 the replication.\n\nWhat should they do?",
+        "question": "As part of implementing their disaster recovery plan, your company is trying to replicate their production MySQL database from their private data center to their GCP project using a Google Cloud VPN connection. They are experiencing latency issues and a small amount of packet loss that is disrupting the replication.\n\nWhat should they do?",
         "question-zh": "作為實施災難復原計畫的一部分，貴公司正嘗試使用 Google Cloud VPN 連線將其生產 MySQL 資料庫從私有資料中心複製到其 GCP 專案。他們遇到了延遲問題和少量資料包遺失，導致複製中斷。\n\n 他們應該怎麼做？",
         "options": {
             "A": "Configure their replication to use UDP.",
@@ -1207,7 +1207,7 @@ F. Export a debug VM into an image, and run the image on a local server where ke
         "topic": "#1",
         "no": "#41",
         "link": "https://www.examtopics.com/discussions/google/view/11803-exam-professional-cloud-architect-topic-1-question-41/",
-        "question": "Your customer support tool logs all email and chat conversations to Cloud Bigtable for retention保留 and analysis. What is the recommended approach for sanitizing this data of personally identifiable information or payment card information before initial storage?",
+        "question": "Your customer support tool logs all email and chat conversations to Cloud Bigtable for retention and analysis. What is the recommended approach for sanitizing this data of personally identifiable information or payment card information before initial storage?",
         "question-zh": "您的客戶支援工具會將所有電子郵件和聊天對話記錄到 Cloud Bigtable 中進行保留和分析。在初始儲存之前，建議如何清理這些資料中的個人識別資訊或支付卡資訊？",
         "options": {
             "A": "Hash all data using SHA256",
@@ -1286,13 +1286,13 @@ home 目錄掛載到永久儲存 → 跨會話持久化
         "topic": "#1",
         "no": "#44",
         "link": "https://www.examtopics.com/discussions/google/view/7190-exam-professional-cloud-architect-topic-1-question-44/",
-        "question": "You are analyzing and defining business processes to support your startup's trial usage試用 of GCP, and you don't yet know what consumer demand for your product will be. Your manager requires you to minimize GCP service costs and adhere to Google best practices. What should you do?",
+        "question": "You are analyzing and defining business processes to support your startup's trial usage of GCP, and you don't yet know what consumer demand for your product will be. Your manager requires you to minimize GCP service costs and adhere to Google best practices. What should you do?",
         "question-zh": "您正在分析和定義業務流程，以支援您的新創公司試用 GCP，但您尚不清楚消費者對您的產品的需求。您的經理要求您盡量降低 GCP 服務成本，並遵循 Google 的最佳實務。您應該怎麼做？",
         "options": {
             "A": "Utilize free tier and sustained use discounts. Provision a staff position for service cost management.",
             "B": "Utilize free tier and sustained use discounts. Provide training to the team about service cost management.",
-            "C": "Utilize free tier and committed use承諾使用 discounts. Provision a staff position for service cost management.",
-            "D": "Utilize free tier and committed use承諾使用 discounts. Provide training to the team about service cost management."
+            "C": "Utilize free tier and committed use discounts. Provision a staff position for service cost management.",
+            "D": "Utilize free tier and committed use discounts. Provide training to the team about service cost management."
         },
         "options-zh": {
             "A": "利用免費套餐和持續使用折扣。為服務成本管理提供員工職位。",
@@ -1320,7 +1320,7 @@ home 目錄掛載到永久儲存 → 跨會話持久化
         "topic": "#1",
         "no": "#45",
         "link": "https://www.examtopics.com/discussions/google/view/8197-exam-professional-cloud-architect-topic-1-question-45/",
-        "question": "You are building a continuous連續的 deployment pipeline for a project stored in a Git source repository and want to ensure that code changes can be verified before deploying to production. What should you do?",
+        "question": "You are building a continuous deployment pipeline for a project stored in a Git source repository and want to ensure that code changes can be verified before deploying to production. What should you do?",
         "question-zh": "您正在為儲存在 Git 來源儲存庫中的專案建立連續的部署管道，並希望確保在部署到生產環境之前可以驗證程式碼變更。您應該怎麼做？",
         "options": {
             "A": "Use Spinnaker to deploy builds to production using the red/black deployment strategy so that changes can easily be rolled back.",
@@ -1361,7 +1361,7 @@ D. Jenkins 監控 tag，分別部署 staging / production
         "topic": "#1",
         "no": "#46",
         "link": "https://www.examtopics.com/discussions/google/view/6953-exam-professional-cloud-architect-topic-1-question-46/",
-        "question": "You have an outage停電 in your Compute Engine managed instance group: all instances keep restarting after 5 seconds. You have a health check configured, but autoscaling is disabled. Your colleague同事, who is a Linux expert, offered to look into the issue. You need to make sure that he can access the VMs. What should you do?",
+        "question": "You have an outage in your Compute Engine managed instance group: all instances keep restarting after 5 seconds. You have a health check configured, but autoscaling is disabled. Your colleague, who is a Linux expert, offered to look into the issue. You need to make sure that he can access the VMs. What should you do?",
         "question-zh": "您的 Compute Engine 受管實例群組發生停機：所有實例每 5 秒就重新啟動一次。您已設定健康檢查，但已停用自動擴展。您的同事（Linux 專家）提出協助調查此問題。您需要確保他能存取這些 VM。您該怎麼做？",
         "options": {
             "A": "Grant your colleague the IAM role of project Viewer",
@@ -1401,7 +1401,7 @@ D. Jenkins 監控 tag，分別部署 staging / production
         "topic": "#1",
         "no": "#47",
         "link": "https://www.examtopics.com/discussions/google/view/54735-exam-professional-cloud-architect-topic-1-question-47/",
-        "question": "Your company is migrating its on-premises data center into the cloud. As part of the migration, you want to integrate整合 Google Kubernetes Engine (GKE) for workload orchestration工作負載編排. Parts of your architecture must also be PCI DSS-compliant. Which of the following is most accurate?",
+        "question": "Your company is migrating its on-premises data center into the cloud. As part of the migration, you want to integrate Google Kubernetes Engine (GKE) for workload orchestration. Parts of your architecture must also be PCI DSS-compliant. Which of the following is most accurate?",
         "question-zh": "您的公司正在將地端資料中心遷移到雲端。作為遷移的一部分，您希望整合 Google Kubernetes Engine (GKE) 進行工作負載編排。部分架構還必須符合 PCI DSS。下列哪一項最正確？",
         "options": {
             "A": "App Engine is the only compute platform on GCP that is certified for PCI DSS hosting.",
@@ -1436,7 +1436,7 @@ GCP 的責任模型是「共同責任模型 (Shared Responsibility Model)」：
         "topic": "#1",
         "no": "#48",
         "link": "https://www.examtopics.com/discussions/google/view/7267-exam-professional-cloud-architect-topic-1-question-48/",
-        "question": "Your company has multiple on-premises systems that serve as sources for reporting. The data has not been maintained well and has become degraded退化的 over time.\n\nYou want to use Google-recommended practices to detect探測 anomalies異常現象 in your company data. What should you do?",
+        "question": "Your company has multiple on-premises systems that serve as sources for reporting. The data has not been maintained well and has become degraded over time.\n\nYou want to use Google-recommended practices to detect anomalies in your company data. What should you do?",
         "question-zh": "您的公司有多個地端系統作為報表來源。這些資料隨時間退化，維護不佳。\n\n您希望採用 Google 建議的做法來偵測公司資料中的異常現象。您該怎麼做？",
         "options": {
             "A": "Upload your files into Cloud Storage. Use Cloud Datalab to explore and clean your data.",
@@ -1472,13 +1472,13 @@ Google 官方建議：
         "topic": "#1",
         "no": "#49",
         "link": "https://www.examtopics.com/discussions/google/view/6846-exam-professional-cloud-architect-topic-1-question-49/",
-        "question": "Google Cloud Platform resources are managed hierarchically分層地 using organization, folders, and projects. When Cloud Identity and Access Management (IAM) policies exist at these different levels, what is the effective policy at a particular node of the hierarchy?",
+        "question": "Google Cloud Platform resources are managed hierarchically using organization, folders, and projects. When Cloud Identity and Access Management (IAM) policies exist at these different levels, what is the effective policy at a particular node of the hierarchy?",
         "question-zh": "Google Cloud Platform 資源以組織、資料夾和專案分層管理。當 Cloud IAM 政策存在於這些不同層級時，某個節點的有效政策為何？",
         "options": {
             "A": "The effective policy is determined only by the policy set at the node",
-            "B": "The effective policy is the policy set at the node and restricted by the policies of its ancestors祖先",
-            "C": "The effective policy is the union of the policy set at the node and policies inherited from its ancestors祖先",
-            "D": "The effective policy is the intersection of the policy set at the node and policies inherited from its ancestors祖先"
+            "B": "The effective policy is the policy set at the node and restricted by the policies of its ancestors",
+            "C": "The effective policy is the union of the policy set at the node and policies inherited from its ancestors",
+            "D": "The effective policy is the intersection of the policy set at the node and policies inherited from its ancestors"
         },
         "options-zh": {
             "A": "僅由該節點設定的政策決定有效政策",
@@ -1502,7 +1502,7 @@ IAM 權限是階層式繼承的，上層（ancestor）設定的 IAM 政策會自
         "topic": "#1",
         "no": "#50",
         "link": "https://www.examtopics.com/discussions/google/view/7042-exam-professional-cloud-architect-topic-1-question-50/",
-        "question": "You are migrating your on-premises solution to Google Cloud in several phases階段. You will use Cloud VPN to maintain a connection between your on-premises systems and Google Cloud until the migration is completed. You want to make sure all your on-premise systems remain reachable during this period時期. How should you organize your networking in Google Cloud?",
+        "question": "You are migrating your on-premises solution to Google Cloud in several phases. You will use Cloud VPN to maintain a connection between your on-premises systems and Google Cloud until the migration is completed. You want to make sure all your on-premise systems remain reachable during this period. How should you organize your networking in Google Cloud?",
         "question-zh": "您正分階段將地端解決方案遷移到 Google Cloud。您將使用 Cloud VPN 維持地端系統與 Google Cloud 之間的連線，直到遷移完成。您希望在此期間所有地端系統都能存取。您該如何規劃 Google Cloud 的網路？",
         "options": {
             "A": "Use the same IP range on Google Cloud as you use on-premises",
@@ -1571,7 +1571,7 @@ Secondary range 是給 GKE Pod / Service IP 用的。
         "topic": "#1",
         "no": "#52",
         "link": "https://www.examtopics.com/discussions/google/view/7273-exam-professional-cloud-architect-topic-1-question-52/",
-        "question": "You have an application that will run on Compute Engine. You need to design an architecture that takes into account a disaster**災難** recovery plan that requires your application to fail over to another region in case of a regional outage. What should you do?",
+        "question": "You have an application that will run on Compute Engine. You need to design an architecture that takes into account a disaster recovery plan that requires your application to fail over to another region in case of a regional outage. What should you do?",
         "question-zh": "你有一個要在 Compute Engine 執行的應用程式，需設計能因應災難復原的架構，當某區域故障時應能切換到其他區域。你該怎麼做？",
         "options": {
             "A": "Deploy the application on two Compute Engine instances in the same project but in a different region. Use the first instance to serve traffic, and use the HTTP load balancing service to fail over to the standby instance in case of a disaster.",
@@ -1823,10 +1823,10 @@ Kubernetes Deployment 預設使用 rolling update strategy
         "topic": "#1",
         "no": "#59",
         "link": "https://www.examtopics.com/discussions/google/view/7285-exam-professional-cloud-architect-topic-1-question-59/",
-        "question": "Your web application must comply**遵守** with the requirements of the European Union's General Data Protection Regulation (GDPR). You are responsible for the technical architecture of your web application. What should you do?",
+        "question": "Your web application must comply with the requirements of the European Union's General Data Protection Regulation (GDPR). You are responsible for the technical architecture of your web application. What should you do?",
         "question-zh": "您的網頁應用程式必須遵守歐盟一般資料保護規範（GDPR）要求。您負責應用程式的技術架構。您該怎麼做？",
         "options": {
-            "A": "Ensure that your web application only uses native features and services of Google Cloud Platform, because Google already has various certifications and provides ג€pass-onג€ compliance when you use native features.",
+            "A": "Ensure that your web application only uses native features and services of Google Cloud Platform, because Google already has various certifications and provides pass-on compliance when you use native features.",
             "B": "Enable the relevant GDPR compliance setting within the GCPConsole for each of the services in use within your application.",
             "C": "Ensure that Cloud Security Scanner is part of your test planning strategy in order to pick up any compliance gaps.",
             "D": "Define a design for the security of data in your web application that meets GDPR requirements."
