@@ -6385,7 +6385,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
             "A": "1. Mount the Cloud Storage bucket using gcsfuse on all backend Compute Engine instances. \n2. Serve music files directly from the backend Compute Engine instance.",
             "B": "1. Create a Cloud Filestore NFS volume and attach it to the backend Compute Engine instances. \n2. Download popular songs in Cloud Filestore. \n3. Serve music files directly from the backend Compute Engine instance.",
             "C": "1. Copy popular songs into CloudSQL as a blob. \n2. Update application code to retrieve data from CloudSQL when Cloud Storage is overloaded.",
-            "D": "1. Create a managed instance group with Compute Engine instances. \n2. Create a global load balancer and configure it with two backends: ג—‹ Managed instance group ג—‹ Cloud Storage bucket \n3. Enable Cloud CDN on the bucket backend."
+            "D": "1. Create a managed instance group with Compute Engine instances. \n2. Create a global load balancer and configure it with two backends: \n    • Managed instance group\n    • Cloud Storage bucket \n3. Enable Cloud CDN on the bucket backend."
         },
         "options-zh": {
             "A": "gcsfuse 掛載 Cloud Storage，直接從 Compute Engine 供應音樂。",
