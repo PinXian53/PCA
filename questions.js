@@ -4012,9 +4012,9 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question-zh": "公司在 GCP 有三個 VPC，各有一台 Compute Engine，子網不重疊且需隔離。如下圖所示。\n\nInstance #1 是個例外，必須透過內部 IP，直接與 Instance #2 和 Instance #3 通訊。你應該如何達成這個需求？",
         "options": {
             "A": "Create a cloud router to advertise subnet #2 and subnet #3 to subnet #1.",
-            "B": "Add two additional NICs to Instance #1 with the following configuration: ג€¢ NIC1 ג—‹ VPC: VPC #2 ג—‹ SUBNETWORK: subnet #2 ג€¢ NIC2 ג—‹ VPC: VPC #3 ג—‹ SUBNETWORK: subnet #3 Update firewall rules to enable traffic between instances.",
-            "C": "Create two VPN tunnels via CloudVPN: ג€¢ 1 between VPC #1 and VPC #2. ג€¢ 1 between VPC #2 and VPC #3. Update firewall rules to enable traffic between the instances.",
-            "D": "Peer all three VPCs: ג€¢ Peer VPC #1 with VPC #2. ג€¢ Peer VPC #2 with VPC #3. Update firewall rules to enable traffic between the instances."
+            "B": "Add two additional NICs to Instance #1 with the following configuration:\n\n•NIC1\n  •VPC: VPC #2\n  •Subnetwork: subnet #2\n\n•NIC2\n  •VPC: VPC #3\n  •Subnetwork: subnet #3\n\nUpdate firewall rules to enable traffic between instances.",
+            "C": "Create two VPN tunnels via CloudVPN: Between VPC #1 and VPC #2. Between VPC #2 and VPC #3. Update firewall rules to enable traffic between the instances.",
+            "D": "Peer all three VPCs: Peer VPC #1 with VPC #2. Peer VPC #2 with VPC #3. Update firewall rules to enable traffic between the instances."
         },
         "options-zh": {
             "A": "用 cloud router 廣播子網 #2、#3 給 #1。",
