@@ -4790,7 +4790,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
             "A": "Create a distribution list of all customers to inform them of an upcoming backward-incompatible change at least one month before replacing the old API with the new API.",
             "B": "Create an automated process to generate API documentation, and update the public API documentation as part of the CI/CD process when deploying an update to the API.",
             "C": "Use a versioning strategy for the APIs that increases the version number on every backward-incompatible change.",
-            "D": "Use a versioning strategy for the APIs that adds the suffix ג€DEPRECATEDג€ to the current API version number on every backward-incompatible change. Use the current version number for the new API."
+            "D": "Use a versioning strategy for the APIs that adds the suffix `DEPRECATED` to the current API version number on every backward-incompatible change. Use the current version number for the new API."
         },
         "options-zh": {
             "A": "建立客戶郵件清單，API 不相容變更前一個月通知。",
@@ -5643,7 +5643,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question-zh": "公司 GCP 專案用 BigQuery 做數據倉儲，地端與 GCP 用 Cloud VPN 連線，資安團隊要防止內賊、惡意程式或誤分享造成資料外洩。怎麼做？",
         "options": {
             "A": "Configure Private Google Access for on-premises only.",
-            "B": "Perform the following tasks: 1. Create a service account. \n2. Give the BigQuery JobUser role and Storage Reader role to the service account. \n3. Remove all other IAM access from the project.",
+            "B": "Perform the following tasks: \n1. Create a service account. \n2. Give the BigQuery JobUser role and Storage Reader role to the service account. \n3. Remove all other IAM access from the project.",
             "C": "Configure VPC Service Controls and configure Private Google Access.",
             "D": "Configure Private Google Access."
         },
@@ -5822,10 +5822,10 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question": "The application reliability team at your company this added a debug feature to their backend service to send all server events to Google Cloud Storage for eventual analysis. The event records are at least 50 KB and at most 15 MB and are expected to peak at 3,000 events per second. You want to minimize data loss.\n\nWhich process should you implement?",
         "question-zh": "應用可靠性團隊加了 debug 功能，將所有 server event 傳到 Cloud Storage 分析，事件大小 50KB~15MB，峰值每秒 3000 筆，要最小化資料遺失。應怎麼做？",
         "options": {
-            "A": "ג€¢ Append metadata to file body ג€¢ Compress individual files ג€¢ Name files with serverName ג€\" Timestamp ג€¢ Create a new bucket if bucket is older than 1 hour and save individual files to the new bucket. Otherwise, save files to existing bucket.",
-            "B": "ג€¢ Batch every 10,000 events with a single manifest file for metadata ג€¢ Compress event files and manifest file into a single archive file ג€¢ Name files using serverName ג€\" EventSequence ג€¢ Create a new bucket if bucket is older than 1 day and save the single archive file to the new bucket. Otherwise, save the single archive file to existing bucket.",
-            "C": "ג€¢ Compress individual files ג€¢ Name files with serverName ג€\" EventSequence ג€¢ Save files to one bucket ג€¢ Set custom metadata headers for each object after saving",
-            "D": "ג€¢ Append metadata to file body ג€¢ Compress individual files ג€¢ Name files with a random prefix pattern ג€¢ Save files to one bucket"
+            "A": "• Append metadata to file body\n• Compress individual files\n• Name files with serverName – Timestamp\n• Create a new bucket if the bucket is older than 1 hour and save individual files to the new bucket. Otherwise, save files to the existing bucket.",
+            "B": "• Batch every 10,000 events with a single manifest file for metadata\n• Compress event files and manifest file into a single archive file\n• Name files using serverName – EventSequence\n• Create a new bucket if the bucket is older than 1 day and save the single archive file to the new bucket. Otherwise, save the single archive file to the existing bucket.",
+            "C": "• Compress individual files\n• Name files with serverName – EventSequence\n• Save files to one bucket\n• Set custom metadata headers for each object after saving",
+            "D": "• Append metadata to file body\n• Compress individual files\n• Name files with a random prefix pattern"
         },
         "options-zh": {
             "A": "附加中繼資料於檔案，壓縮單檔，檔名 serverName+Timestamp，bucket 超過 1 小時新建，否則存舊 bucket。",
@@ -10184,7 +10184,7 @@ TerramEarth 1PB 車輛測試資料搬遷，一個月時間限制，1Gbps 連線�
         "topic": "#11",
         "no": "#1",
         "link": "https://www.examtopics.com/discussions/google/view/6660-exam-professional-cloud-architect-topic-11-question-1/",
-        "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\\nWhat can they do?",
+        "question": "The Dress4Win security team has disabled external SSH access into production virtual machines (VMs) on Google Cloud Platform (GCP).\nThe operations team needs to remotely manage the VMs, build and push Docker containers, and manage Google Cloud Storage objects.\nWhat can they do?",
         "question-zh": "Dress4Win 安全團隊已禁用對 Google Cloud Platform (GCP) 上生產虛擬機器 (VM) 的外部 SSH 存取。\n營運團隊需要遠端管理 VM、建置和推送 Docker 容器，以及管理 Google Cloud Storage 物件。\n他們可以做什麼？",
         "options": {
             "A": "Grant the operations engineer access to use Google Cloud Shell.",
