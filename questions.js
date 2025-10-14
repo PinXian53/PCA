@@ -4105,7 +4105,7 @@ gcp 有三個多區域：亞洲、歐盟和美國。為了實現全球化，這�
         "question-zh": "您的應用跑在 GKE，近兩週有部分功能常出錯，且目前未啟用監控或日誌。您無法重現問題，且希望排查時對應用影響最小。應怎麼做？",
         "options": {
             "A": "1. Update your GKE cluster to use Cloud Operations for GKE. \n2. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
-            "B": "1. Create a new GKE cluster with Cloud Operations for GKE enabled. 2\n. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. \n3. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
+            "B": "1. Create a new GKE cluster with Cloud Operations for GKE enabled. \n2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. \n3. Use the GKE Monitoring dashboard to investigate logs from affected Pods.",
             "C": "1. Update your GKE cluster to use Cloud Operations for GKE, and deploy Prometheus. \n2. Set an alert to trigger whenever the application returns an error.",
             "D": "1. Create a new GKE cluster with Cloud Operations for GKE enabled, and deploy Prometheus. \n2. Migrate the affected Pods to the new cluster, and redirect traffic for those Pods to the new cluster. \n3. Set an alert to trigger whenever the application returns an error."
         },
