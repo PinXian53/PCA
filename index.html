@@ -1029,7 +1029,49 @@
             border: 2px solid var(--color-error);
         }
 
-        /* ==================== Language Toggle (Floating) ==================== */
+        /* ==================== Floating Buttons ==================== */
+        /* Answer Mode Toggle */
+        .answer-mode-toggle {
+            position: fixed;
+            bottom: 96px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-warning);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+        }
+
+        .answer-mode-toggle:hover {
+            background-color: #e0a800;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        .answer-mode-toggle:active {
+            transform: scale(0.95);
+        }
+
+        .answer-mode-toggle.active {
+            background-color: var(--color-success);
+        }
+
+        .answer-mode-toggle.active:hover {
+            background-color: #218838;
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Language Toggle */
         .language-toggle {
             position: fixed;
             bottom: 24px;
@@ -1192,7 +1234,8 @@
         </div>
     </main>
 
-    <!-- Floating Language Toggle -->
+    <!-- Floating Buttons -->
+    <button id="answerModeToggleBtn" class="answer-mode-toggle" title="答案模式">💡</button>
     <button id="languageToggleBtn" class="language-toggle">中</button>
 
     <!-- Topic Info Modal -->
@@ -1237,6 +1280,7 @@
         let currentLanguage = 'zh';
         let selectedOptions = new Set();
         let isAnswerSubmitted = false;
+        let isAnswerMode = false;
         let searchTerm = '';
         
         // Initialize Markdown renderer
@@ -1272,6 +1316,7 @@
             nextQuestionBtn: document.getElementById('nextQuestionBtn'),
             randomQuestionBtn: document.getElementById('randomQuestionBtn'),
             resultMessage: document.getElementById('resultMessage'),
+            answerModeToggleBtn: document.getElementById('answerModeToggleBtn'),
             languageToggleBtn: document.getElementById('languageToggleBtn'),
             topicInfoModal: document.getElementById('topicInfoModal'),
             modalCloseBtn: document.getElementById('modalCloseBtn'),
@@ -1958,6 +2003,7 @@
          */
         function renderOptions(question) {
             const options = getOptions(question);
+            const correctAnswers = new Set(question.answers);
             elements.optionsList.innerHTML = '';
 
             Object.keys(options).forEach(optionKey => {
@@ -1965,6 +2011,14 @@
                 button.className = 'option-btn';
                 button.dataset.option = optionKey;
                 button.setAttribute('aria-label', `選擇選項 ${optionKey}`);
+                
+                // In answer mode, show correct answers and disable clicking
+                if (isAnswerMode) {
+                    if (correctAnswers.has(optionKey)) {
+                        button.classList.add('correct');
+                    }
+                    button.disabled = true;
+                }
                 
                 button.innerHTML = `
                     <span class="option-letter">${optionKey}</span>
@@ -1981,7 +2035,7 @@
          * Select an option
          */
         function selectOption(optionKey) {
-            if (isAnswerSubmitted) {
+            if (isAnswerSubmitted || isAnswerMode) {
                 return;
             }
 
@@ -2182,6 +2236,31 @@
             }
         }
 
+        /**
+         * Toggle answer mode
+         */
+        function toggleAnswerMode() {
+            // Switch answer mode
+            isAnswerMode = !isAnswerMode;
+
+            // Update button appearance
+            if (isAnswerMode) {
+                elements.answerModeToggleBtn.classList.add('active');
+                elements.answerModeToggleBtn.textContent = '✓';
+                elements.answerModeToggleBtn.title = '答案模式：開啟';
+            } else {
+                elements.answerModeToggleBtn.classList.remove('active');
+                elements.answerModeToggleBtn.textContent = '💡';
+                elements.answerModeToggleBtn.title = '答案模式：關閉';
+            }
+
+            // Re-render options if in exam view
+            if (currentQuestionIndex >= 0 && !isAnswerSubmitted) {
+                const question = questions[currentQuestionIndex];
+                renderOptions(question);
+            }
+        }
+
         // ==================== Event Listeners ====================
         
         elements.submitAnswerBtn.addEventListener('click', submitAnswer);
@@ -2193,6 +2272,9 @@
 
         // Header title click to go back to question list
         document.querySelector('.header-title').addEventListener('click', backToQuestionList);
+
+        // Answer mode toggle button
+        elements.answerModeToggleBtn.addEventListener('click', toggleAnswerMode);
 
         // Language toggle button
         elements.languageToggleBtn.addEventListener('click', toggleLanguage);
