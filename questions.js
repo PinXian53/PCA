@@ -9703,10 +9703,10 @@ TerramEarth GDPR 合規，歐洲客戶個資 36 個月後自動刪除，資料�
         "question": "For this question, refer to the TerramEarth case study. TerramEarth has decided to store data files in Cloud Storage. You need to configure Cloud Storage lifecycle rule to store 1 year of data and minimize file storage cost.\n\nWhich two actions should you take?",
         "question-zh": "本題請參考 TerramEarth 案例。公司決定將資料檔案存於 Cloud Storage。你需設定生命週期規則，保存一年並降低儲存成本。應採取哪兩項措施？",
         "options": {
-            "A": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Coldlineג€, and create a second GCS life-cycle rule with Age: ג€365ג€, Storage Class: ג€Coldlineג€, and Action: ג€Deleteג€.",
-            "B": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Coldlineג€, and Action: ג€Set to Nearlineג€, and create a second GCS life-cycle rule with Age: ג€91ג€, Storage Class: ג€Coldlineג€, and Action: ג€Set to Nearlineג€.",
-            "C": "Create a Cloud Storage lifecycle rule with Age: ג€90ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Nearlineג€, and create a second GCS life-cycle rule with Age: ג€91ג€, Storage Class: ג€Nearlineג€, and Action: ג€Set to Coldlineג€.",
-            "D": "Create a Cloud Storage lifecycle rule with Age: ג€30ג€, Storage Class: ג€Standardג€, and Action: ג€Set to Coldlineג€, and create a second GCS life-cycle rule with Age: ג€365ג€, Storage Class: ג€Nearlineג€, and Action: ג€Deleteג€."
+            "A": "Create a Cloud Storage lifecycle rule with Age: 30, Storage Class: Standard, and Action: Set to Coldline, and create a second GCS life-cycle rule with Age: 365, Storage Class: Coldline, and Action: Delete.",
+            "B": "Create a Cloud Storage lifecycle rule with Age: 30, Storage Class: Coldline, and Action: Set to Nearline, and create a second GCS life-cycle rule with Age: 91, Storage Class: Coldline, and Action: Set to Nearline.",
+            "C": "Create a Cloud Storage lifecycle rule with Age: 90, Storage Class: Standard, and Action: Set to Nearline, and create a second GCS life-cycle rule with Age: 91, Storage Class: Nearline, and Action: Set to Coldline.",
+            "D": "Create a Cloud Storage lifecycle rule with Age: 30, Storage Class: Standard, and Action: Set to Coldline, and create a second GCS life-cycle rule with Age: 365, Storage Class: Nearline, and Action: Delete."
         },
         "options-zh": {
             "A": "建立 Cloud Storage 生命週期規則，30 天後轉 Coldline，365 天後刪除。",
