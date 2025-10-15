@@ -1183,6 +1183,7 @@
                         <button id="resetAnswerBtn" class="btn btn--secondary" style="display: none;">重新作答</button>
                     </div>
                     <div class="button-group">
+                        <button id="randomQuestionBtn" class="btn btn--secondary">🎲 隨機題目</button>
                         <button id="prevQuestionBtn" class="btn btn--secondary">上一題</button>
                         <button id="nextQuestionBtn" class="btn btn--secondary">下一題</button>
                     </div>
@@ -1269,6 +1270,7 @@
             backToListBtn: document.getElementById('backToListBtn'),
             prevQuestionBtn: document.getElementById('prevQuestionBtn'),
             nextQuestionBtn: document.getElementById('nextQuestionBtn'),
+            randomQuestionBtn: document.getElementById('randomQuestionBtn'),
             resultMessage: document.getElementById('resultMessage'),
             languageToggleBtn: document.getElementById('languageToggleBtn'),
             topicInfoModal: document.getElementById('topicInfoModal'),
@@ -2117,6 +2119,23 @@
         }
 
         /**
+         * Go to random question
+         */
+        function goToRandomQuestion() {
+            if (questions.length <= 1) {
+                return; // Not enough questions to randomize
+            }
+            
+            // Generate random index different from current
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * questions.length);
+            } while (randomIndex === currentQuestionIndex);
+            
+            showQuestion(randomIndex);
+        }
+
+        /**
          * Update navigation button states
          */
         function updateNavigationButtons() {
@@ -2170,6 +2189,7 @@
         elements.backToListBtn.addEventListener('click', backToQuestionList);
         elements.prevQuestionBtn.addEventListener('click', goToPrevQuestion);
         elements.nextQuestionBtn.addEventListener('click', goToNextQuestion);
+        elements.randomQuestionBtn.addEventListener('click', goToRandomQuestion);
 
         // Header title click to go back to question list
         document.querySelector('.header-title').addEventListener('click', backToQuestionList);
