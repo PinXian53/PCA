@@ -2346,6 +2346,31 @@
             }
         });
 
+        // Keyboard navigation: ArrowLeft/ArrowRight to go prev/next in exam view
+        document.addEventListener('keydown', (e) => {
+            const key = e.key;
+            // Ignore if typing in inputs or contenteditable elements
+            const target = e.target;
+            const tag = target && target.tagName ? target.tagName.toLowerCase() : '';
+            const isTyping = tag === 'input' || tag === 'textarea' || tag === 'select' || (target && target.isContentEditable);
+            // Only when exam view is active and no modals are open
+            const examActive = elements.examView.classList.contains('active');
+            const modalOpen = elements.topicInfoModal.classList.contains('show') || elements.noteModal.classList.contains('show');
+            if (!examActive || modalOpen || isTyping) return;
+
+            if (key === 'ArrowLeft') {
+                if (!elements.prevQuestionBtn.disabled) {
+                    e.preventDefault();
+                    goToPrevQuestion();
+                }
+            } else if (key === 'ArrowRight') {
+                if (!elements.nextQuestionBtn.disabled) {
+                    e.preventDefault();
+                    goToNextQuestion();
+                }
+            }
+        });
+
         // Handle browser back/forward navigation
         window.addEventListener('popstate', (event) => {
             const questionId = getUrlParameter('id');
