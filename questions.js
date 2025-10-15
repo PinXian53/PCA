@@ -9770,6 +9770,7 @@ TerramEarth 可靠且可擴展的 GCP 數據倉儲解決方案，滿足業務與
 - **BigQuery Scalability**：BigQuery 擴展性
 - **Table Partitioning Strategy**：分區表策略
 - **Managed vs Self-Managed Infrastructure**：託管與自管基礎設施
+- **Federated Data**：聯邦資料，你不需要把所有資料都搬進 BigQuery，就可以直接查詢外部的資料來源(例如 Cloud Storage、Cloud SQL、Google Sheets、Bigtable 等）
 
 ### 選項分析
 | 選項 | 平台 | 技術特性 | 可靠性 | 擴展性 | 維護負擔 |
