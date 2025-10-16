@@ -2488,14 +2488,29 @@
                 }
 
                 if (isHorizontalSwipe) {
-                    // Show live swipe direction hint with opacity scaling by progress
-                    const progress = Math.min(Math.abs(dx) / H_THRESHOLD, 1);
-                    if (dx < 0) {
-                        // Swipe left => next
-                        showSwipeHint('next', progress);
-                    } else if (dx > 0) {
-                        // Swipe right => prev
-                        showSwipeHint('prev', progress);
+                    // Only show hint when swipe has met trigger threshold and action is possible
+                    const absDx = Math.abs(dx);
+                    if (absDx >= H_THRESHOLD && Math.abs(dy) < V_TOLERANCE) {
+                        if (dx < 0) {
+                            // Swipe left => next
+                            if (!elements.nextQuestionBtn.disabled) {
+                                showSwipeHint('next', 1);
+                            } else {
+                                hideSwipeHints();
+                            }
+                        } else if (dx > 0) {
+                            // Swipe right => prev
+                            if (!elements.prevQuestionBtn.disabled) {
+                                showSwipeHint('prev', 1);
+                            } else {
+                                hideSwipeHints();
+                            }
+                        } else {
+                            hideSwipeHints();
+                        }
+                    } else {
+                        // Below threshold or vertical deviation too large => do not show hint
+                        hideSwipeHints();
                     }
                     // Prevent horizontal scrolling to allow smooth swipe gesture
                     e.preventDefault();
