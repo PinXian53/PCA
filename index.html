@@ -1037,6 +1037,30 @@
             border: 2px solid var(--color-error);
         }
 
+        /* ==================== Swipe Hints ==================== */
+        .swipe-hint {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--color-white);
+            padding: 8px 12px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .swipe-hint--left { left: 12px; }
+        .swipe-hint--right { right: 12px; }
+        .swipe-hint.show { opacity: var(--swipe-hint-opacity, 0.9); }
+
         /* ==================== Floating Buttons ==================== */
         /* Answer Mode Toggle */
         .answer-mode-toggle {
@@ -1246,6 +1270,10 @@
     <button id="answerModeToggleBtn" class="answer-mode-toggle" title="答案模式">💡</button>
     <button id="languageToggleBtn" class="language-toggle">中</button>
 
+    <!-- Swipe Hints UI -->
+    <div id="swipeHintLeft" class="swipe-hint swipe-hint--left" aria-hidden="true"></div>
+    <div id="swipeHintRight" class="swipe-hint swipe-hint--right" aria-hidden="true"></div>
+
     <!-- Topic Info Modal -->
     <div id="topicInfoModal" class="modal-overlay">
         <div class="modal-content">
@@ -1333,7 +1361,9 @@
             modalTopicLinksList: document.getElementById('modalTopicLinksList'),
             noteModal: document.getElementById('noteModal'),
             modalNoteCloseBtn: document.getElementById('modalNoteCloseBtn'),
-            modalNoteContent: document.getElementById('modalNoteContent')
+            modalNoteContent: document.getElementById('modalNoteContent'),
+            swipeHintLeft: document.getElementById('swipeHintLeft'),
+            swipeHintRight: document.getElementById('swipeHintRight')
         };
 
         // ==================== Utility Functions ====================
@@ -2370,6 +2400,136 @@
                 }
             }
         });
+
+        // Swipe hint helpers
+        function getPrevHintText() {
+            return currentLanguage === 'zh' ? '← 上一題' : '← Prev';
+        }
+        function getNextHintText() {
+            return currentLanguage === 'zh' ? '下一題 →' : 'Next →';
+        }
+        function hideSwipeHints() {
+            if (elements.swipeHintLeft) {
+                elements.swipeHintLeft.classList.remove('show');
+                elements.swipeHintLeft.style.removeProperty('--swipe-hint-opacity');
+            }
+            if (elements.swipeHintRight) {
+                elements.swipeHintRight.classList.remove('show');
+                elements.swipeHintRight.style.removeProperty('--swipe-hint-opacity');
+            }
+        }
+        function showSwipeHint(direction, progress01) {
+            const clamped = Math.max(0.2, Math.min(progress01, 0.95));
+            if (direction === 'prev') {
+                if (elements.swipeHintRight) {
+                    elements.swipeHintRight.classList.remove('show');
+                }
+                if (elements.swipeHintLeft) {
+                    elements.swipeHintLeft.textContent = getPrevHintText();
+                    elements.swipeHintLeft.style.setProperty('--swipe-hint-opacity', String(clamped));
+                    elements.swipeHintLeft.classList.add('show');
+                }
+            } else if (direction === 'next') {
+                if (elements.swipeHintLeft) {
+                    elements.swipeHintLeft.classList.remove('show');
+                }
+                if (elements.swipeHintRight) {
+                    elements.swipeHintRight.textContent = getNextHintText();
+                    elements.swipeHintRight.style.setProperty('--swipe-hint-opacity', String(clamped));
+                    elements.swipeHintRight.classList.add('show');
+                }
+            }
+        }
+
+        // Touch swipe navigation for mobile (exam view)
+        (function setupSwipeNavigation() {
+            const container = elements.examView;
+            if (!container) return;
+
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let isTracking = false;
+            let isHorizontalSwipe = false;
+
+            const H_THRESHOLD = 60; // horizontal distance in px to trigger
+            const V_TOLERANCE = 40; // maximum vertical travel to consider as horizontal swipe
+            const MAX_TOUCHES = 1;
+
+            const isMobile = () => window.matchMedia('(max-width: 767.98px)').matches;
+            const isExamActive = () => elements.examView.classList.contains('active');
+            const isModalOpen = () => elements.topicInfoModal.classList.contains('show') || elements.noteModal.classList.contains('show');
+
+            container.addEventListener('touchstart', (e) => {
+                if (!isMobile() || !isExamActive() || isModalOpen()) return;
+                if (e.touches.length !== MAX_TOUCHES) return;
+                const t = e.touches[0];
+                touchStartX = t.clientX;
+                touchStartY = t.clientY;
+                isTracking = true;
+                isHorizontalSwipe = false;
+                hideSwipeHints();
+            }, { passive: true });
+
+            container.addEventListener('touchmove', (e) => {
+                if (!isTracking) return;
+                if (e.touches.length !== MAX_TOUCHES) { isTracking = false; return; }
+                const t = e.touches[0];
+                const dx = t.clientX - touchStartX;
+                const dy = t.clientY - touchStartY;
+
+                if (!isHorizontalSwipe) {
+                    if (Math.abs(dx) > 10 && Math.abs(dy) < V_TOLERANCE) {
+                        isHorizontalSwipe = true;
+                    } else if (Math.abs(dy) > V_TOLERANCE) {
+                        // Vertical intent detected; stop tracking to not interfere with scroll
+                        isTracking = false;
+                hideSwipeHints();
+                    }
+                }
+
+                if (isHorizontalSwipe) {
+                    // Show live swipe direction hint with opacity scaling by progress
+                    const progress = Math.min(Math.abs(dx) / H_THRESHOLD, 1);
+                    if (dx < 0) {
+                        // Swipe left => next
+                        showSwipeHint('next', progress);
+                    } else if (dx > 0) {
+                        // Swipe right => prev
+                        showSwipeHint('prev', progress);
+                    }
+                    // Prevent horizontal scrolling to allow smooth swipe gesture
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            container.addEventListener('touchend', (e) => {
+                // Always hide swipe hints when finger is lifted
+                hideSwipeHints();
+                if (!isTracking) return;
+                isTracking = false;
+                if (!isMobile() || !isExamActive() || isModalOpen()) return;
+
+                const t = e.changedTouches && e.changedTouches[0];
+                if (!t) return;
+                const dx = t.clientX - touchStartX;
+                const dy = t.clientY - touchStartY;
+
+                if (Math.abs(dy) > V_TOLERANCE) return;
+                if (Math.abs(dx) < H_THRESHOLD) return;
+
+                if (dx < 0) {
+                    // Swipe left -> next question
+                    if (!elements.nextQuestionBtn.disabled) {
+                        goToNextQuestion();
+                    }
+                } else {
+                    // Swipe right -> previous question
+                    if (!elements.prevQuestionBtn.disabled) {
+                        goToPrevQuestion();
+                    }
+                }
+            }, { passive: true });
+        })();
 
         // Handle browser back/forward navigation
         window.addEventListener('popstate', (event) => {
